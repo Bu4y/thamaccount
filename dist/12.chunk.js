@@ -1,13 +1,13 @@
 webpackJsonp([12],{
 
-/***/ "../../../../../src/app/layout/grid/grid-routing.module.ts":
+/***/ "../../../../../src/app/layout/jv/jv-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__grid_component__ = __webpack_require__("../../../../../src/app/layout/grid/grid.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GridRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jv_component__ = __webpack_require__("../../../../../src/app/layout/jv/jv.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JvRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__grid_component__["a" /* GridComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__jv_component__["a" /* JvComponent */] }
 ];
-var GridRoutingModule = (function () {
-    function GridRoutingModule() {
+var JvRoutingModule = (function () {
+    function JvRoutingModule() {
     }
-    return GridRoutingModule;
+    return JvRoutingModule;
 }());
-GridRoutingModule = __decorate([
+JvRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], GridRoutingModule);
+], JvRoutingModule);
 
-//# sourceMappingURL=grid-routing.module.js.map
+//# sourceMappingURL=jv-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/grid/grid.component.html":
+/***/ "../../../../../src/app/layout/jv/jv.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [@routerTransition]>\r\n    <app-page-header [heading]=\"'Bootstrap Grid'\" [icon]=\"'fa-wrench'\"></app-page-header>\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xl-12 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-12\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- /.row -->\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xl-6 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-6\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-6 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-6\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- /.row -->\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xl-4 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-4\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-4 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-4\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-4 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-4\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- /.row -->\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xl-3 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-3\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-3 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-3\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-3 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-3\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-3 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-3\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- /.row -->\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xl-2 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-2\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-2 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-2\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-2 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-2\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-2 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-2\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-2 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-2\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-2 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-2\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- /.row -->\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-1 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-1\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- /.row -->\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xl-8 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-8\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-4 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-4\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- /.row -->\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xl-3 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-3\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-6 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-6\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-xl-3 text-xs-center\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-block\">\r\n                    .col-xl-3\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- /.row -->\r\n</div>\r\n"
+module.exports = "<p>\r\n  jv works!\r\n</p>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/grid/grid.component.scss":
+/***/ "../../../../../src/app/layout/jv/jv.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ":host .card {\n  margin-bottom: 15px; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -61,13 +61,12 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/grid/grid.component.ts":
+/***/ "../../../../../src/app/layout/jv/jv.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router_animations__ = __webpack_require__("../../../../../src/app/router.animations.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GridComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JvComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -78,38 +77,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-var GridComponent = (function () {
-    function GridComponent() {
+var JvComponent = (function () {
+    function JvComponent() {
     }
-    GridComponent.prototype.ngOnInit = function () { };
-    return GridComponent;
+    JvComponent.prototype.ngOnInit = function () {
+    };
+    return JvComponent;
 }());
-GridComponent = __decorate([
+JvComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-grid',
-        template: __webpack_require__("../../../../../src/app/layout/grid/grid.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/grid/grid.component.scss")],
-        animations: [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__router_animations__["a" /* routerTransition */])()]
+        selector: 'app-jv',
+        template: __webpack_require__("../../../../../src/app/layout/jv/jv.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/jv/jv.component.scss")]
     }),
     __metadata("design:paramtypes", [])
-], GridComponent);
+], JvComponent);
 
-//# sourceMappingURL=grid.component.js.map
+//# sourceMappingURL=jv.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/grid/grid.module.ts":
+/***/ "../../../../../src/app/layout/jv/jv.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__grid_routing_module__ = __webpack_require__("../../../../../src/app/layout/grid/grid-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__grid_component__ = __webpack_require__("../../../../../src/app/layout/grid/grid.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GridModule", function() { return GridModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jv_component__ = __webpack_require__("../../../../../src/app/layout/jv/jv.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__jv_routing_module__ = __webpack_require__("../../../../../src/app/layout/jv/jv-routing.module.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JvModule", function() { return JvModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -120,24 +117,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var GridModule = (function () {
-    function GridModule() {
+var JvModule = (function () {
+    function JvModule() {
     }
-    return GridModule;
+    return JvModule;
 }());
-GridModule = __decorate([
+JvModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_2__grid_routing_module__["a" /* GridRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* PageHeaderModule */]
+            __WEBPACK_IMPORTED_MODULE_3__jv_routing_module__["a" /* JvRoutingModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_3__grid_component__["a" /* GridComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_2__jv_component__["a" /* JvComponent */]]
     })
-], GridModule);
+], JvModule);
 
-//# sourceMappingURL=grid.module.js.map
+//# sourceMappingURL=jv.module.js.map
 
 /***/ })
 

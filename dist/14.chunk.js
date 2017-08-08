@@ -1,13 +1,13 @@
 webpackJsonp([14],{
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists-routing.module.ts":
+/***/ "../../../../../src/app/layout/form/form-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__expend_lists_component__ = __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendListsRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_component__ = __webpack_require__("../../../../../src/app/layout/form/form.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__expend_lists_component__["a" /* ExpendListsComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__form_component__["a" /* FormComponent */] }
 ];
-var ExpendListsRoutingModule = (function () {
-    function ExpendListsRoutingModule() {
+var FormRoutingModule = (function () {
+    function FormRoutingModule() {
     }
-    return ExpendListsRoutingModule;
+    return FormRoutingModule;
 }());
-ExpendListsRoutingModule = __decorate([
+FormRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], ExpendListsRoutingModule);
+], FormRoutingModule);
 
-//# sourceMappingURL=expend-lists-routing.module.js.map
+//# sourceMappingURL=form-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists.component.html":
+/***/ "../../../../../src/app/layout/form/form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [@routerTransition]>\n    <h2 class=\"page-header\">\n        Expend Lists\n    </h2>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-list-ul\"></i> Expend</li>\n    </ol>\n    <div class=\"row\">\n        <div class=\"col-12 text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [routerLink]=\"['/expend-create']\">New Expent</button>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <div class=\"card-block table-responsive\">\n                <table class=\"table table-hover table-striped\">\n                    <thead class=\"thead-inverse\">\n                        <tr>\n                            <th>#</th>\n                            <th>Name</th>\n                            <th class=\"text-right\">Unit Price</th>\n                            <th class=\"text-right\">VAT</th>\n                            <th class=\"text-right\">Net Amount</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr (click)=\"goToDetail('1')\">\n                            <th scope=\"row\">1</th>\n                            <td>Pen</td>\n                            <td class=\"text-right\">100</td>\n                            <td class=\"text-right\">0</td>\n                            <td class=\"text-right\">100</td>\n                        </tr>\n                        <tr>\n                            <th scope=\"row\">2</th>\n                            <td>Pencel</td>\n                            <td class=\"text-right\">100</td>\n                            <td class=\"text-right\">7</td>\n                            <td class=\"text-right\">107</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div [@routerTransition]>\r\n    <app-page-header [heading]=\"'Forms'\" [icon]=\"'fa-edit'\"></app-page-header>\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-lg-6\">\r\n\r\n            <form role=\"form\">\r\n                <fieldset class=\"form-group\">\r\n                    <label>Text Input</label>\r\n                    <input class=\"form-control\">\r\n                    <p class=\"help-block\">Example block-level help text here.</p>\r\n                </fieldset>\r\n\r\n                <fieldset class=\"form-group\">\r\n                    <label>Text Input with Placeholder</label>\r\n                    <input class=\"form-control\" placeholder=\"Enter text\">\r\n                </fieldset>\r\n\r\n                <div class=\"form-group\">\r\n                    <label>Static Control</label>\r\n                    <p class=\"form-control-static\">email@example.com</p>\r\n                </div>\r\n\r\n                <fieldset class=\"form-group\">\r\n                    <label for=\"exampleInputFile\">File input</label>\r\n                    <input type=\"file\" class=\"form-control-file\" id=\"exampleInputFile\">\r\n                </fieldset>\r\n\r\n                <fieldset class=\"form-group\">\r\n                    <label>Text area</label>\r\n                    <textarea class=\"form-control\" rows=\"3\"></textarea>\r\n                </fieldset>\r\n\r\n                <div class=\"form-group\">\r\n                    <label>Checkboxes</label>\r\n                    <div class=\"checkbox\">\r\n                        <label>\r\n                            <input type=\"checkbox\" value=\"\"> Checkbox 1\r\n                        </label>\r\n                    </div>\r\n                    <div class=\"checkbox\">\r\n                        <label>\r\n                            <input type=\"checkbox\" value=\"\"> Checkbox 2\r\n                        </label>\r\n                    </div>\r\n                    <div class=\"checkbox\">\r\n                        <label>\r\n                            <input type=\"checkbox\" value=\"\"> Checkbox 3\r\n                        </label>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"form-group\">\r\n                    <label>Inline Checkboxes</label>\r\n                    <label class=\"checkbox-inline\">\r\n                        <input type=\"checkbox\">1\r\n                    </label>\r\n                    <label class=\"checkbox-inline\">\r\n                        <input type=\"checkbox\">2\r\n                    </label>\r\n                    <label class=\"checkbox-inline\">\r\n                        <input type=\"checkbox\">3\r\n                    </label>\r\n                </div>\r\n\r\n                <fieldset class=\"form-group\">\r\n                    <label>Radio Buttons</label>\r\n                    <div class=\"radio\">\r\n                        <label>\r\n                            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"option1\" checked=\"\"> Radio 1\r\n                        </label>\r\n                    </div>\r\n                    <div class=\"radio\">\r\n                        <label>\r\n                            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"option2\"> Radio 2\r\n                        </label>\r\n                    </div>\r\n                    <div class=\"radio\">\r\n                        <label>\r\n                            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios3\" value=\"option3\"> Radio 3\r\n                        </label>\r\n                    </div>\r\n                </fieldset>\r\n\r\n                <fieldset class=\"form-group\">\r\n                    <label>Inline Radio Buttons</label>\r\n                    <label class=\"radio-inline\">\r\n                        <input type=\"radio\" name=\"optionsRadiosInline\" id=\"optionsRadiosInline1\" value=\"option1\" checked=\"\">1\r\n                    </label>\r\n                    <label class=\"radio-inline\">\r\n                        <input type=\"radio\" name=\"optionsRadiosInline\" id=\"optionsRadiosInline2\" value=\"option2\">2\r\n                    </label>\r\n                    <label class=\"radio-inline\">\r\n                        <input type=\"radio\" name=\"optionsRadiosInline\" id=\"optionsRadiosInline3\" value=\"option3\">3\r\n                    </label>\r\n                </fieldset>\r\n\r\n                <div class=\"form-group\">\r\n                    <label>Selects</label>\r\n                    <select class=\"form-control\">\r\n                        <option>1</option>\r\n                        <option>2</option>\r\n                        <option>3</option>\r\n                        <option>4</option>\r\n                        <option>5</option>\r\n                    </select>\r\n                </div>\r\n\r\n                <fieldset class=\"form-group\">\r\n                    <label>Multiple Selects</label>\r\n                    <select multiple=\"\" class=\"form-control\">\r\n                        <option>1</option>\r\n                        <option>2</option>\r\n                        <option>3</option>\r\n                        <option>4</option>\r\n                        <option>5</option>\r\n                    </select>\r\n                </fieldset>\r\n\r\n                <button type=\"submit\" class=\"btn btn-secondary\">Submit Button</button>\r\n                <button type=\"reset\" class=\"btn btn-secondary\">Reset Button</button>\r\n\r\n            </form>\r\n\r\n        </div>\r\n        <div class=\"col-lg-6\">\r\n            <h4>Disabled Form States</h4>\r\n\r\n            <form role=\"form\">\r\n\r\n                <fieldset disabled=\"\">\r\n\r\n                    <div class=\"form-group\">\r\n                        <label for=\"disabledSelect\">Disabled input</label>\r\n                        <input class=\"form-control\" id=\"disabledInput\" type=\"text\" placeholder=\"Disabled input\" disabled=\"\">\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <label for=\"disabledSelect\">Disabled select menu</label>\r\n                        <select id=\"disabledSelect\" class=\"form-control\">\r\n                            <option>Disabled select</option>\r\n                        </select>\r\n                    </div>\r\n\r\n                    <div class=\"checkbox\">\r\n                        <label>\r\n                            <input type=\"checkbox\"> Disabled Checkbox\r\n                        </label>\r\n                    </div>\r\n\r\n                    <button type=\"submit\" class=\"btn btn-primary\">Disabled Button</button>\r\n\r\n                </fieldset>\r\n\r\n            </form>\r\n            <br>\r\n\r\n            <h4>Form Validation</h4>\r\n\r\n            <form role=\"form\">\r\n\r\n                <div class=\"form-group has-success\">\r\n                    <label class=\"form-control-label\" for=\"inputSuccess\">Input with success</label>\r\n                    <input type=\"text\" class=\"form-control form-control-success\" id=\"inputSuccess\">\r\n                </div>\r\n\r\n                <div class=\"form-group has-warning\">\r\n                    <label class=\"form-control-label\" for=\"inputWarning\">Input with warning</label>\r\n                    <input type=\"text\" class=\"form-control form-control-warning\" id=\"inputWarning\">\r\n                </div>\r\n\r\n                <div class=\"form-group has-danger\">\r\n                    <label class=\"form-control-label\" for=\"inputError\">Input with danger</label>\r\n                    <input type=\"text\" class=\"form-control form-control-danger\" id=\"inputError\">\r\n                </div>\r\n\r\n            </form>\r\n\r\n            <h4>Input Groups</h4>\r\n\r\n            <form role=\"form\">\r\n\r\n                <div class=\"form-group input-group\">\r\n                    <span class=\"input-group-addon\">@</span>\r\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Username\">\r\n                </div>\r\n\r\n                <div class=\"form-group input-group\">\r\n                    <input type=\"text\" class=\"form-control\">\r\n                    <span class=\"input-group-addon\">.00</span>\r\n                </div>\r\n\r\n                <div class=\"form-group input-group\">\r\n                    <span class=\"input-group-addon\"><i class=\"fa fa-eur\"></i></span>\r\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Font Awesome Icon\">\r\n                </div>\r\n\r\n                <div class=\"form-group input-group\">\r\n                    <span class=\"input-group-addon\">$</span>\r\n                    <input type=\"text\" class=\"form-control\">\r\n                    <span class=\"input-group-addon\">.00</span>\r\n                </div>\r\n\r\n                <div class=\"form-group input-group\">\r\n                    <input type=\"text\" class=\"form-control\">\r\n                    <span class=\"input-group-btn\"><button class=\"btn btn-secondary\" type=\"button\"><i class=\"fa fa-search\"></i></button></span>\r\n                </div>\r\n\r\n            </form>\r\n\r\n            <p>For complete documentation, please visit <a target=\"_blank\" href=\"http://v4-alpha.getbootstrap.com/components/forms/\">Bootstrap's Form Documentation</a>.</p>\r\n\r\n        </div>\r\n    </div>\r\n    <!-- /.row -->\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists.component.scss":
+/***/ "../../../../../src/app/layout/form/form.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".padding {\n  padding: 8px 8px 8px 8px; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -61,15 +61,13 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists.component.ts":
+/***/ "../../../../../src/app/layout/form/form.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router_animations__ = __webpack_require__("../../../../../src/app/router.animations.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__expend_lists_service__ = __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendListsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -81,48 +79,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-var ExpendListsComponent = (function () {
-    function ExpendListsComponent(route, router, expendListsService) {
-        this.route = route;
-        this.router = router;
-        this.expendListsService = expendListsService;
+var FormComponent = (function () {
+    function FormComponent() {
     }
-    ExpendListsComponent.prototype.ngOnInit = function () {
-        console.log(this.expendListsService.getExpend());
-    };
-    ExpendListsComponent.prototype.goToDetail = function (item) {
-        this.router.navigate(['/expend-create'], { queryParams: { item: item } });
-    };
-    return ExpendListsComponent;
+    FormComponent.prototype.ngOnInit = function () { };
+    return FormComponent;
 }());
-ExpendListsComponent = __decorate([
+FormComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-expend-lists',
-        template: __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.component.scss")],
+        selector: 'app-form',
+        template: __webpack_require__("../../../../../src/app/layout/form/form.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/form/form.component.scss")],
         animations: [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__router_animations__["a" /* routerTransition */])()]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__expend_lists_service__["a" /* ExpendListsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__expend_lists_service__["a" /* ExpendListsService */]) === "function" && _c || Object])
-], ExpendListsComponent);
+    __metadata("design:paramtypes", [])
+], FormComponent);
 
-var _a, _b, _c;
-//# sourceMappingURL=expend-lists.component.js.map
+//# sourceMappingURL=form.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists.module.ts":
+/***/ "../../../../../src/app/layout/form/form.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__expend_lists_routing_module__ = __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__expend_lists_component__ = __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__form_routing_module__ = __webpack_require__("../../../../../src/app/layout/form/form-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__form_component__ = __webpack_require__("../../../../../src/app/layout/form/form.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpendListsModule", function() { return ExpendListsModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormModule", function() { return FormModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -134,23 +121,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ExpendListsModule = (function () {
-    function ExpendListsModule() {
+var FormModule = (function () {
+    function FormModule() {
     }
-    return ExpendListsModule;
+    return FormModule;
 }());
-ExpendListsModule = __decorate([
+FormModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_2__expend_lists_routing_module__["a" /* ExpendListsRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_2__form_routing_module__["a" /* FormRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* PageHeaderModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_3__expend_lists_component__["a" /* ExpendListsComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_3__form_component__["a" /* FormComponent */]]
     })
-], ExpendListsModule);
+], FormModule);
 
-//# sourceMappingURL=expend-lists.module.js.map
+//# sourceMappingURL=form.module.js.map
 
 /***/ })
 

@@ -1,13 +1,13 @@
 webpackJsonp([7],{
 
-/***/ "../../../../../src/app/layout/tables/tables-routing.module.ts":
+/***/ "../../../../../src/app/not-found/not-found-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tables_component__ = __webpack_require__("../../../../../src/app/layout/tables/tables.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TablesRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__not_found_component__ = __webpack_require__("../../../../../src/app/not-found/not-found.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotFoundRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__tables_component__["a" /* TablesComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__not_found_component__["a" /* NotFoundComponent */] }
 ];
-var TablesRoutingModule = (function () {
-    function TablesRoutingModule() {
+var NotFoundRoutingModule = (function () {
+    function NotFoundRoutingModule() {
     }
-    return TablesRoutingModule;
+    return NotFoundRoutingModule;
 }());
-TablesRoutingModule = __decorate([
+NotFoundRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], TablesRoutingModule);
+], NotFoundRoutingModule);
 
-//# sourceMappingURL=tables-routing.module.js.map
+//# sourceMappingURL=not-found-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/tables/tables.component.html":
+/***/ "../../../../../src/app/not-found/not-found.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [@routerTransition]>\r\n    <app-page-header [heading]=\"'Tables'\" [icon]=\"'fa-table'\"></app-page-header>\r\n    <div class=\"row\">\r\n        <div class=\"col col-xl-6 col-lg-12\">\r\n            <div class=\"card mb-3\">\r\n                <div class=\"card-header\">\r\n                    Basic example\r\n                </div>\r\n                <div class=\"card-block table-responsive\">\r\n                    <table class=\"table\">\r\n                        <thead>\r\n                        <tr>\r\n                            <th>#</th>\r\n                            <th>First Name</th>\r\n                            <th>Last Name</th>\r\n                            <th>Username</th>\r\n                        </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                        <tr>\r\n                            <th scope=\"row\">1</th>\r\n                            <td>Mark</td>\r\n                            <td>Otto</td>\r\n                            <td>@mdo</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">2</th>\r\n                            <td>Jacob</td>\r\n                            <td>Thornton</td>\r\n                            <td>@fat</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">3</th>\r\n                            <td>Larry</td>\r\n                            <td>the Bird</td>\r\n                            <td>@twitter</td>\r\n                        </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <div class=\"card mb-3\">\r\n                <div class=\"card-header\">Table head options</div>\r\n                <div class=\"card-block table-responsive\">\r\n                    <table class=\"table\">\r\n                        <thead class=\"thead-inverse\">\r\n                        <tr>\r\n                            <th>#</th>\r\n                            <th>First Name</th>\r\n                            <th>Last Name</th>\r\n                            <th>Username</th>\r\n                        </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                        <tr>\r\n                            <th scope=\"row\">1</th>\r\n                            <td>Mark</td>\r\n                            <td>Otto</td>\r\n                            <td>@mdo</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">2</th>\r\n                            <td>Jacob</td>\r\n                            <td>Thornton</td>\r\n                            <td>@fat</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">3</th>\r\n                            <td>Larry</td>\r\n                            <td>the Bird</td>\r\n                            <td>@twitter</td>\r\n                        </tr>\r\n                        </tbody>\r\n                    </table>\r\n                    <table class=\"table\">\r\n                        <thead class=\"thead-default\">\r\n                        <tr>\r\n                            <th>#</th>\r\n                            <th>First Name</th>\r\n                            <th>Last Name</th>\r\n                            <th>Username</th>\r\n                        </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                        <tr>\r\n                            <th scope=\"row\">1</th>\r\n                            <td>Mark</td>\r\n                            <td>Otto</td>\r\n                            <td>@mdo</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">2</th>\r\n                            <td>Jacob</td>\r\n                            <td>Thornton</td>\r\n                            <td>@fat</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">3</th>\r\n                            <td>Larry</td>\r\n                            <td>the Bird</td>\r\n                            <td>@twitter</td>\r\n                        </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <div class=\"card mb-3\">\r\n                <div class=\"card-header\">Bordered table</div>\r\n                <div class=\"card-block table-responsive\">\r\n                    <table class=\"table table-bordered\">\r\n                        <thead>\r\n                        <tr>\r\n                            <th>#</th>\r\n                            <th>First Name</th>\r\n                            <th>Last Name</th>\r\n                            <th>Username</th>\r\n                        </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                        <tr>\r\n                            <th scope=\"row\">1</th>\r\n                            <td>Mark</td>\r\n                            <td>Otto</td>\r\n                            <td>@mdo</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">2</th>\r\n                            <td>Mark</td>\r\n                            <td>Otto</td>\r\n                            <td>@TwBootstrap</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">3</th>\r\n                            <td>Jacob</td>\r\n                            <td>Thornton</td>\r\n                            <td>@fat</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">4</th>\r\n                            <td colspan=\"2\">Larry the Bird</td>\r\n                            <td>@twitter</td>\r\n                        </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <div class=\"card mb-3\">\r\n                <div class=\"card-header\">Small table</div>\r\n                <table class=\"table table-sm\">\r\n                    <thead>\r\n                    <tr>\r\n                        <th>#</th>\r\n                        <th>First Name</th>\r\n                        <th>Last Name</th>\r\n                        <th>Username</th>\r\n                    </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                    <tr>\r\n                        <th scope=\"row\">1</th>\r\n                        <td>Mark</td>\r\n                        <td>Otto</td>\r\n                        <td>@mdo</td>\r\n                    </tr>\r\n                    <tr>\r\n                        <th scope=\"row\">2</th>\r\n                        <td>Jacob</td>\r\n                        <td>Thornton</td>\r\n                        <td>@fat</td>\r\n                    </tr>\r\n                    <tr>\r\n                        <th scope=\"row\">3</th>\r\n                        <td colspan=\"2\">Larry the Bird</td>\r\n                        <td>@twitter</td>\r\n                    </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n        <div class=\"col col-xl-6 col-lg-12\">\r\n            <div class=\"card mb-3\">\r\n                <div class=\"card-header\">Inverse table</div>\r\n                <div class=\"card-block table-responsive\">\r\n                    <table class=\"table table-inverse\">\r\n                        <thead>\r\n                        <tr>\r\n                            <th>#</th>\r\n                            <th>First Name</th>\r\n                            <th>Last Name</th>\r\n                            <th>Username</th>\r\n                        </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                        <tr>\r\n                            <th scope=\"row\">1</th>\r\n                            <td>Mark</td>\r\n                            <td>Otto</td>\r\n                            <td>@mdo</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">2</th>\r\n                            <td>Jacob</td>\r\n                            <td>Thornton</td>\r\n                            <td>@fat</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <th scope=\"row\">3</th>\r\n                            <td>Larry</td>\r\n                            <td>the Bird</td>\r\n                            <td>@twitter</td>\r\n                        </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <div class=\"card mb-3\">\r\n                <div class=\"card-header\">Striped Rows</div>\r\n                <div class=\"card-block table-responsive\">\r\n                    <table class=\"table table-hover table-striped\">\r\n                        <thead>\r\n                        <tr>\r\n                            <th>Page</th>\r\n                            <th>Visits</th>\r\n                            <th>% New Visits</th>\r\n                            <th>Revenue</th>\r\n                        </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                        <tr>\r\n                            <td>/index.html</td>\r\n                            <td>1265</td>\r\n                            <td>32.3%</td>\r\n                            <td>$321.33</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td>/about.html</td>\r\n                            <td>261</td>\r\n                            <td>33.3%</td>\r\n                            <td>$234.12</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td>/sales.html</td>\r\n                            <td>665</td>\r\n                            <td>21.3%</td>\r\n                            <td>$16.34</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td>/blog.html</td>\r\n                            <td>9516</td>\r\n                            <td>89.3%</td>\r\n                            <td>$1644.43</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td>/404.html</td>\r\n                            <td>23</td>\r\n                            <td>34.3%</td>\r\n                            <td>$23.52</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td>/services.html</td>\r\n                            <td>421</td>\r\n                            <td>60.3%</td>\r\n                            <td>$724.32</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td>/blog/post.html</td>\r\n                            <td>1233</td>\r\n                            <td>93.2%</td>\r\n                            <td>$126.34</td>\r\n                        </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <div class=\"card mb-3\">\r\n                <div class=\"card-header\">Hoverable rows</div>\r\n                <table class=\"card-block table table-hover\">\r\n                    <thead>\r\n                    <tr>\r\n                        <th>#</th>\r\n                        <th>First Name</th>\r\n                        <th>Last Name</th>\r\n                        <th>Username</th>\r\n                    </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                    <tr>\r\n                        <th scope=\"row\">1</th>\r\n                        <td>Mark</td>\r\n                        <td>Otto</td>\r\n                        <td>@mdo</td>\r\n                    </tr>\r\n                    <tr>\r\n                        <th scope=\"row\">2</th>\r\n                        <td>Jacob</td>\r\n                        <td>Thornton</td>\r\n                        <td>@fat</td>\r\n                    </tr>\r\n                    <tr>\r\n                        <th scope=\"row\">3</th>\r\n                        <td colspan=\"2\">Larry the Bird</td>\r\n                        <td>@twitter</td>\r\n                    </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n            <div class=\"card mb-3\">\r\n                <div class=\"card-header\">Contextual classes</div>\r\n                <table class=\"card-block table\">\r\n                    <thead>\r\n                    <tr>\r\n                        <th>#</th>\r\n                        <th>First Name</th>\r\n                        <th>Last Name</th>\r\n                        <th>Username</th>\r\n                    </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                    <tr class=\"table-active\">\r\n                        <th scope=\"row\">1</th>\r\n                        <td>Mark</td>\r\n                        <td>Otto</td>\r\n                        <td>@mdo</td>\r\n                    </tr>\r\n                    <tr class=\"table-success\">\r\n                        <th scope=\"row\">2</th>\r\n                        <td>Jacob</td>\r\n                        <td>Thornton</td>\r\n                        <td>@fat</td>\r\n                    </tr>\r\n                    <tr class=\"table-info\">\r\n                        <th scope=\"row\">3</th>\r\n                        <td>Larry</td>\r\n                        <td>the Bird</td>\r\n                        <td>@twitter</td>\r\n                    </tr>\r\n                    <tr class=\"table-warning\">\r\n                        <th scope=\"row\">3</th>\r\n                        <td>Larry</td>\r\n                        <td>the Bird</td>\r\n                        <td>@twitter</td>\r\n                    </tr>\r\n                    <tr class=\"table-danger\">\r\n                        <th scope=\"row\">3</th>\r\n                        <td>Larry</td>\r\n                        <td>the Bird</td>\r\n                        <td>@twitter</td>\r\n                    </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"welcome-page\" [@routerTransition]>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-10 push-md-1\">\r\n            <h1>404 - Page Not Found</h1>\r\n            <p class=\"lead\">This page does not exist</p>\r\n            <p class=\"lead\">\r\n                <a class=\"btn rounded-btn\" [routerLink]=\"['/']\">Restart</a>\r\n            </p>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/tables/tables.component.scss":
+/***/ "../../../../../src/app/not-found/not-found.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ":host {\n  display: block; }\n\n.welcome-page {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: auto;\n  background: #222;\n  text-align: center;\n  color: #fff;\n  padding: 10em; }\n  .welcome-page .col-lg-8 {\n    padding: 0; }\n  .welcome-page .rounded-btn {\n    border-radius: 50px;\n    color: rgba(255, 255, 255, 0.8);\n    background: #222;\n    border: 2px solid rgba(255, 255, 255, 0.8);\n    font-size: 18px;\n    line-height: 40px;\n    padding: 0 25px; }\n  .welcome-page .rounded-btn:hover, .welcome-page .rounded-btn:focus, .welcome-page .rounded-btn:active, .welcome-page .rounded-btn:visited {\n    color: white;\n    border: 2px solid white;\n    outline: none; }\n  .welcome-page h1 {\n    font-weight: 300;\n    margin-top: 20px;\n    margin-bottom: 10px;\n    font-size: 36px; }\n", ""]);
 
 // exports
 
@@ -61,55 +61,49 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/tables/tables.component.ts":
+/***/ "../../../../../src/app/not-found/not-found.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router_animations__ = __webpack_require__("../../../../../src/app/router.animations.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TablesComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotFoundComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
-var TablesComponent = (function () {
-    function TablesComponent() {
+var NotFoundComponent = (function () {
+    function NotFoundComponent() {
     }
-    TablesComponent.prototype.ngOnInit = function () { };
-    return TablesComponent;
+    return NotFoundComponent;
 }());
-TablesComponent = __decorate([
+NotFoundComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-tables',
-        template: __webpack_require__("../../../../../src/app/layout/tables/tables.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/tables/tables.component.scss")],
+        selector: 'app-not-found',
+        template: __webpack_require__("../../../../../src/app/not-found/not-found.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/not-found/not-found.component.scss")],
         animations: [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__router_animations__["a" /* routerTransition */])()]
-    }),
-    __metadata("design:paramtypes", [])
-], TablesComponent);
+    })
+], NotFoundComponent);
 
-//# sourceMappingURL=tables.component.js.map
+//# sourceMappingURL=not-found.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/tables/tables.module.ts":
+/***/ "../../../../../src/app/not-found/not-found.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tables_component__ = __webpack_require__("../../../../../src/app/layout/tables/tables.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tables_routing_module__ = __webpack_require__("../../../../../src/app/layout/tables/tables-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TablesModule", function() { return TablesModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__not_found_component__ = __webpack_require__("../../../../../src/app/not-found/not-found.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__not_found_routing_module__ = __webpack_require__("../../../../../src/app/not-found/not-found-routing.module.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotFoundModule", function() { return NotFoundModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -120,24 +114,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var TablesModule = (function () {
-    function TablesModule() {
+var NotFoundModule = (function () {
+    function NotFoundModule() {
     }
-    return TablesModule;
+    return NotFoundModule;
 }());
-TablesModule = __decorate([
+NotFoundModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_3__tables_routing_module__["a" /* TablesRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* PageHeaderModule */]
+            __WEBPACK_IMPORTED_MODULE_3__not_found_routing_module__["a" /* NotFoundRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_2__tables_component__["a" /* TablesComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_2__not_found_component__["a" /* NotFoundComponent */]]
     })
-], TablesModule);
+], NotFoundModule);
 
-//# sourceMappingURL=tables.module.js.map
+//# sourceMappingURL=not-found.module.js.map
 
 /***/ })
 

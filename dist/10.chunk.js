@@ -1,13 +1,13 @@
 webpackJsonp([10],{
 
-/***/ "../../../../../src/app/layout/layout-routing.module.ts":
+/***/ "../../../../../src/app/layout/pv/pv-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__layout_component__ = __webpack_require__("../../../../../src/app/layout/layout.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LayoutRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pv_component__ = __webpack_require__("../../../../../src/app/layout/pv/pv.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PvRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,54 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    {
-        path: '', component: __WEBPACK_IMPORTED_MODULE_2__layout_component__["a" /* LayoutComponent */],
-        children: [
-            { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-            { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
-            { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
-            { path: 'forms', loadChildren: './form/form.module#FormModule' },
-            { path: 'bs-element', loadChildren: './bs-element/bs-element.module#BsElementModule' },
-            { path: 'grid', loadChildren: './grid/grid.module#GridModule' },
-            { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
-            { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
-            { path: 'ap', loadChildren: './ap/ap.module#ApModule' },
-            { path: 'ar', loadChildren: './ar/ar.module#ArModule' },
-            { path: 'pv', loadChildren: './pv/pv.module#PvModule' },
-            { path: 'rv', loadChildren: './rv/rv.module#RvModule' },
-            { path: 'jv', loadChildren: './jv/jv.module#JvModule' },
-            { path: 'account', loadChildren: './account/account.module#AccountModule' },
-            { path: 'expend-create', loadChildren: './expend-create/expend-create.module#ExpendCreateModule' },
-            { path: 'expend-lists', loadChildren: './expend-lists/expend-lists.module#ExpendListsModule' },
-            { path: 'contact-create', loadChildren: './contact-create/contact-create.module#ContactCreateModule' },
-            { path: 'contact-lists', loadChildren: './contact-lists/contact-lists.module#ContactListsModule' }
-        ]
-    }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__pv_component__["a" /* PvComponent */] }
 ];
-var LayoutRoutingModule = (function () {
-    function LayoutRoutingModule() {
+var PvRoutingModule = (function () {
+    function PvRoutingModule() {
     }
-    return LayoutRoutingModule;
+    return PvRoutingModule;
 }());
-LayoutRoutingModule = __decorate([
+PvRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], LayoutRoutingModule);
+], PvRoutingModule);
 
-//# sourceMappingURL=layout-routing.module.js.map
+//# sourceMappingURL=pv-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/layout.component.html":
+/***/ "../../../../../src/app/layout/pv/pv.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<app-sidebar></app-sidebar>\r\n<section class=\"main-container\">\r\n    <router-outlet></router-outlet>\r\n</section>\r\n"
+module.exports = "<p>\r\n  pv works!\r\n</p>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/layout.component.scss":
+/***/ "../../../../../src/app/layout/pv/pv.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -73,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".main-container {\n  margin-top: 60px;\n  margin-left: 235px;\n  padding: 15px;\n  -ms-overflow-x: hidden;\n  overflow-x: hidden;\n  overflow-y: scroll;\n  position: relative;\n  overflow: hidden; }\n\n@media screen and (max-width: 992px) {\n  .main-container {\n    margin-left: 0px !important; } }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -83,13 +61,12 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/layout.component.ts":
+/***/ "../../../../../src/app/layout/pv/pv.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LayoutComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PvComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -100,45 +77,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-var LayoutComponent = (function () {
-    function LayoutComponent(router) {
-        this.router = router;
+var PvComponent = (function () {
+    function PvComponent() {
     }
-    LayoutComponent.prototype.ngOnInit = function () {
-        if (this.router.url === '/') {
-            this.router.navigate(['/dashboard']);
-        }
+    PvComponent.prototype.ngOnInit = function () {
     };
-    return LayoutComponent;
+    return PvComponent;
 }());
-LayoutComponent = __decorate([
+PvComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-layout',
-        template: __webpack_require__("../../../../../src/app/layout/layout.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/layout.component.scss")]
+        selector: 'app-pv',
+        template: __webpack_require__("../../../../../src/app/layout/pv/pv.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/pv/pv.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
-], LayoutComponent);
+    __metadata("design:paramtypes", [])
+], PvComponent);
 
-var _a;
-//# sourceMappingURL=layout.component.js.map
+//# sourceMappingURL=pv.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/layout.module.ts":
+/***/ "../../../../../src/app/layout/pv/pv.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__layout_routing_module__ = __webpack_require__("../../../../../src/app/layout/layout-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__layout_component__ = __webpack_require__("../../../../../src/app/layout/layout.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayoutModule", function() { return LayoutModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pv_routing_module__ = __webpack_require__("../../../../../src/app/layout/pv/pv-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pv_component__ = __webpack_require__("../../../../../src/app/layout/pv/pv.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PvModule", function() { return PvModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -149,31 +117,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
-
-var LayoutModule = (function () {
-    function LayoutModule() {
+var PvModule = (function () {
+    function PvModule() {
     }
-    return LayoutModule;
+    return PvModule;
 }());
-LayoutModule = __decorate([
+PvModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["f" /* NgbDropdownModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_4__layout_routing_module__["a" /* LayoutRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */]
+            __WEBPACK_IMPORTED_MODULE_2__pv_routing_module__["a" /* PvRoutingModule */]
         ],
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_5__layout_component__["a" /* LayoutComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__shared__["d" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__shared__["e" /* SidebarComponent */]
-        ]
+        declarations: [__WEBPACK_IMPORTED_MODULE_3__pv_component__["a" /* PvComponent */]]
     })
-], LayoutModule);
+], PvModule);
 
-//# sourceMappingURL=layout.module.js.map
+//# sourceMappingURL=pv.module.js.map
 
 /***/ })
 

@@ -77,7 +77,7 @@
                                 <tr>
                                     <th scope="row"></th>
                                     <td>
-                                        <select [(ngModel)]="selectedItem" (ngModelChange)="onChange($event)" [ngModelOptions]="{standalone: true}" class="form-control">       
+                                        <select [(ngModel)]="selectedItem" (ngModelChange)="onChange()" [ngModelOptions]="{standalone: true}" class="form-control">       
                                             <option *ngFor="let item of items"
                                                     [ngValue]="item">
                                                     {{item.name}}

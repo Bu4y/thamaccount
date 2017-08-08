@@ -36,13 +36,7 @@ export class ApCreateComponent implements OnInit {
 
   addItem() {
     this.selectedItems.push(this.selectedItem);
-    this.selectedItem = {
-      name: '',
-      qty: 0,
-      unitprice: 0,
-      vat: 0,
-      netamount: 0
-    };
+    this.selectedItem = new itemModel();
     console.log(this.selectedItems);
   }
 

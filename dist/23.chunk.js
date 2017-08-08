@@ -1,13 +1,13 @@
-webpackJsonp([21],{
+webpackJsonp([23],{
 
-/***/ "../../../../../src/app/layout/ar/ar-routing.module.ts":
+/***/ "../../../../../src/app/layout/account/account-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ar_component__ = __webpack_require__("../../../../../src/app/layout/ar/ar.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_component__ = __webpack_require__("../../../../../src/app/layout/account/account.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__ar_component__["a" /* ArComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__account_component__["a" /* AccountComponent */] }
 ];
-var ArRoutingModule = (function () {
-    function ArRoutingModule() {
+var AccountRoutingModule = (function () {
+    function AccountRoutingModule() {
     }
-    return ArRoutingModule;
+    return AccountRoutingModule;
 }());
-ArRoutingModule = __decorate([
+AccountRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], ArRoutingModule);
+], AccountRoutingModule);
 
-//# sourceMappingURL=ar-routing.module.js.map
+//# sourceMappingURL=account-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/ar/ar.component.html":
+/***/ "../../../../../src/app/layout/account/account.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  ar works!\r\n</p>\r\n"
+module.exports = "<p>\r\n  account works!\r\n</p>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/ar/ar.component.scss":
+/***/ "../../../../../src/app/layout/account/account.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -61,12 +61,12 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/ar/ar.component.ts":
+/***/ "../../../../../src/app/layout/account/account.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -77,36 +77,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var ArComponent = (function () {
-    function ArComponent() {
+var AccountComponent = (function () {
+    function AccountComponent() {
     }
-    ArComponent.prototype.ngOnInit = function () {
+    AccountComponent.prototype.ngOnInit = function () {
     };
-    return ArComponent;
+    return AccountComponent;
 }());
-ArComponent = __decorate([
+AccountComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-ar',
-        template: __webpack_require__("../../../../../src/app/layout/ar/ar.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/ar/ar.component.scss")]
+        selector: 'app-account',
+        template: __webpack_require__("../../../../../src/app/layout/account/account.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/account/account.component.scss")]
     }),
     __metadata("design:paramtypes", [])
-], ArComponent);
+], AccountComponent);
 
-//# sourceMappingURL=ar.component.js.map
+//# sourceMappingURL=account.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/ar/ar.module.ts":
+/***/ "../../../../../src/app/layout/account/account.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ar_routing_module__ = __webpack_require__("../../../../../src/app/layout/ar/ar-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ar_component__ = __webpack_require__("../../../../../src/app/layout/ar/ar.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArModule", function() { return ArModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_component__ = __webpack_require__("../../../../../src/app/layout/account/account.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__account_routing_module__ = __webpack_require__("../../../../../src/app/layout/account/account-routing.module.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountModule", function() { return AccountModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -117,24 +117,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ArModule = (function () {
-    function ArModule() {
+var AccountModule = (function () {
+    function AccountModule() {
     }
-    return ArModule;
+    return AccountModule;
 }());
-ArModule = __decorate([
+AccountModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_2__ar_routing_module__["a" /* ArRoutingModule */]
+            __WEBPACK_IMPORTED_MODULE_3__account_routing_module__["a" /* AccountRoutingModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_3__ar_component__["a" /* ArComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_2__account_component__["a" /* AccountComponent */]]
     })
-], ArModule);
+], AccountModule);
 
-//# sourceMappingURL=ar.module.js.map
+//# sourceMappingURL=account.module.js.map
 
 /***/ })
 
 });
-//# sourceMappingURL=21.chunk.js.map
+//# sourceMappingURL=23.chunk.js.map
