@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
 
+import { LoginModel } from "./login.model";
+import { LoginService } from "./login.service";
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -9,15 +12,22 @@ import { routerTransition } from '../router.animations';
     animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
-
-    constructor(public router: Router) {
+    login: LoginModel = new LoginModel();
+    constructor(public router: Router, private loginService: LoginService) {
     }
 
     ngOnInit() {
     }
 
-    onLoggedin() {
-        localStorage.setItem('isLoggedin', 'true');
+    onLoggedin(login) {
+        this.loginService.login(login).then((data) => {
+            console.log(data);
+            this.router.navigate(['/dashboard']);
+            localStorage.setItem('isLoggedin', 'true');
+            localStorage.setItem('userLoggedin', JSON.stringify(data));
+        }, (error) => {
+            console.error(error);
+        })
     }
 
 }

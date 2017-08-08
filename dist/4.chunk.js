@@ -27,8 +27,8 @@ var SignupRoutingModule = (function () {
 }());
 SignupRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
 ], SignupRoutingModule);
 
@@ -39,7 +39,7 @@ SignupRoutingModule = __decorate([
 /***/ "../../../../../src/app/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-page\" [@routerTransition]>\n    <div class=\"row\">\n        <div class=\"col-md-4 push-md-4\">\n            <img class=\"user-avatar\" src=\"assets/images/logo.png\" width=\"150px\" />\n            <h1>SB Admin BS4 Angular4</h1>\n            <form role=\"form\">\n                <div class=\"form-content\">\n                    <div class=\"form-group\">\n                        <input type=\"text\" class=\"form-control input-underline input-lg\" id=\"\" placeholder=\"Full Name\">\n                    </div>\n\n                    <div class=\"form-group\">\n                        <input type=\"text\" class=\"form-control input-underline input-lg\" id=\"\" placeholder=\"Email\">\n                    </div>\n\n                    <div class=\"form-group\">\n                        <input type=\"password\" class=\"form-control input-underline input-lg\" id=\"\" placeholder=\"Password\">\n                    </div>\n                    <div class=\"form-group\">\n                        <input type=\"password\" class=\"form-control input-underline input-lg\" id=\"\" placeholder=\"Repeat Password\">\n                    </div>\n                </div>\n                <a class=\"btn rounded-btn\" [routerLink]=\"['/dashboard']\"> Register </a>&nbsp;\n                <a class=\"btn rounded-btn\" [routerLink]=\"['/login']\"> Log in </a>\n            </form>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"login-page\" [@routerTransition]>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4 push-md-4\">\r\n            <img class=\"user-avatar\" src=\"assets/images/logo.png\" width=\"150px\" />\r\n            <h1>SB Admin BS4 Angular4</h1>\r\n            <form role=\"form\">\r\n                <div class=\"form-content\">\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.username\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Username\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"password\" [(ngModel)]=\"signup.password\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Password\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.firstName\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Firstname\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.lastName\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Lastname\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"email\" [(ngModel)]=\"signup.email\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"E-mail\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.tel\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Tel.\">\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn rounded-btn\" (click)=\"onSignup(signup)\"> Register </a>&nbsp;\r\n                <a class=\"btn rounded-btn\" [routerLink]=\"['/login']\"> Log in </a>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -67,6 +67,9 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router_animations__ = __webpack_require__("../../../../../src/app/router.animations.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_model__ = __webpack_require__("../../../../../src/app/signup/signup.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signup_service__ = __webpack_require__("../../../../../src/app/signup/signup.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -79,10 +82,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
 var SignupComponent = (function () {
-    function SignupComponent() {
+    function SignupComponent(router, signupService) {
+        this.router = router;
+        this.signupService = signupService;
+        this.signup = new __WEBPACK_IMPORTED_MODULE_3__signup_model__["a" /* SignupModel */]();
     }
     SignupComponent.prototype.ngOnInit = function () { };
+    SignupComponent.prototype.onSignup = function (signup) {
+        var _this = this;
+        this.signupService.signup(signup).then(function (data) {
+            console.log(data);
+            _this.router.navigate(['/dashboard']);
+            localStorage.setItem('isLoggedin', 'true');
+            localStorage.setItem('userLoggedin', JSON.stringify(data));
+        }, function (error) {
+            console.error(error);
+        });
+    };
     return SignupComponent;
 }());
 SignupComponent = __decorate([
@@ -92,10 +112,26 @@ SignupComponent = __decorate([
         styles: [__webpack_require__("../../../../../src/app/signup/signup.component.scss")],
         animations: [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__router_animations__["a" /* routerTransition */])()]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__signup_service__["a" /* SignupService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__signup_service__["a" /* SignupService */]) === "function" && _b || Object])
 ], SignupComponent);
 
+var _a, _b;
 //# sourceMappingURL=signup.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/signup/signup.model.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupModel; });
+var SignupModel = (function () {
+    function SignupModel() {
+    }
+    return SignupModel;
+}());
+
+//# sourceMappingURL=signup.model.js.map
 
 /***/ }),
 
@@ -106,8 +142,9 @@ SignupComponent = __decorate([
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_routing_module__ = __webpack_require__("../../../../../src/app/signup/signup-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_component__ = __webpack_require__("../../../../../src/app/signup/signup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_routing_module__ = __webpack_require__("../../../../../src/app/signup/signup-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signup_component__ = __webpack_require__("../../../../../src/app/signup/signup.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignupModule", function() { return SignupModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -115,6 +152,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -127,10 +165,11 @@ var SignupModule = (function () {
 SignupModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["h" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_2__signup_routing_module__["a" /* SignupRoutingModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_3__signup_routing_module__["a" /* SignupRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_3__signup_component__["a" /* SignupComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_4__signup_component__["a" /* SignupComponent */]]
     })
 ], SignupModule);
 

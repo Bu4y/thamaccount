@@ -27,8 +27,8 @@ var JvRoutingModule = (function () {
 }());
 JvRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
 ], JvRoutingModule);
 
@@ -39,7 +39,7 @@ JvRoutingModule = __decorate([
 /***/ "../../../../../src/app/layout/jv/jv.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  jv works!\n</p>\n"
+module.exports = "<p>\r\n  jv works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -125,7 +125,7 @@ var JvModule = (function () {
 JvModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["h" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_3__jv_routing_module__["a" /* JvRoutingModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_2__jv_component__["a" /* JvComponent */]]

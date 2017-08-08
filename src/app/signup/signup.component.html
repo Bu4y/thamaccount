@@ -6,21 +6,31 @@
             <form role="form">
                 <div class="form-content">
                     <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                        <input type="text" [(ngModel)]="signup.username" [ngModelOptions]="{standalone: true}" class="form-control input-underline input-lg"
+                            placeholder="Username">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                        <input type="password" [(ngModel)]="signup.password" [ngModelOptions]="{standalone: true}" class="form-control input-underline input-lg"
+                            placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="signup.firstName" [ngModelOptions]="{standalone: true}" class="form-control input-underline input-lg"
+                            placeholder="Firstname">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="signup.lastName" [ngModelOptions]="{standalone: true}" class="form-control input-underline input-lg"
+                            placeholder="Lastname">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" [(ngModel)]="signup.email" [ngModelOptions]="{standalone: true}" class="form-control input-underline input-lg"
+                            placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="signup.tel" [ngModelOptions]="{standalone: true}" class="form-control input-underline input-lg"
+                            placeholder="Tel.">
                     </div>
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']"> Register </a>&nbsp;
+                <a class="btn rounded-btn" (click)="onSignup(signup)"> Register </a>&nbsp;
                 <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
             </form>
         </div>

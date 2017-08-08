@@ -35,6 +35,10 @@ var routes = [
             { path: 'rv', loadChildren: './rv/rv.module#RvModule' },
             { path: 'jv', loadChildren: './jv/jv.module#JvModule' },
             { path: 'account', loadChildren: './account/account.module#AccountModule' },
+            { path: 'expend-create', loadChildren: './expend-create/expend-create.module#ExpendCreateModule' },
+            { path: 'expend-lists', loadChildren: './expend-lists/expend-lists.module#ExpendListsModule' },
+            { path: 'contact-create', loadChildren: './contact-create/contact-create.module#ContactCreateModule' },
+            { path: 'contact-lists', loadChildren: './contact-lists/contact-lists.module#ContactListsModule' }
         ]
     }
 ];
@@ -45,8 +49,8 @@ var LayoutRoutingModule = (function () {
 }());
 LayoutRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
 ], LayoutRoutingModule);
 
@@ -57,7 +61,7 @@ LayoutRoutingModule = __decorate([
 /***/ "../../../../../src/app/layout/layout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<app-sidebar></app-sidebar>\n<section class=\"main-container\">\n    <router-outlet></router-outlet>\n</section>\n"
+module.exports = "<app-header></app-header>\r\n<app-sidebar></app-sidebar>\r\n<section class=\"main-container\">\r\n    <router-outlet></router-outlet>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -114,7 +118,7 @@ LayoutComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/layout/layout.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/layout.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
 ], LayoutComponent);
 
 var _a;
@@ -156,7 +160,7 @@ var LayoutModule = (function () {
 LayoutModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["h" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["f" /* NgbDropdownModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_4__layout_routing_module__["a" /* LayoutRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */]

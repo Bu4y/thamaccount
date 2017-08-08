@@ -27,8 +27,8 @@ var RvRoutingModule = (function () {
 }());
 RvRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
 ], RvRoutingModule);
 
@@ -39,7 +39,7 @@ RvRoutingModule = __decorate([
 /***/ "../../../../../src/app/layout/rv/rv.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  rv works!\n</p>\n"
+module.exports = "<p>\r\n  rv works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -125,7 +125,7 @@ var RvModule = (function () {
 RvModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["h" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_3__rv_routing_module__["a" /* RvRoutingModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_2__rv_component__["a" /* RvComponent */]]
