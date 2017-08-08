@@ -15,5 +15,5 @@ app.set('port', port);
 
 let server = http.createServer(app);
 server.listen(port, () => {
-    console.log('running');
+    console.log('running : localhost:3001');
 });

@@ -1,0 +1,39 @@
+<div [@routerTransition]>
+    <h2 class="page-header">
+        Contact Lists
+    </h2>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="fa fa-user"></i> Contact</li>
+    </ol>
+    <div class="row">
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary" [routerLink]="['/contact-create']">New Contact</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card-block table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Government ID</th>
+                            <th>TEL</th>
+                            <th>E-mail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr (click)="goToDetail('1')">
+                            <th scope="row">1</th>
+                            <td>Sarayut Kungsaranuwat</td>
+                            <td>1111111111111</td>
+                            <td>0914067267</td>
+                            <td>sarayut.kungsaranuwat@gmail.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

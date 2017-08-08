@@ -1,0 +1,46 @@
+<div [@routerTransition]>
+    <h2 class="page-header">
+        Expend Lists
+    </h2>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="fa fa-list-ul"></i> Expend</li>
+    </ol>
+    <div class="row">
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary" [routerLink]="['/expend-create']">New Expent</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card-block table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th class="text-right">Unit Price</th>
+                            <th class="text-right">VAT</th>
+                            <th class="text-right">Net Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr (click)="goToDetail('1')">
+                            <th scope="row">1</th>
+                            <td>Pen</td>
+                            <td class="text-right">100</td>
+                            <td class="text-right">0</td>
+                            <td class="text-right">100</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Pencel</td>
+                            <td class="text-right">100</td>
+                            <td class="text-right">7</td>
+                            <td class="text-right">107</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

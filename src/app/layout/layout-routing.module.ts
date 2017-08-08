@@ -20,6 +20,10 @@ const routes: Routes = [
             { path: 'rv', loadChildren: './rv/rv.module#RvModule' },
             { path: 'jv', loadChildren: './jv/jv.module#JvModule' },
             { path: 'account', loadChildren: './account/account.module#AccountModule' },
+            { path: 'expend-create', loadChildren: './expend-create/expend-create.module#ExpendCreateModule' },
+            { path: 'expend-lists', loadChildren: './expend-lists/expend-lists.module#ExpendListsModule' },
+            { path: 'contact-create', loadChildren: './contact-create/contact-create.module#ContactCreateModule' },            
+            { path: 'contact-lists', loadChildren: './contact-lists/contact-lists.module#ContactListsModule' }
         ]
     }
 ];
