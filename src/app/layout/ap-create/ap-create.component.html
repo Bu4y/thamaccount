@@ -86,7 +86,8 @@
                                         <!--[attr.selected]="customer.customerType.customerType==ct.customerType ? true : null"  -->
                                     </td>
                                     <td class="text-center">
-                                        <input class="form-control" type="number" [(ngModel)]="selectedItem.qty" [ngModelOptions]="{standalone: true}" style="text-align:center;">
+                                        <input class="form-control" type="number" [(ngModel)]="selectedItem.qty" (ngModelChange)="onChange()" [ngModelOptions]="{standalone: true}"
+                                            style="text-align:center;">
                                     </td>
                                     <td class="text-right">{{selectedItem.unitprice}}</td>
                                     <td class="text-right">{{selectedItem.vat}}</td>
