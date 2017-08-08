@@ -1,30 +1,30 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
     <ul class="list-group">
-        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'dashboard' | translate }}
         </a>
-        <a [routerLink]="['/account']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/account']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'Account' | translate }}
         </a>
-        <a [routerLink]="['/expend-lists']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/expend-lists']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'Expend Lists' | translate }}
         </a>
-        <a [routerLink]="['/contact-lists']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/contact-lists']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'Contact Lists' | translate }}
         </a>
-        <a [routerLink]="['/ap']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/ap']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'AP' | translate }}
         </a>
-        <a [routerLink]="['/ar']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/ar']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'AR' | translate }}
         </a>
-        <a [routerLink]="['/pv']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/pv']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'PV' | translate }}
         </a>
-        <a [routerLink]="['/rv']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/rv']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'RV' | translate }}
         </a>
-        <a [routerLink]="['/jv']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/jv']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'JV' | translate }}
         </a>
         <!-- Default  -->
