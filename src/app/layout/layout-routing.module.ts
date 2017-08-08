@@ -23,7 +23,8 @@ const routes: Routes = [
             { path: 'expend-create', loadChildren: './expend-create/expend-create.module#ExpendCreateModule' },
             { path: 'expend-lists', loadChildren: './expend-lists/expend-lists.module#ExpendListsModule' },
             { path: 'contact-create', loadChildren: './contact-create/contact-create.module#ContactCreateModule' },            
-            { path: 'contact-lists', loadChildren: './contact-lists/contact-lists.module#ContactListsModule' }
+            { path: 'contact-lists', loadChildren: './contact-lists/contact-lists.module#ContactListsModule' },
+            { path: 'ap-create', loadChildren: './ap-create/ap-create.module#ApCreateModule' }
         ]
     }
 ];

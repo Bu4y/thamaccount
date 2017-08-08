@@ -1,3 +1,14 @@
-<p>
-  ap works!
-</p>
+<div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="fa fa-file-text"></i> AP</li>
+    </ol>
+    <div class="row" [@routerTransition]>
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary" [routerLink]="['/ap-create']">New AP</button>
+        </div>
+    </div>
+    <div class="row" [@routerTransition]>
+        <div class="col-12">
+        </div>
+    </div>
+</div>

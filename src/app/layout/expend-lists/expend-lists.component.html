@@ -1,16 +1,13 @@
-<div [@routerTransition]>
-    <h2 class="page-header">
-        Expend Lists
-    </h2>
+<div>
     <ol class="breadcrumb">
         <li class="breadcrumb-item active"><i class="fa fa-list-ul"></i> Expend</li>
     </ol>
-    <div class="row">
+    <div class="row" [@routerTransition]>
         <div class="col-12 text-center">
             <button type="submit" class="btn btn-primary" [routerLink]="['/expend-create']">New Expent</button>
         </div>
     </div>
-    <div class="row">
+    <div class="row" [@routerTransition]>
         <div class="col-12">
             <div class="card-block table-responsive">
                 <table class="table table-hover table-striped">
