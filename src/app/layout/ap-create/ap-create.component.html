@@ -20,7 +20,7 @@
                 <div class="col-md-4">
                     <fieldset class="form-group">
                         <label>Doc No.</label>
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="text" [disabled]="true" [(ngModel)]="ap.docno" [ngModelOptions]="{standalone: true}">
                     </fieldset>
                 </div>
             </div>
@@ -41,7 +41,8 @@
                 <div class="col-md-4">
                     <fieldset class="form-group">
                         <label>Doc Date</label>
-                        <input class="form-control" type="date">
+                        <input class="form-control" type="date-local" [ngModel]="ap.docdate |date:'dd/MM/yyyy'" (ngModelChange)="ap.docdate = $event"
+                            [ngModelOptions]="{standalone: true}">
                     </fieldset>
                 </div>
             </div>
@@ -61,13 +62,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of [1,2,3,4,5]; let i = index">
+                                <tr *ngFor="let item of selectedItems; let i = index">
                                     <td scope="row">{{i + 1}}</td>
-                                    <td>ข้าวกล้อง</td>
-                                    <td class="text-center">1</td>
-                                    <td class="text-right">100</td>
-                                    <td class="text-right">7</td>
-                                    <td class="text-right">107</td>
+                                    <td>{{item.name}}</td>
+                                    <td class="text-center">{{item.qty}}</td>
+                                    <td class="text-right">{{item.unitprice}}</td>
+                                    <td class="text-right">{{item.vat}}</td>
+                                    <td class="text-right">{{item.netamount}}</td>
                                     <td class="text-center">
                                         <div class="btn-group" role="group">
                                             <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 
-import { itemModel } from "./ap-create.model";
+import { itemModel, APModel } from "./ap-create.model";
 
 @Component({
   selector: 'app-ap-create',
@@ -10,8 +10,10 @@ import { itemModel } from "./ap-create.model";
   animations: [routerTransition()]
 
 })
+
 export class ApCreateComponent implements OnInit {
 
+  ap: APModel = new APModel();
   items: Array<any> = [{
     name: 'ข้าวกล้อง',
     unitprice: 100,
@@ -23,9 +25,12 @@ export class ApCreateComponent implements OnInit {
   }];
   selectedItem: itemModel = new itemModel();
   selectedItems: Array<any> = [];
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.ap.docno = '' + (+new Date());
+    this.ap.docdate = new Date();
   }
 
   onChange() {
