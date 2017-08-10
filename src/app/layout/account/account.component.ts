@@ -18,6 +18,16 @@ export class AccountComponent implements OnInit {
       accountno: 1100000,
       parent: [],
       status: "active"
+    }, {
+      name: "สินทรัพย์2",
+      accountno: 1200000,
+      parent: [{
+        name: "สินทรัพย์2.1",
+        accountno: 1210000,
+        parent: [],
+        status: "active"
+      }],
+      status: "active"
     }],
   }, {
     name: "หนี้สิน",
@@ -27,16 +37,21 @@ export class AccountComponent implements OnInit {
       accountno: 2100000,
       status: "active",
       parent: [{
-        name: "หนี้สิน2",
+        name: "หนี้สิน1.1",
         accountno: 2110000,
         parent: [{
-          name: "หนี้สิน3",
+          name: "หนี้สิน1.2",
           accountno: 2111000,
           parent: [],
           status: "active"
         }],
         status: "active"
       }],
+    }, {
+      name: "หนี้สิน2",
+      accountno: 2100000,
+      parent: [],
+      status: "active"
     }],
     status: "active"
   }];
