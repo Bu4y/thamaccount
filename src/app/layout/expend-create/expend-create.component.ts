@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { routerTransition } from '../../router.animations';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ExpendCreateService } from "./expend-create.service";
@@ -8,8 +7,7 @@ import { ExpendModel } from "./expend-create.model";
 @Component({
   selector: 'app-expend-create',
   templateUrl: './expend-create.component.html',
-  styleUrls: ['./expend-create.component.scss'],
-  animations: [routerTransition()]
+  styleUrls: ['./expend-create.component.scss']
 
 })
 export class ExpendCreateComponent implements OnInit {

@@ -12,7 +12,7 @@ webpackJsonp([0],{
 /* unused harmony export slideToTop */
 
 function routerTransition() {
-    return slideToTop();
+    return slideToBottom();
 }
 function slideToRight() {
     return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["a" /* trigger */])('routerTransition', [

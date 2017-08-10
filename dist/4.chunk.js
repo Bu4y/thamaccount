@@ -212,7 +212,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".just-padding {\n  padding-left: 30px; }\n", ""]);
+exports.push([module.i, ".just-padding {\n  padding-left: 30px; }\n\n.list-group-item {\n  padding: 8px;\n  padding-left: 16px;\n  margin-top: 2px; }\n", ""]);
 
 // exports
 

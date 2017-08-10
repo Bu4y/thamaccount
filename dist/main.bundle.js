@@ -40,8 +40,7 @@ var map = {
 	],
 	"./expend-create/expend-create.module": [
 		"../../../../../src/app/layout/expend-create/expend-create.module.ts",
-		8,
-		0
+		8
 	],
 	"./expend-lists/expend-lists.module": [
 		"../../../../../src/app/layout/expend-lists/expend-lists.module.ts",
