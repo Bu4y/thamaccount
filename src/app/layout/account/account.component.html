@@ -1,3 +1,17 @@
-<p>
-  account works!
-</p>
+<div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="fa fa-list-ul"></i> Account</li>
+    </ol>
+    <div class="row">
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">New Account</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="ui-tree-list">
+                <ui-tree [data]="data" [key]="key"></ui-tree>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,8 @@
+export class ContactListModel {
+    contact: Array<ContactModel>;
+}
+
 export class ContactModel {
-    _id: string;
     name: string;
     govermentId: string;
     email: string;
