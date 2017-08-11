@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { AccountListModel } from "./account.model";
+import { AccountService } from "./account.service";
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -6,72 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  name: string;
   key: string = 'children';
   accounts: Array<any>;
-  data: Array<any> = [{
-    name: "สินทรัพย์",
-    accountno: 1000000,
-    parent: null,
-    status: "active",
-  },
-  {
-    name: "สินทรัพย์ 1.1",
-    accountno: 1100000,
-    parent: 1000000,
-    status: "active"
-  },
-  {
-    name: "หนี้สิน",
-    accountno: 2000000,
-    parent: null,
-    status: "active"
-  },
-  {
-    name: "หนี้สิน 2.1",
-    accountno: 2100000,
-    parent: 2000000,
-    status: "active"
-  },
-  {
-    name: "หนี้สิน 2.1.1",
-    accountno: 2110000,
-    parent: 2100000,
-    status: "active"
-  },
-  {
-    name: "หนี้สิน 2.2",
-    accountno: 2200000,
-    parent: 2000000,
-    status: "active"
-  },
-  {
-    name: "หนี้สิน 2.2.1",
-    accountno: 2210000,
-    parent: 2200000,
-    status: "active"
-  },
-  {
-    name: "หนี้สิน 2.2.2",
-    accountno: 2220000,
-    parent: 2200000,
-    status: "active"
-  },
-  {
-    name: "หนี้สิน 2.2.2.1",
-    accountno: 2221000,
-    parent: 2220000,
-    status: "active"
-  }]
+  data: AccountListModel = new AccountListModel();
 
-  constructor() { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit() {
-    this.accounts = this.listToTree(this.data);
+    this.getAccount();
   }
 
-  addExpandClass(item) {
-    item.expand = item.expand ? false : true;
+  getAccount() {
+    this.accountService.getAccount().then((data) => {
+      this.data.accounts = data;
+      this.data.accounts.sort((a, b) => { return (a.accountno > b.accountno) ? 1 : ((b.accountno > a.accountno) ? -1 : 0); });
+      this.accounts = this.listToTree(this.data.accounts);
+    }, (error) => {
+      console.error(error);
+    });
   }
 
   listToTree(data) {
@@ -100,8 +56,16 @@ export class AccountComponent implements OnInit {
         tree.push(item);
       }
     };
-
     return tree;
+  }
+
+  treeReturn(event) {
+    // console.log('CLICK : ', event);
+  }
+
+  onEdit(event) {
+    // console.log('EDIT : ', event);
+    this.router.navigate(['/account-create'], { queryParams: { item: JSON.stringify(event) } });
   }
 
 }

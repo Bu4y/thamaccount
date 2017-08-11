@@ -1,13 +1,13 @@
 webpackJsonp([6],{
 
-/***/ "../../../../../src/app/login/login-routing.module.ts":
+/***/ "../../../../../src/app/layout/expend-create/expend-create-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__expend_create_component__ = __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendCreateRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__login_component__["a" /* LoginComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__expend_create_component__["a" /* ExpendCreateComponent */] }
 ];
-var LoginRoutingModule = (function () {
-    function LoginRoutingModule() {
+var ExpendCreateRoutingModule = (function () {
+    function ExpendCreateRoutingModule() {
     }
-    return LoginRoutingModule;
+    return ExpendCreateRoutingModule;
 }());
-LoginRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+ExpendCreateRoutingModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], LoginRoutingModule);
+], ExpendCreateRoutingModule);
 
-//# sourceMappingURL=login-routing.module.js.map
+//# sourceMappingURL=expend-create-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/login/login.component.html":
+/***/ "../../../../../src/app/layout/expend-create/expend-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-page\" [@routerTransition]>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4 push-md-4\">\r\n            <img src=\"assets/images/logo.png\" width=\"150px\" class=\"user-avatar\" />\r\n            <h1>SB Admin BS4 Angular4</h1>\r\n            <form role=\"form\">\r\n                <div class=\"form-content\">\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"login.username\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Email\">\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input type=\"password\" [(ngModel)]=\"login.password\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Password\">\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn rounded-btn\" (click)=\"onLoggedin(login)\"> Log in </a> &nbsp;\r\n                <a class=\"btn rounded-btn\" [routerLink]=\"['/signup']\">Register</a>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\">\n            <i class=\"fa fa-list-ul\"></i> <a [routerLink]=\"['/expend-lists']\">Expend</a>\n        </li>\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-edit\"></i> Create</li>\n    </ol>\n    <div class=\"row\" [@routerTransition]>\n        <div class=\"col-md-3 col-sm-1\">\n        </div>\n        <div class=\"col-md-6 col-sm-10\">\n            <form role=\"form\">\n                <fieldset class=\"form-group\">\n                    <label>Name</label>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"expend.name\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>Unit Price</label>\n                    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"expend.unitprice\" (ngModelChange)=\"onCalculate()\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>VAT(%)</label>\n                    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"expend.vat\" (ngModelChange)=\"onCalculate()\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>Net Amount</label>\n                    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"expend.netamount\" [ngModelOptions]=\"{standalone: true}\" [disabled]=\"true\">\n                </fieldset>\n            </form>\n            <div class=\"col-12 text-center\">\n                <button type=\"submit\" class=\"btn btn-primary\" (click)=\"saveExpent()\">Save</button>\n            </div>\n        </div>\n        <div class=\"col-md-3 col-sm-1\">\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/login/login.component.scss":
+/***/ "../../../../../src/app/layout/expend-create/expend-create.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ":host {\n  display: block; }\n\n.login-page {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: auto;\n  background: #222;\n  text-align: center;\n  color: #fff;\n  padding: 3em; }\n  .login-page .col-lg-4 {\n    padding: 0; }\n  .login-page .input-lg {\n    height: 46px;\n    padding: 10px 16px;\n    font-size: 18px;\n    line-height: 1.3333333;\n    border-radius: 0; }\n  .login-page .input-underline {\n    background: 0 0;\n    border: none;\n    box-shadow: none;\n    border-bottom: 2px solid rgba(255, 255, 255, 0.5);\n    color: #FFF;\n    border-radius: 0; }\n  .login-page .input-underline:focus {\n    border-bottom: 2px solid #fff;\n    box-shadow: none; }\n  .login-page .rounded-btn {\n    border-radius: 50px;\n    color: rgba(255, 255, 255, 0.8);\n    background: #222;\n    border: 2px solid rgba(255, 255, 255, 0.8);\n    font-size: 18px;\n    line-height: 40px;\n    padding: 0 25px; }\n  .login-page .rounded-btn:hover, .login-page .rounded-btn:focus, .login-page .rounded-btn:active, .login-page .rounded-btn:visited {\n    color: white;\n    border: 2px solid white;\n    outline: none; }\n  .login-page h1 {\n    font-weight: 300;\n    margin-top: 20px;\n    margin-bottom: 10px;\n    font-size: 36px; }\n    .login-page h1 small {\n      color: rgba(255, 255, 255, 0.7); }\n  .login-page .form-group {\n    padding: 8px 0; }\n    .login-page .form-group input::-webkit-input-placeholder {\n      color: rgba(255, 255, 255, 0.6) !important; }\n    .login-page .form-group input:-moz-placeholder {\n      /* Firefox 18- */\n      color: rgba(255, 255, 255, 0.6) !important; }\n    .login-page .form-group input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: rgba(255, 255, 255, 0.6) !important; }\n    .login-page .form-group input:-ms-input-placeholder {\n      color: rgba(255, 255, 255, 0.6) !important; }\n  .login-page .form-content {\n    padding: 40px 0; }\n  .login-page .user-avatar {\n    border-radius: 50%;\n    border: 2px solid #FFF; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -61,16 +61,15 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/login/login.component.ts":
+/***/ "../../../../../src/app/layout/expend-create/expend-create.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router_animations__ = __webpack_require__("../../../../../src/app/router.animations.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_model__ = __webpack_require__("../../../../../src/app/login/login.model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_service__ = __webpack_require__("../../../../../src/app/login/login.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__expend_create_service__ = __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__expend_create_model__ = __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.model.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendCreateComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -84,69 +83,91 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-var LoginComponent = (function () {
-    function LoginComponent(router, loginService) {
+var ExpendCreateComponent = (function () {
+    function ExpendCreateComponent(route, router, expendCreateService) {
+        this.route = route;
         this.router = router;
-        this.loginService = loginService;
-        this.login = new __WEBPACK_IMPORTED_MODULE_3__login_model__["a" /* LoginModel */]();
+        this.expendCreateService = expendCreateService;
+        this.expend = new __WEBPACK_IMPORTED_MODULE_3__expend_create_model__["a" /* ExpendModel */]();
     }
-    LoginComponent.prototype.ngOnInit = function () {
-    };
-    LoginComponent.prototype.onLoggedin = function (login) {
+    ExpendCreateComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.loginService.login(login).then(function (data) {
-            console.log(data);
-            _this.router.navigate(['/dashboard']);
-            localStorage.setItem('isLoggedin', 'true');
-            localStorage.setItem('userLoggedin', JSON.stringify(data));
-        }, function (error) {
-            console.error(error);
+        this.subParams = this.route
+            .queryParams
+            .subscribe(function (params) {
+            var item = params['item'];
+            if (item && item !== '') {
+                _this.expend = JSON.parse(item);
+            }
         });
+        this.subParams.unsubscribe();
     };
-    return LoginComponent;
+    ExpendCreateComponent.prototype.onCalculate = function () {
+        var unitprice = this.expend.unitprice;
+        var vat = this.expend.vat;
+        this.expend.netamount = ((unitprice / 100) * vat) + unitprice;
+    };
+    ExpendCreateComponent.prototype.saveExpent = function () {
+        var _this = this;
+        var expend = this.expend;
+        if (expend._id) {
+            this.expendCreateService.putExpend(expend).then(function (data) {
+                _this.router.navigate(['/expend-lists']);
+            }, function (error) {
+                console.error(error);
+            });
+        }
+        else {
+            this.expendCreateService.postExpend(expend).then(function (data) {
+                _this.router.navigate(['/expend-lists']);
+            }, function (error) {
+                console.error(error);
+            });
+        }
+    };
+    return ExpendCreateComponent;
 }());
-LoginComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-login',
-        template: __webpack_require__("../../../../../src/app/login/login.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/login/login.component.scss")],
-        animations: [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__router_animations__["a" /* routerTransition */])()]
+ExpendCreateComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+        selector: 'app-expend-create',
+        template: __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/expend-create/expend-create.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__login_service__["a" /* LoginService */]) === "function" && _b || Object])
-], LoginComponent);
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__expend_create_service__["a" /* ExpendCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__expend_create_service__["a" /* ExpendCreateService */]) === "function" && _c || Object])
+], ExpendCreateComponent);
 
-var _a, _b;
-//# sourceMappingURL=login.component.js.map
+var _a, _b, _c;
+//# sourceMappingURL=expend-create.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/login/login.model.ts":
+/***/ "../../../../../src/app/layout/expend-create/expend-create.model.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginModel; });
-var LoginModel = (function () {
-    function LoginModel() {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendModel; });
+var ExpendModel = (function () {
+    function ExpendModel() {
     }
-    return LoginModel;
+    return ExpendModel;
 }());
 
-//# sourceMappingURL=login.model.js.map
+//# sourceMappingURL=expend-create.model.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/login/login.module.ts":
+/***/ "../../../../../src/app/layout/expend-create/expend-create.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_routing_module__ = __webpack_require__("../../../../../src/app/login/login-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginModule", function() { return LoginModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__expend_create_routing_module__ = __webpack_require__("../../../../../src/app/layout/expend-create/expend-create-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__expend_create_component__ = __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpendCreateModule", function() { return ExpendCreateModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -158,23 +179,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginModule = (function () {
-    function LoginModule() {
+
+var ExpendCreateModule = (function () {
+    function ExpendCreateModule() {
     }
-    return LoginModule;
+    return ExpendCreateModule;
 }());
-LoginModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+ExpendCreateModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_3__login_routing_module__["a" /* LoginRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_3__expend_create_routing_module__["a" /* ExpendCreateRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* PageHeaderModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_4__login_component__["a" /* LoginComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_4__expend_create_component__["a" /* ExpendCreateComponent */]]
     })
-], LoginModule);
+], ExpendCreateModule);
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=expend-create.module.js.map
 
 /***/ })
 

@@ -15,6 +15,8 @@ import { ContactCreateService } from "./layout/contact-create/contact-create.ser
 import { ContactListsService } from "./layout/contact-lists/contact-lists.service";
 import { ExpendCreateService } from "./layout/expend-create/expend-create.service";
 import { ExpendListsService } from "./layout/expend-lists/expend-lists.service";
+import { AccountCreateService } from "./layout/account-create/account-create.service";
+import { AccountService } from "./layout/account/account.service";
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
     // for development
@@ -39,7 +41,7 @@ export function HttpLoaderFactory(http: Http) {
             }
         })
     ],
-    providers: [AuthGuard, LoginService, SignupService, ContactCreateService, ContactListsService, ExpendCreateService, ExpendListsService],
+    providers: [AuthGuard, LoginService, SignupService, ContactCreateService, ContactListsService, ExpendCreateService, ExpendListsService, AccountCreateService, AccountService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

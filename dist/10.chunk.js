@@ -1,13 +1,13 @@
 webpackJsonp([10],{
 
-/***/ "../../../../../src/app/layout/contact-create/contact-create-routing.module.ts":
+/***/ "../../../../../src/app/not-found/not-found-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_create_component__ = __webpack_require__("../../../../../src/app/layout/contact-create/contact-create.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactListsRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__not_found_component__ = __webpack_require__("../../../../../src/app/not-found/not-found.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotFoundRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__contact_create_component__["a" /* ContactCreateComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__not_found_component__["a" /* NotFoundComponent */] }
 ];
-var ContactListsRoutingModule = (function () {
-    function ContactListsRoutingModule() {
+var NotFoundRoutingModule = (function () {
+    function NotFoundRoutingModule() {
     }
-    return ContactListsRoutingModule;
+    return NotFoundRoutingModule;
 }());
-ContactListsRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+NotFoundRoutingModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], ContactListsRoutingModule);
+], NotFoundRoutingModule);
 
-//# sourceMappingURL=contact-create-routing.module.js.map
+//# sourceMappingURL=not-found-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/contact-create/contact-create.component.html":
+/***/ "../../../../../src/app/not-found/not-found.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\">\n            <i class=\"fa fa-list-ul\"></i> <a [routerLink]=\"['/contact-lists']\">Contact</a>\n        </li>\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-edit\"></i> Create</li>\n    </ol>\n    <div class=\"row\" [@routerTransition]>\n        <div class=\"col-md-3 col-sm-1\">\n        </div>\n        <div class=\"col-md-6 col-sm-10\">\n            <form role=\"form\">\n                <fieldset class=\"form-group\">\n                    <label>Name</label>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"contact.name\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>Goverment ID</label>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"contact.govermentId\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>Tel</label>\n                    <input class=\"form-control\" type=\"tel\" [(ngModel)]=\"contact.tel\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>E-mail</label>\n                    <input class=\"form-control\" type=\"email\" [(ngModel)]=\"contact.email\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>Address</label>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"contact.address.address\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>Postcode</label>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"contact.address.postcode\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>District</label>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"contact.address.district\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>Subdistrict</label>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"contact.address.subdistrict\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>Province</label>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"contact.address.province\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <div class=\"col-12 text-center\">\n                    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"saveContact()\">Save</button>\n                </div>\n            </form>\n        </div>\n        <div class=\"col-md-3 col-sm-1\">\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"welcome-page\" [@routerTransition]>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-10 push-md-1\">\r\n            <h1>404 - Page Not Found</h1>\r\n            <p class=\"lead\">This page does not exist</p>\r\n            <p class=\"lead\">\r\n                <a class=\"btn rounded-btn\" [routerLink]=\"['/']\">Restart</a>\r\n            </p>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/contact-create/contact-create.component.scss":
+/***/ "../../../../../src/app/not-found/not-found.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ":host {\n  display: block; }\n\n.welcome-page {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: auto;\n  background: #222;\n  text-align: center;\n  color: #fff;\n  padding: 10em; }\n  .welcome-page .col-lg-8 {\n    padding: 0; }\n  .welcome-page .rounded-btn {\n    border-radius: 50px;\n    color: rgba(255, 255, 255, 0.8);\n    background: #222;\n    border: 2px solid rgba(255, 255, 255, 0.8);\n    font-size: 18px;\n    line-height: 40px;\n    padding: 0 25px; }\n  .welcome-page .rounded-btn:hover, .welcome-page .rounded-btn:focus, .welcome-page .rounded-btn:active, .welcome-page .rounded-btn:visited {\n    color: white;\n    border: 2px solid white;\n    outline: none; }\n  .welcome-page h1 {\n    font-weight: 300;\n    margin-top: 20px;\n    margin-bottom: 10px;\n    font-size: 36px; }\n", ""]);
 
 // exports
 
@@ -61,118 +61,49 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/contact-create/contact-create.component.ts":
+/***/ "../../../../../src/app/not-found/not-found.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router_animations__ = __webpack_require__("../../../../../src/app/router.animations.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contact_create_service__ = __webpack_require__("../../../../../src/app/layout/contact-create/contact-create.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__contact_create_model__ = __webpack_require__("../../../../../src/app/layout/contact-create/contact-create.model.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactCreateComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router_animations__ = __webpack_require__("../../../../../src/app/router.animations.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotFoundComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
-
-
-
-var ContactCreateComponent = (function () {
-    function ContactCreateComponent(route, router, contactCreateService) {
-        this.route = route;
-        this.router = router;
-        this.contactCreateService = contactCreateService;
-        this.contact = new __WEBPACK_IMPORTED_MODULE_4__contact_create_model__["a" /* ContactModel */]();
+var NotFoundComponent = (function () {
+    function NotFoundComponent() {
     }
-    ContactCreateComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.subParams = this.route
-            .queryParams
-            .subscribe(function (params) {
-            var item = params['item'];
-            if (item && item !== '') {
-                _this.contact = JSON.parse(item);
-            }
-        });
-        this.subParams.unsubscribe();
-    };
-    ContactCreateComponent.prototype.saveContact = function () {
-        var _this = this;
-        var contact = this.contact;
-        if (contact._id) {
-            this.contactCreateService.putContact(contact).then(function (data) {
-                _this.router.navigate(['/contact-lists']);
-            }, function (error) {
-                console.error(error);
-            });
-        }
-        else {
-            this.contactCreateService.postContact(contact).then(function (data) {
-                _this.router.navigate(['/contact-lists']);
-            }, function (error) {
-                console.error(error);
-            });
-        }
-    };
-    return ContactCreateComponent;
+    return NotFoundComponent;
 }());
-ContactCreateComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-contact-create',
-        template: __webpack_require__("../../../../../src/app/layout/contact-create/contact-create.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/contact-create/contact-create.component.scss")],
-        animations: [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__router_animations__["a" /* routerTransition */])()]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__contact_create_service__["a" /* ContactCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__contact_create_service__["a" /* ContactCreateService */]) === "function" && _c || Object])
-], ContactCreateComponent);
+NotFoundComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+        selector: 'app-not-found',
+        template: __webpack_require__("../../../../../src/app/not-found/not-found.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/not-found/not-found.component.scss")],
+        animations: [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__router_animations__["a" /* routerTransition */])()]
+    })
+], NotFoundComponent);
 
-var _a, _b, _c;
-//# sourceMappingURL=contact-create.component.js.map
+//# sourceMappingURL=not-found.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/contact-create/contact-create.model.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactModel; });
-/* unused harmony export AddressModel */
-var ContactModel = (function () {
-    function ContactModel() {
-        this.address = new AddressModel();
-    }
-    return ContactModel;
-}());
-
-var AddressModel = (function () {
-    function AddressModel() {
-    }
-    return AddressModel;
-}());
-
-//# sourceMappingURL=contact-create.model.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/layout/contact-create/contact-create.module.ts":
+/***/ "../../../../../src/app/not-found/not-found.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contact_create_routing_module__ = __webpack_require__("../../../../../src/app/layout/contact-create/contact-create-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__contact_create_component__ = __webpack_require__("../../../../../src/app/layout/contact-create/contact-create.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactCreateModule", function() { return ContactCreateModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__not_found_component__ = __webpack_require__("../../../../../src/app/not-found/not-found.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__not_found_routing_module__ = __webpack_require__("../../../../../src/app/not-found/not-found-routing.module.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotFoundModule", function() { return NotFoundModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -183,24 +114,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var ContactCreateModule = (function () {
-    function ContactCreateModule() {
+var NotFoundModule = (function () {
+    function NotFoundModule() {
     }
-    return ContactCreateModule;
+    return NotFoundModule;
 }());
-ContactCreateModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+NotFoundModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_3__contact_create_routing_module__["a" /* ContactListsRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_3__not_found_routing_module__["a" /* NotFoundRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_4__contact_create_component__["a" /* ContactCreateComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_2__not_found_component__["a" /* NotFoundComponent */]]
     })
-], ContactCreateModule);
+], NotFoundModule);
 
-//# sourceMappingURL=contact-create.module.js.map
+//# sourceMappingURL=not-found.module.js.map
 
 /***/ })
 

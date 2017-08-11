@@ -4,13 +4,13 @@
     </ol>
     <div class="row">
         <div class="col-12 text-center">
-            <button type="submit" class="btn btn-primary">New Account</button>
+            <button type="submit" class="btn btn-primary" [routerLink]="['/account-create']">New Account</button>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
             <div class="ui-tree-list">
-                <ui-tree [data]="accounts" [key]="key"></ui-tree>
+                <ui-tree [data]="accounts" [key]="key" (treeCallback)="treeReturn($event)" (treeEditCallback)="onEdit($event)"></ui-tree>
             </div>
         </div>
     </div>

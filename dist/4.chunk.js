@@ -1,13 +1,13 @@
 webpackJsonp([4],{
 
-/***/ "../../../../../src/app/layout/account/account-routing.module.ts":
+/***/ "../../../../../src/app/login/login-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_component__ = __webpack_require__("../../../../../src/app/layout/account/account.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__account_component__["a" /* AccountComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__login_component__["a" /* LoginComponent */] }
 ];
-var AccountRoutingModule = (function () {
-    function AccountRoutingModule() {
+var LoginRoutingModule = (function () {
+    function LoginRoutingModule() {
     }
-    return AccountRoutingModule;
+    return LoginRoutingModule;
 }());
-AccountRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+LoginRoutingModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], AccountRoutingModule);
+], LoginRoutingModule);
 
-//# sourceMappingURL=account-routing.module.js.map
+//# sourceMappingURL=login-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account/account.component.html":
+/***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <ol class=\"breadcrumb\">\r\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-list-ul\"></i> Account</li>\r\n    </ol>\r\n    <div class=\"row\">\r\n        <div class=\"col-12 text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\">New Account</button>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-12\">\r\n            <div class=\"ui-tree-list\">\r\n                <ui-tree [data]=\"accounts\" [key]=\"key\"></ui-tree>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"login-page\" [@routerTransition]>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4 push-md-4\">\r\n            <img src=\"assets/images/logo.png\" width=\"150px\" class=\"user-avatar\" />\r\n            <h1>SB Admin BS4 Angular4</h1>\r\n            <form role=\"form\">\r\n                <div class=\"form-content\">\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"login.username\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Email\">\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input type=\"password\" [(ngModel)]=\"login.password\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Password\">\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn rounded-btn\" (click)=\"onLoggedin(login)\"> Log in </a> &nbsp;\r\n                <a class=\"btn rounded-btn\" [routerLink]=\"['/signup']\">Register</a>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account/account.component.scss":
+/***/ "../../../../../src/app/login/login.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".ui-tree-list {\n  margin-left: -30px !important;\n  padding-top: 30px; }\n", ""]);
+exports.push([module.i, ":host {\n  display: block; }\n\n.login-page {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: auto;\n  background: #222;\n  text-align: center;\n  color: #fff;\n  padding: 3em; }\n  .login-page .col-lg-4 {\n    padding: 0; }\n  .login-page .input-lg {\n    height: 46px;\n    padding: 10px 16px;\n    font-size: 18px;\n    line-height: 1.3333333;\n    border-radius: 0; }\n  .login-page .input-underline {\n    background: 0 0;\n    border: none;\n    box-shadow: none;\n    border-bottom: 2px solid rgba(255, 255, 255, 0.5);\n    color: #FFF;\n    border-radius: 0; }\n  .login-page .input-underline:focus {\n    border-bottom: 2px solid #fff;\n    box-shadow: none; }\n  .login-page .rounded-btn {\n    border-radius: 50px;\n    color: rgba(255, 255, 255, 0.8);\n    background: #222;\n    border: 2px solid rgba(255, 255, 255, 0.8);\n    font-size: 18px;\n    line-height: 40px;\n    padding: 0 25px; }\n  .login-page .rounded-btn:hover, .login-page .rounded-btn:focus, .login-page .rounded-btn:active, .login-page .rounded-btn:visited {\n    color: white;\n    border: 2px solid white;\n    outline: none; }\n  .login-page h1 {\n    font-weight: 300;\n    margin-top: 20px;\n    margin-bottom: 10px;\n    font-size: 36px; }\n    .login-page h1 small {\n      color: rgba(255, 255, 255, 0.7); }\n  .login-page .form-group {\n    padding: 8px 0; }\n    .login-page .form-group input::-webkit-input-placeholder {\n      color: rgba(255, 255, 255, 0.6) !important; }\n    .login-page .form-group input:-moz-placeholder {\n      /* Firefox 18- */\n      color: rgba(255, 255, 255, 0.6) !important; }\n    .login-page .form-group input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: rgba(255, 255, 255, 0.6) !important; }\n    .login-page .form-group input:-ms-input-placeholder {\n      color: rgba(255, 255, 255, 0.6) !important; }\n  .login-page .form-content {\n    padding: 40px 0; }\n  .login-page .user-avatar {\n    border-radius: 50%;\n    border: 2px solid #FFF; }\n", ""]);
 
 // exports
 
@@ -61,12 +61,16 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account/account.component.ts":
+/***/ "../../../../../src/app/login/login.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router_animations__ = __webpack_require__("../../../../../src/app/router.animations.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_model__ = __webpack_require__("../../../../../src/app/login/login.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_service__ = __webpack_require__("../../../../../src/app/login/login.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -77,123 +81,72 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var AccountComponent = (function () {
-    function AccountComponent() {
-        this.key = 'children';
-        this.data = [{
-                name: "สินทรัพย์",
-                accountno: 1000000,
-                parent: null,
-                status: "active",
-            },
-            {
-                name: "สินทรัพย์ 1.1",
-                accountno: 1100000,
-                parent: 1000000,
-                status: "active"
-            },
-            {
-                name: "หนี้สิน",
-                accountno: 2000000,
-                parent: null,
-                status: "active"
-            },
-            {
-                name: "หนี้สิน 2.1",
-                accountno: 2100000,
-                parent: 2000000,
-                status: "active"
-            },
-            {
-                name: "หนี้สิน 2.1.1",
-                accountno: 2110000,
-                parent: 2100000,
-                status: "active"
-            },
-            {
-                name: "หนี้สิน 2.2",
-                accountno: 2200000,
-                parent: 2000000,
-                status: "active"
-            },
-            {
-                name: "หนี้สิน 2.2.1",
-                accountno: 2210000,
-                parent: 2200000,
-                status: "active"
-            },
-            {
-                name: "หนี้สิน 2.2.2",
-                accountno: 2220000,
-                parent: 2200000,
-                status: "active"
-            },
-            {
-                name: "หนี้สิน 2.2.2.1",
-                accountno: 2221000,
-                parent: 2220000,
-                status: "active"
-            }];
-    }
-    AccountComponent.prototype.ngOnInit = function () {
-        this.accounts = this.listToTree(this.data);
-    };
-    AccountComponent.prototype.addExpandClass = function (item) {
-        item.expand = item.expand ? false : true;
-    };
-    AccountComponent.prototype.listToTree = function (data) {
-        var ID_KEY = 'accountno';
-        var PARENT_KEY = 'parent';
-        var CHILDREN_KEY = 'children';
-        var tree = [], childrenOf = {};
-        var item, id, parentId;
-        for (var i = 0, length = data.length; i < length; i++) {
-            item = data[i];
-            id = item[ID_KEY];
-            parentId = item[PARENT_KEY] || 0;
-            // every item may have children
-            childrenOf[id] = childrenOf[id] || [];
-            // init its children
-            item[CHILDREN_KEY] = childrenOf[id];
-            if (parentId != 0) {
-                // init its parent's children object
-                childrenOf[parentId] = childrenOf[parentId] || [];
-                // push it into its parent's children object
-                childrenOf[parentId].push(item);
-            }
-            else {
-                tree.push(item);
-            }
-        }
-        ;
-        return tree;
-    };
-    return AccountComponent;
-}());
-AccountComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-account',
-        template: __webpack_require__("../../../../../src/app/layout/account/account.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/account/account.component.scss")]
-    }),
-    __metadata("design:paramtypes", [])
-], AccountComponent);
 
-//# sourceMappingURL=account.component.js.map
+
+
+
+var LoginComponent = (function () {
+    function LoginComponent(router, loginService) {
+        this.router = router;
+        this.loginService = loginService;
+        this.login = new __WEBPACK_IMPORTED_MODULE_3__login_model__["a" /* LoginModel */]();
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent.prototype.onLoggedin = function (login) {
+        var _this = this;
+        this.loginService.login(login).then(function (data) {
+            console.log(data);
+            _this.router.navigate(['/dashboard']);
+            localStorage.setItem('isLoggedin', 'true');
+            localStorage.setItem('userLoggedin', JSON.stringify(data));
+        }, function (error) {
+            console.error(error);
+        });
+    };
+    return LoginComponent;
+}());
+LoginComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+        selector: 'app-login',
+        template: __webpack_require__("../../../../../src/app/login/login.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/login/login.component.scss")],
+        animations: [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__router_animations__["a" /* routerTransition */])()]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__login_service__["a" /* LoginService */]) === "function" && _b || Object])
+], LoginComponent);
+
+var _a, _b;
+//# sourceMappingURL=login.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account/account.module.ts":
+/***/ "../../../../../src/app/login/login.model.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginModel; });
+var LoginModel = (function () {
+    function LoginModel() {
+    }
+    return LoginModel;
+}());
+
+//# sourceMappingURL=login.model.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_component__ = __webpack_require__("../../../../../src/app/layout/account/account.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__account_routing_module__ = __webpack_require__("../../../../../src/app/layout/account/account-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_ui_tree_ui_tree__ = __webpack_require__("../../../../../src/app/shared/components/ui-tree/ui-tree.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountModule", function() { return AccountModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_routing_module__ = __webpack_require__("../../../../../src/app/login/login-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginModule", function() { return LoginModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -205,85 +158,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AccountModule = (function () {
-    function AccountModule() {
+var LoginModule = (function () {
+    function LoginModule() {
     }
-    return AccountModule;
+    return LoginModule;
 }());
-AccountModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+LoginModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_3__account_routing_module__["a" /* AccountRoutingModule */]
+            __WEBPACK_IMPORTED_MODULE_0__angular_common__["k" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_3__login_routing_module__["a" /* LoginRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_2__account_component__["a" /* AccountComponent */], __WEBPACK_IMPORTED_MODULE_4__shared_components_ui_tree_ui_tree__["a" /* UiTree */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_4__login_component__["a" /* LoginComponent */]]
     })
-], AccountModule);
+], LoginModule);
 
-//# sourceMappingURL=account.module.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/shared/components/ui-tree/ui-tree.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".just-padding {\n  padding-left: 30px; }\n\n.list-group-item {\n  padding: 8px;\n  padding-left: 16px;\n  margin-top: 1px; }\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/shared/components/ui-tree/ui-tree.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UiTree; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var UiTree = (function () {
-    function UiTree() {
-    }
-    UiTree.prototype.clickItem = function (item) {
-        window.event.stopPropagation();
-        item.expand = item.expand ? false : true;
-    };
-    return UiTree;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('data'),
-    __metadata("design:type", Object)
-], UiTree.prototype, "items", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('key'),
-    __metadata("design:type", String)
-], UiTree.prototype, "key", void 0);
-UiTree = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: "ui-tree",
-        template: "\n    <div class=\"just-padding\" *ngIf=\"items.length\">\n      <div class=\"list-group list-group-root\"  class=\"main-list\" *ngFor=\"let item of items\" (click)=\"clickItem(item)\">\n        <a class=\"list-group-item list-group-item-action\">\n          <i class=\"fa fa-caret-right\" *ngIf=\"!item.expand && item[key].length\"></i>\n          <i class=\"fa fa-caret-down\" *ngIf=\"item.expand && item[key].length\"></i>\n          &nbsp;\n          {{item.accountno}}\n          &nbsp;\n          {{item.name}} \n        </a>\n          <ui-tree *ngIf=\"item[key].length && item.expand == true\" [key]=\"key\" [data]=\"item[key]\"></ui-tree>\n      </div>\n    </div>\n  ",
-        styles: [__webpack_require__("../../../../../src/app/shared/components/ui-tree/ui-tree.scss")]
-    })
-], UiTree);
-
-//# sourceMappingURL=ui-tree.js.map
+//# sourceMappingURL=login.module.js.map
 
 /***/ })
 
