@@ -39,7 +39,7 @@ AccountRoutingModule = __decorate([
 /***/ "../../../../../src/app/layout/account/account.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <ol class=\"breadcrumb\">\r\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-list-ul\"></i> Account</li>\r\n    </ol>\r\n    <div class=\"row\">\r\n        <div class=\"col-12 text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\">New Account</button>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-12\">\r\n            <div class=\"ui-tree-list\">\r\n                <ui-tree [data]=\"data\" [key]=\"key\"></ui-tree>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div>\r\n    <ol class=\"breadcrumb\">\r\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-list-ul\"></i> Account</li>\r\n    </ol>\r\n    <div class=\"row\">\r\n        <div class=\"col-12 text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\">New Account</button>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-12\">\r\n            <div class=\"ui-tree-list\">\r\n                <ui-tree [data]=\"accounts\" [key]=\"key\"></ui-tree>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -79,61 +79,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AccountComponent = (function () {
     function AccountComponent() {
-        this.key = 'parent';
+        this.key = 'children';
         this.data = [{
-                name: "สินทรัพย์",
-                accountno: 1000000,
-                status: "active",
-                parent: [{
-                        name: "สินทรัพย์1",
-                        accountno: 1100000,
-                        parent: [],
-                        status: "active"
-                    }, {
-                        name: "สินทรัพย์2",
-                        accountno: 1200000,
-                        parent: [{
-                                name: "สินทรัพย์2.1",
-                                accountno: 1210000,
-                                parent: [],
-                                status: "active"
-                            }],
-                        status: "active"
-                    }],
-            }, {
-                name: "หนี้สิน",
-                accountno: 2000000,
-                parent: [{
-                        name: "หนี้สิน1",
-                        accountno: 2100000,
-                        status: "active",
-                        parent: [{
-                                name: "หนี้สิน1.1",
-                                accountno: 2110000,
-                                parent: [{
-                                        name: "หนี้สิน1.2",
-                                        accountno: 2111000,
-                                        parent: [],
-                                        status: "active"
-                                    }],
-                                status: "active"
-                            }],
-                    }, {
-                        name: "หนี้สิน2",
-                        accountno: 2100000,
-                        parent: [],
-                        status: "active"
-                    }],
-                status: "active"
-            }];
-        this.accounts = [{
                 name: "สินทรัพย์",
                 accountno: 1000000,
                 parent: null,
                 status: "active",
             },
             {
-                name: "test",
+                name: "สินทรัพย์ 1.1",
                 accountno: 1100000,
                 parent: 1000000,
                 status: "active"
@@ -145,23 +99,74 @@ var AccountComponent = (function () {
                 status: "active"
             },
             {
-                name: "test2",
+                name: "หนี้สิน 2.1",
                 accountno: 2100000,
                 parent: 2000000,
                 status: "active"
             },
             {
-                name: "test3",
+                name: "หนี้สิน 2.1.1",
                 accountno: 2110000,
                 parent: 2100000,
                 status: "active"
+            },
+            {
+                name: "หนี้สิน 2.2",
+                accountno: 2200000,
+                parent: 2000000,
+                status: "active"
+            },
+            {
+                name: "หนี้สิน 2.2.1",
+                accountno: 2210000,
+                parent: 2200000,
+                status: "active"
+            },
+            {
+                name: "หนี้สิน 2.2.2",
+                accountno: 2220000,
+                parent: 2200000,
+                status: "active"
+            },
+            {
+                name: "หนี้สิน 2.2.2.1",
+                accountno: 2221000,
+                parent: 2220000,
+                status: "active"
             }];
-        this.showMenu = '';
     }
     AccountComponent.prototype.ngOnInit = function () {
+        this.accounts = this.listToTree(this.data);
     };
     AccountComponent.prototype.addExpandClass = function (item) {
         item.expand = item.expand ? false : true;
+    };
+    AccountComponent.prototype.listToTree = function (data) {
+        var ID_KEY = 'accountno';
+        var PARENT_KEY = 'parent';
+        var CHILDREN_KEY = 'children';
+        var tree = [], childrenOf = {};
+        var item, id, parentId;
+        for (var i = 0, length = data.length; i < length; i++) {
+            item = data[i];
+            id = item[ID_KEY];
+            parentId = item[PARENT_KEY] || 0;
+            // every item may have children
+            childrenOf[id] = childrenOf[id] || [];
+            // init its children
+            item[CHILDREN_KEY] = childrenOf[id];
+            if (parentId != 0) {
+                // init its parent's children object
+                childrenOf[parentId] = childrenOf[parentId] || [];
+                // push it into its parent's children object
+                childrenOf[parentId].push(item);
+            }
+            else {
+                tree.push(item);
+            }
+        }
+        ;
+        return tree;
     };
     return AccountComponent;
 }());
