@@ -26,7 +26,7 @@ var ExpendCreateRoutingModule = (function () {
     return ExpendCreateRoutingModule;
 }());
 ExpendCreateRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -128,7 +128,7 @@ var ExpendCreateComponent = (function () {
     return ExpendCreateComponent;
 }());
 ExpendCreateComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-expend-create',
         template: __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/expend-create/expend-create.component.scss")]
@@ -186,12 +186,12 @@ var ExpendCreateModule = (function () {
     return ExpendCreateModule;
 }());
 ExpendCreateModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_3__expend_create_routing_module__["a" /* ExpendCreateRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* PageHeaderModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_4__expend_create_component__["a" /* ExpendCreateComponent */]]
     })

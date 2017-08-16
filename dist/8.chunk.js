@@ -26,7 +26,7 @@ var ContactListsRoutingModule = (function () {
     return ContactListsRoutingModule;
 }());
 ContactListsRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -125,7 +125,7 @@ var ContactCreateComponent = (function () {
     return ContactCreateComponent;
 }());
 ContactCreateComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-contact-create',
         template: __webpack_require__("../../../../../src/app/layout/contact-create/contact-create.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/contact-create/contact-create.component.scss")],
@@ -190,11 +190,11 @@ var ContactCreateModule = (function () {
     return ContactCreateModule;
 }());
 ContactCreateModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_3__contact_create_routing_module__["a" /* ContactListsRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_4__contact_create_component__["a" /* ContactCreateComponent */]]
     })

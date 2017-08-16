@@ -48,7 +48,7 @@ var ChatComponent = (function () {
     return ChatComponent;
 }());
 ChatComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-chat',
         template: __webpack_require__("../../../../../src/app/layout/dashboard/components/chat/chat.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/dashboard/components/chat/chat.component.scss")]
@@ -125,7 +125,7 @@ var NotificationComponent = (function () {
     return NotificationComponent;
 }());
 NotificationComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-notification',
         template: __webpack_require__("../../../../../src/app/layout/dashboard/components/notification/notification.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/dashboard/components/notification/notification.component.scss")]
@@ -186,7 +186,7 @@ var TimelineComponent = (function () {
     return TimelineComponent;
 }());
 TimelineComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-timeline',
         template: __webpack_require__("../../../../../src/app/layout/dashboard/components/timeline/timeline.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/dashboard/components/timeline/timeline.component.scss")]
@@ -224,7 +224,7 @@ var DashboardRoutingModule = (function () {
     return DashboardRoutingModule;
 }());
 DashboardRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -313,7 +313,7 @@ var DashboardComponent = (function () {
     return DashboardComponent;
 }());
 DashboardComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-dashboard',
         template: __webpack_require__("../../../../../src/app/layout/dashboard/dashboard.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/dashboard/dashboard.component.scss")],
@@ -358,7 +358,7 @@ var DashboardModule = (function () {
     return DashboardModule;
 }());
 DashboardModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["a" /* NgbCarouselModule */].forRoot(),

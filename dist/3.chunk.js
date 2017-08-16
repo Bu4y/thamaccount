@@ -26,7 +26,7 @@ var SignupRoutingModule = (function () {
     return SignupRoutingModule;
 }());
 SignupRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -39,7 +39,7 @@ SignupRoutingModule = __decorate([
 /***/ "../../../../../src/app/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-page\" [@routerTransition]>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4 push-md-4\">\r\n            <img class=\"user-avatar\" src=\"assets/images/logo.png\" width=\"150px\" />\r\n            <h1>SB Admin BS4 Angular4</h1>\r\n            <form role=\"form\">\r\n                <div class=\"form-content\">\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.username\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Username\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"password\" [(ngModel)]=\"signup.password\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Password\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.firstName\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Firstname\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.lastName\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Lastname\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"email\" [(ngModel)]=\"signup.email\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"E-mail\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.tel\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Tel.\">\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn rounded-btn\" (click)=\"onSignup(signup)\"> Register </a>&nbsp;\r\n                <a class=\"btn rounded-btn\" [routerLink]=\"['/login']\"> Log in </a>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"login-page\" [@routerTransition]>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4 push-md-4\">\r\n            <img class=\"user-avatar\" src=\"assets/images/logo.png\" width=\"150px\" />\r\n            <h1>Account</h1>\r\n            <form role=\"form\">\r\n                <div class=\"form-content\">\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.username\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Username\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"password\" [(ngModel)]=\"signup.password\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Password\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.firstName\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Firstname\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.lastName\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Lastname\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"email\" [(ngModel)]=\"signup.email\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"E-mail\">\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" [(ngModel)]=\"signup.tel\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\"\r\n                            placeholder=\"Tel.\">\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn rounded-btn\" (click)=\"onSignup(signup)\"> Register </a>&nbsp;\r\n                <a class=\"btn rounded-btn\" [routerLink]=\"['/login']\"> Log in </a>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -106,7 +106,7 @@ var SignupComponent = (function () {
     return SignupComponent;
 }());
 SignupComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-signup',
         template: __webpack_require__("../../../../../src/app/signup/signup.component.html"),
         styles: [__webpack_require__("../../../../../src/app/signup/signup.component.scss")],
@@ -163,11 +163,11 @@ var SignupModule = (function () {
     return SignupModule;
 }());
 SignupModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_3__signup_routing_module__["a" /* SignupRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_4__signup_component__["a" /* SignupComponent */]]
     })

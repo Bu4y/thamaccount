@@ -26,7 +26,7 @@ var AccountRoutingModule = (function () {
     return AccountRoutingModule;
 }());
 AccountRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -140,7 +140,7 @@ var AccountComponent = (function () {
     return AccountComponent;
 }());
 AccountComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-account',
         template: __webpack_require__("../../../../../src/app/layout/account/account.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/account/account.component.scss")]
@@ -182,9 +182,10 @@ var AccountModel = (function () {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_component__ = __webpack_require__("../../../../../src/app/layout/account/account.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__account_routing_module__ = __webpack_require__("../../../../../src/app/layout/account/account-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_ui_tree_ui_tree__ = __webpack_require__("../../../../../src/app/shared/components/ui-tree/ui-tree.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__account_component__ = __webpack_require__("../../../../../src/app/layout/account/account.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__account_routing_module__ = __webpack_require__("../../../../../src/app/layout/account/account-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_components_ui_tree_ui_tree__ = __webpack_require__("../../../../../src/app/shared/components/ui-tree/ui-tree.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountModule", function() { return AccountModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -197,18 +198,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AccountModule = (function () {
     function AccountModule() {
     }
     return AccountModule;
 }());
 AccountModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_3__account_routing_module__["a" /* AccountRoutingModule */]
+            __WEBPACK_IMPORTED_MODULE_4__account_routing_module__["a" /* AccountRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["a" /* TranslateModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_2__account_component__["a" /* AccountComponent */], __WEBPACK_IMPORTED_MODULE_4__shared_components_ui_tree_ui_tree__["a" /* UiTree */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_3__account_component__["a" /* AccountComponent */], __WEBPACK_IMPORTED_MODULE_5__shared_components_ui_tree_ui_tree__["a" /* UiTree */]]
     })
 ], AccountModule);
 
@@ -259,8 +262,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var UiTree = (function () {
     function UiTree() {
-        this.treeCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* EventEmitter */]();
-        this.treeEditCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* EventEmitter */]();
+        this.treeCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.treeEditCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     UiTree.prototype.clickItem = function (item) {
         window.event.stopPropagation();
@@ -281,23 +284,23 @@ var UiTree = (function () {
     return UiTree;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Input */])('data'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('data'),
     __metadata("design:type", Object)
 ], UiTree.prototype, "items", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Input */])('key'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('key'),
     __metadata("design:type", String)
 ], UiTree.prototype, "key", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
 ], UiTree.prototype, "treeCallback", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
 ], UiTree.prototype, "treeEditCallback", void 0);
 UiTree = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: "ui-tree",
         template: __webpack_require__("../../../../../src/app/shared/components/ui-tree/ui-tree.html"),
         styles: [__webpack_require__("../../../../../src/app/shared/components/ui-tree/ui-tree.scss")]

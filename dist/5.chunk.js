@@ -26,7 +26,7 @@ var ExpendListsRoutingModule = (function () {
     return ExpendListsRoutingModule;
 }());
 ExpendListsRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -115,7 +115,7 @@ var ExpendListsComponent = (function () {
     return ExpendListsComponent;
 }());
 ExpendListsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-expend-lists',
         template: __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.component.scss")],
@@ -179,7 +179,7 @@ var ExpendListsModule = (function () {
     return ExpendListsModule;
 }());
 ExpendListsModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__expend_lists_routing_module__["a" /* ExpendListsRoutingModule */],

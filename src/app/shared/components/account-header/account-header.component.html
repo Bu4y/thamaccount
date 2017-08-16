@@ -1,0 +1,20 @@
+<div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="fa fa-file-o"></i> {{ header | translate}}
+
+        </li>
+    </ol>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <fieldset class="form-group">
+                <label>{{'docdate' | translate}}</label>
+                <input class="form-control" type="date" [ngModel]="docdate" (ngModelChange)="selectDocDate($event)" [ngModelOptions]="{standalone: true}" useValueAsDate>
+            </fieldset>
+        </div>
+    </div>
+    <hr>
+</div>

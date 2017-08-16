@@ -26,7 +26,7 @@ var ContactListsRoutingModule = (function () {
     return ContactListsRoutingModule;
 }());
 ContactListsRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -115,7 +115,7 @@ var ContactListsComponent = (function () {
     return ContactListsComponent;
 }());
 ContactListsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-contact-lists',
         template: __webpack_require__("../../../../../src/app/layout/contact-lists/contact-lists.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/contact-lists/contact-lists.component.scss")],
@@ -185,7 +185,7 @@ var ContactListsModule = (function () {
     return ContactListsModule;
 }());
 ContactListsModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__contact_lists_routing_module__["a" /* ContactListsRoutingModule */]

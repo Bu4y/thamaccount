@@ -27,7 +27,9 @@ var routes = [
             { path: 'expend-create', loadChildren: './expend-create/expend-create.module#ExpendCreateModule' },
             { path: 'expend-lists', loadChildren: './expend-lists/expend-lists.module#ExpendListsModule' },
             { path: 'contact-create', loadChildren: './contact-create/contact-create.module#ContactCreateModule' },
-            { path: 'contact-lists', loadChildren: './contact-lists/contact-lists.module#ContactListsModule' }
+            { path: 'contact-lists', loadChildren: './contact-lists/contact-lists.module#ContactListsModule' },
+            { path: 'ap-create', loadChildren: './ap-create/ap-create.module#ApCreateModule' },
+            { path: 'jv-create', loadChildren: './jv-create/jv-create.module#JvCreateModule' }
         ]
     }
 ];
@@ -37,7 +39,7 @@ var LayoutRoutingModule = (function () {
     return LayoutRoutingModule;
 }());
 LayoutRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -102,7 +104,7 @@ var LayoutComponent = (function () {
     return LayoutComponent;
 }());
 LayoutComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-layout',
         template: __webpack_require__("../../../../../src/app/layout/layout.component.html"),
         styles: [__webpack_require__("../../../../../src/app/layout/layout.component.scss")]
@@ -147,7 +149,7 @@ var LayoutModule = (function () {
     return LayoutModule;
 }());
 LayoutModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["c" /* NgbDropdownModule */].forRoot(),

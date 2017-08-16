@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
+import { NgProgressService } from 'ngx-progressbar';
 
 import { LoginModel } from "./login.model";
 import { LoginService } from "./login.service";
@@ -13,7 +14,7 @@ import { LoginService } from "./login.service";
 })
 export class LoginComponent implements OnInit {
     login: LoginModel = new LoginModel();
-    constructor(public router: Router, private loginService: LoginService) {
+    constructor(public router: Router, private loginService: LoginService, public progressService: NgProgressService) {
     }
 
     ngOnInit() {

@@ -8,7 +8,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
-
+import { NgProgressModule, NgProgressBrowserXhr } from 'ngx-progressbar';
+import { BrowserXhr } from '@angular/http';
 import { LoginService } from "./login/login.service";
 import { SignupService } from "./signup/signup.service";
 import { ContactCreateService } from "./layout/contact-create/contact-create.service";
@@ -17,6 +18,7 @@ import { ExpendCreateService } from "./layout/expend-create/expend-create.servic
 import { ExpendListsService } from "./layout/expend-lists/expend-lists.service";
 import { AccountCreateService } from "./layout/account-create/account-create.service";
 import { AccountService } from "./layout/account/account.service";
+import { JvCreateService } from "./layout/jv-create/jv-create.service";
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
     // for development
@@ -31,6 +33,7 @@ export function HttpLoaderFactory(http: Http) {
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
+        NgProgressModule,
         HttpModule,
         AppRoutingModule,
         TranslateModule.forRoot({
@@ -41,7 +44,7 @@ export function HttpLoaderFactory(http: Http) {
             }
         })
     ],
-    providers: [AuthGuard, LoginService, SignupService, ContactCreateService, ContactListsService, ExpendCreateService, ExpendListsService, AccountCreateService, AccountService],
+    providers: [{ provide: BrowserXhr, useClass: NgProgressBrowserXhr }, AuthGuard, LoginService, SignupService, ContactCreateService, ContactListsService, ExpendCreateService, ExpendListsService, AccountCreateService, AccountService, JvCreateService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

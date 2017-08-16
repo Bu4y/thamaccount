@@ -4,13 +4,19 @@
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'dashboard' | translate }}
         </a>
         <a [routerLink]="['/account']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
-            <i class="fa fa-file-o"></i>&nbsp;{{ 'Account' | translate }}
+            <i class="fa fa-file-o"></i>&nbsp;{{ 'account' | translate }}
         </a>
-        <a [routerLink]="['/expend-lists']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
-            <i class="fa fa-file-o"></i>&nbsp;{{ 'Expend Lists' | translate }}
+        <!-- <a [routerLink]="['/expend-lists']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
+            <i class="fa fa-file-o"></i>&nbsp;{{ 'expend-lists' | translate }}
         </a>
         <a [routerLink]="['/contact-lists']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
-            <i class="fa fa-file-o"></i>&nbsp;{{ 'Contact Lists' | translate }}
+            <i class="fa fa-file-o"></i>&nbsp;{{ 'contact-lists' | translate }}
+        </a> -->
+        <a [routerLink]="['/ap-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
+            <i class="fa fa-file-o"></i>&nbsp;{{ 'ap' | translate }}
+        </a>
+        <a [routerLink]="['/jv-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
+            <i class="fa fa-file-o"></i>&nbsp;{{ 'jv' | translate }}
         </a>
     </ul>
 </nav>
