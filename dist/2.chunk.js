@@ -39,7 +39,7 @@ AccountRoutingModule = __decorate([
 /***/ "../../../../../src/app/layout/account/account.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <ol class=\"breadcrumb\">\r\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-list-ul\"></i> Account</li>\r\n    </ol>\r\n    <div class=\"row\">\r\n        <div class=\"col-12 text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\" [routerLink]=\"['/account-create']\">New Account</button>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-12\">\r\n            <div class=\"ui-tree-list\">\r\n                <ui-tree [data]=\"accounts\" [key]=\"key\" (treeCallback)=\"treeReturn($event)\" (treeEditCallback)=\"onEdit($event)\"></ui-tree>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div>\r\n    <ol class=\"breadcrumb\">\r\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-list-ul\"></i> {{'account' | translate}}</li>\r\n    </ol>\r\n    <div class=\"row\">\r\n        <div class=\"col-12 text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\" [routerLink]=\"['/account-create']\">{{'new-account' | translate}}</button>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-12\">\r\n            <div class=\"ui-tree-list\">\r\n                <ui-tree [data]=\"accounts\" [key]=\"key\" (treeCallback)=\"treeReturn($event)\" (treeEditCallback)=\"onEdit($event)\"></ui-tree>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 

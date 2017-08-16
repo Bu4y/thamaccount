@@ -7,11 +7,11 @@ import { AccountListModel, AccountModel } from "../account-create/account-create
 
 import { JvCreateService } from "../jv-create/jv-create.service";
 @Component({
-  selector: 'app-pv-create',
-  templateUrl: './pv-create.component.html',
-  styleUrls: ['./pv-create.component.scss']
+  selector: 'app-rv-create',
+  templateUrl: './rv-create.component.html',
+  styleUrls: ['./rv-create.component.scss']
 })
-export class PvCreateComponent implements OnInit {
+export class RvCreateComponent implements OnInit {
   accountForm: AccountFormModel = new AccountFormModel();
   accounts: AccountListModel = new AccountListModel();
   account: AccountModel = new AccountModel();
@@ -78,7 +78,7 @@ export class PvCreateComponent implements OnInit {
       }
       return false;
     }
-    this.accountForm.gltype = 'PV';
+    this.accountForm.gltype = 'RV';
     this.jvCreateService.postJv(this.accountForm).then((data) => {
       if (this.currentLang === 'th') {
         alert('สำเร็จ เลขที่เอกสาร "' + data.docno + '"');
@@ -90,4 +90,5 @@ export class PvCreateComponent implements OnInit {
       alert(JSON.parse(error._body).message);
     });
   }
+
 }

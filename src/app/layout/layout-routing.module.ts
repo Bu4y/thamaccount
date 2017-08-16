@@ -16,6 +16,7 @@ const routes: Routes = [
             { path: 'ap-create', loadChildren: './ap-create/ap-create.module#ApCreateModule' },
             { path: 'ar-create', loadChildren: './ar-create/ar-create.module#ArCreateModule' },
             { path: 'pv-create', loadChildren: './pv-create/pv-create.module#PvCreateModule' },
+            { path: 'rv-create', loadChildren: './rv-create/rv-create.module#RvCreateModule' },            
             { path: 'jv-create', loadChildren: './jv-create/jv-create.module#JvCreateModule' }
 
         ]

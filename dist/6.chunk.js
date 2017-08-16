@@ -1,13 +1,13 @@
 webpackJsonp([6],{
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists-routing.module.ts":
+/***/ "../../../../../src/app/layout/expend-create/expend-create-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__expend_lists_component__ = __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendListsRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__expend_create_component__ = __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendCreateRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__expend_lists_component__["a" /* ExpendListsComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__expend_create_component__["a" /* ExpendCreateComponent */] }
 ];
-var ExpendListsRoutingModule = (function () {
-    function ExpendListsRoutingModule() {
+var ExpendCreateRoutingModule = (function () {
+    function ExpendCreateRoutingModule() {
     }
-    return ExpendListsRoutingModule;
+    return ExpendCreateRoutingModule;
 }());
-ExpendListsRoutingModule = __decorate([
+ExpendCreateRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], ExpendListsRoutingModule);
+], ExpendCreateRoutingModule);
 
-//# sourceMappingURL=expend-lists-routing.module.js.map
+//# sourceMappingURL=expend-create-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists.component.html":
+/***/ "../../../../../src/app/layout/expend-create/expend-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-list-ul\"></i> Expend</li>\n    </ol>\n    <div class=\"row\">\n        <div class=\"col-12 text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [routerLink]=\"['/expend-create']\">New Expent</button>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <div class=\"card-block table-responsive\">\n                <table class=\"table table-hover table-striped\">\n                    <thead class=\"thead-inverse\">\n                        <tr>\n                            <th>#</th>\n                            <th>Name</th>\n                            <th class=\"text-right\">Unit Price</th>\n                            <th class=\"text-right\">VAT</th>\n                            <th class=\"text-right\">Net Amount</th>\n                            <th class=\"text-center\">Action</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let expend of expends.expend; let i = index\" (click)=\"goToDetail(expend)\">\n                            <th scope=\"row\">{{i + 1}}</th>\n                            <td>{{expend.name}}</td>\n                            <td class=\"text-right\">{{expend.unitprice}}</td>\n                            <td class=\"text-right\">{{expend.vat}}</td>\n                            <td class=\"text-right\">{{expend.netamount}}</td>\n                            <td class=\"text-center\">\n                                <div class=\"btn-group\" role=\"group\">\n                                    <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteExpend(expend._id)\"><i class=\"fa fa-trash\"></i></button>\n                                </div>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\">\n            <i class=\"fa fa-list-ul\"></i> <a [routerLink]=\"['/expend-lists']\">Expend</a>\n        </li>\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-edit\"></i> Create</li>\n    </ol>\n    <div class=\"row\" [@routerTransition]>\n        <div class=\"col-md-3 col-sm-1\">\n        </div>\n        <div class=\"col-md-6 col-sm-10\">\n            <form role=\"form\">\n                <fieldset class=\"form-group\">\n                    <label>Name</label>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"expend.name\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>Unit Price</label>\n                    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"expend.unitprice\" (ngModelChange)=\"onCalculate()\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>VAT(%)</label>\n                    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"expend.vat\" (ngModelChange)=\"onCalculate()\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>Net Amount</label>\n                    <input class=\"form-control\" type=\"number\" [(ngModel)]=\"expend.netamount\" [ngModelOptions]=\"{standalone: true}\" [disabled]=\"true\">\n                </fieldset>\n            </form>\n            <div class=\"col-12 text-center\">\n                <button type=\"submit\" class=\"btn btn-primary\" (click)=\"saveExpent()\">Save</button>\n            </div>\n        </div>\n        <div class=\"col-md-3 col-sm-1\">\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists.component.scss":
+/***/ "../../../../../src/app/layout/expend-create/expend-create.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".padding {\n  padding: 8px 8px 8px 8px; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -61,16 +61,15 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists.component.ts":
+/***/ "../../../../../src/app/layout/expend-create/expend-create.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router_animations__ = __webpack_require__("../../../../../src/app/router.animations.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__expend_lists_service__ = __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__expend_lists_model__ = __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.model.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendListsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__expend_create_service__ = __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__expend_create_model__ = __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.model.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendCreateComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -84,84 +83,91 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-var ExpendListsComponent = (function () {
-    function ExpendListsComponent(route, router, expendListsService) {
+var ExpendCreateComponent = (function () {
+    function ExpendCreateComponent(route, router, expendCreateService) {
         this.route = route;
         this.router = router;
-        this.expendListsService = expendListsService;
-        this.expends = new __WEBPACK_IMPORTED_MODULE_4__expend_lists_model__["a" /* ExpendListModel */]();
+        this.expendCreateService = expendCreateService;
+        this.expend = new __WEBPACK_IMPORTED_MODULE_3__expend_create_model__["a" /* ExpendModel */]();
     }
-    ExpendListsComponent.prototype.ngOnInit = function () {
+    ExpendCreateComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.expendListsService.getExpends().then(function (data) {
-            _this.expends.expend = data;
-        }, function (error) {
-            console.error(error);
+        this.subParams = this.route
+            .queryParams
+            .subscribe(function (params) {
+            var item = params['item'];
+            if (item && item !== '') {
+                _this.expend = JSON.parse(item);
+            }
         });
+        this.subParams.unsubscribe();
     };
-    ExpendListsComponent.prototype.goToDetail = function (item) {
-        this.router.navigate(['/expend-create'], { queryParams: { item: JSON.stringify(item) } });
+    ExpendCreateComponent.prototype.onCalculate = function () {
+        var unitprice = this.expend.unitprice;
+        var vat = this.expend.vat;
+        this.expend.netamount = ((unitprice / 100) * vat) + unitprice;
     };
-    ExpendListsComponent.prototype.deleteExpend = function (_id) {
+    ExpendCreateComponent.prototype.saveExpent = function () {
         var _this = this;
-        window.event.stopPropagation();
-        this.expendListsService.deleteExpends(_id).then(function (data) {
-            _this.ngOnInit();
-        }, function (error) {
-            console.error(error);
-        });
+        var expend = this.expend;
+        if (expend._id) {
+            this.expendCreateService.putExpend(expend).then(function (data) {
+                _this.router.navigate(['/expend-lists']);
+            }, function (error) {
+                console.error(error);
+            });
+        }
+        else {
+            this.expendCreateService.postExpend(expend).then(function (data) {
+                _this.router.navigate(['/expend-lists']);
+            }, function (error) {
+                console.error(error);
+            });
+        }
     };
-    return ExpendListsComponent;
+    return ExpendCreateComponent;
 }());
-ExpendListsComponent = __decorate([
+ExpendCreateComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-expend-lists',
-        template: __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.component.scss")],
-        animations: [__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__router_animations__["a" /* routerTransition */])()]
+        selector: 'app-expend-create',
+        template: __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/expend-create/expend-create.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__expend_lists_service__["a" /* ExpendListsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__expend_lists_service__["a" /* ExpendListsService */]) === "function" && _c || Object])
-], ExpendListsComponent);
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__expend_create_service__["a" /* ExpendCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__expend_create_service__["a" /* ExpendCreateService */]) === "function" && _c || Object])
+], ExpendCreateComponent);
 
 var _a, _b, _c;
-//# sourceMappingURL=expend-lists.component.js.map
+//# sourceMappingURL=expend-create.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists.model.ts":
+/***/ "../../../../../src/app/layout/expend-create/expend-create.model.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendListModel; });
-/* unused harmony export ExpendModel */
-var ExpendListModel = (function () {
-    function ExpendListModel() {
-    }
-    return ExpendListModel;
-}());
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExpendModel; });
 var ExpendModel = (function () {
     function ExpendModel() {
     }
     return ExpendModel;
 }());
 
-//# sourceMappingURL=expend-lists.model.js.map
+//# sourceMappingURL=expend-create.model.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/expend-lists/expend-lists.module.ts":
+/***/ "../../../../../src/app/layout/expend-create/expend-create.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__expend_lists_routing_module__ = __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__expend_lists_component__ = __webpack_require__("../../../../../src/app/layout/expend-lists/expend-lists.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpendListsModule", function() { return ExpendListsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__expend_create_routing_module__ = __webpack_require__("../../../../../src/app/layout/expend-create/expend-create-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__expend_create_component__ = __webpack_require__("../../../../../src/app/layout/expend-create/expend-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpendCreateModule", function() { return ExpendCreateModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -173,23 +179,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ExpendListsModule = (function () {
-    function ExpendListsModule() {
+
+var ExpendCreateModule = (function () {
+    function ExpendCreateModule() {
     }
-    return ExpendListsModule;
+    return ExpendCreateModule;
 }());
-ExpendListsModule = __decorate([
+ExpendCreateModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_2__expend_lists_routing_module__["a" /* ExpendListsRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* PageHeaderModule */]
+            __WEBPACK_IMPORTED_MODULE_3__expend_create_routing_module__["a" /* ExpendCreateRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* PageHeaderModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_3__expend_lists_component__["a" /* ExpendListsComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_4__expend_create_component__["a" /* ExpendCreateComponent */]]
     })
-], ExpendListsModule);
+], ExpendCreateModule);
 
-//# sourceMappingURL=expend-lists.module.js.map
+//# sourceMappingURL=expend-create.module.js.map
 
 /***/ })
 
