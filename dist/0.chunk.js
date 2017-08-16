@@ -22,6 +22,51 @@ var AccountListModel = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/layout/account.model.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export AccountListModel */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountFormModel; });
+/* unused harmony export DebitModel */
+/* unused harmony export CreditModel */
+/* unused harmony export AccountModel */
+var AccountListModel = (function () {
+    function AccountListModel() {
+    }
+    return AccountListModel;
+}());
+
+var AccountFormModel = (function () {
+    function AccountFormModel() {
+    }
+    return AccountFormModel;
+}());
+
+var DebitModel = (function () {
+    function DebitModel() {
+        this.account = new AccountModel();
+    }
+    return DebitModel;
+}());
+
+var CreditModel = (function () {
+    function CreditModel() {
+        this.account = new AccountModel();
+    }
+    return CreditModel;
+}());
+
+var AccountModel = (function () {
+    function AccountModel() {
+    }
+    return AccountModel;
+}());
+
+//# sourceMappingURL=account.model.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/router.animations.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

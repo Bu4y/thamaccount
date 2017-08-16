@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { HeaderComponent, SidebarComponent } from '../shared';
+import { ArCreateComponent } from './ar-create/ar-create.component';
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import { HeaderComponent, SidebarComponent } from '../shared';
     declarations: [
         LayoutComponent,
         HeaderComponent,
-        SidebarComponent
+        SidebarComponent,
+        ArCreateComponent
     ]
 })
 export class LayoutModule { }

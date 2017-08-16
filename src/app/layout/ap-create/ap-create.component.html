@@ -1,1 +1,25 @@
- <app-account-header [header]="'ap'"></app-account-header> 
+<app-account-header [header]="'ap'" (date)="docdate($event)"></app-account-header>
+<app-account-debit [debitHeader]="'ap-debit'" [accounts]="accounts" (debitItems)="onDebits($event)"></app-account-debit>
+<hr>
+<app-account-credit [creditHeader]="'ap-credit'" [accounts]="accounts" (creditItems)="onCredits($event)"></app-account-credit>
+<hr>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <fieldset class="form-group">
+            <label>{{'remark' | translate}}</label>
+            <textarea class="form-control" rows="6" cols="50" [(ngModel)]="accountForm.remark" [ngModelOptions]="{standalone: true}" placeholder="{{'remark-inbox' | translate}}"></textarea>
+        </fieldset>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <button type="button" class="btn btn-success full" (click)="onSave()">{{'save' | translate}}</button>
+    </div>
+    <div class="col-md-3"></div>
+    <!-- <div class="col-md-4">
+        <button type="button" class="btn btn-danger full" (click)="onCancel()">{{'cancel' | translate}}</button>
+    </div> -->
+</div>

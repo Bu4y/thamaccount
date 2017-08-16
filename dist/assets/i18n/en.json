@@ -12,6 +12,8 @@
     "expend-lists": "Expend",
     "contact-lists": "Contact",
     "ap": "Account Payable",
+    "ap-debit":"Cost/Asset",
+    "ap-credit": "Creditor",    
     "save": "Save",
     "cancel": "Cancel",
     "jv": "Joint Venture",
