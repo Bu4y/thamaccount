@@ -14,6 +14,8 @@ const routes: Routes = [
             { path: 'contact-create', loadChildren: './contact-create/contact-create.module#ContactCreateModule' },
             { path: 'contact-lists', loadChildren: './contact-lists/contact-lists.module#ContactListsModule' },
             { path: 'ap-create', loadChildren: './ap-create/ap-create.module#ApCreateModule' },
+            { path: 'ar-create', loadChildren: './ar-create/ar-create.module#ArCreateModule' },
+            { path: 'pv-create', loadChildren: './pv-create/pv-create.module#PvCreateModule' },
             { path: 'jv-create', loadChildren: './jv-create/jv-create.module#JvCreateModule' }
 
         ]

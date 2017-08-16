@@ -3,19 +3,19 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 
-import { ArCreateRoutingModule } from "./ar-create-routing.module";
-import { ArCreateComponent } from "./ar-create.component";
+import { PvCreateRoutingModule } from "./pv-create-routing.module";
+import { PvCreateComponent } from "./pv-create.component";
 
 import { ComponentModule } from "../../shared/components/components.module";
 
 @NgModule({
   imports: [
     CommonModule,
-    ArCreateRoutingModule,
-    ComponentModule,
+    PvCreateRoutingModule,
     TranslateModule,
-    FormsModule
+    FormsModule,
+    ComponentModule
   ],
-  declarations: [ArCreateComponent]
+  declarations: [PvCreateComponent]
 })
-export class ArCreateModule { }
+export class PvCreateModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { AccountModel, AccountListModel } from "./account-create.model";
 import { AccountCreateService } from "./account-create.service";
@@ -15,7 +16,8 @@ export class AccountCreateComponent implements OnInit {
   error: string;
   subParams: any;
   status: Array<string> = ['active', 'inactive'];
-  constructor(private accountCreateService: AccountCreateService, private router: Router, private route: ActivatedRoute) { }
+  currentLang: string;
+  constructor(private accountCreateService: AccountCreateService, private router: Router, private route: ActivatedRoute, private translate: TranslateService) { }
 
   ngOnInit() {
     this.getAccount();
@@ -59,6 +61,23 @@ export class AccountCreateComponent implements OnInit {
         console.log(this.error);
       });
     } else {
+      this.currentLang = this.translate.currentLang;
+      if (!this.account.accountno) {
+        if (this.currentLang === 'th') {
+          alert('กรุณาระบุรหัสบัญชี');
+        } else {
+          alert('Please fill account no.');
+        }
+        return false;
+      }
+      if (!this.account.name) {
+        if (this.currentLang === 'th') {
+          alert('กรุณาระบุชื่อบัญชี');
+        } else {
+          alert('Please fill account name.');
+        }
+        return false;
+      }
       this.accountCreateService.postAccount(this.account).then((data) => {
         this.router.navigate(['/account']);
       }, (error) => {

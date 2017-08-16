@@ -1,9 +1,9 @@
 <div>
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <i class="fa fa-list-ul"></i> <a [routerLink]="['/account']">Account</a>
+            <i class="fa fa-list-ul"></i> <a [routerLink]="['/account']">{{'account' | translate}}</a>
         </li>
-        <li class="breadcrumb-item active"><i class="fa fa-edit"></i> Create</li>
+        <li class="breadcrumb-item active"><i class="fa fa-edit"></i> {{'new-account' | translate}}</li>
     </ol>
     <div class="row">
         <div class="col-md-3 col-sm-1">
@@ -11,15 +11,15 @@
         <div class="col-md-6 col-sm-10">
             <form role="form">
                 <fieldset class="form-group">
-                    <label>Account No</label> <span class="danger">*</span>
+                    <label>{{'account-no' | translate}}</label> <span class="danger">*</span>
                     <input class="form-control" type="text" [(ngModel)]="account.accountno" [ngModelOptions]="{standalone: true}" [disabled]="account._id">
                 </fieldset>
                 <fieldset class="form-group">
-                    <label>Name</label> <span class="danger">*</span>
+                    <label>{{'account-name' | translate}}</label> <span class="danger">*</span>
                     <input class="form-control" type="text" [(ngModel)]="account.name" [ngModelOptions]="{standalone: true}">
                 </fieldset>
                 <fieldset class="form-group">
-                    <label>Parent</label>
+                    <label>{{'parent' | translate}}</label>
                     <select [(ngModel)]="account.parent" [ngModelOptions]="{standalone: true}" [disabled]="account._id" class="form-control">       
                             <option *ngFor="let parent of parents.accounts"
                                 [ngValue]="parent.accountno"
@@ -29,7 +29,7 @@
                         </select>
                 </fieldset>
                 <fieldset class="form-group">
-                    <label>Status</label>
+                    <label>{{'status' | translate}}</label>
                     <select [(ngModel)]="account.status" [ngModelOptions]="{standalone: true}" class="form-control">       
                             <option *ngFor="let sta of status"
                                 [ngValue]="sta"
@@ -39,10 +39,7 @@
                         </select>
                 </fieldset>
                 <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary" (click)="saveAccount()">Save</button>
-                </div>
-                <div class="col-12 text-center">
-                    <span class="danger">{{error}}</span>
+                    <button type="submit" class="btn btn-primary" (click)="saveAccount()">{{'save' | translate}}</button>
                 </div>
             </form>
         </div>

@@ -20,7 +20,6 @@ export class ApCreateComponent implements OnInit {
 
   }
 
-
   ngOnInit() {
     this.getAccount();
   }

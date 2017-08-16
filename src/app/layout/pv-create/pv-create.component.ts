@@ -7,18 +7,16 @@ import { AccountListModel, AccountModel } from "../account-create/account-create
 
 import { JvCreateService } from "../jv-create/jv-create.service";
 @Component({
-  selector: 'app-ar-create',
-  templateUrl: './ar-create.component.html',
-  styleUrls: ['./ar-create.component.scss']
+  selector: 'app-pv-create',
+  templateUrl: './pv-create.component.html',
+  styleUrls: ['./pv-create.component.scss']
 })
-export class ArCreateComponent implements OnInit {
+export class PvCreateComponent implements OnInit {
   accountForm: AccountFormModel = new AccountFormModel();
   accounts: AccountListModel = new AccountListModel();
   account: AccountModel = new AccountModel();
   currentLang: string;
-  constructor(private accountCreateService: AccountCreateService, private jvCreateService: JvCreateService, private translate: TranslateService) {
-
-  }
+  constructor(private accountCreateService: AccountCreateService, private jvCreateService: JvCreateService, private translate: TranslateService) { }
 
 
   ngOnInit() {
@@ -81,7 +79,7 @@ export class ArCreateComponent implements OnInit {
       }
       return false;
     }
-    this.accountForm.gltype = 'AR';
+    this.accountForm.gltype = 'PV';
     this.jvCreateService.postJv(this.accountForm).then((data) => {
       if (this.currentLang === 'th') {
         alert('สำเร็จ เลขที่เอกสาร "' + data.docno + '"');
@@ -93,5 +91,4 @@ export class ArCreateComponent implements OnInit {
       alert(JSON.parse(error._body).message);
     });
   }
-
 }

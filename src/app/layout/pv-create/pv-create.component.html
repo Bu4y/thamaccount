@@ -1,7 +1,7 @@
-<app-account-header [header]="'ar'" (date)="docdate($event)"></app-account-header>
-<app-account-debit [debitHeader]="'ar-debit'" [accounts]="accounts" (debitItems)="onDebits($event)"></app-account-debit>
+<app-account-header [header]="'pv'" (date)="docdate($event)"></app-account-header>
+<app-account-debit [debitHeader]="'pv-debit'" [accounts]="accounts" (debitItems)="onDebits($event)"></app-account-debit>
 <hr>
-<app-account-credit [creditHeader]="'ar-credit'" [accounts]="accounts" (creditItems)="onCredits($event)"></app-account-credit>
+<app-account-credit [creditHeader]="'pv-credit'" [accounts]="accounts" (creditItems)="onCredits($event)"></app-account-credit>
 <hr>
 <div class="row">
     <div class="col-md-3"></div>
