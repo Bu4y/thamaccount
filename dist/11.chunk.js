@@ -98,7 +98,7 @@ var LayoutComponent = (function () {
     }
     LayoutComponent.prototype.ngOnInit = function () {
         if (this.router.url === '/') {
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/account']);
         }
     };
     return LayoutComponent;
