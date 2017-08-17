@@ -222,7 +222,7 @@ AccountModule = __decorate([
 /***/ "../../../../../src/app/shared/components/ui-tree/ui-tree.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"just-padding\" *ngIf=\"items\">\r\n    <div class=\"list-group list-group-root\" class=\"main-list\" *ngFor=\"let item of items\" (click)=\"clickItem(item)\">\r\n        <a class=\"list-group-item list-group-item-action\">\r\n          <i class=\"fa fa-caret-right none\" [ngClass]=\"{'show': !item.expand && item[key].length}\"></i>\r\n          <i class=\"fa fa-caret-down none\" [ngClass]=\"{'show': item.expand && item[key].length}\"></i>\r\n          &nbsp;\r\n          {{item.accountno}}\r\n          &nbsp;\r\n          {{item.name}} \r\n          <i class=\"fa fa-edit icon-edit\" (click)=\"onEditItem(item)\"></i>\r\n        </a>\r\n        <ui-tree *ngIf=\"item[key].length && item.expand == true\" [key]=\"key\" [data]=\"item[key]\" (treeCallback)=\"treeReturn($event)\"\r\n            (treeEditCallback)=\"onEdit($event)\"></ui-tree>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"just-padding\" *ngIf=\"items\">\r\n    <div class=\"list-group list-group-root\" class=\"main-list\" *ngFor=\"let item of items\" (click)=\"clickItem(item)\">\r\n        <a class=\"list-group-item list-group-item-action\">\r\n          <i class=\"fa fa-caret-right none\" [ngClass]=\"{'show': !item.expand && item[key].length}\"></i>\r\n          <i class=\"fa fa-caret-down none\" [ngClass]=\"{'show': item.expand && item[key].length}\"></i>\r\n          &nbsp;\r\n          {{item.accountno}}\r\n          &nbsp;\r\n          {{item.name}} \r\n          &nbsp;\r\n          <span class=\"{{item.status === 'active' ? 'active': 'inactive'}}\">({{item.status}})</span>\r\n          <i class=\"fa fa-edit icon-edit\" (click)=\"onEditItem(item)\"></i>\r\n        </a>\r\n        <ui-tree *ngIf=\"item[key].length && item.expand == true\" [key]=\"key\" [data]=\"item[key]\" (treeCallback)=\"treeReturn($event)\"\r\n            (treeEditCallback)=\"onEdit($event)\"></ui-tree>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -234,7 +234,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".just-padding {\n  padding-left: 30px; }\n\n.list-group-item {\n  padding: 8px;\n  padding-left: 16px;\n  margin-top: 1px; }\n\n.icon-edit {\n  position: fixed;\n  right: 30px !important;\n  margin-top: -18px;\n  color: #4CAF50; }\n\n.none {\n  color: transparent; }\n\n.show {\n  color: #666666 !important; }\n", ""]);
+exports.push([module.i, ".just-padding {\n  padding-left: 30px; }\n\n.list-group-item {\n  padding: 8px;\n  padding-left: 16px;\n  margin-top: 1px; }\n\n.icon-edit {\n  position: fixed;\n  right: 30px !important;\n  color: #4CAF50; }\n\n.none {\n  color: transparent; }\n\n.show {\n  color: #666666 !important; }\n\n.active {\n  color: #4CAF50 !important; }\n\n.inactive {\n  color: #F44336 !important; }\n", ""]);
 
 // exports
 

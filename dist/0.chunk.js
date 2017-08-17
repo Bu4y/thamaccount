@@ -422,7 +422,7 @@ var _a;
 /***/ "../../../../../src/app/shared/components/account-dropdown/account-dropdown.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<select [(ngModel)]=\"selectedAccount\" (ngModelChange)=\"onChangeItem()\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">       \n  <option *ngFor=\"let account of accounts.accounts\" \n    [ngValue]=\"account\"\n    [attr.selected]=\"selectedAccount ? selectedAccount._id === account._id ? true : null : null\">\n      {{account.accountno}} {{account.name}}\n  </option>\n</select>\n"
+module.exports = "<select [(ngModel)]=\"selectedAccount\" (ngModelChange)=\"onChangeItem()\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">       \n  <option *ngFor=\"let account of accounts.accounts\" \n    [ngValue]=\"account\"\n    [attr.selected]=\"selectedAccount ? selectedAccount._id === account._id ? true : null : null\"\n    [hidden]=\"account.status === 'inactive'\">\n      {{account.accountno}} {{account.name}}\n  </option>\n</select>\n"
 
 /***/ }),
 
