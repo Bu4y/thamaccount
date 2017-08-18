@@ -45,13 +45,13 @@ export class ApCreateComponent implements OnInit {
   }
 
   onDebits(debit) {
-    this.accountForm.debits = debit.debits;
-    this.accountForm.totaldebit = debit.totaldebit;
+    this.accountForm.debits = debit.accounts;
+    this.accountForm.totaldebit = debit.totalaccount;
   }
 
   onCredits(credit) {
-    this.accountForm.credits = credit.credits;
-    this.accountForm.totalcredit = credit.totalcredit;
+    this.accountForm.credits = credit.accounts;
+    this.accountForm.totalcredit = credit.totalaccount;
   }
 
   onSave() {

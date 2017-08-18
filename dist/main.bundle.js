@@ -1,4 +1,4 @@
-webpackJsonp([18],{
+webpackJsonp([20],{
 
 /***/ "../../../../../src async recursive":
 /***/ (function(module, exports, __webpack_require__) {
@@ -6,7 +6,7 @@ webpackJsonp([18],{
 var map = {
 	"./account-create/account-create.module": [
 		"../../../../../src/app/layout/account-create/account-create.module.ts",
-		16,
+		18,
 		0
 	],
 	"./account/account.module": [
@@ -15,12 +15,17 @@ var map = {
 	],
 	"./ap-create/ap-create.module": [
 		"../../../../../src/app/layout/ap-create/ap-create.module.ts",
-		15,
+		17,
 		0
 	],
 	"./ar-create/ar-create.module": [
 		"../../../../../src/app/layout/ar-create/ar-create.module.ts",
-		14,
+		16,
+		0
+	],
+	"./buy-create/buy-create.module": [
+		"../../../../../src/app/layout/buy-create/buy-create.module.ts",
+		15,
 		0
 	],
 	"./contact-create/contact-create.module": [
@@ -49,12 +54,12 @@ var map = {
 	],
 	"./jv-create/jv-create.module": [
 		"../../../../../src/app/layout/jv-create/jv-create.module.ts",
-		13,
+		14,
 		0
 	],
 	"./layout/layout.module": [
 		"../../../../../src/app/layout/layout.module.ts",
-		12,
+		13,
 		0
 	],
 	"./login/login.module": [
@@ -69,11 +74,16 @@ var map = {
 	],
 	"./pv-create/pv-create.module": [
 		"../../../../../src/app/layout/pv-create/pv-create.module.ts",
-		11,
+		12,
 		0
 	],
 	"./rv-create/rv-create.module": [
 		"../../../../../src/app/layout/rv-create/rv-create.module.ts",
+		11,
+		0
+	],
+	"./sale-create/sale-create.module": [
+		"../../../../../src/app/layout/sale-create/sale-create.module.ts",
 		10,
 		0
 	],
@@ -782,7 +792,7 @@ var _a;
 /***/ "../../../../../src/app/shared/components/account-header/account-header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-file-o\"></i> {{ header | translate}}\n\n        </li>\n    </ol>\n    <div class=\"row\">\n        <div class=\"col-md-4\">\n        </div>\n        <div class=\"col-md-4\">\n        </div>\n        <div class=\"col-md-4\">\n            <fieldset class=\"form-group\">\n                <label>{{'docdate' | translate}}</label>\n                <input class=\"form-control\" type=\"date\" [ngModel]=\"docdate\" (ngModelChange)=\"selectDocDate($event)\" [ngModelOptions]=\"{standalone: true}\" useValueAsDate>\n            </fieldset>\n        </div>\n    </div>\n    <hr>\n</div>\n"
+module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\"><i class=\"fa {{icon !== '' ? icon : 'fa-file-o'}}\"></i> {{ header | translate}}\n        </li>\n    </ol>\n    <div class=\"row\">\n        <div class=\"col-md-4\">\n        </div>\n        <div class=\"col-md-4\">\n        </div>\n        <div class=\"col-md-4\">\n            <fieldset class=\"form-group\">\n                <label>{{'docdate' | translate}}</label>\n                <input class=\"form-control\" type=\"date\" [ngModel]=\"docdate\" (ngModelChange)=\"selectDocDate($event)\" [ngModelOptions]=\"{standalone: true}\"\n                    useValueAsDate>\n            </fieldset>\n        </div>\n    </div>\n    <hr>\n</div>\n"
 
 /***/ }),
 
@@ -822,6 +832,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AccountHeaderComponent = (function () {
     function AccountHeaderComponent() {
+        this.icon = '';
         this.date = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     AccountHeaderComponent.prototype.ngOnInit = function () {
@@ -838,6 +849,10 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('header'),
     __metadata("design:type", String)
 ], AccountHeaderComponent.prototype, "header", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('icon'),
+    __metadata("design:type", String)
+], AccountHeaderComponent.prototype, "icon", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
@@ -963,7 +978,7 @@ var _a, _b;
 /***/ "../../../../../src/app/shared/components/sidebar/sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"sidebar\" [ngClass]=\"{sidebarPushRight: isActive}\">\r\n    <ul class=\"list-group\">\r\n        <!-- <a routerLink=\"/dashboard\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-fw fa-dashboard\"></i>&nbsp;{{ 'dashboard' | translate }}\r\n        </a> -->\r\n        <!-- <a [routerLink]=\"['/expend-lists']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'expend-lists' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/contact-lists']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'contact-lists' | translate }}\r\n        </a> -->\r\n        <a [routerLink]=\"['/account']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'account' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/ap-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'ap' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/ar-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'ar' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/pv-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'pv' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/rv-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'rv' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/jv-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'jv' | translate }}\r\n        </a>\r\n    </ul>\r\n</nav>\r\n"
+module.exports = "<nav class=\"sidebar\" [ngClass]=\"{sidebarPushRight: isActive}\">\r\n    <ul class=\"list-group\">\r\n        <!-- <a routerLink=\"/dashboard\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-fw fa-dashboard\"></i>&nbsp;{{ 'dashboard' | translate }}\r\n        </a> -->\r\n        <!-- <a [routerLink]=\"['/expend-lists']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'expend-lists' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/contact-lists']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'contact-lists' | translate }}\r\n        </a> -->\r\n        <a [routerLink]=\"['/account']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-list-ul\"></i>&nbsp;{{ 'account' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/ap-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'ap' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/ar-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'ar' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/pv-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'pv' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/rv-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'rv' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/jv-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-file-o\"></i>&nbsp;{{ 'jv' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/buy-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-edit\"></i>&nbsp;{{ 'buy' | translate }}\r\n        </a>\r\n        <a [routerLink]=\"['/sale-create']\" [routerLinkActive]=\"['router-link-active']\" class=\"list-group-item\" (click)=\"toggleSidebar()\">\r\n            <i class=\"fa fa-edit\"></i>&nbsp;{{ 'sale' | translate }}\r\n        </a>\r\n    </ul>\r\n</nav>\r\n"
 
 /***/ }),
 

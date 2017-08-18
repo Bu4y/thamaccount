@@ -2,17 +2,17 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-account-debit',
-  templateUrl: './account-debit.component.html',
-  styleUrls: ['./account-debit.component.scss']
+  selector: 'app-account-form',
+  templateUrl: './account-form.component.html',
+  styleUrls: ['./account-form.component.scss']
 })
-export class AccountDebitComponent implements OnInit {
+export class AccountFormComponent implements OnInit {
   @Input('accounts') data: Array<Object>
-  @Input('debitHeader') debitHeader: string;
-  @Output() debitItems = new EventEmitter();
-  debit: DebitModel = new DebitModel();
-  debits: Array<any> = [];
-  debitTotal: number;
+  @Input('accountHeader') accountHeader: string;
+  @Output() accountItems = new EventEmitter();
+  account: AccountItemModel = new AccountItemModel();
+  accounts: Array<any> = [];
+  accountTotal: number;
   currentLang: string;
 
   constructor(private translate: TranslateService) { }
@@ -22,22 +22,22 @@ export class AccountDebitComponent implements OnInit {
 
   selected($event) {
     // console.log($event);
-    this.debit.account = $event;
+    this.account.account = $event;
   }
 
   addItem() {
     this.currentLang = this.translate.currentLang;
 
-    if (!this.debit.account._id) {
+    if (!this.account.account._id) {
       if (this.currentLang === 'th') {
         alert('กรุณาเลือกรหัสบัญชี');
       } else {
-        alert('Please fill debit.');
+        alert('Please fill account.');
       }
       return false;
     }
 
-    if (!this.debit.amount) {
+    if (!this.account.amount) {
       if (this.currentLang === 'th') {
         alert('กรุณาระบุจำนวนเงิน');
       } else {
@@ -46,32 +46,31 @@ export class AccountDebitComponent implements OnInit {
       return false;
     }
 
-    this.debits.push(this.debit);
-    this.debit = new DebitModel();
-    this.debit.account = this.debits[this.debits.length - 1].account;
+    this.accounts.push(this.account);
+    this.account = new AccountItemModel();
+    this.account.account = this.accounts[this.accounts.length - 1].account;
     this.calculate();
   }
 
   removeItem(index) {
-    this.debits.splice(index, 1);
+    this.accounts.splice(index, 1);
     this.calculate();
   }
 
   calculate() {
-    this.debitTotal = 0;
-    let length = this.debits.length;
+    this.accountTotal = 0;
+    let length = this.accounts.length;
     for (let i = 0; i < length; i++) {
-      this.debitTotal += this.debits[i].amount;
+      this.accountTotal += this.accounts[i].amount;
     }
-    this.debitItems.emit({
-      debits: this.debits,
-      totaldebit: this.debitTotal
+    this.accountItems.emit({
+      accounts: this.accounts,
+      totalaccount: this.accountTotal
     });
   }
 
 }
-
-export class DebitModel {
+export class AccountItemModel {
   account: AccountModel = new AccountModel();
   description: string;
   amount: number;

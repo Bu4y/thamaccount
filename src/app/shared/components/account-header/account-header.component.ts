@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class AccountHeaderComponent implements OnInit {
   @Input('header') header: string;
+  @Input('icon') icon: string = '';
   @Output() date = new EventEmitter();
   docdate: Date;
   constructor() { }

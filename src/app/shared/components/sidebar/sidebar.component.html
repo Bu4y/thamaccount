@@ -10,7 +10,7 @@
             <i class="fa fa-file-o"></i>&nbsp;{{ 'contact-lists' | translate }}
         </a> -->
         <a [routerLink]="['/account']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
-            <i class="fa fa-file-o"></i>&nbsp;{{ 'account' | translate }}
+            <i class="fa fa-list-ul"></i>&nbsp;{{ 'account' | translate }}
         </a>
         <a [routerLink]="['/ap-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'ap' | translate }}
@@ -26,6 +26,12 @@
         </a>
         <a [routerLink]="['/jv-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'jv' | translate }}
+        </a>
+        <a [routerLink]="['/buy-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
+            <i class="fa fa-edit"></i>&nbsp;{{ 'buy' | translate }}
+        </a>
+        <a [routerLink]="['/sale-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
+            <i class="fa fa-edit"></i>&nbsp;{{ 'sale' | translate }}
         </a>
     </ul>
 </nav>

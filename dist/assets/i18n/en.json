@@ -34,5 +34,12 @@
     "credit": "Credit",
     "total": "Total",
     "remark": "Remark",
-    "remark-inbox": "Remark in here..."
+    "remark-inbox": "Remark in here...",
+    "sale": "Sale",
+    "buy": "Buy",
+    "contact-sale": "Sale for",
+    "contact-buy": "Get from",
+    "qty": "Qty",
+    "unit-price": "Unit price",
+    "vat": "Vat"
 }

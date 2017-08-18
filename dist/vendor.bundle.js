@@ -1,4 +1,4 @@
-webpackJsonp([21],{
+webpackJsonp([23],{
 
 /***/ "../../../../@ngx-translate/core/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {

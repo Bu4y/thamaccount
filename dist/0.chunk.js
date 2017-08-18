@@ -141,284 +141,6 @@ function slideToTop() {
 
 /***/ }),
 
-/***/ "../../../../../src/app/shared/components/account-credit/account-credit.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\n    <div class=\"col-12\">\n        <div class=\"card-block table-responsive\">\n            <div>\n                <p><b>{{ creditHeader | translate}}</b></p>\n            </div>\n            <table class=\"table table-hover table-striped\">\n                <thead class=\"thead-inverse\">\n                    <tr>\n                        <th>#</th>\n                        <th>{{ 'accountname' | translate}}</th>\n                        <th>{{ 'description' | translate}}</th>\n                        <th>{{ 'amount' | translate}}</th>\n                        <th class=\"text-right\"></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let itm of credits; let i = index\">\n                        <td>{{i + 1}}</td>\n                        <td>\n                            <app-account-dropdown [data]=\"data\" [selected]=\"itm.account\" (callback)=\"selected($event)\"></app-account-dropdown>\n                        </td>\n                        <td><input class=\"form-control\" type=\"text\" [(ngModel)]=\"itm.description\" [ngModelOptions]=\"{standalone: true}\"></td>\n                        <td><input class=\"form-control\" type=\"number\" [(ngModel)]=\"itm.amount\" [ngModelOptions]=\"{standalone: true}\"></td>\n                        <td class=\"text-right\">\n                            <div class=\"btn-group\" role=\"group\">\n                                <button type=\"button\" class=\"btn btn-danger\" (click)=\"removeItem(i)\"><i class=\"fa fa-trash\"></i></button>\n                            </div>\n                        </td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td>\n                            <app-account-dropdown [data]=\"data\" (callback)=\"selected($event)\"></app-account-dropdown>\n                        </td>\n                        <td><input class=\"form-control\" type=\"text\" [(ngModel)]=\"credit.description\" [ngModelOptions]=\"{standalone: true}\"></td>\n                        <td><input class=\"form-control\" type=\"number\" [(ngModel)]=\"credit.amount\" [ngModelOptions]=\"{standalone: true}\"></td>\n                        <td class=\"text-right\">\n                            <div class=\"btn-group\" role=\"group\">\n                                <button type=\"button\" class=\"btn btn-success\" (click)=\"addItem()\"><i class=\"fa fa-check\"></i></button>\n                            </div>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n            <div class=\"row\">\n                <div class=\"col-md-4\">\n                </div>\n                <div class=\"col-md-4\">\n                </div>\n                <div class=\"col-md-4\">\n                    <fieldset class=\"form-group\">\n                        <b>{{'total' | translate}}</b>\n                        <input class=\"form-control\" type=\"number\" [ngModel]=\"creditTotal\" [ngModelOptions]=\"{standalone: true}\" [disabled]=\"true\">\n                    </fieldset>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/shared/components/account-credit/account-credit.component.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".card-block {\n  padding: 0px 16px 8px 16px !important; }\n\n.thead-inverse th {\n  color: #fff;\n  background-color: #607D8B; }\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/shared/components/account-credit/account-credit.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountCreditComponent; });
-/* unused harmony export CreditModel */
-/* unused harmony export AccountModel */
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AccountCreditComponent = (function () {
-    function AccountCreditComponent(translate) {
-        this.translate = translate;
-        this.creditItems = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        this.credit = new CreditModel();
-        this.credits = [];
-    }
-    AccountCreditComponent.prototype.ngOnInit = function () {
-    };
-    AccountCreditComponent.prototype.selected = function ($event) {
-        // console.log($event);
-        this.credit.account = $event;
-    };
-    AccountCreditComponent.prototype.addItem = function () {
-        this.currentLang = this.translate.currentLang;
-        if (!this.credit.account._id) {
-            if (this.currentLang === 'th') {
-                alert('กรุณาเลือกรหัสบัญชี');
-            }
-            else {
-                alert('Please fill credit.');
-            }
-            return false;
-        }
-        if (!this.credit.amount) {
-            if (this.currentLang === 'th') {
-                alert('กรุณาระบุจำนวนเงิน');
-            }
-            else {
-                alert('Please fill amount.');
-            }
-            return false;
-        }
-        this.credits.push(this.credit);
-        this.credit = new CreditModel();
-        this.credit.account = this.credits[this.credits.length - 1].account;
-        this.calculate();
-    };
-    AccountCreditComponent.prototype.removeItem = function (index) {
-        this.credits.splice(index, 1);
-        this.calculate();
-    };
-    AccountCreditComponent.prototype.calculate = function () {
-        this.creditTotal = 0;
-        var length = this.credits.length;
-        for (var i = 0; i < length; i++) {
-            this.creditTotal += this.credits[i].amount;
-        }
-        this.creditItems.emit({
-            credits: this.credits,
-            totalcredit: this.creditTotal
-        });
-    };
-    return AccountCreditComponent;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('accounts'),
-    __metadata("design:type", Object)
-], AccountCreditComponent.prototype, "data", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('creditHeader'),
-    __metadata("design:type", String)
-], AccountCreditComponent.prototype, "creditHeader", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
-    __metadata("design:type", Object)
-], AccountCreditComponent.prototype, "creditItems", void 0);
-AccountCreditComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-account-credit',
-        template: __webpack_require__("../../../../../src/app/shared/components/account-credit/account-credit.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/shared/components/account-credit/account-credit.component.scss")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _a || Object])
-], AccountCreditComponent);
-
-var CreditModel = (function () {
-    function CreditModel() {
-        this.account = new AccountModel();
-    }
-    return CreditModel;
-}());
-
-var AccountModel = (function () {
-    function AccountModel() {
-    }
-    return AccountModel;
-}());
-
-var _a;
-//# sourceMappingURL=account-credit.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/shared/components/account-debit/account-debit.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\n    <div class=\"col-12\">\n        <div class=\"card-block table-responsive\">\n            <div>\n                <p><b>{{ debitHeader | translate}}</b></p>\n            </div>\n            <table class=\"table table-hover table-striped\">\n                <thead class=\"thead-inverse\">\n                    <tr>\n                        <th>#</th>\n                        <th>{{ 'accountname' | translate}}</th>\n                        <th>{{ 'description' | translate}}</th>\n                        <th>{{ 'amount' | translate}}</th>\n                        <th class=\"text-right\"></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let itm of debits; let i = index\">\n                        <td>{{i + 1}}</td>\n                        <td>\n                            <app-account-dropdown [data]=\"data\" [selected]=\"itm.account\" (callback)=\"selected($event)\"></app-account-dropdown>\n                        </td>\n                        <td><input class=\"form-control\" type=\"text\" [(ngModel)]=\"itm.description\" [ngModelOptions]=\"{standalone: true}\"></td>\n                        <td><input class=\"form-control\" type=\"number\" [(ngModel)]=\"itm.amount\" [ngModelOptions]=\"{standalone: true}\"></td>\n                        <td class=\"text-right\">\n                            <div class=\"btn-group\" role=\"group\">\n                                <button type=\"button\" class=\"btn btn-danger\" (click)=\"removeItem(i)\"><i class=\"fa fa-trash\"></i></button>\n                            </div>\n                        </td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td>\n                            <app-account-dropdown [data]=\"data\" (callback)=\"selected($event)\"></app-account-dropdown>\n                        </td>\n                        <td><input class=\"form-control\" type=\"text\" [(ngModel)]=\"debit.description\" [ngModelOptions]=\"{standalone: true}\"></td>\n                        <td><input class=\"form-control\" type=\"number\" [(ngModel)]=\"debit.amount\" [ngModelOptions]=\"{standalone: true}\"></td>\n                        <td class=\"text-right\">\n                            <div class=\"btn-group\" role=\"group\">\n                                <button type=\"button\" class=\"btn btn-success\" (click)=\"addItem()\"><i class=\"fa fa-check\"></i></button>\n                            </div>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n            <div class=\"row\">\n                <div class=\"col-md-4\">\n                </div>\n                <div class=\"col-md-4\">\n                </div>\n                <div class=\"col-md-4\">\n                    <fieldset class=\"form-group\">\n                        <b>{{'total' | translate}}</b>\n                        <input class=\"form-control\" type=\"number\" [ngModel]=\"debitTotal\" [ngModelOptions]=\"{standalone: true}\" [disabled]=\"true\">\n                    </fieldset>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/shared/components/account-debit/account-debit.component.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".card-block {\n  padding: 0px 16px 8px 16px !important; }\n\n.thead-inverse th {\n  color: #fff;\n  background-color: #607D8B; }\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/shared/components/account-debit/account-debit.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountDebitComponent; });
-/* unused harmony export DebitModel */
-/* unused harmony export AccountModel */
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AccountDebitComponent = (function () {
-    function AccountDebitComponent(translate) {
-        this.translate = translate;
-        this.debitItems = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        this.debit = new DebitModel();
-        this.debits = [];
-    }
-    AccountDebitComponent.prototype.ngOnInit = function () {
-    };
-    AccountDebitComponent.prototype.selected = function ($event) {
-        // console.log($event);
-        this.debit.account = $event;
-    };
-    AccountDebitComponent.prototype.addItem = function () {
-        this.currentLang = this.translate.currentLang;
-        if (!this.debit.account._id) {
-            if (this.currentLang === 'th') {
-                alert('กรุณาเลือกรหัสบัญชี');
-            }
-            else {
-                alert('Please fill debit.');
-            }
-            return false;
-        }
-        if (!this.debit.amount) {
-            if (this.currentLang === 'th') {
-                alert('กรุณาระบุจำนวนเงิน');
-            }
-            else {
-                alert('Please fill amount.');
-            }
-            return false;
-        }
-        this.debits.push(this.debit);
-        this.debit = new DebitModel();
-        this.debit.account = this.debits[this.debits.length - 1].account;
-        this.calculate();
-    };
-    AccountDebitComponent.prototype.removeItem = function (index) {
-        this.debits.splice(index, 1);
-        this.calculate();
-    };
-    AccountDebitComponent.prototype.calculate = function () {
-        this.debitTotal = 0;
-        var length = this.debits.length;
-        for (var i = 0; i < length; i++) {
-            this.debitTotal += this.debits[i].amount;
-        }
-        this.debitItems.emit({
-            debits: this.debits,
-            totaldebit: this.debitTotal
-        });
-    };
-    return AccountDebitComponent;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('accounts'),
-    __metadata("design:type", Object)
-], AccountDebitComponent.prototype, "data", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('debitHeader'),
-    __metadata("design:type", String)
-], AccountDebitComponent.prototype, "debitHeader", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
-    __metadata("design:type", Object)
-], AccountDebitComponent.prototype, "debitItems", void 0);
-AccountDebitComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-account-debit',
-        template: __webpack_require__("../../../../../src/app/shared/components/account-debit/account-debit.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/shared/components/account-debit/account-debit.component.scss")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _a || Object])
-], AccountDebitComponent);
-
-var DebitModel = (function () {
-    function DebitModel() {
-        this.account = new AccountModel();
-    }
-    return DebitModel;
-}());
-
-var AccountModel = (function () {
-    function AccountModel() {
-    }
-    return AccountModel;
-}());
-
-var _a;
-//# sourceMappingURL=account-debit.component.js.map
-
-/***/ }),
-
 /***/ "../../../../../src/app/shared/components/account-dropdown/account-dropdown.component.html":
 /***/ (function(module, exports) {
 
@@ -508,6 +230,250 @@ var AccountModel = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/shared/components/account-form-items/account-form-items.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n    <div class=\"col-12\">\n        <div class=\"table-responsive\">\n            <table class=\"table table-hover table-striped\">\n                <thead class=\"thead-inverse\">\n                    <tr>\n                        <th>#</th>\n                        <th class=\"text-center\" style=\"width:330px\">{{ 'accountname' | translate}}</th>\n                        <th class=\"text-center\" style=\"width:100px\">{{ 'qty' | translate}}</th>\n                        <th class=\"text-center\">{{ 'unit-price' | translate}}</th>\n                        <th class=\"text-center\">{{ 'vat' | translate}}</th>\n                        <th class=\"text-center\">{{ 'amount' | translate}}</th>\n                        <th class=\"text-center\"></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of items; let i = index\">\n                        <td scope=\"row\">{{i + 1}}</td>\n                        <td>\n                            <app-account-dropdown [data]=\"accounts\" [selected]=\"item.account\" (callback)=\"selected($event)\"></app-account-dropdown>\n                        </td>\n                        <td class=\"text-center\">\n                            <input class=\"form-control\" type=\"number\" [(ngModel)]=\"item.qty\" [ngModelOptions]=\"{standalone: true}\" (ngModelChange)=\"onChange(item)\" style=\"text-align:center;\">\n                        </td>\n                        <td class=\"text-right\">{{item.unitprice}}</td>\n                        <td class=\"text-right\">{{item.vatamount}}</td>\n                        <td class=\"text-right\">{{item.amount}}</td>\n                        <td class=\"text-center\">\n                            <div class=\"btn-group\" role=\"group\">\n                                <button type=\"button\" class=\"btn btn-danger\" (click)=\"removeItem(i)\"><i class=\"fa fa-trash\"></i></button>\n                            </div>\n                        </td>\n                    </tr>\n                    <tr>\n                        <th scope=\"row\"></th>\n                        <td>\n                            <app-account-dropdown [data]=\"accounts\" (callback)=\"selected($event)\"></app-account-dropdown>\n                        </td>\n                        <td class=\"text-center\">\n                            <input class=\"form-control\" type=\"number\" [disabled]=\"!selectItem.account._id\" [(ngModel)]=\"selectItem.qty\" [ngModelOptions]=\"{standalone: true}\"\n                                (ngModelChange)=\"onQtyChange(selectItem)\" style=\"text-align:center;\">\n                        </td>\n                        <td class=\"text-right\">{{selectItem.unitprice}}</td>\n                        <td class=\"text-right\">{{selectItem.vatamount}}</td>\n                        <td class=\"text-right\">{{selectItem.amount}}</td>\n                        <td class=\"text-center\">\n                            <div class=\"btn-group\" role=\"group\">\n                                <button type=\"button\" class=\"btn btn-success\" (click)=\"addItem()\"><i class=\"fa fa-check\"></i></button>\n                            </div>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/components/account-form-items/account-form-items.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".card-block {\n  padding: 0px 16px 8px 16px !important; }\n\n.thead-inverse th {\n  color: #fff;\n  background-color: #607D8B; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/components/account-form-items/account-form-items.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountFormItemsComponent; });
+/* unused harmony export SelectItem */
+/* unused harmony export AccountModel */
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AccountFormItemsComponent = (function () {
+    function AccountFormItemsComponent() {
+        this.itemsCallback = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.selectItem = new SelectItem();
+        this.items = [];
+    }
+    AccountFormItemsComponent.prototype.ngOnInit = function () {
+    };
+    AccountFormItemsComponent.prototype.selected = function (item) {
+        this.selectItem.account = item;
+    };
+    AccountFormItemsComponent.prototype.onQtyChange = function (selectItem) {
+    };
+    AccountFormItemsComponent.prototype.addItem = function () {
+        this.items.push(this.selectItem);
+        this.selectItem = new SelectItem();
+        this.selectItem.account = this.items[this.items.length - 1].account;
+        this.calculate();
+    };
+    AccountFormItemsComponent.prototype.removeItem = function (i) {
+        this.items.splice(i, 1);
+        this.calculate();
+    };
+    AccountFormItemsComponent.prototype.calculate = function () {
+        this.itemsCallback.emit(this.items);
+    };
+    return AccountFormItemsComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('accounts'),
+    __metadata("design:type", Object)
+], AccountFormItemsComponent.prototype, "accounts", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", Object)
+], AccountFormItemsComponent.prototype, "itemsCallback", void 0);
+AccountFormItemsComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-account-form-items',
+        template: __webpack_require__("../../../../../src/app/shared/components/account-form-items/account-form-items.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/shared/components/account-form-items/account-form-items.component.scss")]
+    }),
+    __metadata("design:paramtypes", [])
+], AccountFormItemsComponent);
+
+var SelectItem = (function () {
+    function SelectItem() {
+        this.account = new AccountModel();
+    }
+    return SelectItem;
+}());
+
+var AccountModel = (function () {
+    function AccountModel() {
+    }
+    return AccountModel;
+}());
+
+//# sourceMappingURL=account-form-items.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/components/account-form/account-form.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <div class=\"col-12\">\n      <div class=\"card-block table-responsive\">\n          <div>\n              <p><b>{{ accountHeader | translate}}</b></p>\n          </div>\n          <table class=\"table table-hover table-striped\">\n              <thead class=\"thead-inverse\">\n                  <tr>\n                      <th>#</th>\n                      <th>{{ 'accountname' | translate}}</th>\n                      <th>{{ 'description' | translate}}</th>\n                      <th>{{ 'amount' | translate}}</th>\n                      <th class=\"text-right\"></th>\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let itm of accounts; let i = index\">\n                      <td>{{i + 1}}</td>\n                      <td>\n                          <app-account-dropdown [data]=\"data\" [selected]=\"itm.account\" (callback)=\"selected($event)\"></app-account-dropdown>\n                      </td>\n                      <td><input class=\"form-control\" type=\"text\" [(ngModel)]=\"itm.description\" [ngModelOptions]=\"{standalone: true}\"></td>\n                      <td><input class=\"form-control\" type=\"number\" [(ngModel)]=\"itm.amount\" [ngModelOptions]=\"{standalone: true}\"></td>\n                      <td class=\"text-right\">\n                          <div class=\"btn-group\" role=\"group\">\n                              <button type=\"button\" class=\"btn btn-danger\" (click)=\"removeItem(i)\"><i class=\"fa fa-trash\"></i></button>\n                          </div>\n                      </td>\n                  </tr>\n                  <tr>\n                      <td></td>\n                      <td>\n                          <app-account-dropdown [data]=\"data\" (callback)=\"selected($event)\"></app-account-dropdown>\n                      </td>\n                      <td><input class=\"form-control\" type=\"text\" [(ngModel)]=\"account.description\" [ngModelOptions]=\"{standalone: true}\"></td>\n                      <td><input class=\"form-control\" type=\"number\" [(ngModel)]=\"account.amount\" [ngModelOptions]=\"{standalone: true}\"></td>\n                      <td class=\"text-right\">\n                          <div class=\"btn-group\" role=\"group\">\n                              <button type=\"button\" class=\"btn btn-success\" (click)=\"addItem()\"><i class=\"fa fa-check\"></i></button>\n                          </div>\n                      </td>\n                  </tr>\n              </tbody>\n          </table>\n          <div class=\"row\">\n              <div class=\"col-md-4\">\n              </div>\n              <div class=\"col-md-4\">\n              </div>\n              <div class=\"col-md-4\">\n                  <fieldset class=\"form-group\">\n                      <b>{{'total' | translate}}</b>\n                      <input class=\"form-control\" type=\"number\" [ngModel]=\"accountTotal\" [ngModelOptions]=\"{standalone: true}\" [disabled]=\"true\">\n                  </fieldset>\n              </div>\n          </div>\n      </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/components/account-form/account-form.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".card-block {\n  padding: 0px 16px 8px 16px !important; }\n\n.thead-inverse th {\n  color: #fff;\n  background-color: #607D8B; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/components/account-form/account-form.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountFormComponent; });
+/* unused harmony export AccountItemModel */
+/* unused harmony export AccountModel */
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AccountFormComponent = (function () {
+    function AccountFormComponent(translate) {
+        this.translate = translate;
+        this.accountItems = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.account = new AccountItemModel();
+        this.accounts = [];
+    }
+    AccountFormComponent.prototype.ngOnInit = function () {
+    };
+    AccountFormComponent.prototype.selected = function ($event) {
+        // console.log($event);
+        this.account.account = $event;
+    };
+    AccountFormComponent.prototype.addItem = function () {
+        this.currentLang = this.translate.currentLang;
+        if (!this.account.account._id) {
+            if (this.currentLang === 'th') {
+                alert('กรุณาเลือกรหัสบัญชี');
+            }
+            else {
+                alert('Please fill account.');
+            }
+            return false;
+        }
+        if (!this.account.amount) {
+            if (this.currentLang === 'th') {
+                alert('กรุณาระบุจำนวนเงิน');
+            }
+            else {
+                alert('Please fill amount.');
+            }
+            return false;
+        }
+        this.accounts.push(this.account);
+        this.account = new AccountItemModel();
+        this.account.account = this.accounts[this.accounts.length - 1].account;
+        this.calculate();
+    };
+    AccountFormComponent.prototype.removeItem = function (index) {
+        this.accounts.splice(index, 1);
+        this.calculate();
+    };
+    AccountFormComponent.prototype.calculate = function () {
+        this.accountTotal = 0;
+        var length = this.accounts.length;
+        for (var i = 0; i < length; i++) {
+            this.accountTotal += this.accounts[i].amount;
+        }
+        this.accountItems.emit({
+            accounts: this.accounts,
+            totalaccount: this.accountTotal
+        });
+    };
+    return AccountFormComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('accounts'),
+    __metadata("design:type", Object)
+], AccountFormComponent.prototype, "data", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('accountHeader'),
+    __metadata("design:type", String)
+], AccountFormComponent.prototype, "accountHeader", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", Object)
+], AccountFormComponent.prototype, "accountItems", void 0);
+AccountFormComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-account-form',
+        template: __webpack_require__("../../../../../src/app/shared/components/account-form/account-form.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/shared/components/account-form/account-form.component.scss")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _a || Object])
+], AccountFormComponent);
+
+var AccountItemModel = (function () {
+    function AccountItemModel() {
+        this.account = new AccountModel();
+    }
+    return AccountItemModel;
+}());
+
+var AccountModel = (function () {
+    function AccountModel() {
+    }
+    return AccountModel;
+}());
+
+var _a;
+//# sourceMappingURL=account-form.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/shared/components/components.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -519,9 +485,9 @@ var AccountModel = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular_date_value_accessor__ = __webpack_require__("../../../../angular-date-value-accessor/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular_date_value_accessor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_angular_date_value_accessor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__account_header_account_header_component__ = __webpack_require__("../../../../../src/app/shared/components/account-header/account-header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_debit_account_debit_component__ = __webpack_require__("../../../../../src/app/shared/components/account-debit/account-debit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__account_dropdown_account_dropdown_component__ = __webpack_require__("../../../../../src/app/shared/components/account-dropdown/account-dropdown.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__account_credit_account_credit_component__ = __webpack_require__("../../../../../src/app/shared/components/account-credit/account-credit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_dropdown_account_dropdown_component__ = __webpack_require__("../../../../../src/app/shared/components/account-dropdown/account-dropdown.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__account_form_account_form_component__ = __webpack_require__("../../../../../src/app/shared/components/account-form/account-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__account_form_items_account_form_items_component__ = __webpack_require__("../../../../../src/app/shared/components/account-form-items/account-form-items.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -551,8 +517,8 @@ ComponentModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_4_angular_date_value_accessor__["DateValueAccessorModule"]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_5__account_header_account_header_component__["a" /* AccountHeaderComponent */], __WEBPACK_IMPORTED_MODULE_6__account_debit_account_debit_component__["a" /* AccountDebitComponent */], __WEBPACK_IMPORTED_MODULE_7__account_dropdown_account_dropdown_component__["a" /* AccountDropdownComponent */], __WEBPACK_IMPORTED_MODULE_8__account_credit_account_credit_component__["a" /* AccountCreditComponent */]],
-        exports: [__WEBPACK_IMPORTED_MODULE_5__account_header_account_header_component__["a" /* AccountHeaderComponent */], __WEBPACK_IMPORTED_MODULE_6__account_debit_account_debit_component__["a" /* AccountDebitComponent */], __WEBPACK_IMPORTED_MODULE_8__account_credit_account_credit_component__["a" /* AccountCreditComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_5__account_header_account_header_component__["a" /* AccountHeaderComponent */], __WEBPACK_IMPORTED_MODULE_6__account_dropdown_account_dropdown_component__["a" /* AccountDropdownComponent */], __WEBPACK_IMPORTED_MODULE_7__account_form_account_form_component__["a" /* AccountFormComponent */], __WEBPACK_IMPORTED_MODULE_8__account_form_items_account_form_items_component__["a" /* AccountFormItemsComponent */]],
+        exports: [__WEBPACK_IMPORTED_MODULE_5__account_header_account_header_component__["a" /* AccountHeaderComponent */], __WEBPACK_IMPORTED_MODULE_6__account_dropdown_account_dropdown_component__["a" /* AccountDropdownComponent */], __WEBPACK_IMPORTED_MODULE_7__account_form_account_form_component__["a" /* AccountFormComponent */], __WEBPACK_IMPORTED_MODULE_8__account_form_items_account_form_items_component__["a" /* AccountFormItemsComponent */]]
     })
 ], ComponentModule);
 

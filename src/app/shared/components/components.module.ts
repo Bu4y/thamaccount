@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 
 import { DateValueAccessorModule } from 'angular-date-value-accessor';
 import { AccountHeaderComponent } from "./account-header/account-header.component";
-import { AccountDebitComponent } from './account-debit/account-debit.component';
 import { AccountDropdownComponent } from './account-dropdown/account-dropdown.component';
-import { AccountCreditComponent } from './account-credit/account-credit.component';
+import { AccountFormComponent } from "./account-form/account-form.component";
+import { AccountFormItemsComponent } from './account-form-items/account-form-items.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -15,7 +15,7 @@ import { AccountCreditComponent } from './account-credit/account-credit.componen
         FormsModule,
         DateValueAccessorModule
     ],
-    declarations: [AccountHeaderComponent, AccountDebitComponent, AccountDropdownComponent, AccountCreditComponent],
-    exports: [AccountHeaderComponent, AccountDebitComponent, AccountCreditComponent]
+    declarations: [AccountHeaderComponent, AccountDropdownComponent, AccountFormComponent, AccountFormItemsComponent],
+    exports: [AccountHeaderComponent, AccountDropdownComponent, AccountFormComponent, AccountFormItemsComponent]
 })
 export class ComponentModule { }

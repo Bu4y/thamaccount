@@ -1,13 +1,13 @@
 webpackJsonp([16],{
 
-/***/ "../../../../../src/app/layout/account-create/account-create-routing.module.ts":
+/***/ "../../../../../src/app/layout/ar-create/ar-create-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_create_component__ = __webpack_require__("../../../../../src/app/layout/account-create/account-create.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountCreateRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ar_create_component__ = __webpack_require__("../../../../../src/app/layout/ar-create/ar-create.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArCreateRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__account_create_component__["a" /* AccountCreateComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__ar_create_component__["a" /* ArCreateComponent */] }
 ];
-var AccountCreateRoutingModule = (function () {
-    function AccountCreateRoutingModule() {
+var ArCreateRoutingModule = (function () {
+    function ArCreateRoutingModule() {
     }
-    return AccountCreateRoutingModule;
+    return ArCreateRoutingModule;
 }());
-AccountCreateRoutingModule = __decorate([
+ArCreateRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], AccountCreateRoutingModule);
+], ArCreateRoutingModule);
 
-//# sourceMappingURL=account-create-routing.module.js.map
+//# sourceMappingURL=ar-create-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account-create/account-create.component.html":
+/***/ "../../../../../src/app/layout/ar-create/ar-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <ol class=\"breadcrumb\">\r\n        <li class=\"breadcrumb-item\">\r\n            <i class=\"fa fa-list-ul\"></i> <a [routerLink]=\"['/account']\">{{'account' | translate}}</a>\r\n        </li>\r\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-edit\"></i> {{'new-account' | translate}}</li>\r\n    </ol>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3 col-sm-1\">\r\n        </div>\r\n        <div class=\"col-md-6 col-sm-10\">\r\n            <form role=\"form\">\r\n                <fieldset class=\"form-group\">\r\n                    <label>{{'account-no' | translate}}</label> <span class=\"danger\">*</span>\r\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"account.accountno\" [ngModelOptions]=\"{standalone: true}\" [disabled]=\"account._id\">\r\n                </fieldset>\r\n                <fieldset class=\"form-group\">\r\n                    <label>{{'account-name' | translate}}</label> <span class=\"danger\">*</span>\r\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"account.name\" [ngModelOptions]=\"{standalone: true}\">\r\n                </fieldset>\r\n                <fieldset class=\"form-group\">\r\n                    <label>{{'parent' | translate}}</label>\r\n                    <select [(ngModel)]=\"account.parent\" [ngModelOptions]=\"{standalone: true}\" [disabled]=\"account._id\" class=\"form-control\">       \r\n                            <option *ngFor=\"let parent of parents.accounts\"\r\n                                [ngValue]=\"parent.accountno\"\r\n                                [attr.selected]=\"account.parent === parent.accountno ? true : null\">\r\n                                {{parent.accountno}} {{parent.name}}\r\n                            </option>\r\n                        </select>\r\n                </fieldset>\r\n                <fieldset class=\"form-group\">\r\n                    <label>{{'status' | translate}}</label>\r\n                    <select [(ngModel)]=\"account.status\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">       \r\n                            <option *ngFor=\"let sta of status\"\r\n                                [ngValue]=\"sta\"\r\n                                [attr.selected]=\"account.parent === sta ? true : null\">\r\n                                {{sta}}\r\n                            </option>\r\n                        </select>\r\n                </fieldset>\r\n                <div class=\"col-12 text-center\">\r\n                    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"saveAccount()\">{{'save' | translate}}</button>\r\n                </div>\r\n            </form>\r\n        </div>\r\n        <div class=\"col-md-3 col-sm-1\">\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<app-account-header [header]=\"'ar'\" (date)=\"docdate($event)\"></app-account-header>\n<app-account-form [accountHeader]=\"'ar-debit'\" [accounts]=\"accounts\" (accountItems)=\"onDebits($event)\"></app-account-form>\n<hr>\n<app-account-form [accountHeader]=\"'ar-credit'\" [accounts]=\"accounts\" (accountItems)=\"onCredits($event)\"></app-account-form>\n<hr>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <fieldset class=\"form-group\">\n            <label>{{'remark' | translate}}</label>\n            <textarea class=\"form-control\" rows=\"6\" cols=\"50\" [(ngModel)]=\"accountForm.remark\" [ngModelOptions]=\"{standalone: true}\"\n                placeholder=\"{{'remark-inbox' | translate}}\"></textarea>\n        </fieldset>\n    </div>\n    <div class=\"col-md-3\"></div>\n</div>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <button type=\"button\" class=\"btn btn-success full\" (click)=\"onSave()\">{{'save' | translate}}</button>\n    </div>\n    <div class=\"col-md-3\"></div>\n    <!-- <div class=\"col-md-4\">\n        <button type=\"button\" class=\"btn btn-danger full\" (click)=\"onCancel()\">{{'cancel' | translate}}</button>\n    </div> -->\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account-create/account-create.component.scss":
+/***/ "../../../../../src/app/layout/ar-create/ar-create.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".danger {\n  color: #F44336; }\n", ""]);
+exports.push([module.i, ".full {\n  width: 100% !important; }\n", ""]);
 
 // exports
 
@@ -61,16 +61,17 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account-create/account-create.component.ts":
+/***/ "../../../../../src/app/layout/ar-create/ar-create.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__account_create_model__ = __webpack_require__("../../../../../src/app/layout/account-create/account-create.model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__account_create_service__ = __webpack_require__("../../../../../src/app/layout/account-create/account-create.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountCreateComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_model__ = __webpack_require__("../../../../../src/app/layout/account.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__ = __webpack_require__("../../../../../src/app/layout/account-create/account-create.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__account_create_account_create_model__ = __webpack_require__("../../../../../src/app/layout/account-create/account-create.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__jv_create_jv_create_service__ = __webpack_require__("../../../../../src/app/layout/jv-create/jv-create.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArCreateComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -85,114 +86,118 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AccountCreateComponent = (function () {
-    function AccountCreateComponent(accountCreateService, router, route, translate) {
+
+var ArCreateComponent = (function () {
+    function ArCreateComponent(accountCreateService, jvCreateService, translate) {
         this.accountCreateService = accountCreateService;
-        this.router = router;
-        this.route = route;
+        this.jvCreateService = jvCreateService;
         this.translate = translate;
-        this.parents = new __WEBPACK_IMPORTED_MODULE_3__account_create_model__["a" /* AccountListModel */]();
-        this.account = new __WEBPACK_IMPORTED_MODULE_3__account_create_model__["b" /* AccountModel */]();
-        this.status = ['active', 'inactive'];
+        this.accountForm = new __WEBPACK_IMPORTED_MODULE_2__account_model__["a" /* AccountFormModel */]();
+        this.accounts = new __WEBPACK_IMPORTED_MODULE_4__account_create_account_create_model__["a" /* AccountListModel */]();
+        this.account = new __WEBPACK_IMPORTED_MODULE_4__account_create_account_create_model__["b" /* AccountModel */]();
     }
-    AccountCreateComponent.prototype.ngOnInit = function () {
+    ArCreateComponent.prototype.ngOnInit = function () {
         this.getAccount();
     };
-    AccountCreateComponent.prototype.getAccount = function () {
+    ArCreateComponent.prototype.getAccount = function () {
         var _this = this;
         this.accountCreateService.getAccount().then(function (data) {
-            _this.parents.accounts = data;
-            _this.parents.accounts.unshift({
+            _this.accounts.accounts = data;
+            _this.accounts.accounts.unshift({
                 _id: '',
                 name: '--- No Parent ---',
                 accountno: '',
                 parent: '',
                 status: ''
             });
-            _this.parents.accounts.sort(function (a, b) { return (a.accountno > b.accountno) ? 1 : ((b.accountno > a.accountno) ? -1 : 0); });
-            _this.getParam();
+            _this.accounts.accounts.sort(function (a, b) { return (a.accountno > b.accountno) ? 1 : ((b.accountno > a.accountno) ? -1 : 0); });
         }, function (error) {
             console.error(error);
         });
     };
-    AccountCreateComponent.prototype.getParam = function () {
+    ArCreateComponent.prototype.docdate = function (date) {
+        this.accountForm.docdate = date;
+    };
+    ArCreateComponent.prototype.onDebits = function (debit) {
+        this.accountForm.debits = debit.accounts;
+        this.accountForm.totaldebit = debit.totalaccounts;
+    };
+    ArCreateComponent.prototype.onCredits = function (credit) {
+        this.accountForm.credits = credit.accounts;
+        this.accountForm.totalcredit = credit.totalaccounts;
+    };
+    ArCreateComponent.prototype.onSave = function () {
         var _this = this;
-        this.subParams = this.route
-            .queryParams
-            .subscribe(function (params) {
-            var item = params['item'];
-            if (item && item !== '') {
-                _this.account = JSON.parse(item);
+        this.currentLang = this.translate.currentLang;
+        if (!this.accountForm.debits || this.accountForm.debits.length < 1) {
+            if (this.currentLang === 'th') {
+                alert('กรุณาระบุข้อมูลเดบิต');
             }
+            else {
+                alert('Please fill debit.');
+            }
+            return false;
+        }
+        if (!this.accountForm.credits || this.accountForm.credits.length < 1) {
+            if (this.currentLang === 'th') {
+                alert('กรุณาระบุข้อมูลเครดิต');
+            }
+            else {
+                alert('Please fill credit.');
+            }
+            return false;
+        }
+        if (this.accountForm.totaldebit !== this.accountForm.totalcredit) {
+            if (this.currentLang === 'th') {
+                alert('แจ้งเตือน : ราคาเดบิตและเครดิตไม่เท่ากัน กรุณาระบุให้เท่ากัน');
+            }
+            else {
+                alert('Warning : Debit and credit prices are not equal. Please specify the same.');
+            }
+            return false;
+        }
+        this.accountForm.gltype = 'AR';
+        this.jvCreateService.postJv(this.accountForm).then(function (data) {
+            if (_this.currentLang === 'th') {
+                alert('สำเร็จ เลขที่เอกสาร "' + data.docno + '"');
+            }
+            else {
+                alert('Complate Docno "' + data.docno + '"');
+            }
+            window.location.reload();
+        }, function (error) {
+            alert(JSON.parse(error._body).message);
         });
-        this.subParams.unsubscribe();
     };
-    AccountCreateComponent.prototype.saveAccount = function () {
-        var _this = this;
-        if (this.account._id) {
-            this.accountCreateService.putAccount(this.account).then(function (data) {
-                _this.router.navigate(['/account']);
-            }, function (error) {
-                _this.error = JSON.parse(error._body).message;
-                console.log(_this.error);
-            });
-        }
-        else {
-            this.currentLang = this.translate.currentLang;
-            if (!this.account.accountno) {
-                if (this.currentLang === 'th') {
-                    alert('กรุณาระบุรหัสบัญชี');
-                }
-                else {
-                    alert('Please fill account no.');
-                }
-                return false;
-            }
-            if (!this.account.name) {
-                if (this.currentLang === 'th') {
-                    alert('กรุณาระบุชื่อบัญชี');
-                }
-                else {
-                    alert('Please fill account name.');
-                }
-                return false;
-            }
-            this.accountCreateService.postAccount(this.account).then(function (data) {
-                _this.router.navigate(['/account']);
-            }, function (error) {
-                _this.error = JSON.parse(error._body).message;
-                console.log(_this.error);
-            });
-        }
-    };
-    return AccountCreateComponent;
+    return ArCreateComponent;
 }());
-AccountCreateComponent = __decorate([
+ArCreateComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-account-create',
-        template: __webpack_require__("../../../../../src/app/layout/account-create/account-create.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/account-create/account-create.component.scss")]
+        selector: 'app-ar-create',
+        template: __webpack_require__("../../../../../src/app/layout/ar-create/ar-create.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/ar-create/ar-create.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__account_create_service__["a" /* AccountCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__account_create_service__["a" /* AccountCreateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */]) === "function" && _d || Object])
-], AccountCreateComponent);
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__["a" /* AccountCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__["a" /* AccountCreateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__jv_create_jv_create_service__["a" /* JvCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__jv_create_jv_create_service__["a" /* JvCreateService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _c || Object])
+], ArCreateComponent);
 
-var _a, _b, _c, _d;
-//# sourceMappingURL=account-create.component.js.map
+var _a, _b, _c;
+//# sourceMappingURL=ar-create.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account-create/account-create.module.ts":
+/***/ "../../../../../src/app/layout/ar-create/ar-create.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__account_create_routing_module__ = __webpack_require__("../../../../../src/app/layout/account-create/account-create-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__account_create_component__ = __webpack_require__("../../../../../src/app/layout/account-create/account-create.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountCreateModule", function() { return AccountCreateModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ar_create_routing_module__ = __webpack_require__("../../../../../src/app/layout/ar-create/ar-create-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ar_create_component__ = __webpack_require__("../../../../../src/app/layout/ar-create/ar-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_components_components_module__ = __webpack_require__("../../../../../src/app/shared/components/components.module.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArCreateModule", function() { return ArCreateModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -205,24 +210,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AccountCreateModule = (function () {
-    function AccountCreateModule() {
+
+var ArCreateModule = (function () {
+    function ArCreateModule() {
     }
-    return AccountCreateModule;
+    return ArCreateModule;
 }());
-AccountCreateModule = __decorate([
+ArCreateModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_4__account_create_routing_module__["a" /* AccountCreateRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"],
-            __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */]
+            __WEBPACK_IMPORTED_MODULE_4__ar_create_routing_module__["a" /* ArCreateRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_6__shared_components_components_module__["a" /* ComponentModule */],
+            __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["a" /* TranslateModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_5__account_create_component__["a" /* AccountCreateComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_5__ar_create_component__["a" /* ArCreateComponent */]]
     })
-], AccountCreateModule);
+], ArCreateModule);
 
-//# sourceMappingURL=account-create.module.js.map
+//# sourceMappingURL=ar-create.module.js.map
 
 /***/ })
 
