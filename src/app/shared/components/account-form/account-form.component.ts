@@ -57,12 +57,17 @@ export class AccountFormComponent implements OnInit {
     this.calculate();
   }
 
+  onChangeAmount() {
+    this.calculate();
+  }
+
   calculate() {
     this.accountTotal = 0;
     let length = this.accounts.length;
     for (let i = 0; i < length; i++) {
       this.accountTotal += this.accounts[i].amount;
     }
+    console.log('tets');
     this.accountItems.emit({
       accounts: this.accounts,
       totalaccount: this.accountTotal
