@@ -120,11 +120,11 @@ var PvCreateComponent = (function () {
     };
     PvCreateComponent.prototype.onDebits = function (debit) {
         this.accountForm.debits = debit.accounts;
-        this.accountForm.totaldebit = debit.totalaccounts;
+        this.accountForm.totaldebit = debit.totalaccount;
     };
     PvCreateComponent.prototype.onCredits = function (credit) {
         this.accountForm.credits = credit.accounts;
-        this.accountForm.totalcredit = credit.totalaccounts;
+        this.accountForm.totalcredit = credit.totalaccount;
     };
     PvCreateComponent.prototype.onSave = function () {
         var _this = this;

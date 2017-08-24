@@ -47,12 +47,12 @@ export class JvCreateComponent implements OnInit {
 
   onDebits(debit) {
     this.accountForm.debits = debit.accounts;
-    this.accountForm.totaldebit = debit.totalaccounts;
+    this.accountForm.totaldebit = debit.totalaccount;
   }
 
   onCredits(credit) {
     this.accountForm.credits = credit.accounts;
-    this.accountForm.totalcredit = credit.totalaccounts;
+    this.accountForm.totalcredit = credit.totalaccount;
   }
 
   onSave() {
