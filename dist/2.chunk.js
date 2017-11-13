@@ -235,7 +235,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".just-padding {\n  padding-left: 30px; }\n\n.list-group-item {\n  padding: 8px;\n  padding-left: 16px;\n  margin-top: 1px; }\n\n.icon-edit {\n  position: fixed;\n  right: 30px !important;\n  color: #4CAF50;\n  margin-top: 1px; }\n\n.icon-trash {\n  position: fixed;\n  right: 60px !important;\n  color: #f44336; }\n\n.none {\n  color: transparent; }\n\n.show {\n  color: #666666 !important; }\n\n.active {\n  color: #4CAF50 !important; }\n\n.inactive {\n  color: #F44336 !important; }\n", ""]);
+exports.push([module.i, ".just-padding {\n  padding-left: 30px; }\n\n.list-group-item {\n  padding: 8px;\n  padding-left: 16px;\n  margin-top: 1px; }\n\n.icon-edit {\n  position: absolute !important;\n  right: 30px !important;\n  color: #4CAF50;\n  margin-top: 1px; }\n\n.icon-trash {\n  position: absolute !important;\n  right: 60px !important;\n  color: #f44336; }\n\n.none {\n  color: transparent; }\n\n.show {\n  color: #666666 !important; }\n\n.active {\n  color: #4CAF50 !important; }\n\n.inactive {\n  color: #F44336 !important; }\n", ""]);
 
 // exports
 
