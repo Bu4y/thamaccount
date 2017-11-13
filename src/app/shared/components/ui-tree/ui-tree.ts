@@ -9,6 +9,7 @@ export class UiTree {
   @Input('key') key: string;
   @Output() treeCallback = new EventEmitter();
   @Output() treeEditCallback = new EventEmitter();
+  @Output() treeDeleteCallback = new EventEmitter();
 
   clickItem(item) {
     window.event.stopPropagation();
@@ -21,7 +22,12 @@ export class UiTree {
     this.treeEditCallback.emit(item);
   }
 
-  onEdit(event){
+  onDeleteItem(item) {
+    window.event.stopPropagation();
+    this.treeDeleteCallback.emit(item);
+  }
+
+  onEdit(event) {
     window.event.stopPropagation();
     this.treeEditCallback.emit(event);
   }

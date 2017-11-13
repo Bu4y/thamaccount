@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     onLoggedin(login) {
         this.loginService.login(login).then((data) => {
             console.log(data);
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/account']);
             localStorage.setItem('isLoggedin', 'true');
             localStorage.setItem('userLoggedin', JSON.stringify(data));
         }, (error) => {

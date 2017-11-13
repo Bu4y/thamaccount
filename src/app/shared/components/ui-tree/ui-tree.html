@@ -10,6 +10,7 @@
           &nbsp;
           <span class="{{item.status === 'active' ? 'active': 'inactive'}}">({{item.status}})</span>
           <i class="fa fa-edit icon-edit" (click)="onEditItem(item)"></i>
+          <i class="fa fa-trash icon-trash" (click)="onDeleteItem(item)"></i>
         </a>
         <ui-tree *ngIf="item[key].length && item.expand == true" [key]="key" [data]="item[key]" (treeCallback)="treeReturn($event)"
             (treeEditCallback)="onEdit($event)"></ui-tree>

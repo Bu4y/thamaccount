@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-12">
             <div class="ui-tree-list">
-                <ui-tree [data]="accounts" [key]="key" (treeCallback)="treeReturn($event)" (treeEditCallback)="onEdit($event)"></ui-tree>
+                <ui-tree [data]="accounts" [key]="key" (treeCallback)="treeReturn($event)" (treeEditCallback)="onEdit($event)" (treeDeleteCallback)="onDelete($event)"></ui-tree>
             </div>
         </div>
     </div>

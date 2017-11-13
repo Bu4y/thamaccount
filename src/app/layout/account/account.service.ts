@@ -14,6 +14,11 @@ export class AccountService {
       .then(response => response.json() as AccountModel)
       .catch(this.handleError);
   }
+  deleteAccount(id) {
+    return this.http.delete(Constants.URL + 'api/orther/accountcharts/' + id).toPromise()
+      .then(response => response.json() as AccountModel)
+      .catch(this.handleError);
+  }
   // Error function
   private handleError(error: any): Promise<any> {
     // console.error('An error occurred', error);

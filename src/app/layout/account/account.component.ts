@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AccountListModel } from "./account.model";
 import { AccountService } from "./account.service";
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -13,8 +14,13 @@ export class AccountComponent implements OnInit {
   key: string = 'children';
   accounts: Array<any>;
   data: AccountListModel = new AccountListModel();
+  currentLang: string;
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(
+    private accountService: AccountService,
+    private router: Router,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     this.getAccount();
@@ -66,6 +72,24 @@ export class AccountComponent implements OnInit {
   onEdit(event) {
     // console.log('EDIT : ', event);
     this.router.navigate(['/account-create'], { queryParams: { item: JSON.stringify(event) } });
+  }
+
+  onDelete(event) {
+    this.currentLang = this.translate.currentLang;
+    this.accountService.deleteAccount(event._id).then((data) => {
+      if (this.currentLang === 'th') {
+        alert('ลบข้อมูล ' + data.name + ' สำเร็จ');
+      } else {
+        alert('Delete ' + data.name + ' success.');
+      }
+      this.ngOnInit();
+    }, (error) => {
+      if (this.currentLang === 'th') {
+        alert('ลบข้อมูลไม่สำเร็จ กรุณาลองใหม่');
+      } else {
+        alert('Delete fail please try again.');
+      }
+    });
   }
 
 }
