@@ -1,3 +1,10 @@
-.full{
+.full {
     width: 100%;
+}
+
+.breadcrumb {
+    .col-md-8 {
+        display: flex !important;
+        align-items: center !important;
+    }
 }

@@ -3,6 +3,7 @@ export class AccountListModel {
 }
 
 export class AccountFormModel {
+    _id: string;
     docno: string;
     docdate: Date;
     debits: Array<DebitModel>;

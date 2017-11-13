@@ -1,4 +1,21 @@
-<app-account-header [header]="'jv'" (date)="docdate($event)"></app-account-header>
+<ol class="breadcrumb">
+    <div class="row">
+        <div class="col-md-8">
+            <li class="breadcrumb-item">
+                <i class="fa fa-list-ul"></i>
+                <a [routerLink]="['/jv-list']">{{'jv-list' | translate}}</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <i class="fa fa-file-o"></i> {{'jv' | translate}} ({{ getMode() | translate}})
+            </li>
+        </div>
+        <div class="col-md-4">
+            <input class="form-control" placeholder="{{'search' | translate}}" type="text" [ngModel]="search" (keypress)="searching($event,search);"
+                [ngModelOptions]="{standalone: true}">
+        </div>
+    </div>
+</ol>
+<app-account-header [header]="'jv'" [docno]="docno" (date)="docdate($event)"></app-account-header>
 <app-account-form [accountHeader]="'debit'" [accounts]="accounts" (accountItems)="onDebits($event)"></app-account-form>
 <hr>
 <app-account-form [accountHeader]="'credit'" [accounts]="accounts" (accountItems)="onCredits($event)"></app-account-form>

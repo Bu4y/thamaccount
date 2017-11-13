@@ -15,6 +15,8 @@ export class ArCreateComponent implements OnInit {
   accounts: AccountListModel = new AccountListModel();
   account: AccountModel = new AccountModel();
   currentLang: string;
+  type: string = 'AR';
+  docno: string = this.type;
   constructor(private accountCreateService: AccountCreateService, private jvCreateService: JvCreateService, private translate: TranslateService) {
 
   }
@@ -22,6 +24,27 @@ export class ArCreateComponent implements OnInit {
 
   ngOnInit() {
     this.getAccount();
+  }
+
+  getMode() {
+    return this.accountForm._id ? 'update' : 'create';
+  }
+
+  searching(e, search) {
+    if (e.keyCode == 13) {
+      this.currentLang = this.translate.currentLang;
+      if (this.currentLang === 'th') {
+        var res = confirm('คุณต้องการยกเลิกการทำรายการนี้?');
+        if (res) {
+          alert('ค้นหา');
+        }
+      } else {
+        var res = confirm('Would you like to cancel this transaction?');
+        if (res) {
+          alert('Search');
+        }
+      }
+    }
   }
 
   getAccount() {
@@ -80,14 +103,16 @@ export class ArCreateComponent implements OnInit {
       }
       return false;
     }
-    this.accountForm.gltype = 'AR';
+    this.accountForm.gltype = this.type;
     this.jvCreateService.postJv(this.accountForm).then((data) => {
       if (this.currentLang === 'th') {
         alert('สำเร็จ เลขที่เอกสาร "' + data.docno + '"');
       } else {
         alert('Complate Docno "' + data.docno + '"');
       }
-      window.location.reload();
+      this.docno = data.docno;
+      this.accountForm = data;
+      // window.location.reload();
     }, (error) => {
       alert(JSON.parse(error._body).message);
     });

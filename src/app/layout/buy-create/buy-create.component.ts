@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AccountFormModel } from "../account.model";
 import { AccountCreateService } from "../account-create/account-create.service";
 import { AccountListModel, AccountModel } from '../account.model';
+import { BuyModel } from 'assets/models/buy.model';
 @Component({
   selector: 'app-buy-create',
   templateUrl: './buy-create.component.html',
@@ -13,6 +14,8 @@ export class BuyCreateComponent implements OnInit {
   accountForm: AccountFormModel = new AccountFormModel();
   accounts: AccountListModel = new AccountListModel();
   account: AccountModel = new AccountModel();
+  contact: AccountModel = new AccountModel();
+  buy: BuyModel = new BuyModel();
   currentLang: string;
   constructor(private accountCreateService: AccountCreateService, private translate: TranslateService) { }
 
@@ -30,14 +33,14 @@ export class BuyCreateComponent implements OnInit {
   }
 
   docdate(date) {
-    console.log(date);
+    this.buy.docdate = date;
   }
 
   selectedContact(item) {
-    console.log('Contact ', item);
+    this.buy.contact = item;
   }
 
   itemsCallback(item) {
-    console.log(item);
+
   }
 }

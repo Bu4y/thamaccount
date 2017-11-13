@@ -1,8 +1,4 @@
 <div>
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item active"><i class="fa {{icon !== '' ? icon : 'fa-file-o'}}"></i> {{ header | translate}}
-        </li>
-    </ol>
     <div class="row">
         <div class="col-md-4">
         </div>
@@ -14,6 +10,8 @@
                 <input class="form-control" type="date" [ngModel]="docdate" (ngModelChange)="selectDocDate($event)" [ngModelOptions]="{standalone: true}"
                     useValueAsDate>
             </fieldset>
+
+            <label>{{'docno' | translate}} {{docno}}</label>
         </div>
     </div>
     <hr>
