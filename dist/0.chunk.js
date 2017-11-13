@@ -282,6 +282,7 @@ var AccountFormItemsComponent = (function () {
     AccountFormItemsComponent.prototype.ngOnInit = function () {
     };
     AccountFormItemsComponent.prototype.selected = function (item) {
+        console.log(item);
         this.selectItem.account = item;
     };
     AccountFormItemsComponent.prototype.onQtyChange = function (selectItem) {

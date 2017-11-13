@@ -22,7 +22,7 @@
                     <span class="danger">*</span>
                     <input class="form-control" type="text" [(ngModel)]="account.name" [ngModelOptions]="{standalone: true}">
                 </fieldset>
-                <fieldset class="form-group">
+                <!-- <fieldset class="form-group">
                     <label>{{'vat' | translate}}</label>
                     <input class="form-control" type="number" [(ngModel)]="account.vat" [ngModelOptions]="{standalone: true}">
                 </fieldset>
@@ -45,7 +45,7 @@
                             {{sta}}
                         </option>
                     </select>
-                </fieldset>
+                </fieldset> -->
                 <div class="col-12 text-center">
                     <button type="submit" class="btn btn-primary" (click)="saveAccount()">{{'save' | translate}}</button>
                 </div>

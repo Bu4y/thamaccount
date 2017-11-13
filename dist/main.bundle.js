@@ -230,8 +230,7 @@ var Constants = (function () {
     function Constants() {
     }
     Object.defineProperty(Constants, "URL", {
-        // public static get URL(): string { return "https://localhost:3000/"; };
-        get: function () { return "https://accountworkshop.herokuapp.com/"; },
+        get: function () { return "http://localhost:3000/"; },
         enumerable: true,
         configurable: true
     });
