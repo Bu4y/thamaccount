@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { AccountFormModel } from "../account.model";
+import { AccountFormModel, AccountListModel, AccountModel } from "../account.model";
 import { AccountCreateService } from "../account-create/account-create.service";
-import { AccountListModel, AccountModel } from "../account-create/account-create.model";
 
 import { JvCreateService } from "../jv-create/jv-create.service";
 @Component({

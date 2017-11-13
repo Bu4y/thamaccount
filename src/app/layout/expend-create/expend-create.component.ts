@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ExpendCreateService } from "./expend-create.service";
-import { ExpendModel } from "./expend-create.model";
+import { ExpendModel } from 'assets/models/expend-create.model';
 
 @Component({
   selector: 'app-expend-create',

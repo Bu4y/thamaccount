@@ -1,13 +1,7 @@
+import { ContactModel } from "./contact-create.model";
+
 export class ContactListModel {
     contact: Array<ContactModel>;
-}
-
-export class ContactModel {
-    name: string;
-    govermentId: string;
-    email: string;
-    tel: string;
-    address: AddressModel = new AddressModel();
 }
 
 export class AddressModel {

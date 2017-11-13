@@ -3,8 +3,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { ExpendModel } from "./expend-lists.model";
 import { Constants } from "../../app.constants";
+import { ExpendModel } from 'assets/models/expend-create.model';
 @Injectable()
 export class ExpendListsService {
 

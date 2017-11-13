@@ -20,14 +20,23 @@
                             <app-account-dropdown [data]="accounts" [selected]="item.account" (callback)="selected($event)"></app-account-dropdown>
                         </td>
                         <td class="text-center">
-                            <input class="form-control" type="number" [(ngModel)]="item.qty" [ngModelOptions]="{standalone: true}" (ngModelChange)="onChange(item)" style="text-align:center;">
+                            <!--  (ngModelChange)="onChange(item)" -->
+                            <input class="form-control" type="number" [(ngModel)]="item.qty" [ngModelOptions]="{standalone: true}" style="text-align:center;">
                         </td>
-                        <td class="text-right">{{item.unitprice}}</td>
-                        <td class="text-right">{{item.vatamount}}</td>
-                        <td class="text-right">{{item.amount}}</td>
+                        <td class="text-center">
+                            <input class="form-control" type="number" [(ngModel)]="item.unitprice" [ngModelOptions]="{standalone: true}" style="text-align:center;">
+                        </td>
+                        <td class="text-center">
+                            <input class="form-control" type="number" [(ngModel)]="item.vatamount" [ngModelOptions]="{standalone: true}" style="text-align:center;">
+                        </td>
+                        <td class="text-center">
+                            <input class="form-control" type="number" [(ngModel)]="item.amount" [ngModelOptions]="{standalone: true}" style="text-align:center;">
+                        </td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-danger" (click)="removeItem(i)"><i class="fa fa-trash"></i></button>
+                                <button type="button" class="btn btn-danger" (click)="removeItem(i)">
+                                    <i class="fa fa-trash"></i>
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -40,12 +49,23 @@
                             <input class="form-control" type="number" [disabled]="!selectItem.account._id" [(ngModel)]="selectItem.qty" [ngModelOptions]="{standalone: true}"
                                 (ngModelChange)="onQtyChange(selectItem)" style="text-align:center;">
                         </td>
-                        <td class="text-right">{{selectItem.unitprice}}</td>
-                        <td class="text-right">{{selectItem.vatamount}}</td>
-                        <td class="text-right">{{selectItem.amount}}</td>
+                        <td class="text-center">
+                            <input class="form-control" type="number" [disabled]="!selectItem.account._id" [(ngModel)]="selectItem.unitprice" [ngModelOptions]="{standalone: true}"
+                                style="text-align:center;">
+                        </td>
+                        <td class="text-center">
+                            <input class="form-control" type="number" [disabled]="!selectItem.account._id" [(ngModel)]="selectItem.vatamount" [ngModelOptions]="{standalone: true}"
+                                style="text-align:center;">
+                        </td>
+                        <td class="text-center">
+                            <input class="form-control" type="number" [disabled]="!selectItem.account._id" [(ngModel)]="selectItem.amount" [ngModelOptions]="{standalone: true}"
+                                style="text-align:center;">
+                        </td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-success" (click)="addItem()"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-success" (click)="addItem()">
+                                    <i class="fa fa-check"></i>
+                                </button>
                             </div>
                         </td>
                     </tr>

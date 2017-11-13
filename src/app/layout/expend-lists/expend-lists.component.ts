@@ -3,7 +3,7 @@ import { routerTransition } from '../../router.animations';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ExpendListsService } from "./expend-lists.service";
-import { ExpendListModel } from "./expend-lists.model";
+import { ExpendListModel } from 'assets/models/expend-lists.model';
 
 @Component({
   selector: 'app-expend-lists',

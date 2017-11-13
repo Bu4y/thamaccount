@@ -16,7 +16,6 @@ export class AccountFormItemsComponent implements OnInit {
   }
 
   selected(item) {
-    console.log(item);
     this.selectItem.account = item;
   }
 

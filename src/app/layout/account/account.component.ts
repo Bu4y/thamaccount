@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AccountListModel } from "./account.model";
 import { AccountService } from "./account.service";
 import { TranslateService } from '@ngx-translate/core';
+import { AccountListModel } from '../account.model';
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',

@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { AccountFormModel } from "../account.model";
 import { AccountCreateService } from "../account-create/account-create.service";
-import { AccountListModel, AccountModel } from "../account-create/account-create.model";
+import { AccountListModel, AccountModel } from "../account.model";
 @Component({
   selector: 'app-sale-create',
   templateUrl: './sale-create.component.html',

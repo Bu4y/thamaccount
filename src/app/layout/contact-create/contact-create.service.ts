@@ -3,8 +3,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { ContactModel } from "./contact-create.model";
 import { Constants } from "../../app.constants";
+import { ContactModel } from 'assets/models/contact-create.model';
 @Injectable()
 export class ContactCreateService {
   user: any;

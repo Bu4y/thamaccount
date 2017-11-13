@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { AccountModel } from "./account-create.model";
+import { AccountModel } from '../account.model';
 import { Constants } from "../../app.constants";
 @Injectable()
 export class AccountCreateService {

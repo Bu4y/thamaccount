@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { AccountFormModel } from "../account.model";
 import { AccountCreateService } from "../account-create/account-create.service";
-import { AccountListModel, AccountModel } from "../account-create/account-create.model";
+import { AccountListModel, AccountModel } from "../account.model";
 
 import { JvCreateService } from "./jv-create.service";
 

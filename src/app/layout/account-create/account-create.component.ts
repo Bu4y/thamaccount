@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
-import { AccountModel, AccountListModel } from "./account-create.model";
 import { AccountCreateService } from "./account-create.service";
+import { AccountListModel, AccountModel } from '../account.model';
 
 @Component({
   selector: 'app-account-create',

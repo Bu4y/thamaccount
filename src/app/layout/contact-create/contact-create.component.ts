@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { routerTransition } from '../../router.animations';
 
 import { ContactCreateService } from "./contact-create.service";
-import { ContactModel } from "./contact-create.model";
+import { ContactModel } from 'assets/models/contact-create.model';
 
 @Component({
   selector: 'app-contact-create',

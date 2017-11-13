@@ -3,7 +3,7 @@ import { routerTransition } from '../../router.animations';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ContactListsService } from "./contact-lists.service";
-import { ContactListModel } from "./contact-lists.model";
+import { ContactListModel } from 'assets/models/contact-lists.model';
 
 @Component({
   selector: 'app-contact-lists',
