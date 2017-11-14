@@ -96,7 +96,7 @@ var SignupComponent = (function () {
         var _this = this;
         this.signupService.signup(signup).then(function (data) {
             console.log(data);
-            _this.router.navigate(['/dashboard']);
+            _this.router.navigate(['/account']);
             localStorage.setItem('isLoggedin', 'true');
             localStorage.setItem('userLoggedin', JSON.stringify(data));
         }, function (error) {

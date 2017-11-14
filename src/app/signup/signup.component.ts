@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
     onSignup(signup) {
         this.signupService.signup(signup).then((data) => {
             console.log(data);
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/account']);
             localStorage.setItem('isLoggedin', 'true');
             localStorage.setItem('userLoggedin', JSON.stringify(data));
         }, (error) => {
