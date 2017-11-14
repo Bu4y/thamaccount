@@ -7,11 +7,11 @@
         <div class="col-md-4">
             <fieldset class="form-group">
                 <label>{{'docdate' | translate}}</label>
-                <input class="form-control" type="date" [ngModel]="docdate" (ngModelChange)="selectDocDate($event)" [ngModelOptions]="{standalone: true}"
+                <input class="form-control" type="date" [ngModel]="dataForm.docdate" (ngModelChange)="selectDocDate($event)" [ngModelOptions]="{standalone: true}"
                     useValueAsDate>
             </fieldset>
 
-            <label>{{'docno' | translate}} {{docno}}</label>
+            <label>{{'docno' | translate}} {{dataForm.docno}}</label>
         </div>
     </div>
     <hr>

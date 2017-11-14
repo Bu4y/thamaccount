@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { CompleterService, CompleterData } from 'ng2-completer';
+import { AccountCreateService } from 'app/layout/account-create/account-create.service';
 
 @Component({
   selector: 'app-account-form',
@@ -7,27 +9,38 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./account-form.component.scss']
 })
 export class AccountFormComponent implements OnInit {
-  @Input('accounts') data: Array<Object>
   @Input('accountHeader') accountHeader: string;
+  @Input('datas') datas: Array<any>;
   @Output() accountItems = new EventEmitter();
   account: AccountItemModel = new AccountItemModel();
-  accounts: Array<any> = [];
   accountTotal: number;
   currentLang: string;
-
-  constructor(private translate: TranslateService) { }
+  protected dataService: CompleterData;
+  constructor(
+    private translate: TranslateService,
+    private completerService: CompleterService,
+    private accountCreateService: AccountCreateService,
+  ) { }
 
   ngOnInit() {
+    this.accountCreateService.getAccount().then((data) => {
+      this.dataService = this.completerService.local(data, 'name', 'name');
+    }, (error) => {
+      console.error(error);
+    });
   }
 
-  selected($event) {
-    // console.log($event);
-    this.account.account = $event;
+  selected(event, item, i) {
+    // console.log(event);
+    if (!item) {
+      this.account.account = event.originalObject;
+    } else {
+      this.datas[i].account = event.originalObject;
+    }
   }
 
   addItem() {
     this.currentLang = this.translate.currentLang;
-
     if (!this.account.account._id) {
       if (this.currentLang === 'th') {
         alert('กรุณาเลือกรหัสบัญชี');
@@ -45,15 +58,15 @@ export class AccountFormComponent implements OnInit {
       }
       return false;
     }
-
-    this.accounts.push(this.account);
+    this.datas = this.datas ? this.datas : [];
+    this.datas.push(this.account);
     this.account = new AccountItemModel();
-    this.account.account = this.accounts[this.accounts.length - 1].account;
+    this.account.account = this.datas[this.datas.length - 1].account;
     this.calculate();
   }
 
   removeItem(index) {
-    this.accounts.splice(index, 1);
+    this.datas.splice(index, 1);
     this.calculate();
   }
 
@@ -63,13 +76,13 @@ export class AccountFormComponent implements OnInit {
 
   calculate() {
     this.accountTotal = 0;
-    let length = this.accounts.length;
+    let length = this.datas.length;
     for (let i = 0; i < length; i++) {
-      this.accountTotal += this.accounts[i].amount;
+      this.accountTotal += this.datas[i].amount;
     }
-    console.log('tets');
+    // console.log('tets');
     this.accountItems.emit({
-      accounts: this.accounts,
+      accounts: this.datas,
       totalaccount: this.accountTotal
     });
   }

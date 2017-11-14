@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import { AccountModel } from '../account.model';
+import { AccountModel, AccountListModel } from '../account.model';
 import { Constants } from "../../app.constants";
 @Injectable()
 export class AccountCreateService {
@@ -14,7 +14,7 @@ export class AccountCreateService {
 
   getAccount() {
     return this.http.get(Constants.URL + 'api/accountcharts').toPromise()
-      .then(response => response.json() as AccountModel)
+      .then(response => response.json() as AccountListModel)
       .catch(this.handleError);
   }
 

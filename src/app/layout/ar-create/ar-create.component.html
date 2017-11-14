@@ -10,15 +10,15 @@
             </li>
         </div>
         <div class="col-md-4">
-            <input class="form-control" placeholder="{{'search' | translate}}" type="text" [ngModel]="search" (keypress)="searching($event,search);"
-                [ngModelOptions]="{standalone: true}">
+            AR
+            <input type="text" class="form-control" [(ngModel)]="searchText" (keypress)="searching($event);" placeholder="{{'search' | translate}} {{'docno' | translate}}">
         </div>
     </div>
 </ol>
-<app-account-header [header]="'ar'" [docno]="docno" (date)="docdate($event)"></app-account-header>
-<app-account-form [accountHeader]="'ar-debit'" [accounts]="accounts" (accountItems)="onDebits($event)"></app-account-form>
+<app-account-header [header]="'ar'" [dataForm]="accountForm" (date)="docdate($event)"></app-account-header>
+<app-account-form [accountHeader]="'ar-debit'" [datas]="accountForm.debits" (accountItems)="onDebits($event)"></app-account-form>
 <hr>
-<app-account-form [accountHeader]="'ar-credit'" [accounts]="accounts" (accountItems)="onCredits($event)"></app-account-form>
+<app-account-form [accountHeader]="'ar-credit'" [datas]="accountForm.credits" (accountItems)="onCredits($event)"></app-account-form>
 <hr>
 <div class="row">
     <div class="col-md-3"></div>

@@ -1,5 +1,5 @@
 export class AccountListModel {
-    accounts: Array<AccountModel>
+    accounts: Array<AccountModel>;
 }
 
 export class AccountFormModel {

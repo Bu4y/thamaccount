@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { NgProgressModule, NgProgressBrowserXhr } from 'ngx-progressbar';
 import { BrowserXhr } from '@angular/http';
+
 import { LoginService } from "./login/login.service";
 import { SignupService } from "./signup/signup.service";
 import { ContactCreateService } from "./layout/contact-create/contact-create.service";

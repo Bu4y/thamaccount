@@ -17,7 +17,8 @@ export class RvCreateComponent implements OnInit {
   account: AccountModel = new AccountModel();
   currentLang: string;
   type: string = 'RV';
-  docno: string = this.type;
+  searchText: string = '';
+  
   constructor(private accountCreateService: AccountCreateService, private jvCreateService: JvCreateService, private translate: TranslateService) { }
 
   ngOnInit() {
@@ -28,21 +29,42 @@ export class RvCreateComponent implements OnInit {
     return this.accountForm._id ? 'update' : 'create';
   }
 
-  searching(e, search) {
+  searching(e) {
     if (e.keyCode == 13) {
       this.currentLang = this.translate.currentLang;
       if (this.currentLang === 'th') {
-        var res = confirm('คุณต้องการยกเลิกการทำรายการนี้?');
+        let res = confirm('คุณต้องการยกเลิกการทำรายการนี้?');
         if (res) {
-          alert('ค้นหา');
+          // alert('ค้นหา');
+          this.searchAccount(this.searchText);
         }
       } else {
-        var res = confirm('Would you like to cancel this transaction?');
+        let res = confirm('Would you like to cancel this transaction?');
         if (res) {
-          alert('Search');
+          // alert('Search');
+          this.searchAccount(this.searchText);
         }
       }
     }
+  }
+
+  searchAccount(searchText) {
+    this.jvCreateService.searchAccount('RV' + searchText).then((data) => {
+      if (data._id) {
+        data.docdate = new Date(data.docdate);
+        this.accountForm = data;
+      } else {
+        this.currentLang = this.translate.currentLang;
+        if (this.currentLang === 'th') {
+          alert('ไม่พบ เลขที่เอกสาร "RV' + searchText + '"');
+        } else {
+          alert('"RV' + searchText + '" Not found.');
+        }
+      }
+    }, (error) => {
+      // alert();
+      console.log(error);
+    });
   }
 
   getAccount() {
@@ -102,16 +124,46 @@ export class RvCreateComponent implements OnInit {
       return false;
     }
     this.accountForm.gltype = this.type;
+    if (this.accountForm._id) {
+      this.update();
+    } else {
+      this.create();
+    }
+  }
+
+  create() {
     this.jvCreateService.postJv(this.accountForm).then((data) => {
       if (this.currentLang === 'th') {
         alert('สำเร็จ เลขที่เอกสาร "' + data.docno + '"');
       } else {
         alert('Complate Docno "' + data.docno + '"');
       }
-      this.docno = data.docno;
       this.accountForm = data;
+      // window.location.reload();
     }, (error) => {
-      alert(JSON.parse(error._body).message);
+      if (error._body.message) {
+        alert(JSON.parse(error._body).message);
+      } else {
+
+      }
+    });
+  }
+
+  update() {
+    this.jvCreateService.putJv(this.accountForm).then((data) => {
+      if (this.currentLang === 'th') {
+        alert('อัพเดทสำเร็จ เลขที่เอกสาร "' + data.docno + '"');
+      } else {
+        alert('Update complate Docno "' + data.docno + '"');
+      }
+      this.accountForm = data;
+      // window.location.reload();
+    }, (error) => {
+      if (error._body.message) {
+        alert(JSON.parse(error._body).message);
+      } else {
+
+      }
     });
   }
 

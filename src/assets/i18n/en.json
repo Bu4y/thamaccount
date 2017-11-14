@@ -50,5 +50,6 @@
     "vat": "Vat",
     "search": "Search",
     "update": "Update",
-    "create": "Create"
+    "create": "Create",
+    "data-not-found": "Data not found."
 }
