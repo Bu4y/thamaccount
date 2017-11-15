@@ -27,7 +27,7 @@ export class AccountFormComponent implements OnInit {
 
   ngOnInit() {
     this.accountCreateService.getAccount().then((data) => {
-      this.dataService = this.completerService.local(data, 'name', 'name');
+      this.dataService = this.completerService.local(data, 'fullname', 'fullname');
     }, (error) => {
       console.error(error);
     });

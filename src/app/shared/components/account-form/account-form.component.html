@@ -12,7 +12,7 @@
                         <th>#</th>
                         <th>{{ 'accountname' | translate}}</th>
                         <th>{{ 'description' | translate}}</th>
-                        <th>{{ 'amount' | translate}}</th>
+                        <th width="150">{{ 'amount' | translate}}</th>
                         <th class="text-right"></th>
                     </tr>
                 </thead>
@@ -20,7 +20,7 @@
                     <tr *ngFor="let itm of datas; let i = index">
                         <td>{{i + 1}}</td>
                         <td>
-                            <ng2-completer [(ngModel)]="itm.account.name" [placeholder]="'Account chart'" [textNoResults]="'Data not found.'" [textSearching]="'Please wait...'"
+                            <ng2-completer [(ngModel)]="itm.account.fullname" [placeholder]="'Account chart'" [textNoResults]="'Data not found.'" [textSearching]="'Please wait...'"
                                 [datasource]="dataService" (selected)="selected($event,itm.account,i)" [minSearchLength]="0"></ng2-completer>
                         </td>
                         <td>
