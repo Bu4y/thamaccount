@@ -15,6 +15,7 @@ export class AccountFormComponent implements OnInit {
   @Output() accountItems = new EventEmitter();
   account: AccountItemModel = new AccountItemModel();
   currentLang: string;
+  completerText: string;
   protected dataService: CompleterData;
   constructor(
     private translate: TranslateService,
@@ -60,6 +61,7 @@ export class AccountFormComponent implements OnInit {
       }
       return false;
     }
+    this.completerText = '';
     this.datas = this.datas ? this.datas : [];
     this.datas.push(this.account);
     this.account = new AccountItemModel();

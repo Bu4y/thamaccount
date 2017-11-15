@@ -40,7 +40,7 @@
                     <tr>
                         <td></td>
                         <td>
-                            <ng2-completer placeholder="{{'account-name' | translate}}" textNoResults="{{'data-not-found' | translate}}" [datasource]="dataService"
+                            <ng2-completer [(ngModel)]="completerText" placeholder="{{'account-name' | translate}}" textNoResults="{{'data-not-found' | translate}}" [datasource]="dataService"
                                 (selected)="selected($event)" [minSearchLength]="0"></ng2-completer>
                         </td>
                         <td>
