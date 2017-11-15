@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, IterableDiffers } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CompleterService, CompleterData } from 'ng2-completer';
 import { AccountCreateService } from 'app/layout/account-create/account-create.service';
@@ -11,16 +11,18 @@ import { AccountCreateService } from 'app/layout/account-create/account-create.s
 export class AccountFormComponent implements OnInit {
   @Input('accountHeader') accountHeader: string;
   @Input('datas') datas: Array<any>;
+  @Input('accountTotal') accountTotal: number;
   @Output() accountItems = new EventEmitter();
   account: AccountItemModel = new AccountItemModel();
-  accountTotal: number;
   currentLang: string;
   protected dataService: CompleterData;
   constructor(
     private translate: TranslateService,
     private completerService: CompleterService,
     private accountCreateService: AccountCreateService,
-  ) { }
+    private differs: IterableDiffers
+  ) {
+  }
 
   ngOnInit() {
     this.accountCreateService.getAccount().then((data) => {

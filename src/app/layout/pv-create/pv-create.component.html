@@ -15,10 +15,10 @@
         </div>
     </div>
 </ol>
-<app-account-header [header]="'pv'" [dataForm]="accountForm" (date)="docdate($event)"></app-account-header>
-<app-account-form [accountHeader]="'pv-debit'" [datas]="accountForm.debits" (accountItems)="onDebits($event)"></app-account-form>
+<app-account-header [header]="'pv'" [dataForm]="accountForm" (addNew)="addNew()" (date)="docdate($event)"></app-account-header>
+<app-account-form [accountHeader]="'pv-debit'" [datas]="accountForm.debits" [accountTotal]="accountForm.totaldebit" (accountItems)="onDebits($event)"></app-account-form>
 <hr>
-<app-account-form [accountHeader]="'pv-credit'" [datas]="accountForm.credits" (accountItems)="onCredits($event)"></app-account-form>
+<app-account-form [accountHeader]="'pv-credit'" [datas]="accountForm.credits" [accountTotal]="accountForm.totalcredit" (accountItems)="onCredits($event)"></app-account-form>
 <hr>
 <div class="row">
     <div class="col-md-3"></div>

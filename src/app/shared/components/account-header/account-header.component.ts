@@ -10,6 +10,7 @@ export class AccountHeaderComponent implements OnInit {
   @Input('icon') icon: string = '';
   @Input('dataForm') dataForm: any;
   @Output() date = new EventEmitter();
+  @Output() addNew = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -20,5 +21,9 @@ export class AccountHeaderComponent implements OnInit {
   selectDocDate(docdate) {
     this.dataForm.docdate = new Date(docdate);
     // this.date.emit(this.docdate);
+  }
+
+  onAddNew() {
+    this.addNew.emit();
   }
 }

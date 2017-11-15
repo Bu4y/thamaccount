@@ -24,7 +24,7 @@ export class PvCreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+
   }
 
   getMode() {
@@ -154,5 +154,11 @@ export class PvCreateComponent implements OnInit {
 
       }
     });
+  }
+
+  addNew() {
+    this.accountForm = new AccountFormModel();
+    this.accountForm.docdate = new Date();
+    this.searchText = '';
   }
 }

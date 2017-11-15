@@ -1,8 +1,11 @@
 <div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 ">
+            <button *ngIf="dataForm._id" type="button" class="btn btn-success full" (click)="onAddNew()">
+                {{'new-create' | translate}}
+            </button>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
         </div>
         <div class="col-md-4">
             <fieldset class="form-group">
@@ -11,7 +14,7 @@
                     useValueAsDate>
             </fieldset>
 
-            <label>{{'docno' | translate}} {{dataForm.docno}}</label>
+            <p>{{'docno' | translate}} {{dataForm.docno}}</p>
         </div>
     </div>
     <hr>

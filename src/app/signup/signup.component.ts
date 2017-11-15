@@ -24,7 +24,11 @@ export class SignupComponent implements OnInit {
             localStorage.setItem('isLoggedin', 'true');
             localStorage.setItem('userLoggedin', JSON.stringify(data));
         }, (error) => {
-            console.error(error);
+            if (JSON.parse(error._body).message) {
+                alert(JSON.parse(error._body).message);
+            } else {
+
+            }
         });
     }
 }

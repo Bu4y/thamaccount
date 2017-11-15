@@ -168,4 +168,10 @@ export class ArCreateComponent implements OnInit {
     });
   }
 
+  addNew() {
+    this.accountForm = new AccountFormModel();
+    this.accountForm.docdate = new Date();
+    this.searchText = '';
+  }
+
 }
