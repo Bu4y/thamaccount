@@ -51,6 +51,7 @@
     "unit-price": "Unit price",
     "vat": "Vat",
     "search": "Search",
+    "searching":"Searching...",    
     "update": "Update",
     "create": "Create",
     "data-not-found": "Data not found.",

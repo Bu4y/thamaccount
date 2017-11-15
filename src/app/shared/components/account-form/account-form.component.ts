@@ -27,6 +27,7 @@ export class AccountFormComponent implements OnInit {
 
   ngOnInit() {
     this.accountCreateService.getAccount().then((data) => {
+      data.sort((a, b) => { return (a.accountno > b.accountno) ? 1 : ((b.accountno > a.accountno) ? -1 : 0); });
       this.dataService = this.completerService.local(data, 'fullname', 'fullname');
     }, (error) => {
       console.error(error);
