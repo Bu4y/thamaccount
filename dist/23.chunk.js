@@ -160,8 +160,9 @@ var AccountCreateComponent = (function () {
             this.accountCreateService.postAccount(this.account).then(function (data) {
                 _this.router.navigate(['/account']);
             }, function (error) {
-                _this.error = JSON.parse(error._body).message;
-                console.log(_this.error);
+                if (JSON.parse(error._body).message) {
+                    alert(JSON.parse(error._body).message.split('index:')[1]);
+                }
             });
         }
     };

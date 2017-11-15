@@ -81,8 +81,9 @@ export class AccountCreateComponent implements OnInit {
       this.accountCreateService.postAccount(this.account).then((data) => {
         this.router.navigate(['/account']);
       }, (error) => {
-        this.error = JSON.parse(error._body).message;
-        console.log(this.error);
+        if(JSON.parse(error._body).message){
+          alert(JSON.parse(error._body).message.split('index:')[1]);
+        }
       });
     }
   }
