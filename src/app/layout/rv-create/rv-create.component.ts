@@ -18,7 +18,7 @@ export class RvCreateComponent implements OnInit {
   currentLang: string;
   type: string = 'RV';
   searchText: string = '';
-  
+
   constructor(private accountCreateService: AccountCreateService, private jvCreateService: JvCreateService, private translate: TranslateService) { }
 
   ngOnInit() {
@@ -31,19 +31,23 @@ export class RvCreateComponent implements OnInit {
 
   searching(e) {
     if (e.keyCode == 13) {
-      this.currentLang = this.translate.currentLang;
-      if (this.currentLang === 'th') {
-        let res = confirm('คุณต้องการยกเลิกการทำรายการนี้?');
-        if (res) {
-          // alert('ค้นหา');
-          this.searchAccount(this.searchText);
+      if (this.accountForm.debits || this.accountForm.credits || this.accountForm.remark) {
+        this.currentLang = this.translate.currentLang;
+        if (this.currentLang === 'th') {
+          let res = confirm('คุณต้องการยกเลิกการทำรายการนี้?');
+          if (res) {
+            // alert('ค้นหา');
+            this.searchAccount(this.searchText);
+          }
+        } else {
+          let res = confirm('Would you like to cancel this transaction?');
+          if (res) {
+            // alert('Search');
+            this.searchAccount(this.searchText);
+          }
         }
       } else {
-        let res = confirm('Would you like to cancel this transaction?');
-        if (res) {
-          // alert('Search');
-          this.searchAccount(this.searchText);
-        }
+        this.searchAccount(this.searchText);
       }
     }
   }
@@ -57,6 +61,8 @@ export class RvCreateComponent implements OnInit {
         this.currentLang = this.translate.currentLang;
         if (this.currentLang === 'th') {
           alert('ไม่พบ เลขที่เอกสาร "RV' + searchText + '"');
+          this.accountForm = new AccountFormModel();
+          this.accountForm.docdate = new Date();
         } else {
           alert('"RV' + searchText + '" Not found.');
         }

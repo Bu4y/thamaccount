@@ -39,7 +39,7 @@ ArCreateRoutingModule = __decorate([
 /***/ "../../../../../src/app/layout/ar-create/ar-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ol class=\"breadcrumb\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <li class=\"breadcrumb-item\">\n                <i class=\"fa fa-list-ul\"></i>\n                <a [routerLink]=\"['/ar-list']\">{{'ar-list' | translate}}</a>\n            </li>\n            <li class=\"breadcrumb-item active\">\n                <i class=\"fa fa-file-o\"></i> {{'ar' | translate}} ({{ getMode() | translate}})\n            </li>\n        </div>\n        <div class=\"col-md-4\">\n            AR\n            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchText\" (keypress)=\"searching($event);\" placeholder=\"{{'search' | translate}} {{'docno' | translate}}\">\n        </div>\n    </div>\n</ol>\n<app-account-header [header]=\"'ar'\" [dataForm]=\"accountForm\" (addNew)=\"addNew()\" (date)=\"docdate($event)\"></app-account-header>\n<app-account-form [accountHeader]=\"'ar-debit'\" [datas]=\"accountForm.debits\" [accountTotal]=\"accountForm.totaldebit\" (accountItems)=\"onDebits($event)\"></app-account-form>\n<hr>\n<app-account-form [accountHeader]=\"'ar-credit'\" [datas]=\"accountForm.credits\" [accountTotal]=\"accountForm.totalcredit\" (accountItems)=\"onCredits($event)\"></app-account-form>\n<hr>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <fieldset class=\"form-group\">\n            <label>{{'remark' | translate}}</label>\n            <textarea class=\"form-control\" rows=\"6\" cols=\"50\" [(ngModel)]=\"accountForm.remark\" [ngModelOptions]=\"{standalone: true}\"\n                placeholder=\"{{'remark-inbox' | translate}}\"></textarea>\n        </fieldset>\n    </div>\n    <div class=\"col-md-3\"></div>\n</div>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <button type=\"button\" class=\"btn btn-success full\" (click)=\"onSave()\">{{'save' | translate}}</button>\n    </div>\n    <div class=\"col-md-3\"></div>\n    <!-- <div class=\"col-md-4\">\n        <button type=\"button\" class=\"btn btn-danger full\" (click)=\"onCancel()\">{{'cancel' | translate}}</button>\n    </div> -->\n</div>\n"
+module.exports = "<ol class=\"breadcrumb\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <li class=\"breadcrumb-item\">\n                <i class=\"fa fa-list-ul\"></i>\n                <a [routerLink]=\"['/ar-list']\">{{'ar-list' | translate}}</a>\n            </li>\n            <li class=\"breadcrumb-item active\">\n                <i class=\"fa fa-file-o\"></i>  {{ getMode() | translate}}{{'ar-list' | translate}}\n            </li>\n        </div>\n        <div class=\"col-md-4\">\n            AR\n            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchText\" (keypress)=\"searching($event);\" placeholder=\"{{'search' | translate}} {{'docno' | translate}}\">\n        </div>\n    </div>\n</ol>\n<app-account-header [header]=\"'ar'\" [dataForm]=\"accountForm\" (addNew)=\"addNew()\" (date)=\"docdate($event)\"></app-account-header>\n<app-account-form [accountHeader]=\"'ar-debit'\" [datas]=\"accountForm.debits\" [accountTotal]=\"accountForm.totaldebit\" (accountItems)=\"onDebits($event)\"></app-account-form>\n<hr>\n<app-account-form [accountHeader]=\"'ar-credit'\" [datas]=\"accountForm.credits\" [accountTotal]=\"accountForm.totalcredit\" (accountItems)=\"onCredits($event)\"></app-account-form>\n<hr>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <fieldset class=\"form-group\">\n            <label>{{'remark' | translate}}</label>\n            <textarea class=\"form-control\" rows=\"6\" cols=\"50\" [(ngModel)]=\"accountForm.remark\" [ngModelOptions]=\"{standalone: true}\"\n                placeholder=\"{{'remark-inbox' | translate}}\"></textarea>\n        </fieldset>\n    </div>\n    <div class=\"col-md-3\"></div>\n</div>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <button type=\"button\" class=\"btn btn-success full\" (click)=\"onSave()\">{{'save' | translate}}</button>\n    </div>\n    <div class=\"col-md-3\"></div>\n    <!-- <div class=\"col-md-4\">\n        <button type=\"button\" class=\"btn btn-danger full\" (click)=\"onCancel()\">{{'cancel' | translate}}</button>\n    </div> -->\n</div>\n"
 
 /***/ }),
 
@@ -104,20 +104,25 @@ var ArCreateComponent = (function () {
     };
     ArCreateComponent.prototype.searching = function (e) {
         if (e.keyCode == 13) {
-            this.currentLang = this.translate.currentLang;
-            if (this.currentLang === 'th') {
-                var res = confirm('คุณต้องการยกเลิกการทำรายการนี้?');
-                if (res) {
-                    // alert('ค้นหา');
-                    this.searchAccount(this.searchText);
+            if (this.accountForm.debits || this.accountForm.credits || this.accountForm.remark) {
+                this.currentLang = this.translate.currentLang;
+                if (this.currentLang === 'th') {
+                    var res = confirm('คุณต้องการยกเลิกการทำรายการนี้?');
+                    if (res) {
+                        // alert('ค้นหา');
+                        this.searchAccount(this.searchText);
+                    }
+                }
+                else {
+                    var res = confirm('Would you like to cancel this transaction?');
+                    if (res) {
+                        // alert('Search');
+                        this.searchAccount(this.searchText);
+                    }
                 }
             }
             else {
-                var res = confirm('Would you like to cancel this transaction?');
-                if (res) {
-                    // alert('Search');
-                    this.searchAccount(this.searchText);
-                }
+                this.searchAccount(this.searchText);
             }
         }
     };
@@ -132,6 +137,8 @@ var ArCreateComponent = (function () {
                 _this.currentLang = _this.translate.currentLang;
                 if (_this.currentLang === 'th') {
                     alert('ไม่พบ เลขที่เอกสาร "AR' + searchText + '"');
+                    _this.accountForm = new __WEBPACK_IMPORTED_MODULE_2__account_model__["a" /* AccountFormModel */]();
+                    _this.accountForm.docdate = new Date();
                 }
                 else {
                     alert('"AR' + searchText + '" Not found.');
