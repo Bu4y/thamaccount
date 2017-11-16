@@ -88,7 +88,7 @@ export class AccountFormComponent implements OnInit {
     // console.log('tets');
     this.accountItems.emit({
       accounts: this.datas,
-      totalaccount: this.accountTotal
+      totalaccount: this.accountTotal.toFixed(2)
     });
   }
 
