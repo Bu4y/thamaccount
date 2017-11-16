@@ -55,5 +55,6 @@
     "update": "Update",
     "create": "Create",
     "data-not-found": "Data not found.",
-    "new-create":"Add new"
+    "new-create":"Add new",
+    "gl-report": "Gl report"    
 }

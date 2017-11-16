@@ -51,9 +51,10 @@
     "unit-price": "ราคา(หน่วย)",
     "vat": "ภาษี",
     "search": "ค้นหา",
-    "searching":"กำลังค้นหา...",
+    "searching": "กำลังค้นหา...",
     "update": "แก้ไข",
     "create": "สร้าง",
     "data-not-found": "ไม่พบข้อมูล",
-    "new-create":"เพิ่มใหม่"    
+    "new-create": "เพิ่มใหม่",
+    "gl-report": "รายงาน"
 }

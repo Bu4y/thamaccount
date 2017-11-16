@@ -24,7 +24,8 @@ const routes: Routes = [
             { path: 'jv-create', loadChildren: './jv-create/jv-create.module#JvCreateModule' },
             { path: 'jv-list', loadChildren: './jv-list/jv-list.module#JvListModule' },
             { path: 'sale-create', loadChildren: './sale-create/sale-create.module#SaleCreateModule' },
-            { path: 'buy-create', loadChildren: './buy-create/buy-create.module#BuyCreateModule' }            
+            { path: 'buy-create', loadChildren: './buy-create/buy-create.module#BuyCreateModule' },            
+            { path: 'gl-report', loadChildren: './gl-report/gl-report.module#GlReportModule' }            
         ]
     }
 ];
