@@ -1,0 +1,38 @@
+.center{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+.left{
+    text-align: left;
+}
+// date
+[type="date"] {
+    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+  }
+  [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+  // date
+  p {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.debit{
+    
+}
+.credit{
+    padding-left: 30px;
+}
+.reason{
+    
+}
+.time-now{
+    position: absolute;
+}
+
+ 

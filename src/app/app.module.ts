@@ -1,3 +1,4 @@
+import { GlReportService } from './layout/gl-report/gl-report.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Http, HttpModule } from '@angular/http';
@@ -45,7 +46,7 @@ export function HttpLoaderFactory(http: Http) {
             }
         })
     ],
-    providers: [{ provide: BrowserXhr, useClass: NgProgressBrowserXhr }, AuthGuard, LoginService, SignupService, ContactCreateService, ContactListsService, ExpendCreateService, ExpendListsService, AccountCreateService, AccountService, JvCreateService],
+    providers: [{ provide: BrowserXhr, useClass: NgProgressBrowserXhr }, AuthGuard, LoginService, SignupService, ContactCreateService, ContactListsService, ExpendCreateService, ExpendListsService, AccountCreateService, AccountService, JvCreateService,GlReportService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

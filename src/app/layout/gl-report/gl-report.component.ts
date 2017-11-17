@@ -1,3 +1,5 @@
+import { GlReportModel } from './../../../assets/models/gl-report.model';
+import { GlReportService } from './gl-report.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gl-report.component.scss']
 })
 export class GlReportComponent implements OnInit {
-
-  constructor() { }
+  glReport: GlReportModel = new GlReportModel;
+  constructor(
+    private glReportService: GlReportService
+  ) { }
 
   ngOnInit() {
+    this.getGlReport();
+  }
+
+  getGlReport() {
+    this.glReportService.getGlReport().then((gl) => {
+      this.glReport = gl;
+      console.log(this.glReport);
+    }, (error) => {
+      alert(JSON.stringify(error));
+    })
+
   }
 
 }
