@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from "./account.service";
 import { TranslateService } from '@ngx-translate/core';
 import { AccountListModel } from '../account.model';
+declare let jsPDF;
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',

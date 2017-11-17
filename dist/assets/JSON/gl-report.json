@@ -1,0 +1,153 @@
+{
+    "type": "month",
+    "startdate": "2016-01-01T07:00:00.000+07:00",
+    "enddate": "2016-01-31T07:00:00.000+07:00",
+    "daily": {
+        "date": "2017-11-16T07:00:00.000+07:00",
+        "company": "Cyber Advance System annd Network Co.,Ltd",
+        "startdate": "2016-01-01T07:00:00.000+07:00",
+        "enddate": "2016-01-31T07:00:00.000+07:00",
+        "title": "สมุดรายวันทั่วไป",
+        "transaction": [
+            {
+                "docdate": "2016-01-04T07:00:00.000+07:00",
+                "docno": "PV59010401",
+                "list": [
+                    {
+                        "accountname": "ค่าเครื่องเขียนแบบพิมพ์",
+                        "accountno": "605003",
+                        "description":"ค่ากระดาษถ่ายเอกสาร",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 168.22,
+                        "credit": 0
+                    },
+                    {
+                        "accountname": "ภาษีซื้อ",
+                        "accountno": "101502",
+                        "description":"ค่ากระดาษถ่ายเอกสาร",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 11.78,
+                        "credit": 0
+                    },
+                    {
+                        "accountname": "เงินสด TEST",
+                        "accountno": "101101",
+                        "description":"ค่ากระดาษถ่ายเอกสาร",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 0,
+                        "credit": 180.00
+                    }
+                ],
+                "remark": "ค่ากระดาษถ่ายเอกสาร"
+            },
+            {
+                "docdate": "2016-01-04T07:00:00.000+07:00",
+                "docno": "PV59010402",
+                "list": [
+                    {
+                        "accountname": "ค่าเครื่องเขียนแบบพิมพ์",
+                        "accountno": "605003",
+                        "description":"ค่าหมึกพิมพ์",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 10700.93,
+                        "credit": 0
+                    },
+                    {
+                        "accountname": "ภาษีซื้อ",
+                        "accountno": "101502",
+                        "description":"ค่าหมึกพิมพ์",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 749.07,
+                        "credit": 0
+                    },
+                    {
+                        "accountname": "เงินสด TEST",
+                        "accountno": "101101",
+                        "description":"ค่าหมึกพิมพ์",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 0,
+                        "credit": 11450
+                    }
+                ],
+                "remark": ""
+            },
+            {
+                "docdate": "2016-01-04T07:00:00.000+07:00",
+                "docno": "PV59010403",
+                "list": [
+                    {
+                        "accountname": "คอมพิวเตอร์และอุปกรณ์",
+                        "accountno": "102101",
+                        "description":"ค่าอุปกรณ์คอมพิวเตอร์- Tablet",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 63141.12,
+                        "credit": 0
+                    },
+                    {
+                        "accountname": "ภาษีซื้อ",
+                        "accountno": "101502",
+                        "description":"ค่าอุปกรณ์คอมพิวเตอร์- Tablet",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 4419.88,
+                        "credit": 0
+                    },
+                    {
+                        "accountname": "เงินสด TEST",
+                        "accountno": "101101",
+                        "description": "ค่าอุปกรณ์คอมพิวเตอร์- Tablet",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 0,
+                        "credit": 67561
+                    }
+                ],
+                "remark": ""
+            },
+            {
+                "docdate": "2016-01-04T07:00:00.000+07:00",
+                "docno": "PV59010404",
+                "list": [
+                    {
+                        "accountname": "ซื้อสินค้า",
+                        "accountno": "501001",
+                        "description": "ค่าเครื่งคอมคอมพิวเตอร์",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 12900,
+                        "credit": 0
+                    },
+                    {
+                        "accountname": "ภาษีซื้อ",
+                        "accountno": "101502",
+                        "description": "ค่าเครื่งคอมคอมพิวเตอร์",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 903,
+                        "credit": 0
+                    },
+                    {
+                        "accountname": "เงินสด TEST",
+                        "accountno": "101101",
+                        "description": "ค่าเครื่งคอมคอมพิวเตอร์",
+                        "document": "",
+                        "timestamp": "",
+                        "debit": 0,
+                        "credit": 13803
+                    }
+                ],
+                "remark": ""
+            }
+        ]
+    },
+    "acceach": {},
+    "gain": {},
+    "balance": {}
+}
