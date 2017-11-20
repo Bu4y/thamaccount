@@ -7,6 +7,8 @@ const routes: Routes = [
         path: '', component: LayoutComponent,
         children: [
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
+            { path: 'account-type-list', loadChildren: './account-type-list/account-type-list.module#AccountTypeListModule' },            
+            { path: 'account-type-create', loadChildren: './account-type-create/account-type-create.module#AccountTypeCreateModule' },            
             { path: 'account', loadChildren: './account/account.module#AccountModule' },
             { path: 'account-create', loadChildren: './account-create/account-create.module#AccountCreateModule' },
             { path: 'expend-create', loadChildren: './expend-create/expend-create.module#ExpendCreateModule' },

@@ -3,6 +3,10 @@
     "dashboard": "Dashboard",
     "menu": "Menu",
     "language": "English",
+    "account-type": "Account Type",
+    "new-account-type": "New Account Type",
+    "account-type-no": "Account Type NO.",
+    "account-type-name": "Account Type Name",
     "account": "Account Chart",
     "new-account": "New Account",
     "account-no": "Account NO.",
@@ -51,10 +55,10 @@
     "unit-price": "Unit price",
     "vat": "Vat",
     "search": "Search",
-    "searching":"Searching...",    
+    "searching": "Searching...",
     "update": "Update",
     "create": "Create",
     "data-not-found": "Data not found.",
-    "new-create":"Add new",
-    "gl-report": "Gl report"    
+    "new-create": "Add new",
+    "gl-report": "Gl report"
 }

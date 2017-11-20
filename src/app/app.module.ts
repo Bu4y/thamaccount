@@ -21,6 +21,7 @@ import { ExpendListsService } from "./layout/expend-lists/expend-lists.service";
 import { AccountCreateService } from "./layout/account-create/account-create.service";
 import { AccountService } from "./layout/account/account.service";
 import { JvCreateService } from "./layout/jv-create/jv-create.service";
+import { AccountTypeService } from './layout/account-type-create/account-type.service';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
     // for development
@@ -46,7 +47,7 @@ export function HttpLoaderFactory(http: Http) {
             }
         })
     ],
-    providers: [{ provide: BrowserXhr, useClass: NgProgressBrowserXhr }, AuthGuard, LoginService, SignupService, ContactCreateService, ContactListsService, ExpendCreateService, ExpendListsService, AccountCreateService, AccountService, JvCreateService,GlReportService],
+    providers: [{ provide: BrowserXhr, useClass: NgProgressBrowserXhr }, AuthGuard, LoginService, SignupService, ContactCreateService, ContactListsService, ExpendCreateService, ExpendListsService, AccountCreateService, AccountService, JvCreateService, GlReportService, AccountTypeService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
