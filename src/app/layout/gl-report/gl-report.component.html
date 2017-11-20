@@ -1,158 +1,171 @@
 <div class="container">
-  <div class="row" style="margin-bottom: 15px;">
-    <div class="col-md-12 center">
-      <div class="radio">
-        <p>
-          <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> รายเดือน
-          </label>
-          <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> รายปี
-          </label>
-        </p>
-      </div>
-      <input type="date" name="dateofbirth" id="dateofbirth">
-      <p>
-        <button type="button" class="btn btn-primary ">ทำงบ</button>
-        <button type="button" class="btn btn-default ">ปิดงบ</button>
-      </p>
+    <div class="row" style="margin-bottom: 15px;">
+        <div class="col-12 center">
+            <div class="radio">
+                <label>
+                    <input type="radio" [(ngModel)]="glType" value="month"> รายเดือน
+                </label>
+                <label>
+                    <input type="radio" [(ngModel)]="glType" value="year"> รายปี
+                </label>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <ngb-tabset>
-    <!-- ..dailyTab.. -->
-    <ngb-tab title="สุมดบัญชีรายวัน">
-      <ng-template ngbTabContent>
-        <div class="center time-now">
-          <br>
-          <p>{{glReport.daily.date | date:'dd/MM/yy'}}</p>
-          <p>{{glReport.daily.date | date:'HH:mm:ss'}}</p>
-        </div>
-        <div class="center">
-          <br>
-          <p>{{glReport.daily.company}}</p>
-          <p>{{glReport.daily.title}}</p>
-          <p>ตั้งแต่วันที่ {{glReport.daily.startdate | date:'dd/MM/yy'}} จนถึงวันที่ {{glReport.daily.enddate | date:'dd/MM/yy'}}
-          </p>
-        </div>
-        <div class="scroll_ ">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th class="center">วันที่</th>
-                <th class="center">เลขเอกสาร</th>
-                <th class="center">รายการ</th>
-                <th class="center">รหัสบัญชี</th>
-                <th class="center">เช็ค/ใบสำคัญ</th>
-                <th class="center">ลงวันที่</th>
-                <th class="center">เดบิต</th>
-                <th class="center">เครดิด</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr *ngFor="let transaction of glReport.daily.transaction">
-                <td class="padding-top">{{transaction.docdate | date:'dd/MM/yy'}}</td>
-                <td class="padding-top">{{transaction.docno}}</td>
-                <td>
-                  <div *ngFor="let list of transaction.list">
-                    <div *ngIf="list.debit>0">
-                      <p class="debit"> {{list.accountname}}</p>
-                    </div>
-                    <div *ngIf="list.credit>0">
-                      <p class="credit"> {{list.accountname}}</p>
-                    </div>
-                  </div>
-                  <div *ngIf="transaction.remark !== '' ">
-                    <p class="reason"> ({{transaction.remark}})</p>
-                  </div>
-
-                </td>
-                <td class="left">
-                  <div *ngFor="let list of transaction.list">
-
-
-                    <p>{{list.accountno}}</p>
-
-                  </div>
-                </td>
-                <td>
-                  <div *ngFor="let  document of transaction.list">
-                    {{document.document}}
-                  </div>
-                </td>
-                <td>
-                  <div *ngFor="let  timestamp of transaction.list">
-                    {{timestamp.timestamp}}
-                  </div>
-                </td>
-                <td class="right">
-                  <div *ngFor="let list of transaction.list">
-                    <div *ngIf="list.debit>0">
-                      <p>{{list.debit | number}}</p>
-                    </div>
-                    <div *ngIf="list.credit>0">
-                      <p>
-                        <br>
-                      </p>
-                    </div>
-                  </div>
-
-                </td>
-                <td class="right">
-                  <div *ngFor="let list of transaction.list">
-                    <div *ngIf="list.debit>0">
-                      <p>
-                        <br>
-                      </p>
-                    </div>
-                    <div *ngIf="list.credit>0">
-                      <p>{{list.credit | number}}</p>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="row ">
-          <div class="col-md-12 center" *ngIf="glReport.daily">
-            *** จบรายงาน ***
-          </div>
-          <div class="col-md-12 center" *ngIf="!glReport.daily">
-            <h3>*** ไม่พบข้อมูล ***</h3>
-          </div>
-        </div>
-
-      </ng-template>
-    </ngb-tab>
-    <!-- End ..dailyTab.. -->
-
-    <!-- ..acceachTab.. -->
-    <ngb-tab title="บัญชีแยกประเภท">
-      <ng-template ngbTabContent>
-        <div *ngFor="let acceach of glReport.acceach">
-          <div class="row">
-            <div class="col-md-4">
-              <br>
-              <p>{{acceach.date | date:'dd/MM/yy'}}</p>
-              <p>{{acceach.date | date:'HH:mm:ss'}}</p>
+    <div class="row" style="margin-bottom: 15px;">
+        <div class="col-4 center"></div>
+        <div class="col-4 center">
+            <div *ngIf="glType === 'month'">
+                <input class="form-control" type="month" [(ngModel)]="month">
             </div>
-            <div class="col-md-4 center">
-              <br>
-              <p>{{acceach.company}}</p>
-              <p>{{acceach.title}}</p>
-              <p>ตั้งแต่วันที่ {{acceach.startdate | date:'dd/MM/yy'}} จนถึงวันที่ {{acceach.enddate | date:'dd/MM/yy'}}
-              </p>
+            <div *ngIf="glType === 'year'">
+                <input class="form-control" type="number" [(ngModel)]="year" min="1997" max="3000">
             </div>
-            <div class="col-md-4 right accoutno">
-              รหัสบัญชี {{acceach.accoutno}}
+        </div>
+        <div class="col-4 center"></div>
+    </div>
+    <div class="row" style="margin-bottom: 15px;">
+        <div class="col-12 center">
+            <div>
+                <button type="button" class="btn btn-primary" (click)="genGlReport()">ทำงบ</button>
+                <button type="button" class="btn btn-default">ปิดงบ</button>
             </div>
-          </div>
+        </div>
+    </div>
+
+    <ngb-tabset>
+        <!-- ..dailyTab.. -->
+        <ngb-tab title="สุมดบัญชีรายวัน">
+            <ng-template ngbTabContent>
+                <div class="center time-now">
+                    <br>
+                    <p>{{glReport.daily.date | date:'dd/MM/yy'}}</p>
+                    <p>{{glReport.daily.date | date:'HH:mm:ss'}}</p>
+                </div>
+                <div class="center">
+                    <br>
+                    <p>{{glReport.daily.company}}</p>
+                    <p>{{glReport.daily.title}}</p>
+                    <p>ตั้งแต่วันที่ {{glReport.daily.startdate | date:'dd/MM/yy'}} จนถึงวันที่ {{glReport.daily.enddate | date:'dd/MM/yy'}}
+                    </p>
+                </div>
+                <div class="scroll_ ">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="center">วันที่</th>
+                                <th class="center">เลขเอกสาร</th>
+                                <th class="center">รายการ</th>
+                                <th class="center">รหัสบัญชี</th>
+                                <th class="center">เช็ค/ใบสำคัญ</th>
+                                <th class="center">ลงวันที่</th>
+                                <th class="center">เดบิต</th>
+                                <th class="center">เครดิด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let transaction of glReport.daily.transaction">
+                                <td class="padding-top">{{transaction.docdate | date:'dd/MM/yy'}}</td>
+                                <td class="padding-top">{{transaction.docno}}</td>
+                                <td>
+                                    <div *ngFor="let list of transaction.list">
+                                        <div *ngIf="list.debit>0">
+                                            <p class="debit"> {{list.accountname}}</p>
+                                        </div>
+                                        <div *ngIf="list.credit>0">
+                                            <p class="credit"> {{list.accountname}}</p>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="transaction.remark !== '' ">
+                                        <p class="reason"> ({{transaction.remark}})</p>
+                                    </div>
+
+                                </td>
+                                <td class="left">
+                                    <div *ngFor="let list of transaction.list">
 
 
-          <!-- Test table -->
-          <!-- <table class="table table-bordered" style="margin-bottom: 0px;">
+                                        <p>{{list.accountno}}</p>
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div *ngFor="let  document of transaction.list">
+                                        {{document.document}}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div *ngFor="let  timestamp of transaction.list">
+                                        {{timestamp.timestamp}}
+                                    </div>
+                                </td>
+                                <td class="right">
+                                    <div *ngFor="let list of transaction.list">
+                                        <div *ngIf="list.debit>0">
+                                            <p>{{list.debit | number:'.2'}}</p>
+                                        </div>
+                                        <div *ngIf="list.credit>0">
+                                            <p>
+                                                <br>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td class="right">
+                                    <div *ngFor="let list of transaction.list">
+                                        <div *ngIf="list.debit>0">
+                                            <p>
+                                                <br>
+                                            </p>
+                                        </div>
+                                        <div *ngIf="list.credit>0">
+                                            <p>{{list.credit | number:'.2'}}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row ">
+                    <div class="col-md-12 center" *ngIf="glReport.daily">
+                        *** จบรายงาน ***
+                    </div>
+                    <div class="col-md-12 center" *ngIf="!glReport.daily">
+                        <h3>*** ไม่พบข้อมูล ***</h3>
+                    </div>
+                </div>
+
+            </ng-template>
+        </ngb-tab>
+        <!-- End ..dailyTab.. -->
+
+        <!-- ..acceachTab.. -->
+        <ngb-tab title="บัญชีแยกประเภท">
+            <ng-template ngbTabContent>
+                <div *ngFor="let acceach of glReport.acceach">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <br>
+                            <p>{{acceach.date | date:'dd/MM/yy'}}</p>
+                            <p>{{acceach.date | date:'HH:mm:ss'}}</p>
+                        </div>
+                        <div class="col-md-4 center">
+                            <br>
+                            <p>{{acceach.company}}</p>
+                            <p>{{acceach.title}}</p>
+                            <p>ตั้งแต่วันที่ {{acceach.startdate | date:'dd/MM/yy'}} จนถึงวันที่ {{acceach.enddate | date:'dd/MM/yy'}}
+                            </p>
+                        </div>
+                        <div class="col-md-4 right accoutno">
+                            รหัสบัญชี {{acceach.accoutno}}
+                        </div>
+                    </div>
+
+
+                    <!-- Test table -->
+                    <!-- <table class="table table-bordered" style="margin-bottom: 0px;">
             <thead>
               <tr>
                 <th class="center" style="width: 75px">วันที่</th>
@@ -208,267 +221,267 @@
                   </td>
                 </tr>
           </table> -->
-          <!-- END Test table -->
+                    <!-- END Test table -->
 
-          <div class="scroll_ ">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th class="center">วันที่</th>
-                  <th class="center">เลขเอกสาร</th>
-                  <th class="center">ชื่อบัญชีอ้างอิง</th>
-                  <th class="center">รหัสบัญชี</th>
-                  <th class="center">เช็ค/ใบสำคัญ</th>
-                  <th class="center">ลงวันที่</th>
-                  <th class="center">เดบิต</th>
-                  <th class="center">เครดิด</th>
-                  <th class="center">คำอธิบาย</th>
-                </tr>
-              </thead>
-              <tbody>
+                    <div class="scroll_ ">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="center">วันที่</th>
+                                    <th class="center">เลขเอกสาร</th>
+                                    <th class="center">ชื่อบัญชีอ้างอิง</th>
+                                    <th class="center">รหัสบัญชี</th>
+                                    <th class="center">เช็ค/ใบสำคัญ</th>
+                                    <th class="center">ลงวันที่</th>
+                                    <th class="center">เดบิต</th>
+                                    <th class="center">เครดิด</th>
+                                    <th class="center">คำอธิบาย</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                <tr>
-                  <td class="padding-top">{{acceach.bringforward.docdate | date:'dd/MM/yy'}}</td>
-                  <td class="padding-top">
-                    {{acceach.bringforward.docno}}
-                  </td>
-                  <td>
+                                <tr>
+                                    <td class="padding-top">{{acceach.bringforward.docdate | date:'dd/MM/yy'}}</td>
+                                    <td class="padding-top">
+                                        {{acceach.bringforward.docno}}
+                                    </td>
+                                    <td>
 
-                    <p>{{acceach.bringforward.accountname}}</p>
+                                        <p>{{acceach.bringforward.accountname}}</p>
 
-                  </td>
-                  <td>{{acceach.bringforward.accountno}}</td>
-                  <td>{{acceach.bringforward.document}}</td>
-                  <td>{{acceach.bringforward.timestamp}}</td>
-                  <td class="right">
-                    <div *ngIf="acceach.bringforward.debit>0">
-                      <p>{{acceach.bringforward.debit | number}}</p>
-                    </div>
-                    <div *ngIf="acceach.bringforward.credit>0">
-                      <br>
-                    </div>
-                  </td>
-                  <td>
-                    <div *ngIf="acceach.bringforward.debit>0">
-                      <br>
-                    </div>
-                    <div *ngIf="acceach.bringforward.credit>0">
-                      <p>{{acceach.bringforward.credit | number}}</p>
-                    </div>
-                  </td>
-                  <td>{{acceach.bringforward.description}}</td>
-                </tr>
+                                    </td>
+                                    <td>{{acceach.bringforward.accountno}}</td>
+                                    <td>{{acceach.bringforward.document}}</td>
+                                    <td>{{acceach.bringforward.timestamp}}</td>
+                                    <td class="right">
+                                        <div *ngIf="acceach.bringforward.debit>0">
+                                            <p>{{acceach.bringforward.debit | number:'.2'}}</p>
+                                        </div>
+                                        <div *ngIf="acceach.bringforward.credit>0">
+                                            <br>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="acceach.bringforward.debit>0">
+                                            <br>
+                                        </div>
+                                        <div *ngIf="acceach.bringforward.credit>0">
+                                            <p>{{acceach.bringforward.credit | number:'.2'}}</p>
+                                        </div>
+                                    </td>
+                                    <td>{{acceach.bringforward.description}}</td>
+                                </tr>
 
-                <!--  Data acceach -->
-                <tr *ngFor="let transaction of acceach.transaction">
-                  <td class="padding-top">{{transaction.docdate | date:'dd/MM/yy'}}</td>
-                  <td class="padding-docno">
+                                <!--  Data acceach -->
+                                <tr *ngFor="let transaction of acceach.transaction">
+                                    <td class="padding-top">{{transaction.docdate | date:'dd/MM/yy'}}</td>
+                                    <td class="padding-docno">
 
-                    <div *ngFor="let list of transaction.list">
-                      <p>{{list.docno}}</p>
-                    </div>
-                  </td>
-                  <td>
-                    <div *ngFor="let list of transaction.list">
-                      <p>{{list.accountname}}</p>
-                    </div>
-                  </td>
-                  <td>
-                    <div *ngFor="let list of transaction.list">
-                      <p>{{list.accountno}}</p>
-                    </div>
-                  </td>
-                  <td>
-                    <div *ngFor="let list of transaction.list">
-                      <p>{{list.document}}</p>
-                    </div>
-                  </td>
-                  <td>
-                    <div *ngFor="let list of transaction.list">
-                      <p>{{list.timestamp}}</p>
-                    </div>
-                  </td>
-                  <td class="right">
-                    <div *ngFor="let list of transaction.list">
-                      <div *ngIf="list.debit>0">
-                        <p>{{list.debit | number}}</p>
-                      </div>
-                      <div *ngIf="list.credit>0">
-                        <br>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div *ngFor="let list of transaction.list">
-                      <div *ngIf="list.debit>0">
-                        <br>
-                      </div>
-                      <div *ngIf="list.credit>0">
-                        <p>{{list.credit  | number}}</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div *ngFor="let list of transaction.list">
-                      <p>{{list.description}}</p>
-                    </div>
-                  </td>
-                </tr>
-                <!-- End Data acceach -->
+                                        <div *ngFor="let list of transaction.list">
+                                            <p>{{list.docno}}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngFor="let list of transaction.list">
+                                            <p>{{list.accountname}}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngFor="let list of transaction.list">
+                                            <p>{{list.accountno}}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngFor="let list of transaction.list">
+                                            <p>{{list.document}}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngFor="let list of transaction.list">
+                                            <p>{{list.timestamp}}</p>
+                                        </div>
+                                    </td>
+                                    <td class="right">
+                                        <div *ngFor="let list of transaction.list">
+                                            <div *ngIf="list.debit>0">
+                                                <p>{{list.debit | number:'.2'}}</p>
+                                            </div>
+                                            <div *ngIf="list.credit>0">
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngFor="let list of transaction.list">
+                                            <div *ngIf="list.debit>0">
+                                                <br>
+                                            </div>
+                                            <div *ngIf="list.credit>0">
+                                                <p>{{list.credit | number:'.2'}}</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngFor="let list of transaction.list">
+                                            <p>{{list.description}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- End Data acceach -->
 
-                <tr>
-                  <td class="padding-top">{{acceach.carryforward.docdate | date:'dd/MM/yy'}}</td>
-                  <td class="padding-top">
-                    {{acceach.carryforward.docno}}
-                  </td>
-                  <td>
-                    <div>
-                      <p>{{acceach.carryforward.accountname}}</p>
+                                <tr>
+                                    <td class="padding-top">{{acceach.carryforward.docdate | date:'dd/MM/yy'}}</td>
+                                    <td class="padding-top">
+                                        {{acceach.carryforward.docno}}
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <p>{{acceach.carryforward.accountname}}</p>
+                                        </div>
+                                    </td>
+                                    <td>{{acceach.carryforward.accountno}}</td>
+                                    <td>{{acceach.carryforward.document}}</td>
+                                    <td>{{acceach.carryforward.timestamp}}</td>
+                                    <td class="right">
+                                        <div *ngIf="acceach.carryforward.debit>0">
+                                            <p>{{acceach.carryforward.debit | number:'.2'}}</p>
+                                        </div>
+                                        <div *ngIf="acceach.carryforward.credit>0">
+                                            <br>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="acceach.carryforward.debit>0">
+                                            <br>
+                                        </div>
+                                        <div *ngIf="acceach.carryforward.credit>0">
+                                            <p>{{acceach.carryforward.credit | number:'.2'}}</p>
+                                        </div>
+                                    </td>
+                                    <td>{{acceach.carryforward.description}}</td>
+                                </tr>
+
+                                <!-- SUM -->
+                                <tr>
+                                    <td class="border-no"></td>
+                                    <td class="border-no"></td>
+                                    <td class="border-no"></td>
+                                    <td class="border-no"></td>
+                                    <td class="border-no"></td>
+                                    <td class="border-no"></td>
+                                    <td class="border-sum">
+                                        {{acceach.current.debit | number: '.2'}}
+                                    </td>
+                                    <td class="border-sum"> {{acceach.current.credit | number: '.2'}}</td>
+                                    <td class="border-no">
+                                    </td>
+                                </tr>
+                                <!-- END SUM -->
+
+                            </tbody>
+                        </table>
                     </div>
-                  </td>
-                  <td>{{acceach.carryforward.accountno}}</td>
-                  <td>{{acceach.carryforward.document}}</td>
-                  <td>{{acceach.carryforward.timestamp}}</td>
-                  <td class="right">
-                    <div *ngIf="acceach.carryforward.debit>0">
-                      <p>{{acceach.carryforward.debit | number}}</p>
-                    </div>
-                    <div *ngIf="acceach.carryforward.credit>0">
-                      <br>
-                    </div>
-                  </td>
-                  <td>
-                    <div *ngIf="acceach.carryforward.debit>0">
-                      <br>
-                    </div>
-                    <div *ngIf="acceach.carryforward.credit>0">
-                      <p>{{acceach.carryforward.credit | number}}</p>
-                    </div>
-                  </td>
-                  <td>{{acceach.carryforward.description}}</td>
-                </tr>
 
-                <!-- SUM -->
-                <tr>
-                  <td class="border-no"></td>
-                  <td class="border-no"></td>
-                  <td class="border-no"></td>
-                  <td class="border-no"></td>
-                  <td class="border-no"></td>
-                  <td class="border-no"></td>
-                  <td class="border-sum">
-                    {{acceach.current.summarydebit  | number}}
-                  </td>
-                  <td class="border-sum"> {{acceach.current.summarycredit  | number}}</td>
-                  <td class="border-no">
-                  </td>
-                </tr>
-                <!-- END SUM -->
-
-              </tbody>
-            </table>
-          </div>
-
-        </div>
-      </ng-template>
-    </ngb-tab>
-    <!-- End ..acceachTab.. -->
-    <ngb-tab title="งบกำไรขาดทุน">
-      <ng-template ngbTabContent>
-        <div class="center time-now">
-          <br>
-          <p>{{glReport.gain.date | date:'dd/MM/yy'}}</p>
-          <p>{{glReport.gain.date | date:'HH:mm:ss'}}</p>
-        </div>
-        <div class="center">
-          <br>
-          <p>{{glReport.gain.company}}</p>
-          <p>{{glReport.gain.title}}</p>
-          <p>ตั้งแต่วันที่ {{glReport.gain.startdate | date:'dd/MM/yy'}} จนถึงวันที่ {{glReport.gain.enddate | date:'dd/MM/yy'}}
-          </p>
-        </div>
-
-        <table class="table" style="border-collapse: unset;">
-          <tbody *ngFor="let transaction of glReport.gain.transaction">
-
-            <tr class="border-no">
-              <td class="border-no" style="width: 65%">{{transaction.accounttype}}</td>
-              <td class="border-no right"></td>
-              <td class="border-no right">
-
-                <div *ngIf="transaction.list.length===0">
-                  <p>{{transaction.summary  | number}}</p>
                 </div>
-
-                
-
-
-              </td>
-            </tr>
-            <tr class="border-no">
-              <td class="border-no " id="acceach-left">
-                <div *ngFor="let list of transaction.list">
-                  <p>{{list.accountno}}</p>
-                </div>
-              </td>
-              <td class="border-no right">
-                <div *ngFor="let list of transaction.list;let i = index" [attr.data-index]="i">
-                  <p>{{list.amount  | number}}</p>
-                  <div *ngIf="transaction.list.length===i+1">
-                    <p>--------------------</p>
-                  </div>
-                </div>
-
-
-
-              </td>
-              <td class="border-no right">
-                <div *ngFor="let list of transaction.list;let i = index" [attr.data-index]="i">
-
-                  <div *ngIf="transaction.list.length!==i+1">
+            </ng-template>
+        </ngb-tab>
+        <!-- End ..acceachTab.. -->
+        <ngb-tab title="งบกำไรขาดทุน">
+            <ng-template ngbTabContent>
+                <div class="center time-now">
                     <br>
-                  </div>
-
-                  <div *ngIf="transaction.list.length===i+1">
-                    <p>{{transaction.summary | number}}</p>
-                    <p>--------------------</p>
-                  
-                   
-                  </div>
-
+                    <p>{{glReport.gain.date | date:'dd/MM/yy'}}</p>
+                    <p>{{glReport.gain.date | date:'HH:mm:ss'}}</p>
+                </div>
+                <div class="center">
+                    <br>
+                    <p>{{glReport.gain.company}}</p>
+                    <p>{{glReport.gain.title}}</p>
+                    <p>ตั้งแต่วันที่ {{glReport.gain.startdate | date:'dd/MM/yy'}} จนถึงวันที่ {{glReport.gain.enddate | date:'dd/MM/yy'}}
+                    </p>
                 </div>
 
+                <table class="table" style="border-collapse: unset;">
+                    <tbody *ngFor="let transaction of glReport.gain.transaction">
 
-              </td>
-            </tr>
-            <tr class="border-no">
-              <td class="border-no"></td>
-              <td class="border-no right"></td>
-              <td class="border-no right">
-               
-                  
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                        <tr class="border-no">
+                            <td class="border-no" style="width: 65%">{{transaction.accounttype}}</td>
+                            <td class="border-no right"></td>
+                            <td class="border-no right">
 
-        <div class="row ">
-          <div class="col-md-12 center" *ngIf="glReport.acceach">
-            *** จบรายงาน ***
-          </div>
-          <div class="col-md-12 center" *ngIf="!glReport.acceach">
-            <h3>*** ไม่พบข้อมูล ***</h3>
-          </div>
-        </div>
-
-      </ng-template>
-    </ngb-tab>
-
-    <ngb-tab title="งบดุล">
-      <ng-template ngbTabContent>
-        ..dailyTab..
-      </ng-template>
-    </ngb-tab>
+                                <div *ngIf="transaction.list.length===0">
+                                    <p>{{transaction.summary | number:'.2'}}</p>
+                                </div>
 
 
-  </ngb-tabset>
+
+
+                            </td>
+                        </tr>
+                        <tr class="border-no">
+                            <td class="border-no " id="acceach-left">
+                                <div *ngFor="let list of transaction.list">
+                                    <p>{{list.accountno}}</p>
+                                </div>
+                            </td>
+                            <td class="border-no right">
+                                <div *ngFor="let list of transaction.list;let i = index" [attr.data-index]="i">
+                                    <p>{{list.amount | number:'.2'}}</p>
+                                    <div *ngIf="transaction.list.length===i+1">
+                                        <p>--------------------</p>
+                                    </div>
+                                </div>
+
+
+
+                            </td>
+                            <td class="border-no right">
+                                <div *ngFor="let list of transaction.list;let i = index" [attr.data-index]="i">
+
+                                    <div *ngIf="transaction.list.length!==i+1">
+                                        <br>
+                                    </div>
+
+                                    <div *ngIf="transaction.list.length===i+1">
+                                        <p>{{transaction.summary | number:'.2'}}</p>
+                                        <p>--------------------</p>
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </td>
+                        </tr>
+                        <tr class="border-no">
+                            <td class="border-no"></td>
+                            <td class="border-no right"></td>
+                            <td class="border-no right">
+
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="row ">
+                    <div class="col-md-12 center" *ngIf="glReport.acceach">
+                        *** จบรายงาน ***
+                    </div>
+                    <div class="col-md-12 center" *ngIf="!glReport.acceach">
+                        <h3>*** ไม่พบข้อมูล ***</h3>
+                    </div>
+                </div>
+
+            </ng-template>
+        </ngb-tab>
+
+        <ngb-tab title="งบดุล">
+            <ng-template ngbTabContent>
+                ..dailyTab..
+            </ng-template>
+        </ngb-tab>
+
+
+    </ngb-tabset>

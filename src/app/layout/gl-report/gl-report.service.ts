@@ -4,6 +4,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import { Constants } from "../../app.constants";
+
 @Injectable()
 export class GlReportService {
 
@@ -11,9 +13,9 @@ export class GlReportService {
 
   }
 
-  getGlReport() {
+  getGlReport(glTyp, glDate) {
 
-    return this.http.get('./assets/JSON/gl-report.json').toPromise()
+    return this.http.get(Constants.URL + 'api/glreport/' + glTyp + '/' + glDate).toPromise()
       .then(response => response.json() as GlReportModel)
       .catch(this.handleError);
   }
