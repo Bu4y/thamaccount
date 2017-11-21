@@ -1,12 +1,23 @@
-
 <div>
-  <ol class="breadcrumb">
-      <li class="breadcrumb-item active"><i class="fa fa-list-ul"></i> {{'new-account-type' | translate}}</li>
-  </ol>
-  <div class="row">
-      <div class="col-12 text-center">
-          <button type="submit" class="btn btn-primary" [routerLink]="['/account-type-create']">{{'new-account-type' | translate}}</button>
-      </div>
-  </div>
-  
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">
+            <i class="fa fa-list-ul"></i> {{'new-account-type' | translate}}</li>
+    </ol>
+    <div class="row">
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary" [routerLink]="['/account-type-create']">{{'new-account-type' | translate}}</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 list">
+            <div class="just-padding" *ngIf="accountTypeList">
+                <div class="list-group list-group-root" class="main-list" *ngFor="let item of accountTypeList" (click)="goAccountTypeDetail(item)">
+                    <a class="list-group-item list-group-item-action">
+                        &nbsp; {{item.accounttypeno}} &nbsp; {{item.accounttypename}} &nbsp;
+                        <i class="fa fa-trash icon-trash" (click)="onDeleteItem(item)"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

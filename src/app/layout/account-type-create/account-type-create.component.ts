@@ -56,13 +56,23 @@ export class AccountTypeCreateComponent implements OnInit {
       return false;
     }
 
-    this.accountTypeService.postAccountType(this.accountType).then((data) => {
-      this.router.navigate(['/account-type']);
-    }, (error) => {
-      if (JSON.parse(error._body).message) {
-        alert(JSON.parse(error._body).message.split('index:')[1]);
-      }
-    });
+    if (this.accountType._id) {
+      this.accountTypeService.putAccountType(this.accountType).then((data) => {
+        this.router.navigate(['/account-type-list']);
+      }, (error) => {
+        if (JSON.parse(error._body).message) {
+          alert(JSON.parse(error._body).message.split('index:')[1]);
+        }
+      });
+    } else {
+      this.accountTypeService.postAccountType(this.accountType).then((data) => {
+        this.router.navigate(['/account-type-list']);
+      }, (error) => {
+        if (JSON.parse(error._body).message) {
+          alert(JSON.parse(error._body).message.split('index:')[1]);
+        }
+      });
+    }
 
   }
 

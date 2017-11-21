@@ -77,6 +77,17 @@ export class AccountComponent implements OnInit {
 
   onDelete(event) {
     this.currentLang = this.translate.currentLang;
+    if (this.currentLang === 'th') {
+      let res = confirm('คุณต้องการลบรายการนี้?');
+      if (!res) {
+        return;
+      }
+    } else {
+      let res = confirm('Would you like to delete this transaction?');
+      if (!res) {
+        return;
+      }
+    }
     this.accountService.deleteAccount(event._id).then((data) => {
       if (this.currentLang === 'th') {
         alert('ลบข้อมูล ' + data.name + ' สำเร็จ');

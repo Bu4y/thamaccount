@@ -14,8 +14,8 @@ export class GlReportService {
   }
 
   getGlReport(glTyp, glDate) {
-    return this.http.get('./assets/JSON/gl-report.json').toPromise()    
-    // return this.http.get(Constants.URL + 'api/glreport/' + glTyp + '/' + glDate).toPromise()
+    // return this.http.get('./assets/JSON/gl-report.json').toPromise()    
+    return this.http.get(Constants.URL + 'api/glreport/' + glTyp + '/' + glDate).toPromise()
       .then(response => response.json() as GlReportModel)
       .catch(this.handleError);
   }
