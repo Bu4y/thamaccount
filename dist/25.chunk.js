@@ -1,13 +1,13 @@
 webpackJsonp([25],{
 
-/***/ "../../../../../src/app/layout/account-type-list/account-type-list-routing.module.ts":
+/***/ "../../../../../src/app/layout/account-type-create/account-type-create-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_type_list_component__ = __webpack_require__("../../../../../src/app/layout/account-type-list/account-type-list.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountTypeListRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_type_create_component__ = __webpack_require__("../../../../../src/app/layout/account-type-create/account-type-create.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountTypeCreateRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__account_type_list_component__["a" /* AccountTypeListComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__account_type_create_component__["a" /* AccountTypeCreateComponent */] }
 ];
-var AccountTypeListRoutingModule = (function () {
-    function AccountTypeListRoutingModule() {
+var AccountTypeCreateRoutingModule = (function () {
+    function AccountTypeCreateRoutingModule() {
     }
-    return AccountTypeListRoutingModule;
+    return AccountTypeCreateRoutingModule;
 }());
-AccountTypeListRoutingModule = __decorate([
+AccountTypeCreateRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], AccountTypeListRoutingModule);
+], AccountTypeCreateRoutingModule);
 
-//# sourceMappingURL=account-type-list-routing.module.js.map
+//# sourceMappingURL=account-type-create-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account-type-list/account-type-list.component.html":
+/***/ "../../../../../src/app/layout/account-type-create/account-type-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\">\n            <i class=\"fa fa-list-ul\"></i> {{'new-account-type' | translate}}</li>\n    </ol>\n    <div class=\"row\">\n        <div class=\"col-12 text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [routerLink]=\"['/account-type-create']\">{{'new-account-type' | translate}}</button>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12 list\">\n            <div class=\"just-padding\" *ngIf=\"accountTypeList\">\n                <div class=\"list-group list-group-root\" class=\"main-list\" *ngFor=\"let item of accountTypeList\" (click)=\"goAccountTypeDetail(item)\">\n                    <a class=\"list-group-item list-group-item-action\">\n                        &nbsp; {{item.accounttypeno}} &nbsp; {{item.accounttypename}} &nbsp;\n                        <i class=\"fa fa-trash icon-trash\" (click)=\"onDeleteItem(item)\"></i>\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\">\n            <i class=\"fa fa-list-ul\"></i>\n            <a [routerLink]=\"['/account-type-list']\">{{'account-type' | translate}}</a>\n        </li>\n        <li class=\"breadcrumb-item active\">\n            <i class=\"fa fa-edit\"></i> {{'new-account-type' | translate}}</li>\n    </ol>\n    <div class=\"row\">\n        <div class=\"col-md-3 col-sm-1\">\n        </div>\n        <div class=\"col-md-6 col-sm-10\">\n            <form role=\"form\">\n                <fieldset class=\"form-group\">\n                    <label>{{'account-type-no' | translate}}</label>\n                    <span class=\"danger\">*</span>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"accountType.accounttypeno\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <fieldset class=\"form-group\">\n                    <label>{{'account-type-name' | translate}}</label>\n                    <span class=\"danger\">*</span>\n                    <input class=\"form-control\" type=\"text\" [(ngModel)]=\"accountType.accounttypename\" [ngModelOptions]=\"{standalone: true}\">\n                </fieldset>\n                <div class=\"col-12 text-center\">\n                    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"saveAccountType()\">{{'save' | translate}}</button>\n                </div>\n            </form>\n        </div>\n        <div class=\"col-md-3 col-sm-1\">\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account-type-list/account-type-list.component.scss":
+/***/ "../../../../../src/app/layout/account-type-create/account-type-create.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".list {\n  margin-left: -30px !important;\n  padding-top: 30px; }\n\n.just-padding {\n  padding-left: 30px; }\n\n.list-group-item {\n  padding: 8px;\n  padding-left: 16px;\n  margin-top: 1px; }\n\n.icon-trash {\n  position: absolute !important;\n  right: 60px !important;\n  margin-top: -20px;\n  color: #f44336; }\n", ""]);
+exports.push([module.i, ".danger {\n  color: #F44336; }\n", ""]);
 
 // exports
 
@@ -61,15 +61,16 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account-type-list/account-type-list.component.ts":
+/***/ "../../../../../src/app/layout/account-type-create/account-type-create.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__account_type_list_service__ = __webpack_require__("../../../../../src/app/layout/account-type-list/account-type-list.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountTypeListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_assets_models_account_type_model__ = __webpack_require__("../../../../../src/assets/models/account-type.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__account_type_service__ = __webpack_require__("../../../../../src/app/layout/account-type-create/account-type.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountTypeCreateComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -83,78 +84,87 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AccountTypeListComponent = (function () {
-    function AccountTypeListComponent(accountTypeListService, translate, router) {
-        this.accountTypeListService = accountTypeListService;
+
+var AccountTypeCreateComponent = (function () {
+    function AccountTypeCreateComponent(route, translate, router, accountTypeService) {
+        this.route = route;
         this.translate = translate;
         this.router = router;
+        this.accountTypeService = accountTypeService;
+        this.accountType = new __WEBPACK_IMPORTED_MODULE_2_assets_models_account_type_model__["a" /* AccountTypeModel */]();
     }
-    AccountTypeListComponent.prototype.ngOnInit = function () {
-        this.getAccountTypeList();
+    AccountTypeCreateComponent.prototype.ngOnInit = function () {
+        this.getParam();
     };
-    AccountTypeListComponent.prototype.getAccountTypeList = function () {
+    AccountTypeCreateComponent.prototype.getParam = function () {
         var _this = this;
-        this.accountTypeListService.getAccountTypeList().then(function (data) {
-            _this.accountTypeList = data;
-        }, function (error) {
-            if (JSON.parse(error._body).message) {
-                alert(JSON.parse(error._body).message.split('index:')[1]);
+        this.subParams = this.route
+            .queryParams
+            .subscribe(function (params) {
+            var item = params['item'];
+            if (item && item !== '') {
+                _this.accountType = JSON.parse(item);
             }
         });
+        this.subParams.unsubscribe();
     };
-    AccountTypeListComponent.prototype.goAccountTypeDetail = function (item) {
-        this.router.navigate(['/account-type-create'], { queryParams: { item: JSON.stringify(item) } });
-    };
-    AccountTypeListComponent.prototype.onDeleteItem = function (item) {
+    AccountTypeCreateComponent.prototype.saveAccountType = function () {
         var _this = this;
-        window.event.stopPropagation();
         this.currentLang = this.translate.currentLang;
-        if (this.currentLang === 'th') {
-            var res = confirm('คุณต้องการลบรายการนี้?');
-            if (!res) {
-                return;
+        if (!this.accountType.accounttypeno) {
+            if (this.currentLang === 'th') {
+                alert('กรุณาระบุรหัสประเภทบัญชี');
             }
+            else {
+                alert('Please fill account type no.');
+            }
+            return false;
+        }
+        if (!this.accountType.accounttypename) {
+            if (this.currentLang === 'th') {
+                alert('กรุณาระบุชื่อประเภทบัญชี');
+            }
+            else {
+                alert('Please fill account type name.');
+            }
+            return false;
+        }
+        if (this.accountType._id) {
+            this.accountTypeService.putAccountType(this.accountType).then(function (data) {
+                _this.router.navigate(['/account-type-list']);
+            }, function (error) {
+                if (JSON.parse(error._body).message) {
+                    alert(JSON.parse(error._body).message.split('index:')[1]);
+                }
+            });
         }
         else {
-            var res = confirm('Would you like to delete this transaction?');
-            if (!res) {
-                return;
-            }
+            this.accountTypeService.postAccountType(this.accountType).then(function (data) {
+                _this.router.navigate(['/account-type-list']);
+            }, function (error) {
+                if (JSON.parse(error._body).message) {
+                    alert(JSON.parse(error._body).message.split('index:')[1]);
+                }
+            });
         }
-        this.accountTypeListService.deleteAccountType(item._id).then(function (data) {
-            if (_this.currentLang === 'th') {
-                alert('ลบข้อมูล ' + data.accounttypename + ' สำเร็จ');
-            }
-            else {
-                alert('Delete ' + data.accounttypename + ' success.');
-            }
-            _this.ngOnInit();
-        }, function (error) {
-            if (_this.currentLang === 'th') {
-                alert('ลบข้อมูลไม่สำเร็จ กรุณาลองใหม่');
-            }
-            else {
-                alert('Delete fail please try again.');
-            }
-        });
     };
-    return AccountTypeListComponent;
+    return AccountTypeCreateComponent;
 }());
-AccountTypeListComponent = __decorate([
+AccountTypeCreateComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-account-type-list',
-        template: __webpack_require__("../../../../../src/app/layout/account-type-list/account-type-list.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/account-type-list/account-type-list.component.scss")]
+        selector: 'app-account-type-create',
+        template: __webpack_require__("../../../../../src/app/layout/account-type-create/account-type-create.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/account-type-create/account-type-create.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__account_type_list_service__["a" /* AccountTypeListService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__account_type_list_service__["a" /* AccountTypeListService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _c || Object])
-], AccountTypeListComponent);
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__account_type_service__["a" /* AccountTypeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__account_type_service__["a" /* AccountTypeService */]) === "function" && _d || Object])
+], AccountTypeCreateComponent);
 
-var _a, _b, _c;
-//# sourceMappingURL=account-type-list.component.js.map
+var _a, _b, _c, _d;
+//# sourceMappingURL=account-type-create.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/account-type-list/account-type-list.module.ts":
+/***/ "../../../../../src/app/layout/account-type-create/account-type-create.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -164,9 +174,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_components_module__ = __webpack_require__("../../../../../src/app/shared/components/components.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__account_type_list_routing_module__ = __webpack_require__("../../../../../src/app/layout/account-type-list/account-type-list-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_type_list_component__ = __webpack_require__("../../../../../src/app/layout/account-type-list/account-type-list.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountTypeListModule", function() { return AccountTypeListModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__account_type_create_component__ = __webpack_require__("../../../../../src/app/layout/account-type-create/account-type-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_type_create_routing_module__ = __webpack_require__("../../../../../src/app/layout/account-type-create/account-type-create-routing.module.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountTypeCreateModule", function() { return AccountTypeCreateModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -180,25 +190,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AccountTypeListModule = (function () {
-    function AccountTypeListModule() {
+var AccountTypeCreateModule = (function () {
+    function AccountTypeCreateModule() {
     }
-    return AccountTypeListModule;
+    return AccountTypeCreateModule;
 }());
-AccountTypeListModule = __decorate([
+AccountTypeCreateModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_5__account_type_list_routing_module__["a" /* AccountTypeListRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_6__account_type_create_routing_module__["a" /* AccountTypeCreateRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_4__shared_components_components_module__["a" /* ComponentModule */],
             __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["a" /* TranslateModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_6__account_type_list_component__["a" /* AccountTypeListComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_5__account_type_create_component__["a" /* AccountTypeCreateComponent */]]
     })
-], AccountTypeListModule);
+], AccountTypeCreateModule);
 
-//# sourceMappingURL=account-type-list.module.js.map
+//# sourceMappingURL=account-type-create.module.js.map
 
 /***/ })
 

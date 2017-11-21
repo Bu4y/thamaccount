@@ -22,6 +22,14 @@
                     <span class="danger">*</span>
                     <input class="form-control" type="text" [(ngModel)]="account.name" [ngModelOptions]="{standalone: true}">
                 </fieldset>
+                <fieldset class="form-group">
+                    <label>{{'account-type' | translate}}</label>
+                    <select [(ngModel)]="accounttypeId" (change)="onChangeType(accounttypeId)" [ngModelOptions]="{standalone: true}" class="form-control">
+                        <option *ngFor="let type of accountTypeList" [value]="type._id" [attr.selected]="accounttypeId === type._id  ? true : null">
+                            {{type.accounttypeno}} {{type.accounttypename}}
+                        </option>
+                    </select>
+                </fieldset>
                 <!-- <fieldset class="form-group">
                     <label>{{'vat' | translate}}</label>
                     <input class="form-control" type="number" [(ngModel)]="account.vat" [ngModelOptions]="{standalone: true}">

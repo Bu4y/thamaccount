@@ -1,13 +1,13 @@
 webpackJsonp([22],{
 
-/***/ "../../../../../src/app/layout/ar-create/ar-create-routing.module.ts":
+/***/ "../../../../../src/app/layout/ap-list/ap-list-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ar_create_component__ = __webpack_require__("../../../../../src/app/layout/ar-create/ar-create.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArCreateRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ap_list_component__ = __webpack_require__("../../../../../src/app/layout/ap-list/ap-list.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApListRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__ar_create_component__["a" /* ArCreateComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__ap_list_component__["a" /* ApListComponent */] }
 ];
-var ArCreateRoutingModule = (function () {
-    function ArCreateRoutingModule() {
+var ApListRoutingModule = (function () {
+    function ApListRoutingModule() {
     }
-    return ArCreateRoutingModule;
+    return ApListRoutingModule;
 }());
-ArCreateRoutingModule = __decorate([
+ApListRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], ArCreateRoutingModule);
+], ApListRoutingModule);
 
-//# sourceMappingURL=ar-create-routing.module.js.map
+//# sourceMappingURL=ap-list-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/ar-create/ar-create.component.html":
+/***/ "../../../../../src/app/layout/ap-list/ap-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ol class=\"breadcrumb\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <li class=\"breadcrumb-item\">\n                <i class=\"fa fa-list-ul\"></i>\n                <a [routerLink]=\"['/ar-list']\">{{'ar-list' | translate}}</a>\n            </li>\n            <li class=\"breadcrumb-item active\">\n                <i class=\"fa fa-file-o\"></i>  {{ getMode() | translate}}{{'ar-list' | translate}}\n            </li>\n        </div>\n        <div class=\"col-md-4\">\n            AR\n            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchText\" (keypress)=\"searching($event);\" placeholder=\"{{'search' | translate}} {{'docno' | translate}}\">\n        </div>\n    </div>\n</ol>\n<app-account-header [header]=\"'ar'\" [dataForm]=\"accountForm\" (addNew)=\"addNew()\" (date)=\"docdate($event)\"></app-account-header>\n<app-account-form [accountHeader]=\"'ar-debit'\" [datas]=\"accountForm.debits\" [accountTotal]=\"accountForm.totaldebit\" (accountItems)=\"onDebits($event)\"></app-account-form>\n<hr>\n<app-account-form [accountHeader]=\"'ar-credit'\" [datas]=\"accountForm.credits\" [accountTotal]=\"accountForm.totalcredit\" (accountItems)=\"onCredits($event)\"></app-account-form>\n<hr>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <fieldset class=\"form-group\">\n            <label>{{'remark' | translate}}</label>\n            <textarea class=\"form-control\" rows=\"6\" cols=\"50\" [(ngModel)]=\"accountForm.remark\" [ngModelOptions]=\"{standalone: true}\"\n                placeholder=\"{{'remark-inbox' | translate}}\"></textarea>\n        </fieldset>\n    </div>\n    <div class=\"col-md-3\"></div>\n</div>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <button type=\"button\" class=\"btn btn-success full\" (click)=\"onSave()\">{{'save' | translate}}</button>\n    </div>\n    <div class=\"col-md-3\"></div>\n    <!-- <div class=\"col-md-4\">\n        <button type=\"button\" class=\"btn btn-danger full\" (click)=\"onCancel()\">{{'cancel' | translate}}</button>\n    </div> -->\n</div>\n"
+module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\"><i class=\"fa fa-list-ul\"></i> {{'ap-list' | translate}}</li>\n    </ol>\n    <div class=\"row\">\n        <div class=\"col-12 text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [routerLink]=\"['/ap-create']\">{{'ap' | translate}}</button>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12\">\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/ar-create/ar-create.component.scss":
+/***/ "../../../../../src/app/layout/ap-list/ap-list.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".full {\n  width: 100% !important; }\n\n.breadcrumb .col-md-8 {\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n  -webkit-box-align: center !important;\n      -ms-flex-align: center !important;\n          align-items: center !important; }\n\n.breadcrumb .col-md-4 input {\n  display: inline !important;\n  width: 90% !important; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -61,16 +61,12 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/ar-create/ar-create.component.ts":
+/***/ "../../../../../src/app/layout/ap-list/ap-list.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_model__ = __webpack_require__("../../../../../src/app/layout/account.model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__ = __webpack_require__("../../../../../src/app/layout/account-create/account-create.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__jv_create_jv_create_service__ = __webpack_require__("../../../../../src/app/layout/jv-create/jv-create.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArCreateComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -81,198 +77,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
-
-
-var ArCreateComponent = (function () {
-    function ArCreateComponent(accountCreateService, jvCreateService, translate) {
-        this.accountCreateService = accountCreateService;
-        this.jvCreateService = jvCreateService;
-        this.translate = translate;
-        this.accountForm = new __WEBPACK_IMPORTED_MODULE_2__account_model__["a" /* AccountFormModel */]();
-        this.accounts = new __WEBPACK_IMPORTED_MODULE_2__account_model__["b" /* AccountListModel */]();
-        this.account = new __WEBPACK_IMPORTED_MODULE_2__account_model__["c" /* AccountModel */]();
-        this.type = 'AR';
-        this.searchText = '';
+var ApListComponent = (function () {
+    function ApListComponent() {
     }
-    ArCreateComponent.prototype.ngOnInit = function () {
-        this.getAccount();
+    ApListComponent.prototype.ngOnInit = function () {
     };
-    ArCreateComponent.prototype.getMode = function () {
-        return this.accountForm._id ? 'update' : 'create';
-    };
-    ArCreateComponent.prototype.searching = function (e) {
-        if (e.keyCode == 13) {
-            if (this.accountForm.debits || this.accountForm.credits || this.accountForm.remark) {
-                this.currentLang = this.translate.currentLang;
-                if (this.currentLang === 'th') {
-                    var res = confirm('คุณต้องการยกเลิกการทำรายการนี้?');
-                    if (res) {
-                        // alert('ค้นหา');
-                        this.searchAccount(this.searchText);
-                    }
-                }
-                else {
-                    var res = confirm('Would you like to cancel this transaction?');
-                    if (res) {
-                        // alert('Search');
-                        this.searchAccount(this.searchText);
-                    }
-                }
-            }
-            else {
-                this.searchAccount(this.searchText);
-            }
-        }
-    };
-    ArCreateComponent.prototype.searchAccount = function (searchText) {
-        var _this = this;
-        this.jvCreateService.searchAccount('AR' + searchText).then(function (data) {
-            if (data._id) {
-                data.docdate = new Date(data.docdate);
-                _this.accountForm = data;
-            }
-            else {
-                _this.currentLang = _this.translate.currentLang;
-                if (_this.currentLang === 'th') {
-                    alert('ไม่พบ เลขที่เอกสาร "AR' + searchText + '"');
-                    _this.accountForm = new __WEBPACK_IMPORTED_MODULE_2__account_model__["a" /* AccountFormModel */]();
-                    _this.accountForm.docdate = new Date();
-                }
-                else {
-                    alert('"AR' + searchText + '" Not found.');
-                }
-            }
-        }, function (error) {
-            // alert();
-            console.log(error);
-        });
-    };
-    ArCreateComponent.prototype.getAccount = function () {
-        var _this = this;
-        this.accountCreateService.getAccount().then(function (data) {
-            _this.accounts.accounts = data;
-            _this.accounts.accounts.unshift({
-                _id: '',
-                name: '--- No Parent ---',
-                accountno: '',
-                parent: '',
-                status: ''
-            });
-            _this.accounts.accounts.sort(function (a, b) { return (a.accountno > b.accountno) ? 1 : ((b.accountno > a.accountno) ? -1 : 0); });
-        }, function (error) {
-            console.error(error);
-        });
-    };
-    ArCreateComponent.prototype.docdate = function (date) {
-        this.accountForm.docdate = date;
-    };
-    ArCreateComponent.prototype.onDebits = function (debit) {
-        this.accountForm.debits = debit.accounts;
-        this.accountForm.totaldebit = debit.totalaccount;
-    };
-    ArCreateComponent.prototype.onCredits = function (credit) {
-        this.accountForm.credits = credit.accounts;
-        this.accountForm.totalcredit = credit.totalaccount;
-    };
-    ArCreateComponent.prototype.onSave = function () {
-        this.currentLang = this.translate.currentLang;
-        if (!this.accountForm.debits || this.accountForm.debits.length < 1) {
-            if (this.currentLang === 'th') {
-                alert('กรุณาระบุข้อมูลเดบิต');
-            }
-            else {
-                alert('Please fill debit.');
-            }
-            return false;
-        }
-        if (!this.accountForm.credits || this.accountForm.credits.length < 1) {
-            if (this.currentLang === 'th') {
-                alert('กรุณาระบุข้อมูลเครดิต');
-            }
-            else {
-                alert('Please fill credit.');
-            }
-            return false;
-        }
-        if (this.accountForm.totaldebit !== this.accountForm.totalcredit) {
-            if (this.currentLang === 'th') {
-                alert('แจ้งเตือน : ราคาเดบิตและเครดิตไม่เท่ากัน กรุณาระบุให้เท่ากัน');
-            }
-            else {
-                alert('Warning : Debit and credit prices are not equal. Please specify the same.');
-            }
-            return false;
-        }
-        this.accountForm.gltype = this.type;
-        if (this.accountForm._id) {
-            this.update();
-        }
-        else {
-            this.create();
-        }
-    };
-    ArCreateComponent.prototype.create = function () {
-        var _this = this;
-        this.jvCreateService.postJv(this.accountForm).then(function (data) {
-            if (_this.currentLang === 'th') {
-                alert('สำเร็จ เลขที่เอกสาร "' + data.docno + '"');
-            }
-            else {
-                alert('Complate Docno "' + data.docno + '"');
-            }
-            _this.accountForm = data;
-            // window.location.reload();
-        }, function (error) {
-            if (error._body.message) {
-                alert(JSON.parse(error._body).message);
-            }
-            else {
-            }
-        });
-    };
-    ArCreateComponent.prototype.update = function () {
-        var _this = this;
-        this.jvCreateService.putJv(this.accountForm).then(function (data) {
-            if (_this.currentLang === 'th') {
-                alert('อัพเดทสำเร็จ เลขที่เอกสาร "' + data.docno + '"');
-            }
-            else {
-                alert('Update complate Docno "' + data.docno + '"');
-            }
-            _this.accountForm = data;
-            // window.location.reload();
-        }, function (error) {
-            if (error._body.message) {
-                alert(JSON.parse(error._body).message);
-            }
-            else {
-            }
-        });
-    };
-    ArCreateComponent.prototype.addNew = function () {
-        this.accountForm = new __WEBPACK_IMPORTED_MODULE_2__account_model__["a" /* AccountFormModel */]();
-        this.accountForm.docdate = new Date();
-        this.searchText = '';
-    };
-    return ArCreateComponent;
+    return ApListComponent;
 }());
-ArCreateComponent = __decorate([
+ApListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-ar-create',
-        template: __webpack_require__("../../../../../src/app/layout/ar-create/ar-create.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/ar-create/ar-create.component.scss")]
+        selector: 'app-ap-list',
+        template: __webpack_require__("../../../../../src/app/layout/ap-list/ap-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/ap-list/ap-list.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__["a" /* AccountCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__["a" /* AccountCreateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__jv_create_jv_create_service__["a" /* JvCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__jv_create_jv_create_service__["a" /* JvCreateService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _c || Object])
-], ArCreateComponent);
+    __metadata("design:paramtypes", [])
+], ApListComponent);
 
-var _a, _b, _c;
-//# sourceMappingURL=ar-create.component.js.map
+//# sourceMappingURL=ap-list.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/ar-create/ar-create.module.ts":
+/***/ "../../../../../src/app/layout/ap-list/ap-list.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -281,10 +106,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ar_create_routing_module__ = __webpack_require__("../../../../../src/app/layout/ar-create/ar-create-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ar_create_component__ = __webpack_require__("../../../../../src/app/layout/ar-create/ar-create.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_components_components_module__ = __webpack_require__("../../../../../src/app/shared/components/components.module.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArCreateModule", function() { return ArCreateModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_components_module__ = __webpack_require__("../../../../../src/app/shared/components/components.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ap_list_component__ = __webpack_require__("../../../../../src/app/layout/ap-list/ap-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ap_list_routing_module__ = __webpack_require__("../../../../../src/app/layout/ap-list/ap-list-routing.module.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApListModule", function() { return ApListModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -298,25 +123,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ArCreateModule = (function () {
-    function ArCreateModule() {
+var ApListModule = (function () {
+    function ApListModule() {
     }
-    return ArCreateModule;
+    return ApListModule;
 }());
-ArCreateModule = __decorate([
+ApListModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_4__ar_create_routing_module__["a" /* ArCreateRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_6__shared_components_components_module__["a" /* ComponentModule */],
+            __WEBPACK_IMPORTED_MODULE_6__ap_list_routing_module__["a" /* ApListRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_4__shared_components_components_module__["a" /* ComponentModule */],
             __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["a" /* TranslateModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_5__ar_create_component__["a" /* ArCreateComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_5__ap_list_component__["a" /* ApListComponent */]]
     })
-], ArCreateModule);
+], ApListModule);
 
-//# sourceMappingURL=ar-create.module.js.map
+//# sourceMappingURL=ap-list.module.js.map
 
 /***/ })
 

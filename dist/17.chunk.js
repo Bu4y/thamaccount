@@ -1,13 +1,13 @@
 webpackJsonp([17],{
 
-/***/ "../../../../../src/app/layout/pv-create/pv-create-routing.module.ts":
+/***/ "../../../../../src/app/layout/layout-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pv_create_component__ = __webpack_require__("../../../../../src/app/layout/pv-create/pv-create.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PvCreateRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__layout_component__ = __webpack_require__("../../../../../src/app/layout/layout.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LayoutRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,58 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__pv_create_component__["a" /* PvCreateComponent */] }
-];
-var PvCreateRoutingModule = (function () {
-    function PvCreateRoutingModule() {
+    {
+        path: '', component: __WEBPACK_IMPORTED_MODULE_2__layout_component__["a" /* LayoutComponent */],
+        children: [
+            { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
+            { path: 'account-type-list', loadChildren: './account-type-list/account-type-list.module#AccountTypeListModule' },
+            { path: 'account-type-create', loadChildren: './account-type-create/account-type-create.module#AccountTypeCreateModule' },
+            { path: 'account', loadChildren: './account/account.module#AccountModule' },
+            { path: 'account-create', loadChildren: './account-create/account-create.module#AccountCreateModule' },
+            { path: 'expend-create', loadChildren: './expend-create/expend-create.module#ExpendCreateModule' },
+            { path: 'expend-lists', loadChildren: './expend-lists/expend-lists.module#ExpendListsModule' },
+            { path: 'contact-create', loadChildren: './contact-create/contact-create.module#ContactCreateModule' },
+            { path: 'contact-lists', loadChildren: './contact-lists/contact-lists.module#ContactListsModule' },
+            { path: 'ap-create', loadChildren: './ap-create/ap-create.module#ApCreateModule' },
+            { path: 'ap-list', loadChildren: './ap-list/ap-list.module#ApListModule' },
+            { path: 'ar-create', loadChildren: './ar-create/ar-create.module#ArCreateModule' },
+            { path: 'ar-list', loadChildren: './ar-list/ar-list.module#ArListModule' },
+            { path: 'pv-create', loadChildren: './pv-create/pv-create.module#PvCreateModule' },
+            { path: 'pv-list', loadChildren: './pv-list/pv-list.module#PvListModule' },
+            { path: 'rv-create', loadChildren: './rv-create/rv-create.module#RvCreateModule' },
+            { path: 'rv-list', loadChildren: './rv-list/rv-list.module#RvListModule' },
+            { path: 'jv-create', loadChildren: './jv-create/jv-create.module#JvCreateModule' },
+            { path: 'jv-list', loadChildren: './jv-list/jv-list.module#JvListModule' },
+            { path: 'sale-create', loadChildren: './sale-create/sale-create.module#SaleCreateModule' },
+            { path: 'buy-create', loadChildren: './buy-create/buy-create.module#BuyCreateModule' },
+            { path: 'gl-report', loadChildren: './gl-report/gl-report.module#GlReportModule' }
+        ]
     }
-    return PvCreateRoutingModule;
+];
+var LayoutRoutingModule = (function () {
+    function LayoutRoutingModule() {
+    }
+    return LayoutRoutingModule;
 }());
-PvCreateRoutingModule = __decorate([
+LayoutRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], PvCreateRoutingModule);
+], LayoutRoutingModule);
 
-//# sourceMappingURL=pv-create-routing.module.js.map
+//# sourceMappingURL=layout-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/pv-create/pv-create.component.html":
+/***/ "../../../../../src/app/layout/layout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ol class=\"breadcrumb\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <li class=\"breadcrumb-item\">\n                <i class=\"fa fa-list-ul\"></i>\n                <a [routerLink]=\"['/pv-list']\">{{'pv-list' | translate}}</a>\n            </li>\n            <li class=\"breadcrumb-item active\">\n                <i class=\"fa fa-file-o\"></i>  {{ getMode() | translate}}{{'pv-list' | translate}}\n            </li>\n        </div>\n        <div class=\"col-md-4\">\n            PV\n            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchText\" (keypress)=\"searching($event);\" placeholder=\"{{'search' | translate}} {{'docno' | translate}}\">\n        </div>\n    </div>\n</ol>\n<app-account-header [header]=\"'pv'\" [dataForm]=\"accountForm\" (addNew)=\"addNew()\" (date)=\"docdate($event)\"></app-account-header>\n<app-account-form [accountHeader]=\"'pv-debit'\" [datas]=\"accountForm.debits\" [accountTotal]=\"accountForm.totaldebit\" (accountItems)=\"onDebits($event)\"></app-account-form>\n<hr>\n<app-account-form [accountHeader]=\"'pv-credit'\" [datas]=\"accountForm.credits\" [accountTotal]=\"accountForm.totalcredit\" (accountItems)=\"onCredits($event)\"></app-account-form>\n<hr>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <fieldset class=\"form-group\">\n            <label>{{'remark' | translate}}</label>\n            <textarea class=\"form-control\" rows=\"6\" cols=\"50\" [(ngModel)]=\"accountForm.remark\" [ngModelOptions]=\"{standalone: true}\"\n                placeholder=\"{{'remark-inbox' | translate}}\"></textarea>\n        </fieldset>\n    </div>\n    <div class=\"col-md-3\"></div>\n</div>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <button type=\"button\" class=\"btn btn-success full\" (click)=\"onSave()\">{{'save' | translate}}</button>\n    </div>\n    <div class=\"col-md-3\"></div>\n    <!-- <div class=\"col-md-4\">\n        <button type=\"button\" class=\"btn btn-danger full\" (click)=\"onCancel()\">{{'cancel' | translate}}</button>\n    </div> -->\n</div>\n"
+module.exports = "<app-header></app-header>\r\n<app-sidebar></app-sidebar>\r\n<section class=\"main-container\">\r\n    <router-outlet></router-outlet>\r\n</section>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/pv-create/pv-create.component.scss":
+/***/ "../../../../../src/app/layout/layout.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +77,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".full {\n  width: 100%; }\n\n.breadcrumb .col-md-8 {\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n  -webkit-box-align: center !important;\n      -ms-flex-align: center !important;\n          align-items: center !important; }\n\n.breadcrumb .col-md-4 input {\n  display: inline !important;\n  width: 90% !important; }\n", ""]);
+exports.push([module.i, ".main-container {\n  margin-top: 60px;\n  margin-left: 235px;\n  padding: 15px;\n  -ms-overflow-x: hidden;\n  overflow-x: hidden;\n  overflow-y: scroll;\n  position: relative;\n  overflow: hidden; }\n\n@media screen and (max-width: 992px) {\n  .main-container {\n    margin-left: 0px !important; } }\n", ""]);
 
 // exports
 
@@ -61,16 +87,13 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/pv-create/pv-create.component.ts":
+/***/ "../../../../../src/app/layout/layout.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_model__ = __webpack_require__("../../../../../src/app/layout/account.model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__ = __webpack_require__("../../../../../src/app/layout/account-create/account-create.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__jv_create_jv_create_service__ = __webpack_require__("../../../../../src/app/layout/jv-create/jv-create.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PvCreateComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LayoutComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -82,194 +105,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
-
-var PvCreateComponent = (function () {
-    function PvCreateComponent(accountCreateService, jvCreateService, translate) {
-        this.accountCreateService = accountCreateService;
-        this.jvCreateService = jvCreateService;
-        this.translate = translate;
-        this.accountForm = new __WEBPACK_IMPORTED_MODULE_2__account_model__["a" /* AccountFormModel */]();
-        this.account = new __WEBPACK_IMPORTED_MODULE_2__account_model__["c" /* AccountModel */]();
-        this.type = 'PV';
-        this.searchText = '';
+var LayoutComponent = (function () {
+    function LayoutComponent(router) {
+        this.router = router;
     }
-    PvCreateComponent.prototype.ngOnInit = function () {
-    };
-    PvCreateComponent.prototype.getMode = function () {
-        return this.accountForm._id ? 'update' : 'create';
-    };
-    PvCreateComponent.prototype.searching = function (e) {
-        if (e.keyCode == 13) {
-            if (this.accountForm.debits || this.accountForm.credits || this.accountForm.remark) {
-                this.currentLang = this.translate.currentLang;
-                if (this.currentLang === 'th') {
-                    var res = confirm('คุณต้องการยกเลิกการทำรายการนี้?');
-                    if (res) {
-                        // alert('ค้นหา');
-                        this.searchAccount(this.searchText);
-                    }
-                }
-                else {
-                    var res = confirm('Would you like to cancel this transaction?');
-                    if (res) {
-                        // alert('Search');
-                        this.searchAccount(this.searchText);
-                    }
-                }
-            }
-            else {
-                this.searchAccount(this.searchText);
-            }
+    LayoutComponent.prototype.ngOnInit = function () {
+        if (this.router.url === '/') {
+            this.router.navigate(['/account']);
         }
     };
-    PvCreateComponent.prototype.searchAccount = function (searchText) {
-        var _this = this;
-        this.jvCreateService.searchAccount('PV' + searchText).then(function (data) {
-            if (data._id) {
-                data.docdate = new Date(data.docdate);
-                _this.accountForm = data;
-            }
-            else {
-                _this.currentLang = _this.translate.currentLang;
-                if (_this.currentLang === 'th') {
-                    alert('ไม่พบ เลขที่เอกสาร "PV' + searchText + '"');
-                    _this.accountForm = new __WEBPACK_IMPORTED_MODULE_2__account_model__["a" /* AccountFormModel */]();
-                    _this.accountForm.docdate = new Date();
-                }
-                else {
-                    alert('"PV' + searchText + '" Not found.');
-                }
-            }
-        }, function (error) {
-            // alert();
-            console.log(error);
-        });
-    };
-    PvCreateComponent.prototype.docdate = function (date) {
-        this.accountForm.docdate = date;
-    };
-    PvCreateComponent.prototype.onDebits = function (debit) {
-        this.accountForm.debits = debit.accounts;
-        this.accountForm.totaldebit = debit.totalaccount;
-    };
-    PvCreateComponent.prototype.onCredits = function (credit) {
-        this.accountForm.credits = credit.accounts;
-        this.accountForm.totalcredit = credit.totalaccount;
-    };
-    PvCreateComponent.prototype.onSave = function () {
-        this.currentLang = this.translate.currentLang;
-        if (!this.accountForm.debits || this.accountForm.debits.length < 1) {
-            if (this.currentLang === 'th') {
-                alert('กรุณาระบุข้อมูลเดบิต');
-            }
-            else {
-                alert('Please fill debit.');
-            }
-            return false;
-        }
-        if (!this.accountForm.credits || this.accountForm.credits.length < 1) {
-            if (this.currentLang === 'th') {
-                alert('กรุณาระบุข้อมูลเครดิต');
-            }
-            else {
-                alert('Please fill credit.');
-            }
-            return false;
-        }
-        if (this.accountForm.totaldebit !== this.accountForm.totalcredit) {
-            if (this.currentLang === 'th') {
-                alert('แจ้งเตือน : ราคาเดบิตและเครดิตไม่เท่ากัน กรุณาระบุให้เท่ากัน');
-            }
-            else {
-                alert('Warning : Debit and credit prices are not equal. Please specify the same.');
-            }
-            return false;
-        }
-        this.accountForm.gltype = this.type;
-        if (this.accountForm._id) {
-            this.update();
-        }
-        else {
-            this.create();
-        }
-    };
-    PvCreateComponent.prototype.create = function () {
-        var _this = this;
-        this.jvCreateService.postJv(this.accountForm).then(function (data) {
-            if (_this.currentLang === 'th') {
-                alert('สำเร็จ เลขที่เอกสาร "' + data.docno + '"');
-            }
-            else {
-                alert('Complate Docno "' + data.docno + '"');
-            }
-            data.docdate = new Date(data.docdate);
-            _this.accountForm = data;
-            // window.location.reload();
-        }, function (error) {
-            if (error._body.message) {
-                alert(JSON.parse(error._body).message);
-            }
-            else {
-            }
-        });
-    };
-    PvCreateComponent.prototype.update = function () {
-        var _this = this;
-        this.jvCreateService.putJv(this.accountForm).then(function (data) {
-            if (_this.currentLang === 'th') {
-                alert('อัพเดทสำเร็จ เลขที่เอกสาร "' + data.docno + '"');
-            }
-            else {
-                alert('Update complate Docno "' + data.docno + '"');
-            }
-            data.docdate = new Date(data.docdate);
-            _this.accountForm = data;
-            // window.location.reload();
-        }, function (error) {
-            if (error._body.message) {
-                alert(JSON.parse(error._body).message);
-            }
-            else {
-            }
-        });
-    };
-    PvCreateComponent.prototype.addNew = function () {
-        this.accountForm = new __WEBPACK_IMPORTED_MODULE_2__account_model__["a" /* AccountFormModel */]();
-        this.accountForm.docdate = new Date();
-        this.searchText = '';
-    };
-    return PvCreateComponent;
+    return LayoutComponent;
 }());
-PvCreateComponent = __decorate([
+LayoutComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-pv-create',
-        template: __webpack_require__("../../../../../src/app/layout/pv-create/pv-create.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/pv-create/pv-create.component.scss")]
+        selector: 'app-layout',
+        template: __webpack_require__("../../../../../src/app/layout/layout.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/layout.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__["a" /* AccountCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__["a" /* AccountCreateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__jv_create_jv_create_service__["a" /* JvCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__jv_create_jv_create_service__["a" /* JvCreateService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _c || Object])
-], PvCreateComponent);
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
+], LayoutComponent);
 
-var _a, _b, _c;
-//# sourceMappingURL=pv-create.component.js.map
+var _a;
+//# sourceMappingURL=layout.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/pv-create/pv-create.module.ts":
+/***/ "../../../../../src/app/layout/layout.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pv_create_routing_module__ = __webpack_require__("../../../../../src/app/layout/pv-create/pv-create-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pv_create_component__ = __webpack_require__("../../../../../src/app/layout/pv-create/pv-create.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_components_components_module__ = __webpack_require__("../../../../../src/app/shared/components/components.module.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PvCreateModule", function() { return PvCreateModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__layout_routing_module__ = __webpack_require__("../../../../../src/app/layout/layout-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__layout_component__ = __webpack_require__("../../../../../src/app/layout/layout.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayoutModule", function() { return LayoutModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -283,25 +156,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PvCreateModule = (function () {
-    function PvCreateModule() {
+var LayoutModule = (function () {
+    function LayoutModule() {
     }
-    return PvCreateModule;
+    return LayoutModule;
 }());
-PvCreateModule = __decorate([
+LayoutModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_4__pv_create_routing_module__["a" /* PvCreateRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["a" /* TranslateModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
-            __WEBPACK_IMPORTED_MODULE_6__shared_components_components_module__["a" /* ComponentModule */]
+            __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["d" /* NgbDropdownModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_4__layout_routing_module__["a" /* LayoutRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_5__pv_create_component__["a" /* PvCreateComponent */]]
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_5__layout_component__["a" /* LayoutComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__shared__["d" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__shared__["e" /* SidebarComponent */]
+        ]
     })
-], PvCreateModule);
+], LayoutModule);
 
-//# sourceMappingURL=pv-create.module.js.map
+//# sourceMappingURL=layout.module.js.map
 
 /***/ })
 

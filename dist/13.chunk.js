@@ -1,13 +1,13 @@
 webpackJsonp([13],{
 
-/***/ "../../../../../src/app/layout/sale-create/sale-create-routing.module.ts":
+/***/ "../../../../../src/app/layout/rv-list/rv-list-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sale_create_component__ = __webpack_require__("../../../../../src/app/layout/sale-create/sale-create.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SaleCreateRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rv_list_component__ = __webpack_require__("../../../../../src/app/layout/rv-list/rv-list.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RvListRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,32 +18,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__sale_create_component__["a" /* SaleCreateComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__rv_list_component__["a" /* RvListComponent */] }
 ];
-var SaleCreateRoutingModule = (function () {
-    function SaleCreateRoutingModule() {
+var RvListRoutingModule = (function () {
+    function RvListRoutingModule() {
     }
-    return SaleCreateRoutingModule;
+    return RvListRoutingModule;
 }());
-SaleCreateRoutingModule = __decorate([
+RvListRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
-], SaleCreateRoutingModule);
+], RvListRoutingModule);
 
-//# sourceMappingURL=sale-create-routing.module.js.map
+//# sourceMappingURL=rv-list-routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/sale-create/sale-create.component.html":
+/***/ "../../../../../src/app/layout/rv-list/rv-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <app-account-header [header]=\"'sale'\" [icon]=\"'fa-edit'\" (date)=\"docdate($event)\"></app-account-header>\n  <form role=\"form card-block \">\n      <div class=\"bg-header\">\n          <div class=\"row\">\n              <div class=\"col-md-4\">\n                  <fieldset class=\"form-group\">\n                      <label>{{'contact-sale' | translate}}</label>\n                      <app-account-dropdown [data]=\"accounts\" (callback)=\"selectedContact($event)\"></app-account-dropdown>\n                  </fieldset>\n              </div>\n              <div class=\"col-md-4\">\n              </div>\n              <div class=\"col-md-4\">\n              </div>\n          </div>\n          <app-account-form-items [accounts]=\"accounts\" (itemsCallback)=\"itemsCallback($event)\"></app-account-form-items>\n          <div class=\"row\">\n              <div class=\"col-md-4\">\n              </div>\n              <div class=\"col-md-4\">\n              </div>\n              <div class=\"col-md-4 text-left\">\n                  <fieldset class=\"form-group\">\n                      <label>Amount</label>\n                      <!-- [(ngModel)]=\"ap.amount\" [ngModelOptions]=\"{standalone: true}\" -->\n                      <input class=\"form-control\" type=\"number\" [disabled]=\"true\">\n                  </fieldset>\n                  <fieldset class=\"form-group\">\n                      <label>Vat Amount</label>\n                      <input class=\"form-control\" type=\"number\" [disabled]=\"true\">\n                  </fieldset>\n                  <fieldset class=\"form-group\">\n                      <label>Total Amount</label>\n                      <input class=\"form-control\" type=\"number\" [disabled]=\"true\">\n                  </fieldset>\n                  <fieldset class=\"form-group\">\n                      <label>Discount</label>\n                      <!--  [disabled]=\"selectedItems.length === 0 ? true : false\" (ngModelChange)=\"onCalculate()\" -->\n                      <input class=\"form-control\" type=\"number\">\n                  </fieldset>\n                  <fieldset class=\"form-group\">\n                      <label>Net Amount</label>\n                      <input class=\"form-control\" type=\"number\" [disabled]=\"true\">\n                  </fieldset>\n              </div>\n          </div>\n          <div class=\"row\">\n              <div class=\"col-md-4\"></div>\n              <div class=\"col-md-4\">\n                  <button type=\"button\" class=\"btn btn-success full\">{{'save' | translate}}</button>\n              </div>\n              <div class=\"col-md-4\"></div>\n          </div>\n      </div>\n  </form>\n</div>\n"
+module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\">\n            <i class=\"fa fa-list-ul\"></i> {{'rv-list' | translate}}</li>\n    </ol>\n    <div class=\"row\">\n        <div class=\"col-12 text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [routerLink]=\"['/rv-create']\">{{'rv' | translate}}</button>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12\">\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/sale-create/sale-create.component.scss":
+/***/ "../../../../../src/app/layout/rv-list/rv-list.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".full {\n  width: 100%; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -61,15 +61,12 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/sale-create/sale-create.component.ts":
+/***/ "../../../../../src/app/layout/rv-list/rv-list.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_model__ = __webpack_require__("../../../../../src/app/layout/account.model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__ = __webpack_require__("../../../../../src/app/layout/account-create/account-create.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SaleCreateComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RvListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -80,56 +77,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
-
-
-var SaleCreateComponent = (function () {
-    function SaleCreateComponent(accountCreateService, translate) {
-        this.accountCreateService = accountCreateService;
-        this.translate = translate;
-        this.accountForm = new __WEBPACK_IMPORTED_MODULE_2__account_model__["a" /* AccountFormModel */]();
-        this.accounts = new __WEBPACK_IMPORTED_MODULE_2__account_model__["b" /* AccountListModel */]();
-        this.account = new __WEBPACK_IMPORTED_MODULE_2__account_model__["c" /* AccountModel */]();
+var RvListComponent = (function () {
+    function RvListComponent() {
     }
-    SaleCreateComponent.prototype.ngOnInit = function () {
-        this.getAccount();
+    RvListComponent.prototype.ngOnInit = function () {
     };
-    SaleCreateComponent.prototype.getAccount = function () {
-        var _this = this;
-        this.accountCreateService.getAccount().then(function (data) {
-            _this.accounts.accounts = data;
-            _this.accounts.accounts.sort(function (a, b) { return (a.accountno > b.accountno) ? 1 : ((b.accountno > a.accountno) ? -1 : 0); });
-        }, function (error) {
-            console.error(error);
-        });
-    };
-    SaleCreateComponent.prototype.docdate = function (date) {
-        console.log(date);
-    };
-    SaleCreateComponent.prototype.selectedContact = function (item) {
-        console.log('Contact ', item);
-    };
-    SaleCreateComponent.prototype.itemsCallback = function (item) {
-        console.log(item);
-    };
-    return SaleCreateComponent;
+    return RvListComponent;
 }());
-SaleCreateComponent = __decorate([
+RvListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-sale-create',
-        template: __webpack_require__("../../../../../src/app/layout/sale-create/sale-create.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/layout/sale-create/sale-create.component.scss")]
+        selector: 'app-rv-list',
+        template: __webpack_require__("../../../../../src/app/layout/rv-list/rv-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/layout/rv-list/rv-list.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__["a" /* AccountCreateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__account_create_account_create_service__["a" /* AccountCreateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _b || Object])
-], SaleCreateComponent);
+    __metadata("design:paramtypes", [])
+], RvListComponent);
 
-var _a, _b;
-//# sourceMappingURL=sale-create.component.js.map
+//# sourceMappingURL=rv-list.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/layout/sale-create/sale-create.module.ts":
+/***/ "../../../../../src/app/layout/rv-list/rv-list.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -138,10 +106,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sale_create_routing_module__ = __webpack_require__("../../../../../src/app/layout/sale-create/sale-create-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sale_create_component__ = __webpack_require__("../../../../../src/app/layout/sale-create/sale-create.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_components_components_module__ = __webpack_require__("../../../../../src/app/shared/components/components.module.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SaleCreateModule", function() { return SaleCreateModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_components_module__ = __webpack_require__("../../../../../src/app/shared/components/components.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__rv_list_component__ = __webpack_require__("../../../../../src/app/layout/rv-list/rv-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rv_list_routing_module__ = __webpack_require__("../../../../../src/app/layout/rv-list/rv-list-routing.module.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RvListModule", function() { return RvListModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -155,25 +123,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SaleCreateModule = (function () {
-    function SaleCreateModule() {
+var RvListModule = (function () {
+    function RvListModule() {
     }
-    return SaleCreateModule;
+    return RvListModule;
 }());
-SaleCreateModule = __decorate([
+RvListModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["k" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_4__sale_create_routing_module__["a" /* SaleCreateRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_6__rv_list_routing_module__["a" /* RvListRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_4__shared_components_components_module__["a" /* ComponentModule */],
             __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["a" /* TranslateModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
-            __WEBPACK_IMPORTED_MODULE_6__shared_components_components_module__["a" /* ComponentModule */]
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_5__sale_create_component__["a" /* SaleCreateComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_5__rv_list_component__["a" /* RvListComponent */]]
     })
-], SaleCreateModule);
+], RvListModule);
 
-//# sourceMappingURL=sale-create.module.js.map
+//# sourceMappingURL=rv-list.module.js.map
 
 /***/ })
 

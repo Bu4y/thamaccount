@@ -4,11 +4,13 @@ webpackJsonp([0],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_assets_models_account_type_model__ = __webpack_require__("../../../../../src/assets/models/account-type.model.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AccountListModel; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountFormModel; });
 /* unused harmony export DebitModel */
 /* unused harmony export CreditModel */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return AccountModel; });
+
 var AccountListModel = (function () {
     function AccountListModel() {
     }
@@ -37,6 +39,7 @@ var CreditModel = (function () {
 
 var AccountModel = (function () {
     function AccountModel() {
+        this.accounttype = new __WEBPACK_IMPORTED_MODULE_0_assets_models_account_type_model__["a" /* AccountTypeModel */]();
     }
     return AccountModel;
 }());
@@ -532,6 +535,21 @@ ComponentModule = __decorate([
 ], ComponentModule);
 
 //# sourceMappingURL=components.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/assets/models/account-type.model.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountTypeModel; });
+var AccountTypeModel = (function () {
+    function AccountTypeModel() {
+    }
+    return AccountTypeModel;
+}());
+
+//# sourceMappingURL=account-type.model.js.map
 
 /***/ }),
 

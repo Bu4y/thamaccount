@@ -83,7 +83,8 @@ export class JvCreateComponent implements OnInit {
         name: '--- No Parent ---',
         accountno: '',
         parent: '',
-        status: ''
+        status: '',
+        accounttype: null
       });
       this.accounts.accounts.sort((a, b) => { return (a.accountno > b.accountno) ? 1 : ((b.accountno > a.accountno) ? -1 : 0); });
     }, (error) => {

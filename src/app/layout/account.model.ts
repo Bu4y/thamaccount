@@ -1,3 +1,5 @@
+import { AccountTypeModel } from "assets/models/account-type.model";
+
 export class AccountListModel {
     accounts: Array<AccountModel>;
 }
@@ -33,4 +35,5 @@ export class AccountModel {
     accountno: string;
     parent: string;
     status: string;
+    accounttype: AccountTypeModel = new AccountTypeModel();
 }
