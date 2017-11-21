@@ -1,87 +1,103 @@
-.center{
-    text-align: center;
-    //white-space: nowrap;
+.center {
+    text-align: center; //white-space: nowrap;
 }
-.right{
+
+.right {
     text-align: right;
 }
-.left{
+
+.left {
     text-align: left;
 }
+
 // date
 [type="date"] {
-    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
-  }
-  [type="date"]::-webkit-inner-spin-button {
-    display: none;
-  }
-  [type="date"]::-webkit-calendar-picker-indicator {
-    opacity: 0;
+    background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
 }
-  // date
-  p {
-   // margin-top: 10px;
+
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+} // date
+p {
+    // margin-top: 10px;
     margin-bottom: 0;
 }
-.debit{
-    
-}
-.credit{
+
+.debit {}
+
+.credit {
     padding-left: 30px;
 }
-.reason{
-    
-}
-.time-now{
+
+.reason {}
+
+.time-now {
     position: absolute;
 }
-.padding-top{
+
+.padding-top {
     padding-top: 24px;
 }
-.padding-docno{
+
+.padding-docno {
     padding-top: 13px;
 }
 
-.border-no{
+.border-no {
     border-width: 0px 0px 0px 0px;
     border-color: #ffffff;
 }
-.border-sum{
+
+.border-sum {
     border-width: 1px 1px 1px 2px;
 }
 
-.table th, .table td {
+.table th,
+.table td {
     padding: 2px;
 }
-.aa{
+
+.aa {
     border-width: 0px 1px 0px 0px;
     border-color: #eceeef;
 }
+
 .table {
     font-size: 14px;
-    
 }
-.table-bordered {
-     border: 1px solid #ffffff; 
-}
-.scroll_ {
-     /* width: 1000px; */
-    height: auto;
-   // border: 1px solid red;
-    overflow: auto;
-  }
 
-  .table {
+.table-bordered {
+    border: 1px solid #ffffff;
+}
+
+.scroll_ {
+    /* width: 1000px; */
+    height: auto; // border: 1px solid red;
+    overflow: auto;
+}
+
+.table {
     width: 100%;
     /* max-width: 1000px; */
     margin-bottom: 1rem;
     min-width: 1000px;
 }
-.accoutno{
+
+.accoutno {
     margin-top: 10%;
 }
-#acceach-left{
+
+#acceach-left {
     padding-left: 55px;
 }
 
-
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+}
