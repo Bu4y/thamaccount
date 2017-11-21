@@ -340,7 +340,7 @@
         <!-- End ..acceachTab.. -->
         <ngb-tab title="งบกำไรขาดทุน">
             <ng-template ngbTabContent>
-                <div *ngIf="glReport.gain.transaction">
+                <div *ngIf="glReport.gain.transaction && glReport.gain.transaction.length > 0">
                     <div class="center time-now">
                         <br>
                         <p>{{glReport.gain.date | date:'dd/MM/yy'}}</p>
@@ -371,7 +371,7 @@
                             <tr class="border-no">
                                 <td class="border-no " id="acceach-left">
                                     <div *ngFor="let list of transaction.list">
-                                        <p>{{list.accountno}}</p>
+                                        <p>{{list.accountname}}</p>
                                     </div>
                                 </td>
                                 <td class="border-no right">
@@ -413,7 +413,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 center" *ngIf="!glReport.gain.transaction">
+                    <div class="col-md-12 center" *ngIf="glReport.gain.transaction && glReport.gain.transaction.length === 0">
                         <br>
                         <p>*** ไม่พบข้อมูล งบกำไรขาดทุน***</p>
                     </div>
