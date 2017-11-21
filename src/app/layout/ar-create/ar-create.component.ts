@@ -23,7 +23,7 @@ export class ArCreateComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getAccount();
+    // this.getAccount();
   }
 
   getMode() {

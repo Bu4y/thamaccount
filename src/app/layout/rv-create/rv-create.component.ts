@@ -22,7 +22,7 @@ export class RvCreateComponent implements OnInit {
   constructor(private accountCreateService: AccountCreateService, private jvCreateService: JvCreateService, private translate: TranslateService) { }
 
   ngOnInit() {
-    this.getAccount();
+    // this.getAccount();
   }
 
   getMode() {

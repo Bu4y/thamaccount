@@ -97,7 +97,7 @@ var ApCreateComponent = (function () {
         this.searchText = '';
     }
     ApCreateComponent.prototype.ngOnInit = function () {
-        this.getAccount();
+        // this.getAccount();
     };
     ApCreateComponent.prototype.getMode = function () {
         return this.accountForm._id ? 'update' : 'create';

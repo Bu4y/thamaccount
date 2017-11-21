@@ -98,7 +98,7 @@ var JvCreateComponent = (function () {
         this.searchText = '';
     }
     JvCreateComponent.prototype.ngOnInit = function () {
-        this.getAccount();
+        // this.getAccount();
     };
     JvCreateComponent.prototype.getMode = function () {
         return this.accountForm._id ? 'update' : 'create';
@@ -154,14 +154,6 @@ var JvCreateComponent = (function () {
         var _this = this;
         this.accountCreateService.getAccount().then(function (data) {
             _this.accounts.accounts = data;
-            _this.accounts.accounts.unshift({
-                _id: '',
-                name: '--- No Parent ---',
-                accountno: '',
-                parent: '',
-                status: '',
-                accounttype: null
-            });
             _this.accounts.accounts.sort(function (a, b) { return (a.accountno > b.accountno) ? 1 : ((b.accountno > a.accountno) ? -1 : 0); });
         }, function (error) {
             console.error(error);

@@ -24,7 +24,7 @@ export class JvCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAccount();
+    // this.getAccount();
   }
 
   getMode() {
@@ -78,14 +78,6 @@ export class JvCreateComponent implements OnInit {
   getAccount() {
     this.accountCreateService.getAccount().then((data) => {
       this.accounts.accounts = data;
-      this.accounts.accounts.unshift({
-        _id: '',
-        name: '--- No Parent ---',
-        accountno: '',
-        parent: '',
-        status: '',
-        accounttype: null
-      });
       this.accounts.accounts.sort((a, b) => { return (a.accountno > b.accountno) ? 1 : ((b.accountno > a.accountno) ? -1 : 0); });
     }, (error) => {
       console.error(error);

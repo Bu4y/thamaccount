@@ -98,7 +98,7 @@ var RvCreateComponent = (function () {
         this.searchText = '';
     }
     RvCreateComponent.prototype.ngOnInit = function () {
-        this.getAccount();
+        // this.getAccount();
     };
     RvCreateComponent.prototype.getMode = function () {
         return this.accountForm._id ? 'update' : 'create';
