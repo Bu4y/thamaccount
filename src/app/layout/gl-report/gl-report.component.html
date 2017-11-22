@@ -46,8 +46,7 @@
                         <br>
                         <p>{{glReport.daily.company}}</p>
                         <p>{{glReport.daily.title}}</p>
-                        <p>ตั้งแต่วันที่ {{glReport.daily.startdate |  date:'dd MMMM yyyy'}} 
-                           จนถึงวันที่ {{glReport.daily.enddate |  date:'dd MMMM yyyy'}}
+                        <p>ตั้งแต่วันที่ {{glReport.firstDayText}} จนถึงวันที่ {{glReport.lastDayText}}
                         </p>
                         <br>
                     </div>
@@ -163,8 +162,7 @@
                                 <br>
                                 <p>{{acceach.company}}</p>
                                 <p>{{acceach.title}}</p>
-                                <p>ตั้งแต่วันที่ {{acceach.startdate | date:'dd MMMM yyyy'}} 
-                                   จนถึงวันที่ {{acceach.enddate | date:'dd MMMM yyyy'}}
+                                <p>ตั้งแต่วันที่ {{glReport.firstDayText}} จนถึงวันที่ {{glReport.lastDayText}}
                                 </p>
                             </div>
                             <div class="col-md-3 right accoutno">
@@ -352,10 +350,8 @@
                         <br>
                         <p>{{glReport.gain.company}}</p>
                         <p>{{glReport.gain.title}}</p>
-                        <p>ตั้งแต่วันที่ {{glReport.gain.startdate |  date:'dd MMMM yyyy'}} จนถึงวันที่ {{glReport.gain.enddate |
-                                date:'dd MMMM yyyy'}}
+                        <p>ตั้งแต่วันที่ {{glReport.firstDayText}} จนถึงวันที่ {{glReport.lastDayText}}
                         </p>
-                       
                     </div>
 
                     <table class="table" style="border-collapse: unset; min-width: 400px;">
@@ -404,7 +400,7 @@
                                 <td class="border-no right">{{transaction.sumtrans.amount}}
                                 </td>
                             </tr>
-                            
+
                         </tbody>
                     </table>
 
@@ -436,7 +432,7 @@
                         <br>
                         <p>{{glReport.balance.company}}</p>
                         <p>{{glReport.balance.title}}</p>
-                        <p>ณ.{{glReport.balance.startdate | date:'dd MMMM yyyy'}} 
+                        <p>ณ.วันที่ {{glReport.lastDayText}}
                         </p>
                     </div>
 
