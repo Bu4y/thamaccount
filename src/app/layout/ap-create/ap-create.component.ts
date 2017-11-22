@@ -22,7 +22,7 @@ export class ApCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAccount();
+    // this.getAccount();
   }
 
   getMode() {
@@ -77,13 +77,6 @@ export class ApCreateComponent implements OnInit {
   getAccount() {
     this.accountCreateService.getAccount().then((data) => {
       this.accounts.accounts = data;
-      this.accounts.accounts.unshift({
-        _id: '',
-        name: '--- No Parent ---',
-        accountno: '',
-        parent: '',
-        status: ''
-      });
       this.accounts.accounts.sort((a, b) => { return (a.accountno > b.accountno) ? 1 : ((b.accountno > a.accountno) ? -1 : 0); });
     }, (error) => {
       console.error(error);

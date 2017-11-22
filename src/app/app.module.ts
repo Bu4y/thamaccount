@@ -1,3 +1,4 @@
+import { GlReportService } from './layout/gl-report/gl-report.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Http, HttpModule } from '@angular/http';
@@ -20,6 +21,8 @@ import { ExpendListsService } from "./layout/expend-lists/expend-lists.service";
 import { AccountCreateService } from "./layout/account-create/account-create.service";
 import { AccountService } from "./layout/account/account.service";
 import { JvCreateService } from "./layout/jv-create/jv-create.service";
+import { AccountTypeService } from './layout/account-type-create/account-type.service';
+import { AccountTypeListService } from './layout/account-type-list/account-type-list.service';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
     // for development
@@ -45,7 +48,22 @@ export function HttpLoaderFactory(http: Http) {
             }
         })
     ],
-    providers: [{ provide: BrowserXhr, useClass: NgProgressBrowserXhr }, AuthGuard, LoginService, SignupService, ContactCreateService, ContactListsService, ExpendCreateService, ExpendListsService, AccountCreateService, AccountService, JvCreateService],
+    providers: [
+        { provide: BrowserXhr, useClass: NgProgressBrowserXhr },
+        AuthGuard,
+        LoginService,
+        SignupService,
+        ContactCreateService,
+        ContactListsService,
+        ExpendCreateService,
+        ExpendListsService,
+        AccountCreateService,
+        AccountService,
+        JvCreateService,
+        GlReportService,
+        AccountTypeService,
+        AccountTypeListService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

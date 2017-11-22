@@ -9,6 +9,9 @@
         <a [routerLink]="['/contact-lists']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'contact-lists' | translate }}
         </a> -->
+        <a [routerLink]="['/account-type-list']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
+            <i class="fa fa-list-ul"></i>&nbsp;{{ 'account-type' | translate }}
+        </a>
         <a [routerLink]="['/account']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-list-ul"></i>&nbsp;{{ 'account' | translate }}
         </a>
@@ -26,6 +29,9 @@
         </a>
         <a [routerLink]="['/jv-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'jv' | translate }}
+        </a>
+        <a [routerLink]="['/gl-report']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
+            <i class="fa fa-file-o"></i>&nbsp;{{ 'gl-report' | translate }}
         </a>
         <!-- <a [routerLink]="['/buy-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-edit"></i>&nbsp;{{ 'buy' | translate }}
