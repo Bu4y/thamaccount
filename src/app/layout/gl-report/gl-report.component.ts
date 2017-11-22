@@ -49,7 +49,14 @@ export class GlReportComponent implements OnInit {
 
     this.glReportService.getGlReport(this.glType, glDate).then((gl) => {
       this.glReport = gl;
+
       console.log(this.glReport);
+
+    //   let date1 = new Date(this.glReport.balance.date).toDateString;
+    //  // let formatted = new DatePipe().transform(date1, 'yyyy-MM-dd');
+    //    //date1 = filter( this.glReport.balance.date ).format( 'DD MMMM YYYY' );
+
+    //    console.log("เดือน"+date1);
     }, (error) => {
       alert(JSON.stringify(error));
     })
