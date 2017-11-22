@@ -15,7 +15,10 @@
 
 .icon-trash {
     position: absolute !important;
-    right: 60px !important;
-    margin-top: -20px;
+    right: 60px !important; // margin-top: -20px;
     color: #f44336;
+}
+
+nav.navbar {
+    padding-top: 18px;
 }
