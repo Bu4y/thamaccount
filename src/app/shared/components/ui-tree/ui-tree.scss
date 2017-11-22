@@ -2,12 +2,15 @@
         padding-left: 30px;
     }
 
-    .list-group-item {
-        padding: 8px;
-        padding-left: 16px;
-        margin-top: 1px;
-    }
+    // .list-group-item {
+    //     padding: 8px;
+    //     padding-left: 16px;
+    //     margin-top: 1px;
+    // }
 
+    hr{
+        margin-top: -15px;
+    }
     .icon-edit {
         position: absolute !important;
         right: 30px !important; // margin-top: -18px;
@@ -35,4 +38,7 @@
 
     .inactive {
         color: #F44336 !important;
+    }
+    .col-4{
+        padding-bottom: 30px;
     }

@@ -14,8 +14,10 @@ export class UiTree {
 
   clickItem(item) {
     window.event.stopPropagation();
-    item.expand = item.expand ? false : true;
-    this.treeCallback.emit(item);
+    // item.expand = item.expand ? false : true;
+    // this.treeCallback.emit(item);
+    this.treeEditCallback.emit(item);
+    
   }
 
   onEditItem(item) {
