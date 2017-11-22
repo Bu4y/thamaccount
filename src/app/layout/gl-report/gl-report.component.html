@@ -397,7 +397,7 @@
                             <tr class="border-no" *ngIf="transaction.sumtrans">
                                 <td class="border-no"></td>
                                 <td class="border-no right"></td>
-                                <td class="border-no right">{{transaction.sumtrans.amount}}
+                                <td class="border-no right">{{transaction.sumtrans.amount | number:'.2'}}
                                 </td>
                             </tr>
 
@@ -533,7 +533,7 @@
                                     </div>
                                     <div *ngIf="tran_debt.list.length!==0">
 
-                                        <p>{{tran_debt.sumtrans.amount}}</p>
+                                        <p>{{tran_debt.sumtrans.amount | number:'.2'}}</p>
                                         <p>--------------------</p>
                                     </div>
 
