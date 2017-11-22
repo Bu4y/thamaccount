@@ -1,16 +1,17 @@
 <div class="just-padding" *ngIf="items">
-    <div class="list-group list-group-root" class="main-list" *ngFor="let item of items" (click)="clickItem(item)">
+    <div class="row">
+        <nav class="navbar">
+            <input class="form-control" type="text" placeholder="Search" name="search" [(ngModel)]="filter">
+        </nav>
+    </div>
+    <div class="list-group list-group-root" class="main-list" *ngFor="let item of items | filter:filter; let i = index" (click)="clickItem(item)">
         <a class="list-group-item list-group-item-action">
-          <i class="fa fa-caret-right none" [ngClass]="{'show': !item.expand && item[key].length}"></i>
-          <i class="fa fa-caret-down none" [ngClass]="{'show': item.expand && item[key].length}"></i>
-          &nbsp;
-          {{item.accountno}}
-          &nbsp;
-          {{item.name}} 
-          &nbsp;
-          <span class="{{item.status === 'active' ? 'active': 'inactive'}}">({{item.status}})</span>
-          <i class="fa fa-edit icon-edit" (click)="onEditItem(item)"></i>
-          <i class="fa fa-trash icon-trash" (click)="onDeleteItem(item)"></i>
+            <i class="fa fa-caret-right none" [ngClass]="{'show': !item.expand && item[key].length}"></i>
+            <i class="fa fa-caret-down none" [ngClass]="{'show': item.expand && item[key].length}"></i>
+            &nbsp; {{item.accountno}} &nbsp; {{item.name}} &nbsp;
+            <span class="{{item.status === 'active' ? 'active': 'inactive'}}">({{item.status}})</span>
+            <i class="fa fa-edit icon-edit" (click)="onEditItem(item)"></i>
+            <i class="fa fa-trash icon-trash" (click)="onDeleteItem(item)"></i>
         </a>
         <ui-tree *ngIf="item[key].length && item.expand == true" [key]="key" [data]="item[key]" (treeCallback)="treeReturn($event)"
             (treeEditCallback)="onEdit($event)"></ui-tree>

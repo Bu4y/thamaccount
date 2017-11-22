@@ -23,6 +23,7 @@ import { AccountService } from "./layout/account/account.service";
 import { JvCreateService } from "./layout/jv-create/jv-create.service";
 import { AccountTypeService } from './layout/account-type-create/account-type.service';
 import { AccountTypeListService } from './layout/account-type-list/account-type-list.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the Search
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
     // for development
@@ -37,6 +38,7 @@ export function HttpLoaderFactory(http: Http) {
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
+        Ng2SearchPipeModule,//importing the Search
         NgProgressModule,
         HttpModule,
         AppRoutingModule,

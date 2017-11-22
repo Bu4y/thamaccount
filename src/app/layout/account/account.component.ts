@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from "./account.service";
 import { TranslateService } from '@ngx-translate/core';
 import { AccountListModel } from '../account.model';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the Search
 declare let jsPDF;
 @Component({
   selector: 'app-account',
@@ -68,6 +69,7 @@ export class AccountComponent implements OnInit {
 
   treeReturn(event) {
     // console.log('CLICK : ', event);
+    alert(JSON.stringify(event));
   }
 
   onEdit(event) {
