@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the Search
 @Component({
   selector: "ui-tree",
   templateUrl: './ui-tree.html',
