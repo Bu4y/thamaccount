@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".ui-tree-list {\n  margin-left: -30px !important;\n  padding-top: 30px; }\n", ""]);
+exports.push([module.i, ".ui-tree-list {\n  padding-top: 10px; }\n", ""]);
 
 // exports
 
@@ -243,7 +243,7 @@ AccountModule = __decorate([
 /***/ "../../../../../src/app/shared/components/ui-tree/ui-tree.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"just-padding\" *ngIf=\"items\">\r\n    <div class=\"row\">\r\n        <nav class=\"navbar\">\r\n            <input class=\"form-control\" type=\"text\" placeholder=\"Search\" name=\"search\" [(ngModel)]=\"filter\">\r\n        </nav>\r\n    </div>\r\n    <div class=\"list-group list-group-root\" class=\"main-list\" *ngFor=\"let item of items | filter:filter; let i = index\" (click)=\"clickItem(item)\">\r\n        <a class=\"list-group-item list-group-item-action\">\r\n            <i class=\"fa fa-caret-right none\" [ngClass]=\"{'show': !item.expand && item[key].length}\"></i>\r\n            <i class=\"fa fa-caret-down none\" [ngClass]=\"{'show': item.expand && item[key].length}\"></i>\r\n            &nbsp; {{item.accountno}} &nbsp; {{item.name}} &nbsp;\r\n            <span class=\"{{item.status === 'active' ? 'active': 'inactive'}}\">({{item.status}})</span>\r\n            <i class=\"fa fa-edit icon-edit\" (click)=\"onEditItem(item)\"></i>\r\n            <i class=\"fa fa-trash icon-trash\" (click)=\"onDeleteItem(item)\"></i>\r\n        </a>\r\n        <ui-tree *ngIf=\"item[key].length && item.expand == true\" [key]=\"key\" [data]=\"item[key]\" (treeCallback)=\"treeReturn($event)\"\r\n            (treeEditCallback)=\"onEdit($event)\"></ui-tree>\r\n    </div>\r\n</div>"
+module.exports = "<!-- <div class=\"just-padding\" *ngIf=\"items\"> -->\r\n    <div class=\"row\">\r\n        <div class=\"col-4\"></div>\r\n        <div class=\"col-4\" text-center>\r\n            <nav class=\"navbar\">\r\n                <input class=\"form-control\" type=\"text\" placeholder=\"{{ 'search' | translate}}\" name=\"search\" [(ngModel)]=\"filter\">\r\n            </nav>\r\n        </div>\r\n        <div class=\"col-4\"></div>\r\n    </div>\r\n    <div class=\"card-block table-responsive\">\r\n        <table class=\"table\">\r\n            <thead class=\"thead-default\">\r\n                <tr>\r\n                    <th>รหัสบัญชี</th>\r\n                    <th>ชื่อบัญชี</th>\r\n                    <th>ประเภทบัญชี</th>\r\n                    <th></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of items | filter:filter; let i = index\" (click)=\"clickItem(item)\">\r\n                    <th scope=\"row\">{{item.accountno}}</th>\r\n                    <td>{{item.name}}</td>\r\n                    <td>{{ item.accounttype.accounttypeno }}-{{item.accounttype.accounttypename}}</td>\r\n                    <td><i class=\"fa fa-trash icon-trash\" (click)=\"onDeleteItem(item)\"></i></td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n    <!-- <div class=\"list-group list-group-root\" class=\"main-list\" *ngFor=\"let item of items | filter:filter; let i = index\" (click)=\"clickItem(item)\">\r\n        <div>\r\n            <div class=\"row\">\r\n                <div class=\"col-sm-6 \">\r\n                    <i class=\"fa fa-caret-right none\" [ngClass]=\"{'show': !item.expand && item[key].length}\"></i>\r\n                    <i class=\"fa fa-caret-down none\" [ngClass]=\"{'show': item.expand && item[key].length}\"></i>\r\n                    &nbsp; {{item.accountno}} &nbsp; {{item.name}} &nbsp;\r\n                    <span class=\"{{item.status === 'active' ? 'active': 'inactive'}}\">({{item.status}})</span>\r\n\r\n\r\n                </div>\r\n                <div class=\"col-4\">\r\n                    {{ item.accounttype.accounttypeno }}-{{item.accounttype.accounttypename}}\r\n                </div>\r\n                <div class=\"col-sm-1\">\r\n                    <i class=\"fa fa-edit icon-edit\" (click)=\"onEditItem(item)\"></i>\r\n                </div>\r\n                <div class=\"col-1\">\r\n                    <i class=\"fa fa-trash icon-trash\" (click)=\"onDeleteItem(item)\"></i>\r\n                </div>\r\n\r\n            </div>\r\n            <hr>\r\n\r\n        </div>\r\n        <ui-tree *ngIf=\"item[key].length && item.expand == true\" [key]=\"key\" [data]=\"item[key]\" (treeCallback)=\"treeReturn($event)\"\r\n            (treeEditCallback)=\"onEdit($event)\"></ui-tree>\r\n    </div> -->\r\n<!-- </div> -->"
 
 /***/ }),
 
@@ -255,7 +255,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".just-padding {\n  padding-left: 30px; }\n\n.list-group-item {\n  padding: 8px;\n  padding-left: 16px;\n  margin-top: 1px; }\n\n.icon-edit {\n  position: absolute !important;\n  right: 30px !important;\n  color: #4CAF50;\n  margin-top: 1px; }\n\n.icon-trash {\n  position: absolute !important;\n  right: 60px !important;\n  color: #f44336; }\n\n.none {\n  color: transparent; }\n\n.show {\n  color: #666666 !important; }\n\n.active {\n  color: #4CAF50 !important; }\n\n.inactive {\n  color: #F44336 !important; }\n", ""]);
+exports.push([module.i, ".just-padding {\n  padding-left: 30px; }\n\nhr {\n  margin-top: -15px; }\n\n.icon-edit {\n  position: absolute !important;\n  right: 30px !important;\n  color: #4CAF50;\n  margin-top: 1px; }\n\n.icon-trash {\n  position: absolute !important;\n  right: 60px !important;\n  color: #f44336; }\n\n.none {\n  color: transparent; }\n\n.show {\n  color: #666666 !important; }\n\n.active {\n  color: #4CAF50 !important; }\n\n.inactive {\n  color: #F44336 !important; }\n", ""]);
 
 // exports
 
@@ -289,8 +289,9 @@ var UiTree = (function () {
     }
     UiTree.prototype.clickItem = function (item) {
         window.event.stopPropagation();
-        item.expand = item.expand ? false : true;
-        this.treeCallback.emit(item);
+        // item.expand = item.expand ? false : true;
+        // this.treeCallback.emit(item);
+        this.treeEditCallback.emit(item);
     };
     UiTree.prototype.onEditItem = function (item) {
         window.event.stopPropagation();

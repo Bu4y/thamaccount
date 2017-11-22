@@ -39,7 +39,7 @@ AccountTypeListRoutingModule = __decorate([
 /***/ "../../../../../src/app/layout/account-type-list/account-type-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item active\">\n            <i class=\"fa fa-list-ul\"></i> {{'new-account-type' | translate}}</li>\n    </ol>\n    <div class=\"row\">\n        <div class=\"col-12 text-center\">\n            <button type=\"submit\" class=\"btn btn-primary\" [routerLink]=\"['/account-type-create']\">{{'new-account-type' | translate}}</button>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12 list\">\n            <div class=\"just-padding\" *ngIf=\"accountTypeList\">\n                <div class=\"list-group list-group-root\" class=\"main-list\" *ngFor=\"let item of accountTypeList\" (click)=\"goAccountTypeDetail(item)\">\n                    <a class=\"list-group-item list-group-item-action\">\n                        &nbsp; {{item.accounttypeno}} &nbsp; {{item.accounttypename}} &nbsp;\n                        <i class=\"fa fa-trash icon-trash\" (click)=\"onDeleteItem(item)\"></i>\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div>\r\n    <ol class=\"breadcrumb\">\r\n        <li class=\"breadcrumb-item active\">\r\n            <i class=\"fa fa-list-ul\"></i> {{'new-account-type' | translate}}</li>\r\n    </ol>\r\n    <div class=\"row\">\r\n        <div class=\"col-12 text-center\">\r\n            <button type=\"submit\" class=\"btn btn-primary\" [routerLink]=\"['/account-type-create']\">{{'new-account-type' | translate}}</button>\r\n        </div>\r\n    </div>\r\n    <!-- <div class=\"row\">\r\n        <div class=\"col-12 list\">\r\n            <div class=\"just-padding\" *ngIf=\"accountTypeList\">\r\n                <div class=\"list-group list-group-root\" class=\"main-list\" *ngFor=\"let item of accountTypeList\" (click)=\"goAccountTypeDetail(item)\">\r\n                    <a class=\"list-group-item list-group-item-action\">\r\n                        &nbsp; {{item.accounttypeno}} &nbsp; {{item.accounttypename}} &nbsp;\r\n                        <i class=\"fa fa-trash icon-trash\" (click)=\"onDeleteItem(item)\"></i>\r\n                    </a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div> -->\r\n    <div class=\"row\">\r\n        <div class=\"col-4\"></div>\r\n        <div class=\"col-4\" text-center>\r\n            <nav class=\"navbar\">\r\n                <input class=\"form-control\" type=\"text\" placeholder=\"{{ 'search' | translate}}\" name=\"search\" [(ngModel)]=\"filter\">\r\n            </nav>\r\n        </div>\r\n        <div class=\"col-4\"></div>\r\n    </div>\r\n    <div class=\"card-block table-responsive\">\r\n        <table class=\"table\">\r\n            <thead class=\"thead-default\">\r\n                <tr>\r\n                    <th style=\"width:20%;\">รหัสประเภท</th>\r\n                    <th>ชื่อประเภท</th>\r\n                    <th></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let item of accountTypeList | filter:filter; let i = index\" (click)=\"goAccountTypeDetail(item)\">\r\n                    <th scope=\"row\">{{ item.accounttypeno }}</th>\r\n                    <td>{{item.accounttypename}}</td>\r\n                    <td>\r\n                        <i class=\"fa fa-trash icon-trash\" (click)=\"onDeleteItem(item)\"></i>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -51,7 +51,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".list {\n  margin-left: -30px !important;\n  padding-top: 30px; }\n\n.just-padding {\n  padding-left: 30px; }\n\n.list-group-item {\n  padding: 8px;\n  padding-left: 16px;\n  margin-top: 1px; }\n\n.icon-trash {\n  position: absolute !important;\n  right: 60px !important;\n  margin-top: -20px;\n  color: #f44336; }\n", ""]);
+exports.push([module.i, ".list {\n  margin-left: -30px !important;\n  padding-top: 30px; }\n\n.just-padding {\n  padding-left: 30px; }\n\n.list-group-item {\n  padding: 8px;\n  padding-left: 16px;\n  margin-top: 1px; }\n\n.icon-trash {\n  position: absolute !important;\n  right: 60px !important;\n  color: #f44336; }\n\nnav.navbar {\n  padding-top: 18px; }\n", ""]);
 
 // exports
 
@@ -166,6 +166,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_components_components_module__ = __webpack_require__("../../../../../src/app/shared/components/components.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__account_type_list_routing_module__ = __webpack_require__("../../../../../src/app/layout/account-type-list/account-type-list-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__account_type_list_component__ = __webpack_require__("../../../../../src/app/layout/account-type-list/account-type-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_search_filter__ = __webpack_require__("../../../../ng2-search-filter/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_search_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_ng2_search_filter__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountTypeListModule", function() { return AccountTypeListModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -180,6 +182,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+ //importing the Search
 var AccountTypeListModule = (function () {
     function AccountTypeListModule() {
     }
@@ -192,7 +195,8 @@ AccountTypeListModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__account_type_list_routing_module__["a" /* AccountTypeListRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_4__shared_components_components_module__["a" /* ComponentModule */],
             __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["a" /* TranslateModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"]
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
+            __WEBPACK_IMPORTED_MODULE_7_ng2_search_filter__["Ng2SearchPipeModule"]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_6__account_type_list_component__["a" /* AccountTypeListComponent */]]
     })

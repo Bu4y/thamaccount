@@ -1,16 +1,14 @@
-<div class="just-padding" *ngIf="items">
+<!-- <div class="just-padding" *ngIf="items"> -->
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4" text-center>
             <nav class="navbar">
-                <input class="form-control" type="text" placeholder="Search" name="search" [(ngModel)]="filter">
+                <input class="form-control" type="text" placeholder="{{ 'search' | translate}}" name="search" [(ngModel)]="filter">
             </nav>
         </div>
         <div class="col-4"></div>
     </div>
-
     <div class="card-block table-responsive">
-
         <table class="table">
             <thead class="thead-default">
                 <tr>
@@ -58,4 +56,4 @@
         <ui-tree *ngIf="item[key].length && item.expand == true" [key]="key" [data]="item[key]" (treeCallback)="treeReturn($event)"
             (treeEditCallback)="onEdit($event)"></ui-tree>
     </div> -->
-</div>
+<!-- </div> -->
