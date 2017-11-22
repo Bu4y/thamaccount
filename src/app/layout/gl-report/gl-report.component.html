@@ -46,8 +46,8 @@
                         <br>
                         <p>{{glReport.daily.company}}</p>
                         <p>{{glReport.daily.title}}</p>
-                        <p>ตั้งแต่วันที่ {{glReport.daily.startdate | date:'dd/MM/yy'}} จนถึงวันที่ {{glReport.daily.enddate
-                            | date:'dd/MM/yy'}}
+                        <p>ตั้งแต่วันที่ {{glReport.daily.startdate |  date:'dd MMMM yyyy'}} 
+                           จนถึงวันที่ {{glReport.daily.enddate |  date:'dd MMMM yyyy'}}
                         </p>
                         <br>
                     </div>
@@ -154,20 +154,21 @@
                 <div *ngIf="glReport.acceach.length > 0">
                     <div *ngFor="let acceach of glReport.acceach">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <br>
                                 <p>{{acceach.date | date:'dd/MM/yy'}}</p>
                                 <p>{{acceach.date | date:'HH:mm:ss'}}</p>
                             </div>
-                            <div class="col-md-4 center">
+                            <div class="col-md-6 center">
                                 <br>
                                 <p>{{acceach.company}}</p>
                                 <p>{{acceach.title}}</p>
-                                <p>ตั้งแต่วันที่ {{acceach.startdate | date:'dd/MM/yy'}} จนถึงวันที่ {{acceach.enddate | date:'dd/MM/yy'}}
+                                <p>ตั้งแต่วันที่ {{acceach.startdate | date:'dd MMMM yyyy'}} 
+                                   จนถึงวันที่ {{acceach.enddate | date:'dd MMMM yyyy'}}
                                 </p>
                             </div>
-                            <div class="col-md-4 right accoutno">
-                                รหัสบัญชี {{acceach.accoutno}}
+                            <div class="col-md-3 right accoutno">
+                                รหัสบัญชี {{acceach.accountno}}
                             </div>
                         </div>
                         <div class="scroll_ ">
@@ -186,7 +187,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngIf="acceach.bringforward.debit > 0 || acceach.bringforward.credit > 0">
                                         <td class="padding-top">{{acceach.bringforward.docdate | date:'dd/MM/yy'}}</td>
                                         <td class="padding-top">
                                             {{acceach.bringforward.docno}}
@@ -326,6 +327,7 @@
 
                                 </tbody>
                             </table>
+                            <hr>
                         </div>
                     </div>
                 </div>
@@ -350,9 +352,10 @@
                         <br>
                         <p>{{glReport.gain.company}}</p>
                         <p>{{glReport.gain.title}}</p>
-                        <p>ตั้งแต่วันที่ {{glReport.gain.startdate | date:'dd/MM/yy'}} จนถึงวันที่ {{glReport.gain.enddate |
-                            date:'dd/MM/yy'}}
+                        <p>ตั้งแต่วันที่ {{glReport.gain.startdate |  date:'dd MMMM yyyy'}} จนถึงวันที่ {{glReport.gain.enddate |
+                                date:'dd MMMM yyyy'}}
                         </p>
+                       
                     </div>
 
                     <table class="table" style="border-collapse: unset; min-width: 400px;">
@@ -395,14 +398,13 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="border-no">
+                            <tr class="border-no" *ngIf="transaction.sumtrans">
                                 <td class="border-no"></td>
                                 <td class="border-no right"></td>
-                                <td class="border-no right">
-
-
+                                <td class="border-no right">{{transaction.sumtrans.amount}}
                                 </td>
                             </tr>
+                            
                         </tbody>
                     </table>
 
@@ -434,8 +436,7 @@
                         <br>
                         <p>{{glReport.balance.company}}</p>
                         <p>{{glReport.balance.title}}</p>
-                        <p>ตั้งแต่วันที่ {{glReport.balance.startdate | date:'dd/MM/yy'}} จนถึงวันที่ {{glReport.balance.enddate
-                            | date:'dd/MM/yy'}}
+                        <p>ณ.{{glReport.balance.startdate | date:'dd MMMM yyyy'}} 
                         </p>
                     </div>
 
@@ -458,7 +459,7 @@
                             <tr class="border-no">
                                 <td class="border-no " id="acceach-left">
                                     <div *ngFor="let list of tran_asset.list">
-                                        <p>{{list.accountno}}</p>
+                                        <p>{{list.accountname}}</p>
                                     </div>
                                 </td>
                                 <td class="border-no right">
@@ -506,7 +507,7 @@
                             <tr class="border-no">
                                 <td class="border-no " id="acceach-left">
                                     <div *ngFor="let list of tran_debt.list">
-                                        <p>{{list.accountno}}</p>
+                                        <p>{{list.accountname}}</p>
                                     </div>
                                     <div *ngIf="tran_debt.list.length!==0">
                                         <br>
