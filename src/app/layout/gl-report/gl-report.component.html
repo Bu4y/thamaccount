@@ -367,7 +367,8 @@
                                 <td class="border-no right">
 
                                     <div *ngIf="transaction.list.length===0">
-                                        <p>{{transaction.summary | number:'.2'}}</p>
+                                        <p [hidden]="0 > transaction.summary">{{transaction.summary | number:'.2'}}</p>
+                                        <p [hidden]="transaction.summary >= 0">({{(transaction.summary | number:'.2').split('-')[1]}})</p>
                                     </div>
                                 </td>
                             </tr>
@@ -379,7 +380,8 @@
                                 </td>
                                 <td class="border-no right">
                                     <div *ngFor="let list of transaction.list;let i = index" [attr.data-index]="i">
-                                        <p>{{list.amount | number:'.2'}}</p>
+                                        <p [hidden]="0 > list.amount">{{list.amount | number:'.2'}}</p>
+                                        <p [hidden]="list.amount >= 0">({{(list.amount | number:'.2').split('-')[1]}})</p>
                                         <div *ngIf="transaction.list.length===i+1">
                                             <p>--------------------</p>
                                         </div>
@@ -392,7 +394,8 @@
                                         </div>
 
                                         <div *ngIf="transaction.list.length===i+1">
-                                            <p>{{transaction.summary | number:'.2'}}</p>
+                                            <p [hidden]="0 > transaction.summary">{{transaction.summary | number:'.2'}}</p>
+                                            <p [hidden]="transaction.summary >= 0">({{(transaction.summary | number:'.2').split('-')[1]}})</p>
                                             <p>--------------------</p>
                                         </div>
                                     </div>
@@ -401,8 +404,8 @@
                             <tr class="border-no" *ngIf="transaction.sumtrans">
                                 <td class="border-no"></td>
                                 <td class="border-no right"></td>
-                                <td class="border-no right">{{transaction.sumtrans.amount | number:'.2'}}
-                                </td>
+                                <td class="border-no right" [hidden]="0 > transaction.sumtrans.amount">{{transaction.sumtrans.amount | number:'.2'}}</td>
+                                <td class="border-no right" [hidden]="transaction.sumtrans.amount >= 0">({{(transaction.sumtrans.amount | number:'.2').split('-')[1]}})</td>
                             </tr>
 
                         </tbody>
