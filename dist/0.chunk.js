@@ -432,10 +432,11 @@ var AccountFormComponent = (function () {
         for (var i = 0; i < length; i++) {
             this.accountTotal += this.datas[i].amount;
         }
+        this.accountTotal = Number(this.accountTotal.toFixed(2));
         // console.log('tets');
         this.accountItems.emit({
             accounts: this.datas,
-            totalaccount: this.accountTotal.toFixed(2)
+            totalaccount: this.accountTotal
         });
     };
     return AccountFormComponent;
