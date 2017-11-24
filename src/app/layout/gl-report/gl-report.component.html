@@ -26,7 +26,7 @@
     <div class="col-12 center">
         <div>
             <button type="button" class="btn btn-primary" (click)="genGlReport()">ทำงบ</button>
-            <button type="button" class="btn btn-default" (click)="closeGlReport()">ปิดงบ</button>
+            <button type="button" class="btn btn-default" *ngIf="glReport.type" (click)="closeGlReport()">ปิดงบ</button>
         </div>
     </div>
 </div>
