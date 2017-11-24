@@ -44,12 +44,12 @@
             <li class="nested" [class.expand]="showMenu === 'pages'">
                 <ul class="submenu">
                     <a [routerLink]="['/gl-report']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
-                        <i class="fa fa-file-o"></i>&nbsp;{{ 'do-gl-report' | translate }}
+                        <i class="fa fa-file-o sub"></i>&nbsp;{{ 'do-gl-report' | translate }}
                     </a>
                 </ul>
                 <ul class="submenu">
                     <a [routerLink]="['/gl-report-view']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
-                        <i class="fa fa-file-o"></i>&nbsp;{{ 'get-gl-report' | translate }}
+                        <i class="fa fa-file-o sub"></i>&nbsp;{{ 'get-gl-report' | translate }}
                     </a>
                 </ul>
             </li>
