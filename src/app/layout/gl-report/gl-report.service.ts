@@ -20,6 +20,29 @@ export class GlReportService {
       .catch(this.handleError);
   }
 
+  postGlReportMonth(gl) {
+    return this.http.post(Constants.URL + 'api/glmonths', gl).toPromise()
+      .then(response => response.json() as GlReportModel)
+      .catch(this.handleError);
+  }
+
+  postGlReportYear(gl) {
+    return this.http.post(Constants.URL + 'api/glyears', gl).toPromise()
+      .then(response => response.json() as GlReportModel)
+      .catch(this.handleError);
+  }
+
+  putGlReportMonth(gl) {
+    return this.http.post(Constants.URL + 'api/glmonths/' + gl._id, gl).toPromise()
+      .then(response => response.json() as GlReportModel)
+      .catch(this.handleError);
+  }
+
+  putGlReportYear(gl) {
+    return this.http.post(Constants.URL + 'api/glyears/' + gl._id, gl).toPromise()
+      .then(response => response.json() as GlReportModel)
+      .catch(this.handleError);
+  }
   // Error function
   private handleError(error: any): Promise<any> {
     // console.error('An error occurred', error);

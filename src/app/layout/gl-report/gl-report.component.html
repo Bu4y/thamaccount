@@ -27,8 +27,13 @@
         <div class="col-12 center">
             <div>
                 <button type="button" class="btn btn-primary" (click)="genGlReport()">ทำงบ</button>
-                <button type="button" class="btn btn-default">ปิดงบ</button>
+                <button type="button" class="btn btn-default" (click)="closeGlReport()">ปิดงบ</button>
             </div>
+        </div>
+    </div>
+    <div class="row" class="close-statements">
+        <div class="col-12 center">
+            <p>{{ glReport.statementname }}</p>
         </div>
     </div>
 

@@ -52,15 +52,78 @@ export class GlReportComponent implements OnInit {
 
       console.log(this.glReport);
 
-    //   let date1 = new Date(this.glReport.balance.date).toDateString;
-    //  // let formatted = new DatePipe().transform(date1, 'yyyy-MM-dd');
-    //    //date1 = filter( this.glReport.balance.date ).format( 'DD MMMM YYYY' );
-
-    //    console.log("เดือน"+date1);
     }, (error) => {
       alert(JSON.stringify(error));
     })
 
+  }
+
+  closeGlReport() {
+    this.currentLang = this.translate.currentLang;
+    let statementname;
+    if (this.currentLang === 'th') {
+      let res = confirm('คุณต้องการปิดงบรายการนี้?');
+      statementname = prompt("กรุณาระบุชื่อรายการ", "");
+      if (!res) {
+        return;
+      }
+    } else {
+      let res = confirm('Would you like to closing statements?');
+      statementname = prompt("Please enter your statements name", "");
+      if (!res) {
+        return;
+      }
+    }
+
+    if (!statementname) {
+      if (this.currentLang === 'th') {
+        alert('กรุณาระบุชื่อรายการ');
+      } else {
+        alert('Please enter your statements name');
+      }
+      return;
+    }
+
+    this.glReport.statementname = statementname;
+
+    if (this.glType === 'month') {
+      this.closeCreateMonth();
+    } else {
+      this.closeCreateYear();
+    }
+
+  }
+
+  closeCreateMonth() {
+    this.glReportService.postGlReportMonth(this.glReport).then((data) => {
+      this.glReport = data;
+      this.currentLang = this.translate.currentLang;
+      if (this.currentLang === 'th') {
+        alert('ปิดงบรายเดือนสำเร็จ');
+      } else {
+        alert('Closing statements complete.');
+      }
+    }, (error) => {
+      if (JSON.parse(error._body).message) {
+        alert(JSON.parse(error._body).message);
+      }
+    });
+  }
+
+  closeCreateYear() {
+    this.glReportService.postGlReportYear(this.glReport).then((data) => {
+      this.glReport = data;      
+      this.currentLang = this.translate.currentLang;
+      if (this.currentLang === 'th') {
+        alert('ปิดงบรายปีสำเร็จ');
+      } else {
+        alert('Closing statements complete.');
+      }
+    }, (error) => {
+      if (JSON.parse(error._body).message) {
+        alert(JSON.parse(error._body).message);
+      }
+    });
   }
 
 }

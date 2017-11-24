@@ -1,4 +1,6 @@
 export class GlReportModel {
+    _id:string;
+    statementname: string;
     type: string;
     startdate: Date;
     enddate: Date;
