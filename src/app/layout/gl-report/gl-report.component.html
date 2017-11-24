@@ -57,7 +57,7 @@
                     </div>
                     <div class="scroll_ ">
                         <table class="table table-bordered">
-                            <thead>
+                            <thead style="border-bottom: 2px solid #eceeef;">
                                 <tr>
                                     <th class="center">วันที่</th>
                                     <th class="center">เลขเอกสาร</th>
@@ -69,12 +69,12 @@
                                     <th class="center">เครดิด</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="border-bottom: 2px solid #eceeef;">
 
                                 <tr *ngFor="let transaction of glReport.daily.transaction">
                                     <td class="padding-top">{{transaction.docdate | date:'dd/MM/yy'}}</td>
                                     <td class="padding-top">{{transaction.docno}}</td>
-                                    <td>
+                                    <td class="bottom-color">
                                         <div *ngFor="let list of transaction.list">
                                             <div *ngIf="list.debit>0">
                                                 <p class="debit"> {{list.accountname}}</p>
@@ -85,6 +85,10 @@
                                         </div>
                                         <div *ngIf="transaction.remark !== '' ">
                                             <p class="reason"> ({{transaction.remark}})</p>
+                                        </div>
+                                        <div>
+
+
                                         </div>
 
                                     </td>
@@ -177,7 +181,7 @@
                         </div>
                         <div class="scroll_ ">
                             <table class="table table-bordered">
-                                <thead>
+                                <thead style="border-bottom: 2px solid #eceeef;">
                                     <tr>
                                         <th class="center">วันที่</th>
                                         <th class="center">เลขเอกสาร</th>
@@ -190,7 +194,7 @@
                                         <th class="center">คำอธิบาย</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="border-bottom: 2px solid #eceeef;">
                                     <tr *ngIf="acceach.bringforward.debit > 0 || acceach.bringforward.credit > 0">
                                         <td class="padding-top">{{acceach.bringforward.docdate | date:'dd/MM/yy'}}</td>
                                         <td class="padding-top">
@@ -311,28 +315,26 @@
                                         </td>
                                         <td>{{acceach.carryforward.description}}</td>
                                     </tr>
-
-                                    <!-- SUM -->
-                                    <tr>
-                                        <td class="border-no"></td>
-                                        <td class="border-no"></td>
-                                        <td class="border-no"></td>
-                                        <td class="border-no"></td>
-                                        <td class="border-no"></td>
-                                        <td class="border-no"></td>
-                                        <td class="border-sum">
-                                            {{acceach.current.debit | number: '.2'}}
-                                        </td>
-                                        <td class="border-sum"> {{acceach.current.credit | number: '.2'}}</td>
-                                        <td class="border-no">
-                                        </td>
-                                    </tr>
-                                    <!-- END SUM -->
-
                                 </tbody>
+                                <!-- SUM -->
+                                <tr>
+                                    <td class="border-no"></td>
+                                    <td class="border-no"></td>
+                                    <td class="border-no"></td>
+                                    <td class="border-no"></td>
+                                    <td class="border-no"></td>
+                                    <td class="border-no"></td>
+                                    <td class="border-sum">
+                                        {{acceach.current.debit | number: '.2'}}
+                                    </td>
+                                    <td class="border-sum"> {{acceach.current.credit | number: '.2'}}</td>
+                                    <td class="border-no">
+                                    </td>
+                                </tr>
+                                <!-- END SUM -->
                             </table>
-                            <hr>
                         </div>
+                        <hr>
                     </div>
                 </div>
                 <div class="row">
@@ -362,59 +364,60 @@
                         <hr>
                         <br>
                     </div>
+                    <div class="scroll_">
+                        <table class="table" style="border-collapse: unset; min-width: 400px;">
+                            <tbody *ngFor="let transaction of glReport.gain.transaction">
 
-                    <table class="table" style="border-collapse: unset; min-width: 400px;">
-                        <tbody *ngFor="let transaction of glReport.gain.transaction">
+                                <tr class="border-no">
+                                    <td class="border-no" style="width: 80%">{{transaction.accounttype}}</td>
+                                    <td class="border-no right"></td>
+                                    <td class="border-no right">
 
-                            <tr class="border-no">
-                                <td class="border-no" style="width: 80%">{{transaction.accounttype}}</td>
-                                <td class="border-no right"></td>
-                                <td class="border-no right">
-
-                                    <div *ngIf="transaction.list.length===0">
-                                        <p [hidden]="0 > transaction.summary">{{transaction.summary | number:'.2'}}</p>
-                                        <p [hidden]="transaction.summary >= 0">({{(transaction.summary | number:'.2').split('-')[1]}})</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="border-no">
-                                <td class="border-no " id="acceach-left">
-                                    <div *ngFor="let list of transaction.list">
-                                        <p>{{list.accountname}}</p>
-                                    </div>
-                                </td>
-                                <td class="border-no right">
-                                    <div *ngFor="let list of transaction.list;let i = index" [attr.data-index]="i">
-                                        <p [hidden]="0 > list.amount">{{list.amount | number:'.2'}}</p>
-                                        <p [hidden]="list.amount >= 0">({{(list.amount | number:'.2').split('-')[1]}})</p>
-                                        <div *ngIf="transaction.list.length===i+1">
-                                            <p>--------------------</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="border-no right">
-                                    <div *ngFor="let list of transaction.list;let i = index" [attr.data-index]="i">
-                                        <div *ngIf="transaction.list.length!==i+1">
-                                            <br>
-                                        </div>
-
-                                        <div *ngIf="transaction.list.length===i+1">
+                                        <div *ngIf="transaction.list.length===0">
                                             <p [hidden]="0 > transaction.summary">{{transaction.summary | number:'.2'}}</p>
                                             <p [hidden]="transaction.summary >= 0">({{(transaction.summary | number:'.2').split('-')[1]}})</p>
-                                            <p>--------------------</p>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="border-no" *ngIf="transaction.sumtrans">
-                                <td class="border-no"></td>
-                                <td class="border-no right"></td>
-                                <td class="border-no right" [hidden]="0 > transaction.sumtrans.amount">{{transaction.sumtrans.amount | number:'.2'}}</td>
-                                <td class="border-no right" [hidden]="transaction.sumtrans.amount >= 0">({{(transaction.sumtrans.amount | number:'.2').split('-')[1]}})</td>
-                            </tr>
+                                    </td>
+                                </tr>
+                                <tr class="border-no">
+                                    <td class="border-no " id="acceach-left">
+                                        <div *ngFor="let list of transaction.list">
+                                            <p>{{list.accountname}}</p>
+                                        </div>
+                                    </td>
+                                    <td class="border-no right">
+                                        <div *ngFor="let list of transaction.list;let i = index" [attr.data-index]="i">
+                                            <p [hidden]="0 > list.amount">{{list.amount | number:'.2'}}</p>
+                                            <p [hidden]="list.amount >= 0">({{(list.amount | number:'.2').split('-')[1]}})</p>
+                                            <div *ngIf="transaction.list.length===i+1">
+                                                <p>--------------------</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="border-no right">
+                                        <div *ngFor="let list of transaction.list;let i = index" [attr.data-index]="i">
+                                            <div *ngIf="transaction.list.length!==i+1">
+                                                <br>
+                                            </div>
 
-                        </tbody>
-                    </table>
+                                            <div *ngIf="transaction.list.length===i+1">
+                                                <p [hidden]="0 > transaction.summary">{{transaction.summary | number:'.2'}}</p>
+                                                <p [hidden]="transaction.summary >= 0">({{(transaction.summary | number:'.2').split('-')[1]}})</p>
+                                                <p>--------------------</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="border-no" *ngIf="transaction.sumtrans">
+                                    <td class="border-no"></td>
+                                    <td class="border-no right"></td>
+                                    <td class="border-no right" [hidden]="0 > transaction.sumtrans.amount">{{transaction.sumtrans.amount | number:'.2'}}</td>
+                                    <td class="border-no right" [hidden]="transaction.sumtrans.amount >= 0">({{(transaction.sumtrans.amount | number:'.2').split('-')[1]}})</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
 
                     <div class="row ">
                         <div class="col-md-12 center">
@@ -455,112 +458,116 @@
                             <b>{{glReport.balance.asset.name}}</b>
                         </div>
                     </div>
-                    <table class="table" style="border-collapse: unset ; min-width: 400px;">
-                        <tbody *ngFor="let tran_asset of glReport.balance.asset.transaction">
-                            <tr class="border-no">
-                                <td class="border-no" style="width: 80%">{{tran_asset.accounttype}}</td>
-                                <td class="border-no right"></td>
-                                <td class="border-no right">
-                                    <div *ngIf="tran_asset.list.length===0">
-                                        <p>{{tran_asset.summary | number:'.2'}}</p>
-                                        <p>===========</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="border-no">
-                                <td class="border-no " id="acceach-left">
-                                    <div *ngFor="let list of tran_asset.list">
-                                        <p>{{list.accountname}}</p>
-                                    </div>
-                                </td>
-                                <td class="border-no right">
-                                    <div *ngFor="let list of tran_asset.list;let i = index" [attr.data-index]="i">
-                                        <p>{{list.amount | number:'.2'}}</p>
-                                        <div *ngIf="tran_asset.list.length===i+1">
-                                            <p>--------------------</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="border-no right">
-                                    <div *ngFor="let list of tran_asset.list;let i = index" [attr.data-index]="i">
-
-                                        <div *ngIf="tran_asset.list.length!==i+1">
-                                            <br>
-                                        </div>
-                                        <div *ngIf="tran_asset.list.length===i+1">
+                    <div class="scroll_">
+                        <table class="table" style="border-collapse: unset ; min-width: 400px;">
+                            <tbody *ngFor="let tran_asset of glReport.balance.asset.transaction">
+                                <tr class="border-no">
+                                    <td class="border-no" style="width: 80%">{{tran_asset.accounttype}}</td>
+                                    <td class="border-no right"></td>
+                                    <td class="border-no right">
+                                        <div *ngIf="tran_asset.list.length===0">
                                             <p>{{tran_asset.summary | number:'.2'}}</p>
-                                            <p>--------------------</p>
+                                            <p>===========</p>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                    </td>
+                                </tr>
+                                <tr class="border-no">
+                                    <td class="border-no " id="acceach-left">
+                                        <div *ngFor="let list of tran_asset.list">
+                                            <p>{{list.accountname}}</p>
+                                        </div>
+                                    </td>
+                                    <td class="border-no right">
+                                        <div *ngFor="let list of tran_asset.list;let i = index" [attr.data-index]="i">
+                                            <p>{{list.amount | number:'.2'}}</p>
+                                            <div *ngIf="tran_asset.list.length===i+1">
+                                                <p>--------------------</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="border-no right">
+                                        <div *ngFor="let list of tran_asset.list;let i = index" [attr.data-index]="i">
+
+                                            <div *ngIf="tran_asset.list.length!==i+1">
+                                                <br>
+                                            </div>
+                                            <div *ngIf="tran_asset.list.length===i+1">
+                                                <p>{{tran_asset.summary | number:'.2'}}</p>
+                                                <p>--------------------</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="row">
                         <div class="col-12 text-center">
                             <b>{{glReport.balance.debt.name}}</b>
                         </div>
                     </div>
-                    <table class="table" style="border-collapse: unset ; min-width: 400px;">
-                        <tbody *ngFor="let tran_debt of glReport.balance.debt.transaction">
-                            <tr class="border-no">
-                                <td class="border-no" style="width: 80%">{{tran_debt.accounttype}}</td>
-                                <td class="border-no right"></td>
-                                <td class="border-no right">
-                                    <div *ngIf="tran_debt.list.length===0">
-                                        <p>{{tran_debt.summary | number:'.2'}}</p>
-                                        <p>===========</p>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="border-no">
-                                <td class="border-no " id="acceach-left">
-                                    <div *ngFor="let list of tran_debt.list">
-                                        <p>{{list.accountname}}</p>
-                                    </div>
-                                    <div *ngIf="tran_debt.list.length!==0">
-                                        <br>
-                                        <p>{{tran_debt.sumtrans.accountno}}</p>
-                                    </div>
-                                </td>
-                                <td class="border-no right">
-                                    <div *ngFor="let list of tran_debt.list;let i = index" [attr.data-index]="i">
-                                        <p>{{list.amount | number:'.2'}}</p>
-                                        <div *ngIf="tran_debt.list.length===i+1">
-                                            <p>--------------------</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="border-no right">
-                                    <div *ngFor="let list of tran_debt.list;let i = index" [attr.data-index]="i">
-
-                                        <div *ngIf="tran_debt.list.length!==i+1">
-                                            <br>
-                                        </div>
-                                        <div *ngIf="tran_debt.list.length===i+1">
+                    <div class="scroll_">
+                        <table class="table" style="border-collapse: unset ; min-width: 400px;">
+                            <tbody *ngFor="let tran_debt of glReport.balance.debt.transaction">
+                                <tr class="border-no">
+                                    <td class="border-no" style="width: 80%">{{tran_debt.accounttype}}</td>
+                                    <td class="border-no right"></td>
+                                    <td class="border-no right">
+                                        <div *ngIf="tran_debt.list.length===0">
                                             <p>{{tran_debt.summary | number:'.2'}}</p>
+                                            <p>===========</p>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr class="border-no">
+                                    <td class="border-no " id="acceach-left">
+                                        <div *ngFor="let list of tran_debt.list">
+                                            <p>{{list.accountname}}</p>
+                                        </div>
+                                        <div *ngIf="tran_debt.list.length!==0">
+                                            <br>
+                                            <p>{{tran_debt.sumtrans.accountno}}</p>
+                                        </div>
+                                    </td>
+                                    <td class="border-no right">
+                                        <div *ngFor="let list of tran_debt.list;let i = index" [attr.data-index]="i">
+                                            <p>{{list.amount | number:'.2'}}</p>
+                                            <div *ngIf="tran_debt.list.length===i+1">
+                                                <p>--------------------</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="border-no right">
+                                        <div *ngFor="let list of tran_debt.list;let i = index" [attr.data-index]="i">
+
+                                            <div *ngIf="tran_debt.list.length!==i+1">
+                                                <br>
+                                            </div>
+                                            <div *ngIf="tran_debt.list.length===i+1">
+                                                <p>{{tran_debt.summary | number:'.2'}}</p>
 
 
+                                                <p>--------------------</p>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="tran_debt.list.length!==0">
+
+                                            <p>{{tran_debt.sumtrans.amount | number:'.2'}}</p>
                                             <p>--------------------</p>
                                         </div>
-                                    </div>
-                                    <div *ngIf="tran_debt.list.length!==0">
 
-                                        <p>{{tran_debt.sumtrans.amount | number:'.2'}}</p>
-                                        <p>--------------------</p>
-                                    </div>
-
-                                    <!-- <div *ngIf="tran_debt.summary > 0;else other">
+                                        <!-- <div *ngIf="tran_debt.summary > 0;else other">
                                             ssssss{{tran_debt.summary}}ssssssss
                                         </div>
                                         <div #other>
                                             aaaaaa{{tran_debt.summary}}aaaaaaaa
                                         </div> -->
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="row ">
                         <div class="col-md-12 center">
                             *** จบรายงาน ***
