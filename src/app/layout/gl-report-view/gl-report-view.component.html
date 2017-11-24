@@ -20,7 +20,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of glReportMonth" (click)="glReportMonthDetail(item)">
+                            <tr *ngFor="let item of glReportMonth" (click)="glReportDetail(item._id,'month')">
                                 <th scope="row">{{ item.enddate | date:'MM-yyyy'}}</th>
                                 <td>{{item.statementname}}</td>
                             </tr>
@@ -51,7 +51,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of glReportyear" (click)="glReportYearDetail(item)">
+                            <tr *ngFor="let item of glReportyear" (click)="glReportDetail(item._id,'year')">
                                 <th scope="row">{{ item.enddate | date:'yyyy'}}</th>
                                 <td>{{item.statementname}}</td>
                             </tr>

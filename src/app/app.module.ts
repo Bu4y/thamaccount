@@ -25,6 +25,7 @@ import { JvCreateService } from "./layout/jv-create/jv-create.service";
 import { AccountTypeService } from './layout/account-type-create/account-type.service';
 import { AccountTypeListService } from './layout/account-type-list/account-type-list.service';
 import { GlReportViewService } from './layout/gl-report-view/gl-report-view.service';
+import { GlReportDetailService } from './layout/gl-report-detail/gl-report-detail.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -67,7 +68,8 @@ export function HttpLoaderFactory(http: Http) {
         GlReportService,
         AccountTypeService,
         AccountTypeListService,
-        GlReportViewService
+        GlReportViewService,
+        GlReportDetailService        
     ],
     bootstrap: [AppComponent]
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GlReportViewService } from './gl-report-view.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class GlReportViewComponent implements OnInit {
   glReportMonth: Object;
   glReportyear: Object;
   constructor(
-    private glReportViewService: GlReportViewService
+    private glReportViewService: GlReportViewService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -38,4 +40,7 @@ export class GlReportViewComponent implements OnInit {
     });
   }
 
+  glReportDetail(_id: string, type: string) {
+    this.router.navigate(['/gl-report-detail'], { queryParams: { _id: _id, type: type } });
+  }
 }
