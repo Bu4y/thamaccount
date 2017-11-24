@@ -60,5 +60,7 @@
     "create": "สร้าง",
     "data-not-found": "ไม่พบข้อมูล",
     "new-create": "เพิ่มใหม่",
-    "gl-report": "รายงาน"
+    "gl-report": "รายงาน",
+    "do-gl-report": "ทำรายงาน",
+    "get-gl-report": "ดูรายงาน"
 }

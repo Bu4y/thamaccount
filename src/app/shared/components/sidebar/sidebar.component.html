@@ -30,14 +30,29 @@
         <a [routerLink]="['/jv-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'jv' | translate }}
         </a>
-        <a [routerLink]="['/gl-report']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
-            <i class="fa fa-file-o"></i>&nbsp;{{ 'gl-report' | translate }}
-        </a>
         <!-- <a [routerLink]="['/buy-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-edit"></i>&nbsp;{{ 'buy' | translate }}
         </a>
         <a [routerLink]="['/sale-create']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
             <i class="fa fa-edit"></i>&nbsp;{{ 'sale' | translate }}
         </a> -->
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages')">
+                <span>
+                    <i class="fa fa-plus"></i>&nbsp; {{ 'gl-report' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages'">
+                <ul class="submenu">
+                    <a [routerLink]="['/gl-report']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
+                        <i class="fa fa-file-o"></i>&nbsp;{{ 'do-gl-report' | translate }}
+                    </a>
+                </ul>
+                <ul class="submenu">
+                    <a [routerLink]="['/gl-report-view']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="toggleSidebar()">
+                        <i class="fa fa-file-o"></i>&nbsp;{{ 'get-gl-report' | translate }}
+                    </a>
+                </ul>
+            </li>
+        </div>
     </ul>
 </nav>

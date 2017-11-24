@@ -60,5 +60,7 @@
     "create": "Create",
     "data-not-found": "Data not found.",
     "new-create": "Add new",
-    "gl-report": "Gl report"
+    "gl-report": "Gl report",
+    "do-gl-report": "Gl report",
+    "get-gl-report": "View Gl report"
 }
