@@ -63,16 +63,16 @@ export class GlReportComponent implements OnInit {
     let statementname;
     if (this.currentLang === 'th') {
       let res = confirm('คุณต้องการปิดงบรายการนี้?');
-      statementname = prompt("กรุณาระบุชื่อรายการ", "");
       if (!res) {
         return;
       }
+      statementname = prompt("กรุณาระบุชื่อรายการ", "");
     } else {
       let res = confirm('Would you like to closing statements?');
-      statementname = prompt("Please enter your statements name", "");
       if (!res) {
         return;
       }
+      statementname = prompt("Please enter your statements name", "");
     }
 
     if (!statementname) {

@@ -127,17 +127,17 @@ var GlReportComponent = (function () {
         var statementname;
         if (this.currentLang === 'th') {
             var res = confirm('คุณต้องการปิดงบรายการนี้?');
-            statementname = prompt("กรุณาระบุชื่อรายการ", "");
             if (!res) {
                 return;
             }
+            statementname = prompt("กรุณาระบุชื่อรายการ", "");
         }
         else {
             var res = confirm('Would you like to closing statements?');
-            statementname = prompt("Please enter your statements name", "");
             if (!res) {
                 return;
             }
+            statementname = prompt("Please enter your statements name", "");
         }
         if (!statementname) {
             if (this.currentLang === 'th') {
