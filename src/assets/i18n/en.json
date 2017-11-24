@@ -62,5 +62,11 @@
     "new-create": "Add new",
     "gl-report": "Gl report",
     "do-gl-report": "Gl report",
-    "get-gl-report": "View Gl report"
+    "get-gl-report": "View Gl report",
+    "gl-month":"Month",
+    "gl-year":"Year",
+    "no-gl":"Report not found.",
+    "month":"Month",
+    "year":"Year",
+    "gl-name":"Statement name"
 }

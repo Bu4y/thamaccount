@@ -62,5 +62,11 @@
     "new-create": "เพิ่มใหม่",
     "gl-report": "รายงาน",
     "do-gl-report": "ทำรายงาน",
-    "get-gl-report": "ดูรายงาน"
+    "get-gl-report": "ดูรายงาน",
+    "gl-month":"รายเดือน",
+    "gl-year":"รายปี",
+    "no-gl":"ไม่พบรายงาน",
+    "month":"เดือน",
+    "year":"ปี",
+    "gl-name":"ชื่อรายงาน"
 }

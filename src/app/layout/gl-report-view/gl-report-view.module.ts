@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { PageHeaderModule } from './../../shared';
 import { GlReportViewRoutingModule } from './gl-report-view-routing.module';
 import { GlReportViewComponent } from './gl-report-view.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { GlReportViewComponent } from './gl-report-view.component';
     GlReportViewRoutingModule,
     PageHeaderModule,
     FormsModule,
+    TranslateModule,
     NgbModule.forRoot()
   ],
   declarations: [GlReportViewComponent]

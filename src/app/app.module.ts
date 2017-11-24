@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { NgProgressModule, NgProgressBrowserXhr } from 'ngx-progressbar';
 import { BrowserXhr } from '@angular/http';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the Search
 
 import { LoginService } from "./login/login.service";
 import { SignupService } from "./signup/signup.service";
@@ -23,7 +24,7 @@ import { AccountService } from "./layout/account/account.service";
 import { JvCreateService } from "./layout/jv-create/jv-create.service";
 import { AccountTypeService } from './layout/account-type-create/account-type.service';
 import { AccountTypeListService } from './layout/account-type-list/account-type-list.service';
-import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the Search
+import { GlReportViewService } from './layout/gl-report-view/gl-report-view.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -65,7 +66,8 @@ export function HttpLoaderFactory(http: Http) {
         JvCreateService,
         GlReportService,
         AccountTypeService,
-        AccountTypeListService
+        AccountTypeListService,
+        GlReportViewService
     ],
     bootstrap: [AppComponent]
 })
