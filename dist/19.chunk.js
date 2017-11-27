@@ -117,7 +117,6 @@ var GlReportComponent = (function () {
         }
         this.glReportService.getGlReport(this.glType, glDate).then(function (gl) {
             _this.glReport = gl;
-            console.log(_this.glReport);
         }, function (error) {
             alert(JSON.stringify(error));
         });
@@ -139,7 +138,7 @@ var GlReportComponent = (function () {
             }
             statementname = prompt("Please enter your statements name", "");
         }
-        if (!statementname) {
+        if (statementname === '') {
             if (this.currentLang === 'th') {
                 alert('กรุณาระบุชื่อรายการ');
             }
@@ -148,12 +147,14 @@ var GlReportComponent = (function () {
             }
             return;
         }
-        this.glReport.statementname = statementname;
-        if (this.glType === 'month') {
-            this.closeCreateMonth();
-        }
-        else {
-            this.closeCreateYear();
+        else if (statementname) {
+            this.glReport.statementname = statementname;
+            if (this.glType === 'month') {
+                this.closeCreateMonth();
+            }
+            else {
+                this.closeCreateYear();
+            }
         }
     };
     GlReportComponent.prototype.closeCreateMonth = function () {

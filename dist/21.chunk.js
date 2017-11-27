@@ -39,7 +39,7 @@ GlReportDetailRoutingModule = __decorate([
 /***/ "../../../../../src/app/layout/gl-report-detail/gl-report-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\">\n            <i class=\"fa fa-file-o\"></i>\n            <a [routerLink]=\"['/gl-report-view']\">{{'get-gl-report' | translate}}</a>\n        </li>\n        <li class=\"breadcrumb-item active\">\n            <i class=\"fa fa-edit\"></i> {{'gl-report' | translate}}</li>\n    </ol>\n</div>\n\n<app-gl [glReport]=\"glReport\"></app-gl>\n"
+module.exports = "<div>\n    <ol class=\"breadcrumb\">\n        <li class=\"breadcrumb-item\">\n            <i class=\"fa fa-file-o\"></i>\n            <a [routerLink]=\"['/gl-report-view']\">{{'get-gl-report' | translate}}</a>\n        </li>\n        <li class=\"breadcrumb-item active\">\n            <!-- <i class=\"fa fa-edit\"></i> {{'gl-report' | translate}}</li> -->\n            <i class=\"fa fa-edit\"></i> {{ glReport.statementname }}</li>\n    </ol>\n</div>\n\n<app-gl [glReport]=\"glReport\"></app-gl>\n"
 
 /***/ }),
 

@@ -49,9 +49,6 @@ export class GlReportComponent implements OnInit {
 
     this.glReportService.getGlReport(this.glType, glDate).then((gl) => {
       this.glReport = gl;
-
-      console.log(this.glReport);
-
     }, (error) => {
       alert(JSON.stringify(error));
     })
@@ -74,22 +71,22 @@ export class GlReportComponent implements OnInit {
       }
       statementname = prompt("Please enter your statements name", "");
     }
-
-    if (!statementname) {
+    
+    if (statementname === '') {
       if (this.currentLang === 'th') {
         alert('กรุณาระบุชื่อรายการ');
       } else {
         alert('Please enter your statements name');
       }
       return;
-    }
+    } else if (statementname) {
+      this.glReport.statementname = statementname;
 
-    this.glReport.statementname = statementname;
-
-    if (this.glType === 'month') {
-      this.closeCreateMonth();
-    } else {
-      this.closeCreateYear();
+      if (this.glType === 'month') {
+        this.closeCreateMonth();
+      } else {
+        this.closeCreateYear();
+      }
     }
 
   }
@@ -112,7 +109,7 @@ export class GlReportComponent implements OnInit {
 
   closeCreateYear() {
     this.glReportService.postGlReportYear(this.glReport).then((data) => {
-      this.glReport = data;      
+      this.glReport = data;
       this.currentLang = this.translate.currentLang;
       if (this.currentLang === 'th') {
         alert('ปิดงบรายปีสำเร็จ');
