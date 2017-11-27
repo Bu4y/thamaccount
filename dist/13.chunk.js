@@ -39,7 +39,7 @@ RvCreateRoutingModule = __decorate([
 /***/ "../../../../../src/app/layout/rv-create/rv-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ol class=\"breadcrumb\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <li class=\"breadcrumb-item\">\n                <i class=\"fa fa-list-ul\"></i>\n                <a [routerLink]=\"['/rv-list']\">{{'rv-list' | translate}}</a>\n            </li>\n            <li class=\"breadcrumb-item active\">\n                <i class=\"fa fa-file-o\"></i>  {{ getMode() | translate}}{{'rv-list' | translate}}\n            </li>\n        </div>\n        <div class=\"col-md-4\">\n            RV\n            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchText\" (keypress)=\"searching($event);\" placeholder=\"{{'search' | translate}} {{'docno' | translate}}\">\n        </div>\n    </div>\n</ol>\n<app-account-header [header]=\"'rv'\" [dataForm]=\"accountForm\" (addNew)=\"addNew()\" (date)=\"docdate($event)\"></app-account-header>\n<app-account-form [accountHeader]=\"'rv-debit'\" [datas]=\"accountForm.debits\" [accountTotal]=\"accountForm.totaldebit\" (accountItems)=\"onDebits($event)\"></app-account-form>\n<hr>\n<app-account-form [accountHeader]=\"'rv-credit'\" [datas]=\"accountForm.credits\" [accountTotal]=\"accountForm.totalcredit\" (accountItems)=\"onCredits($event)\"></app-account-form>\n<hr>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <fieldset class=\"form-group\">\n            <label>{{'remark' | translate}}</label>\n            <textarea class=\"form-control\" rows=\"6\" cols=\"50\" [(ngModel)]=\"accountForm.remark\" [ngModelOptions]=\"{standalone: true}\"\n                placeholder=\"{{'remark-inbox' | translate}}\"></textarea>\n        </fieldset>\n    </div>\n    <div class=\"col-md-3\"></div>\n</div>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <button type=\"button\" class=\"btn btn-success full\" (click)=\"onSave()\">{{'save' | translate}}</button>\n    </div>\n    <div class=\"col-md-3\"></div>\n    <!-- <div class=\"col-md-4\">\n        <button type=\"button\" class=\"btn btn-danger full\" (click)=\"onCancel()\">{{'cancel' | translate}}</button>\n    </div> -->\n</div>\n"
+module.exports = "<ol class=\"breadcrumb\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <li class=\"breadcrumb-item\">\n                <i class=\"fa fa-list-ul\"></i>\n                <a [routerLink]=\"['/rv-list']\">{{'rv-list' | translate}}</a>\n            </li>\n            <li class=\"breadcrumb-item active\">\n                <i class=\"fa fa-file-o\"></i> {{ getMode() | translate}}{{'rv-list' | translate}}\n            </li>\n        </div>\n        <div class=\"col-md-4\">\n            RV\n            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchText\" (keypress)=\"searching($event);\" placeholder=\"{{'search' | translate}} {{'docno' | translate}}\">\n        </div>\n    </div>\n</ol>\n<app-account-header [header]=\"'rv'\" [dataForm]=\"accountForm\" (addNew)=\"addNew()\" (date)=\"docdate($event)\"></app-account-header>\n<app-account-form [accountHeader]=\"'rv-debit'\" [datas]=\"accountForm.debits\" [accountTotal]=\"accountForm.totaldebit\" (accountItems)=\"onDebits($event)\"></app-account-form>\n<hr>\n<app-account-form [accountHeader]=\"'rv-credit'\" [datas]=\"accountForm.credits\" [accountTotal]=\"accountForm.totalcredit\" (accountItems)=\"onCredits($event)\"></app-account-form>\n<hr>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <fieldset class=\"form-group\">\n            <label>{{'remark' | translate}}</label>\n            <textarea class=\"form-control\" rows=\"6\" cols=\"50\" [(ngModel)]=\"accountForm.remark\" [ngModelOptions]=\"{standalone: true}\"\n                placeholder=\"{{'remark-inbox' | translate}}\"></textarea>\n        </fieldset>\n    </div>\n    <div class=\"col-md-3\"></div>\n</div>\n<div class=\"row\">\n    <div class=\"col-md-3\"></div>\n    <div class=\"col-md-6\">\n        <button type=\"button\" class=\"btn btn-success full\" [disabled]=\"isSave\" (click)=\"onSave()\">{{'save' | translate}}</button>\n    </div>\n    <div class=\"col-md-3\"></div>\n    <!-- <div class=\"col-md-4\">\n        <button type=\"button\" class=\"btn btn-danger full\" (click)=\"onCancel()\">{{'cancel' | translate}}</button>\n    </div> -->\n</div>\n"
 
 /***/ }),
 
@@ -96,6 +96,7 @@ var RvCreateComponent = (function () {
         this.account = new __WEBPACK_IMPORTED_MODULE_2__account_model__["c" /* AccountModel */]();
         this.type = 'RV';
         this.searchText = '';
+        this.isSave = false;
     }
     RvCreateComponent.prototype.ngOnInit = function () {
         // this.getAccount();
@@ -209,6 +210,7 @@ var RvCreateComponent = (function () {
     };
     RvCreateComponent.prototype.create = function () {
         var _this = this;
+        this.isSave = true;
         this.jvCreateService.postJv(this.accountForm).then(function (data) {
             if (_this.currentLang === 'th') {
                 alert('สำเร็จ เลขที่เอกสาร "' + data.docno + '"');
@@ -216,18 +218,22 @@ var RvCreateComponent = (function () {
             else {
                 alert('Complate Docno "' + data.docno + '"');
             }
+            _this.isSave = false;
             _this.accountForm = data;
             // window.location.reload();
         }, function (error) {
+            _this.isSave = false;
             if (error._body.message) {
                 alert(JSON.parse(error._body).message);
             }
             else {
+                alert(error);
             }
         });
     };
     RvCreateComponent.prototype.update = function () {
         var _this = this;
+        this.isSave = true;
         this.jvCreateService.putJv(this.accountForm).then(function (data) {
             if (_this.currentLang === 'th') {
                 alert('อัพเดทสำเร็จ เลขที่เอกสาร "' + data.docno + '"');
@@ -235,13 +241,16 @@ var RvCreateComponent = (function () {
             else {
                 alert('Update complate Docno "' + data.docno + '"');
             }
+            _this.isSave = false;
             _this.accountForm = data;
             // window.location.reload();
         }, function (error) {
+            _this.isSave = false;
             if (error._body.message) {
                 alert(JSON.parse(error._body).message);
             }
             else {
+                alert(error);
             }
         });
     };

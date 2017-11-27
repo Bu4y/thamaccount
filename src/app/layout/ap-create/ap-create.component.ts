@@ -17,6 +17,7 @@ export class ApCreateComponent implements OnInit {
   currentLang: string;
   type: string = 'AP';
   searchText: string = ''
+  isSave: Boolean = false;
   constructor(private accountCreateService: AccountCreateService, private jvCreateService: JvCreateService, private translate: TranslateService) {
 
   }
@@ -132,37 +133,43 @@ export class ApCreateComponent implements OnInit {
   }
 
   create() {
+    this.isSave = true;
     this.jvCreateService.postJv(this.accountForm).then((data) => {
       if (this.currentLang === 'th') {
         alert('สำเร็จ เลขที่เอกสาร "' + data.docno + '"');
       } else {
         alert('Complate Docno "' + data.docno + '"');
-      }
+      } 
+      this.isSave = false;
       this.accountForm = data;
       // window.location.reload();
     }, (error) => {
+      this.isSave = false;      
       if (error._body.message) {
         alert(JSON.parse(error._body).message);
       } else {
-
+        alert(error);
       }
     });
   }
 
   update() {
+    this.isSave = true;
     this.jvCreateService.putJv(this.accountForm).then((data) => {
       if (this.currentLang === 'th') {
         alert('อัพเดทสำเร็จ เลขที่เอกสาร "' + data.docno + '"');
       } else {
         alert('Update complate Docno "' + data.docno + '"');
       }
+      this.isSave = false;
       this.accountForm = data;
       // window.location.reload();
     }, (error) => {
+      this.isSave = false;
       if (error._body.message) {
         alert(JSON.parse(error._body).message);
       } else {
-
+        alert(error);
       }
     });
   }

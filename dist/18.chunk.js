@@ -39,7 +39,7 @@ JvCreateRoutingModule = __decorate([
 /***/ "../../../../../src/app/layout/jv-create/jv-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ol class=\"breadcrumb\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <li class=\"breadcrumb-item\">\r\n                <i class=\"fa fa-list-ul\"></i>\r\n                <a [routerLink]=\"['/jv-list']\">{{'jv-list' | translate}}</a>\r\n            </li>\r\n            <li class=\"breadcrumb-item active\">\r\n                <i class=\"fa fa-file-o\"></i>  {{ getMode() | translate}}{{'jv-list' | translate}}\r\n            </li>\r\n        </div>\r\n        <div class=\"col-md-4\">\r\n            JV\r\n            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchText\" (keypress)=\"searching($event);\" placeholder=\"{{'search' | translate}} {{'docno' | translate}}\">\r\n        </div>\r\n    </div>\r\n</ol>\r\n<app-account-header [header]=\"'jv'\" [dataForm]=\"accountForm\" (addNew)=\"addNew()\" (date)=\"docdate($event)\"></app-account-header>\r\n<app-account-form [accountHeader]=\"'jv-debit'\" [datas]=\"accountForm.debits\" [accountTotal]=\"accountForm.totaldebit\" (accountItems)=\"onDebits($event)\"></app-account-form>\r\n<hr>\r\n<app-account-form [accountHeader]=\"'jv-credit'\" [datas]=\"accountForm.credits\" [accountTotal]=\"accountForm.totalcredit\" (accountItems)=\"onCredits($event)\"></app-account-form>\r\n<hr>\r\n<div class=\"row\">\r\n    <div class=\"col-md-3\"></div>\r\n    <div class=\"col-md-6\">\r\n        <fieldset class=\"form-group\">\r\n            <label>{{'remark' | translate}}</label>\r\n            <textarea class=\"form-control\" rows=\"6\" cols=\"50\" [(ngModel)]=\"accountForm.remark\" [ngModelOptions]=\"{standalone: true}\"\r\n                placeholder=\"{{'remark-inbox' | translate}}\"></textarea>\r\n        </fieldset>\r\n    </div>\r\n    <div class=\"col-md-3\"></div>\r\n</div>\r\n<div class=\"row\">\r\n    <div class=\"col-md-3\"></div>\r\n    <div class=\"col-md-6\">\r\n        <button type=\"button\" class=\"btn btn-success full\" (click)=\"onSave()\">{{'save' | translate}}</button>\r\n    </div>\r\n    <div class=\"col-md-3\"></div>\r\n    <!-- <div class=\"col-md-4\">\r\n        <button type=\"button\" class=\"btn btn-danger full\" (click)=\"onCancel()\">{{'cancel' | translate}}</button>\r\n    </div> -->\r\n</div>\r\n"
+module.exports = "<ol class=\"breadcrumb\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <li class=\"breadcrumb-item\">\r\n                <i class=\"fa fa-list-ul\"></i>\r\n                <a [routerLink]=\"['/jv-list']\">{{'jv-list' | translate}}</a>\r\n            </li>\r\n            <li class=\"breadcrumb-item active\">\r\n                <i class=\"fa fa-file-o\"></i>  {{ getMode() | translate}}{{'jv-list' | translate}}\r\n            </li>\r\n        </div>\r\n        <div class=\"col-md-4\">\r\n            JV\r\n            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchText\" (keypress)=\"searching($event);\" placeholder=\"{{'search' | translate}} {{'docno' | translate}}\">\r\n        </div>\r\n    </div>\r\n</ol>\r\n<app-account-header [header]=\"'jv'\" [dataForm]=\"accountForm\" (addNew)=\"addNew()\" (date)=\"docdate($event)\"></app-account-header>\r\n<app-account-form [accountHeader]=\"'jv-debit'\" [datas]=\"accountForm.debits\" [accountTotal]=\"accountForm.totaldebit\" (accountItems)=\"onDebits($event)\"></app-account-form>\r\n<hr>\r\n<app-account-form [accountHeader]=\"'jv-credit'\" [datas]=\"accountForm.credits\" [accountTotal]=\"accountForm.totalcredit\" (accountItems)=\"onCredits($event)\"></app-account-form>\r\n<hr>\r\n<div class=\"row\">\r\n    <div class=\"col-md-3\"></div>\r\n    <div class=\"col-md-6\">\r\n        <fieldset class=\"form-group\">\r\n            <label>{{'remark' | translate}}</label>\r\n            <textarea class=\"form-control\" rows=\"6\" cols=\"50\" [(ngModel)]=\"accountForm.remark\" [ngModelOptions]=\"{standalone: true}\"\r\n                placeholder=\"{{'remark-inbox' | translate}}\"></textarea>\r\n        </fieldset>\r\n    </div>\r\n    <div class=\"col-md-3\"></div>\r\n</div>\r\n<div class=\"row\">\r\n    <div class=\"col-md-3\"></div>\r\n    <div class=\"col-md-6\">\r\n        <button type=\"button\" class=\"btn btn-success full\" [disabled]=\"isSave\" (click)=\"onSave()\">{{'save' | translate}}</button>\r\n    </div>\r\n    <div class=\"col-md-3\"></div>\r\n    <!-- <div class=\"col-md-4\">\r\n        <button type=\"button\" class=\"btn btn-danger full\" (click)=\"onCancel()\">{{'cancel' | translate}}</button>\r\n    </div> -->\r\n</div>\r\n"
 
 /***/ }),
 
@@ -96,6 +96,7 @@ var JvCreateComponent = (function () {
         this.account = new __WEBPACK_IMPORTED_MODULE_2__account_model__["c" /* AccountModel */]();
         this.type = 'JV';
         this.searchText = '';
+        this.isSave = false;
     }
     JvCreateComponent.prototype.ngOnInit = function () {
         // this.getAccount();
@@ -209,6 +210,7 @@ var JvCreateComponent = (function () {
     };
     JvCreateComponent.prototype.create = function () {
         var _this = this;
+        this.isSave = true;
         this.jvCreateService.postJv(this.accountForm).then(function (data) {
             if (_this.currentLang === 'th') {
                 alert('สำเร็จ เลขที่เอกสาร "' + data.docno + '"');
@@ -216,18 +218,22 @@ var JvCreateComponent = (function () {
             else {
                 alert('Complate Docno "' + data.docno + '"');
             }
+            _this.isSave = false;
             _this.accountForm = data;
             // window.location.reload();
         }, function (error) {
+            _this.isSave = false;
             if (error._body.message) {
                 alert(JSON.parse(error._body).message);
             }
             else {
+                alert(error);
             }
         });
     };
     JvCreateComponent.prototype.update = function () {
         var _this = this;
+        this.isSave = true;
         this.jvCreateService.putJv(this.accountForm).then(function (data) {
             if (_this.currentLang === 'th') {
                 alert('อัพเดทสำเร็จ เลขที่เอกสาร "' + data.docno + '"');
@@ -235,13 +241,16 @@ var JvCreateComponent = (function () {
             else {
                 alert('Update complate Docno "' + data.docno + '"');
             }
+            _this.isSave = false;
             _this.accountForm = data;
             // window.location.reload();
         }, function (error) {
+            _this.isSave = false;
             if (error._body.message) {
                 alert(JSON.parse(error._body).message);
             }
             else {
+                alert(error);
             }
         });
     };
